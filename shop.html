@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Ascend Performance Nutrition</title>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","v9tqcwb652");
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','876546821553793');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876546821553793&ev=PageView&noscript=1"/></noscript>
+
+  <!-- TikTok Pixel -->
+  <script>
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load('D03EC6BC77UBMD8HI7V0');ttq.page();}(window,document,'ttq');
+  </script>
+
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17918778091"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17918778091');
+  </script>
+
+  <!-- Umami Analytics — replace src and data-website-id after deploying Umami to Vercel -->
+  <!-- <script async defer src="https://YOUR-UMAMI.vercel.app/script.js" data-website-id="YOUR-SITE-ID"></script> -->
+
+  <!-- Klaviyo -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=R5eNpH"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Barlow',system-ui,sans-serif;background:#0a0a0a;color:#f0ede8;overflow-x:hidden;}
+
+    #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+    .nav-link{font-family:'Barlow',sans-serif;font-size:0.875rem;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;letter-spacing:0.02em;transition:color 0.18s ease;}
+    .nav-link:hover{color:#fff;}
+    .nav-link:focus-visible{outline:2px solid #06A5C5;outline-offset:4px;border-radius:2px;}
+    .btn-nav{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.5rem 1.25rem;border-radius:4px;text-decoration:none;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+    .btn-nav:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(6,165,197,0.4);}
+    .btn-nav:active{transform:translateY(0);}
+    .hidden-mobile{display:flex;}
+    .show-mobile{display:none;}
+    @media(max-width:900px){.hidden-mobile{display:none!important;}.show-mobile{display:flex!important;}}
+
+    #mobile-menu{position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(10,10,10,0.98);backdrop-filter:blur(16px);padding:1.5rem;display:none;flex-direction:column;gap:0.25rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+    #mobile-menu.open{display:flex;}
+    .mobile-nav-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .mobile-nav-link:hover{color:#06A5C5;}
+
+    .footer-link{font-size:0.875rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;}
+    .footer-link:hover{color:#06A5C5;}
+
+    /* Filter tabs */
+    .filter-tab{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:8px 20px;border-radius:40px;border:1px solid #2a2a2a;background:transparent;color:rgba(255,255,255,0.45);cursor:pointer;transition:border-color 0.18s ease,color 0.18s ease,background 0.18s ease;white-space:nowrap;}
+    .filter-tab:hover{border-color:#06A5C5;color:#06A5C5;}
+    .filter-tab.active{border-color:#06A5C5;background:rgba(6,165,197,0.12);color:#06A5C5;}
+    .filter-tab:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;border-radius:40px;}
+
+    /* Product card */
+    .product-card{background:#111;border:1px solid #1e1e1e;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color 0.22s ease,transform 0.22s ease,box-shadow 0.22s ease;}
+    .product-card:hover{border-color:rgba(6,165,197,0.4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.5),0 0 0 1px rgba(6,165,197,0.08);}
+
+    .product-img-wrap{position:relative;width:100%;padding-top:110%;overflow:hidden;background:#0d0d0d;}
+    .product-img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+    .product-card:hover .product-img-wrap img{transform:scale(1.04);}
+    .product-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 50%);pointer-events:none;}
+
+    /* Badge */
+    .product-badge{position:absolute;top:14px;left:14px;font-family:'Barlow Condensed',sans-serif;font-size:0.5625rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:4px 10px;border-radius:4px;z-index:2;}
+
+    /* Flavor pills */
+    .flavor-pill{font-family:'Barlow',sans-serif;font-size:0.6875rem;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid #2a2a2a;background:transparent;color:rgba(255,255,255,0.45);cursor:pointer;transition:border-color 0.15s ease,color 0.15s ease,background 0.15s ease;white-space:nowrap;}
+    .flavor-pill:hover{border-color:rgba(6,165,197,0.5);color:rgba(255,255,255,0.8);}
+    .flavor-pill.active{border-color:#06A5C5;background:rgba(6,165,197,0.1);color:#06A5C5;}
+
+    /* Add to cart button */
+    .btn-atc{font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;border:none;padding:12px 0;border-radius:8px;cursor:pointer;width:100%;transition:opacity 0.18s ease,transform 0.15s ease,box-shadow 0.18s ease;}
+    .btn-atc:hover{opacity:0.92;transform:translateY(-1px);box-shadow:0 6px 20px rgba(6,165,197,0.35);}
+    .btn-atc:active{transform:translateY(0);}
+    .btn-atc:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;}
+
+    /* View details */
+    .btn-details{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:1px solid #2a2a2a;color:rgba(255,255,255,0.45);padding:10px 0;border-radius:8px;cursor:pointer;width:100%;transition:border-color 0.18s ease,color 0.18s ease;text-decoration:none;display:block;text-align:center;}
+    .btn-details:hover{border-color:rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);}
+    .btn-details:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    .card-anim{animation:fadeUp 0.4s ease both;}
+
+    @media(max-width:900px){#footer-grid{grid-template-columns:1fr 1fr!important;}}
+    @media(max-width:600px){#footer-grid{grid-template-columns:1fr!important;}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="/index.html" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
+      <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;"/>
+      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
+      <a href="/shop.html" class="nav-link" style="color:#f0ede8;">Shop</a>
+      <a href="/index.html#framework" class="nav-link">Framework</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/quiz.html" class="nav-link">Quiz</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
+      <a href="/shop.html" aria-label="Cart" style="position:relative;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)';" onmouseout="this.style.color='rgba(255,255,255,0.55)';">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cart-badge" style="display:none;position:absolute;top:-7px;right:-9px;background:#06A5C5;color:#fff;font-size:0.5rem;font-weight:700;width:15px;height:15px;border-radius:50%;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0;line-height:1;">0</span>
+      </a>
+      <a href="/quiz.html" class="btn-nav">Take the Quiz</a>
+    </div>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="/shop.html" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
+  <a href="/index.html#framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/about.html" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="/quiz.html" class="mobile-nav-link" onclick="closeMenu()">Quiz</a>
+  <div style="margin-top:1rem;"><a href="/quiz.html" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+</div>
+
+<!-- HERO STRIP -->
+<section style="padding-top:64px;background:linear-gradient(160deg,#0a0a0a 0%,#07131a 60%,#0a0a0a 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
+    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:400px;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(6,165,197,0.1) 0%,transparent 70%);"></div>
+  </div>
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.35;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
+
+  <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:4rem 1.5rem 3.5rem;text-align:center;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1rem;">
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.6;"></div>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Ascend Performance Nutrition</span>
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.6;"></div>
+    </div>
+    <h1 style="font-family:Georgia,serif;font-size:clamp(2.25rem,5vw,3.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;color:#f0ede8;margin-bottom:1rem;">
+      The Full <span style="color:#06A5C5;">Ascend Stack</span>
+    </h1>
+    <p style="font-size:1rem;color:rgba(255,255,255,0.45);max-width:480px;margin:0 auto;line-height:1.75;font-weight:300;">Clean ingredients. Faith-driven standards. Built for athletes who refuse to separate their values from their results.</p>
+  </div>
+</section>
+
+<!-- FILTER + GRID -->
+<section style="background:#0a0a0a;padding:0 1.5rem 6rem;">
+  <div style="max-width:1280px;margin:0 auto;">
+
+    <!-- Filter tabs -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;padding:2rem 0 2.5rem;position:sticky;top:64px;background:#0a0a0a;z-index:40;border-bottom:1px solid #141414;margin-bottom:2.5rem;">
+      <button class="filter-tab active" data-filter="all" onclick="APNShop.filter('all',this)">All Products</button>
+      <button class="filter-tab" data-filter="protein" onclick="APNShop.filter('protein',this)">Protein</button>
+      <button class="filter-tab" data-filter="hydration" onclick="APNShop.filter('hydration',this)">Hydration</button>
+      <button class="filter-tab" data-filter="energy" onclick="APNShop.filter('energy',this)">Energy</button>
+      <button class="filter-tab" data-filter="recovery" onclick="APNShop.filter('recovery',this)">Recovery</button>
+      <button class="filter-tab" data-filter="wellness" onclick="APNShop.filter('wellness',this)">Wellness</button>
+    </div>
+
+    <!-- Product grid -->
+    <div id="product-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <!-- Rendered by JS -->
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" style="display:none;text-align:center;padding:4rem 0;">
+      <p style="font-size:1rem;color:#555;">No products in this category yet.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);">
+  <div id="footer-grid" style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+    <div>
+      <a href="/index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
+        <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend Performance Nutrition" style="height:36px;width:auto;"/>
+        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+        </div>
+      </a>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:280px;">Faith-driven performance nutrition for athletes who refuse to separate their values from their results.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/shop.html?cat=protein" class="footer-link">Protein</a></li>
+        <li><a href="/shop.html?cat=hydration" class="footer-link">Hydration</a></li>
+        <li><a href="/shop.html?cat=energy" class="footer-link">Energy</a></li>
+        <li><a href="/shop.html?cat=recovery" class="footer-link">Recovery</a></li>
+        <li><a href="/shop.html?cat=wellness" class="footer-link">Wellness</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/about.html" class="footer-link">About Us</a></li>
+        <li><a href="/quiz.html" class="footer-link">Performance Quiz</a></li>
+        <li><a href="#" class="footer-link">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="#" class="footer-link">Shipping Policy</a></li>
+        <li><a href="#" class="footer-link">Returns &amp; Refunds</a></li>
+        <li><a href="#" class="footer-link">Contact Us</a></li>
+        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-left:1.5rem;padding-right:1.5rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">© 2026 Ascend Performance Nutrition. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media(max-width:1100px){#product-grid{grid-template-columns:repeat(3,1fr)!important;}}
+  @media(max-width:720px){#product-grid{grid-template-columns:repeat(2,1fr)!important;gap:14px!important;}}
+  @media(max-width:420px){#product-grid{grid-template-columns:1fr!important;}}
+</style>
+
+<script>
+(function(){
+
+  // ── PRODUCTS ─────────────────────────────────────────────────────────
+  // NOTE: Update prices before launch
+  var PRODUCTS = [
+    // PROTEIN
+    {id:'resilience-choc', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Chocolate',
+     category:'protein', price:54.99, badge:'Bestseller', badgeColor:'#06A5C5',
+     img:'/brand_assets/Labels/resilience%20chocolate/Resilience%20One.jpeg',
+     tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
+     flavors:['Chocolate','Vanilla']},
+    {id:'resilience-van', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Vanilla',
+     category:'protein', price:54.99,
+     img:'/brand_assets/Labels/Resilience%20Vanilla/Resilience%20van%20one.jpeg',
+     tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
+     flavors:['Chocolate','Vanilla']},
+
+    // HYDRATION
+    {id:'replenish-pm', name:'Replenish', sub:'Hydration Powder', flavor:'Peach Mango',
+     category:'hydration', price:34.99, badge:'Top Seller', badgeColor:'#22C55E',
+     img:'/brand_assets/Labels/Replenish%20Peach%20Mango/Replenish%20PM%201.jpeg',
+     tagline:'Complete electrolyte replenishment for peak training output.',
+     flavors:['Peach Mango','Lemonade','Passion Fruit','JG','Lychee']},
+    {id:'replenish-plus', name:'Replenish Plus', sub:'Advanced Hydration', flavor:'',
+     category:'hydration', price:39.99,
+     img:'/brand_assets/Labels/Replenish%20Plus/Replenish%20%2B1.jpeg',
+     tagline:'Enhanced formula with added recovery and performance support.'},
+
+    // ENERGY
+    {id:'ignite-gb', name:'Ignite', sub:'Energy Powder', flavor:'Guava Berry',
+     category:'energy', price:44.99, badge:'New Flavor', badgeColor:'#F59E0B',
+     img:'/brand_assets/Labels/Ignite%20Guava%20Berry/Ignite%20GB1.jpeg',
+     tagline:'Clean energy and mental focus without gray-area stimulants.',
+     flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu']},
+    {id:'ignite-mc', name:'Ignite', sub:'Energy Powder', flavor:'Melon Creamsicle',
+     category:'energy', price:44.99,
+     img:'/brand_assets/Labels/ignite%20melon%20creamsicle/Ignite%20MC1.jpeg',
+     tagline:'Clean energy and mental focus without gray-area stimulants.',
+     flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu']},
+    {id:'ignite-cc', name:'Ignite', sub:'Energy Powder', flavor:'Cotton Candy',
+     category:'energy', price:44.99,
+     img:'/brand_assets/Labels/ignite%20cotton%20candy/Ignite%20CC1.jpeg',
+     tagline:'Clean energy and mental focus without gray-area stimulants.',
+     flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu']},
+    {id:'freedom-fuel', name:'Freedom Fuel', sub:'Performance Blend', flavor:'',
+     category:'energy', price:39.99, badge:'New', badgeColor:'#EF4444',
+     img:'/brand_assets/Labels/Freedom%20Fuel/Freedom%20field%20one.jpeg',
+     tagline:'American-made performance fuel. No compromises, no apologies.'},
+
+    // RECOVERY
+    {id:'recharge', name:'Recharge', sub:'Creatine Monohydrate', flavor:'',
+     category:'recovery', price:29.99, badge:'Essential', badgeColor:'#8B5CF6',
+     img:'/brand_assets/Labels/recharge/Recharge%20one.jpeg',
+     tagline:'Pure creatine monohydrate. 1,000+ studies. The proven performance edge.'},
+    {id:'fortify', name:'Fortify', sub:'Natural Colostrum Powder', flavor:'',
+     category:'recovery', price:49.99,
+     img:'/brand_assets/Labels/Fortify/Fortify%20One.jpeg',
+     tagline:'Gut health and immune support for athletes training at high volume.'},
+
+    // WELLNESS
+    {id:'adapt', name:'Adapt', sub:'Organic Ashwagandha', flavor:'',
+     category:'wellness', price:29.99,
+     img:'/brand_assets/Labels/adapt/Adopt%20one.jpeg',
+     tagline:'Clinically studied cortisol reduction. Compete under pressure.'},
+    {id:'clarity', name:'Clarity', sub:'Methylene Blue Drops', flavor:'',
+     category:'wellness', price:34.99,
+     img:'/brand_assets/Labels/clarity/Clarity%20.jpeg',
+     tagline:'Mitochondrial efficiency and elite cognitive performance support.'},
+    {id:'nourish', name:'Nourish', sub:'Greens Superfood', flavor:'',
+     category:'wellness', price:39.99,
+     img:'/brand_assets/Labels/nourish/Nourish%20one.jpeg',
+     tagline:'Dense micronutrient coverage from whole food greens and superfoods.'},
+    {id:'function', name:'Function', sub:'Magnesium Glycinate', flavor:'',
+     category:'wellness', price:24.99,
+     img:'/brand_assets/Labels/function/Function%20one.jpeg',
+     tagline:'Deep sleep architecture and nervous system recovery support.'},
+    {id:'balance', name:'Balance', sub:'Hormone Support Formula', flavor:'',
+     category:'wellness', price:29.99,
+     img:'/brand_assets/Labels/balance/Balance%20one.jpeg',
+     tagline:'Natural hormone balance for consistent energy and performance.'},
+    {id:'foundation', name:'Foundation', sub:'Daily Multivitamin', flavor:'',
+     category:'wellness', price:34.99,
+     img:'/brand_assets/Labels/foundation/Foundation%20one.jpeg',
+     tagline:'Complete micronutrient foundation built for high-output athletes.'},
+    {id:'omega3', name:'Omega-3', sub:'Ultra-Pure Fish Oil', flavor:'',
+     category:'wellness', price:24.99,
+     img:'/brand_assets/Labels/omega-3/Omega%203-1.jpeg',
+     tagline:'High-potency omega-3 for inflammation support and joint recovery.'}
+  ];
+
+  var currentFilter = 'all';
+
+  // ── CART ────────────────────────────────────────────────────────────
+  function updateCartBadge() {
+    var cart = JSON.parse(localStorage.getItem('apn_cart')||'[]');
+    var badge = document.getElementById('cart-badge');
+    if (badge) {
+      badge.textContent = cart.length;
+      badge.style.display = cart.length > 0 ? 'flex' : 'none';
+    }
+  }
+
+  function addToCart(productId, btn) {
+    var p = PRODUCTS.find(function(x){return x.id===productId;});
+    if (!p) return;
+    var selectedFlavor = '';
+    var activePill = document.querySelector('#pills-'+productId+' .flavor-pill.active');
+    if (activePill) selectedFlavor = activePill.textContent.trim();
+    var fullName = p.name + (p.sub ? ' — '+p.sub : '') + (selectedFlavor ? ' ('+selectedFlavor+')' : '');
+    var cart = JSON.parse(localStorage.getItem('apn_cart')||'[]');
+    cart.push(fullName);
+    localStorage.setItem('apn_cart', JSON.stringify(cart));
+    updateCartBadge();
+    if (btn) {
+      var orig = btn.innerHTML;
+      btn.innerHTML = '&#10003; Added to Cart';
+      btn.style.background = '#22C55E';
+      btn.style.boxShadow = '0 4px 16px rgba(34,197,94,0.3)';
+      setTimeout(function(){btn.innerHTML=orig;btn.style.background='';btn.style.boxShadow='';},1800);
+    }
+    if (typeof fbq==='function') fbq('track','AddToCart',{content_name:fullName,value:p.price,currency:'USD'});
+    if (typeof ttq!=='undefined') ttq.track('AddToCart',{content_name:fullName,value:p.price,currency:'USD'});
+    if (typeof gtag==='function') gtag('event','conversion',{send_to:'AW-17918778091/cRQ-CK-A5YUcEOu1q-BC',value:p.price,currency:'USD'});
+  }
+
+  function selectFlavor(productId, flavor, el) {
+    var pills = document.querySelectorAll('#pills-'+productId+' .flavor-pill');
+    pills.forEach(function(p){p.classList.remove('active');});
+    el.classList.add('active');
+  }
+
+  // ── RENDER ───────────────────────────────────────────────────────────
+  function renderProducts(filter) {
+    var filtered = filter === 'all' ? PRODUCTS : PRODUCTS.filter(function(p){return p.category===filter;});
+    var grid = document.getElementById('product-grid');
+    var empty = document.getElementById('empty-state');
+    grid.innerHTML = '';
+
+    if (filtered.length === 0) {
+      grid.style.display = 'none';
+      empty.style.display = 'block';
+      return;
+    }
+    grid.style.display = 'grid';
+    empty.style.display = 'none';
+
+    filtered.forEach(function(p, idx) {
+      var card = document.createElement('div');
+      card.className = 'product-card card-anim';
+      card.style.animationDelay = (idx * 0.04) + 's';
+
+      // Badge HTML
+      var badgeHtml = '';
+      if (p.badge) {
+        badgeHtml = '<span class="product-badge" style="background:' + (p.badgeColor||'#06A5C5') + '1a;color:' + (p.badgeColor||'#06A5C5') + ';border:1px solid ' + (p.badgeColor||'#06A5C5') + '40;">' + p.badge + '</span>';
+      }
+
+      // Flavor count badge (on image)
+      var flavorCountHtml = '';
+      if (p.flavors && p.flavors.length > 1) {
+        flavorCountHtml = '<span style="position:absolute;bottom:14px;right:14px;font-family:\'Barlow Condensed\',sans-serif;font-size:0.5625rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,0,0,0.7);color:rgba(255,255,255,0.75);padding:4px 10px;border-radius:20px;backdrop-filter:blur(6px);z-index:2;">' + p.flavors.length + ' Flavors</span>';
+      }
+
+      // Flavor pills HTML
+      var pillsHtml = '';
+      if (p.flavors && p.flavors.length > 1) {
+        pillsHtml = '<div id="pills-' + p.id + '" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">';
+        p.flavors.forEach(function(f, fi) {
+          var isActive = (f === p.flavor) ? ' active' : '';
+          pillsHtml += '<button class="flavor-pill' + isActive + '" onclick="APNShop.selectFlavor(\'' + p.id + '\',\'' + f + '\',this)">' + f + '</button>';
+        });
+        pillsHtml += '</div>';
+      } else {
+        pillsHtml = '<div style="height:4px;"></div>';
+      }
+
+      card.innerHTML =
+        '<div class="product-img-wrap">' +
+          '<img src="' + p.img + '" alt="' + p.name + (p.flavor ? ' ' + p.flavor : '') + '" loading="lazy" onerror="this.src=\'https://placehold.co/400x480/111/333?text=' + encodeURIComponent(p.name) + '\'" />' +
+          '<div class="product-img-overlay"></div>' +
+          badgeHtml +
+          flavorCountHtml +
+        '</div>' +
+        '<div style="padding:20px 18px 18px;display:flex;flex-direction:column;flex:1;">' +
+          '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.5625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:4px;">' + p.sub + '</div>' +
+          '<div style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:4px;line-height:1.2;">' + p.name + (p.flavor ? '<span style="font-family:\'Barlow\',sans-serif;font-weight:400;font-size:0.875rem;color:#666;margin-left:6px;">' + p.flavor + '</span>' : '') + '</div>' +
+          '<div style="font-size:0.8125rem;color:#666;line-height:1.55;margin-bottom:14px;flex:1;">' + p.tagline + '</div>' +
+          pillsHtml +
+          '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">' +
+            '<div style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;color:#f0ede8;">$' + p.price.toFixed(2) + '</div>' +
+            '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.625rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#555;">Free shipping $75+</div>' +
+          '</div>' +
+          '<div style="display:flex;flex-direction:column;gap:8px;">' +
+            '<button class="btn-atc" onclick="APNShop.addToCart(\'' + p.id + '\',this)">Add to Cart</button>' +
+            '<a href="#" class="btn-details">View Details</a>' +
+          '</div>' +
+        '</div>';
+
+      grid.appendChild(card);
+    });
+  }
+
+  // ── FILTER ───────────────────────────────────────────────────────────
+  function filterProducts(cat, btn) {
+    currentFilter = cat;
+    document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active');});
+    if (btn) btn.classList.add('active');
+    renderProducts(cat);
+    // Handle URL param for deep linking
+    if (window.history && window.history.replaceState) {
+      var url = cat === 'all' ? '/shop.html' : '/shop.html?cat=' + cat;
+      window.history.replaceState({}, '', url);
+    }
+  }
+
+  // ── INIT ─────────────────────────────────────────────────────────────
+  window.APNShop = {
+    filter: filterProducts,
+    addToCart: addToCart,
+    selectFlavor: selectFlavor
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check for category in URL params
+    var params = new URLSearchParams(window.location.search);
+    var cat = params.get('cat') || 'all';
+    var tabBtn = document.querySelector('[data-filter="'+cat+'"]');
+    filterProducts(cat, tabBtn);
+    updateCartBadge();
+  });
+
+  // Mobile menu
+  window.toggleMenu = function() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    var open = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  window.closeMenu = function() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded','false');
+  };
+
+})();
+</script>
+
+</body>
+</html>
