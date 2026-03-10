@@ -250,28 +250,44 @@
         Free shipping on orders over $50
       </p>
 
-      <!-- Trust Row -->
-      <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.07);flex-wrap:wrap;">
-        <div class="trust-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.3.5-2.4 2.3.6 3.2L8 9.5l-2.9 1.5.5-3.2L3.2 5.5 6.5 5z"/></svg>
-          100% Pure
-        </div>
-        <div class="trust-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="10" height="10" rx="2"/><path d="M6 8l2 2 3-3"/></svg>
-          No Fillers
-        </div>
-        <div class="trust-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3l2 1"/></svg>
-          Clinical Dose
-        </div>
-        <div class="trust-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h8M8 4v8"/><circle cx="8" cy="8" r="6"/></svg>
-          Made in USA
-        </div>
-      </div>
+      <!-- Supplement Facts Button -->
+      <button onclick="document.getElementById('sf-modal').style.display='flex'" style="display:block;width:100%;margin-top:1rem;background:transparent;border:1px solid rgba(255,255,255,0.12);color:#9ca3af;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.65rem 1rem;border-radius:8px;cursor:pointer;transition:border-color 0.2s,color 0.2s;"
+        onmouseover="this.style.borderColor='rgba(6,165,197,0.4)';this.style.color='#06A5C5'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='#9ca3af'">
+        View Supplement Facts
+      </button>
     </div>
   </div>
 </section>
+
+<!-- SUPPLEMENT FACTS MODAL -->
+<div id="sf-modal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1.5rem;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#131313;border:1px solid rgba(255,255,255,0.1);border-radius:20px;width:100%;max-width:480px;overflow:hidden;position:relative;">
+    <button onclick="document.getElementById('sf-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.08);border:none;color:#9ca3af;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;line-height:1;">&#x2715;</button>
+    <div style="background:rgba(255,255,255,0.04);padding:1.5rem 2rem;border-bottom:3px solid rgba(255,255,255,0.15);">
+      <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Supplement Facts</div>
+      <div style="font-size:0.85rem;color:#9ca3af;">Serving Size: 1 Scoop (5g)</div>
+      <div style="font-size:0.85rem;color:#9ca3af;">Servings Per Container: 50</div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;padding:0.75rem 2rem;border-bottom:2px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.02);gap:3rem;">
+      <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;">Amount Per Serving</span>
+      <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;width:48px;text-align:right;">% DV</span>
+    </div>
+    <div style="padding:0 2rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <span style="font-size:0.95rem;font-weight:700;color:#F8FAFB;">Creatine Monohydrate</span>
+        <div style="display:flex;gap:3rem;align-items:center;">
+          <span style="font-size:0.95rem;color:#9ca3af;">5,000 mg</span>
+          <span style="font-size:0.9rem;color:#9ca3af;width:48px;text-align:right;">**</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:1rem 2rem 1.5rem;">
+      <p style="font-size:0.78rem;color:#6b7280;">** Daily Value not established.</p>
+      <p style="font-size:0.78rem;color:#4b5563;margin-top:0.4rem;">Other Ingredients: None.</p>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════ IMPACT NUMBERS ═══════════════════ -->
 <section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);">
@@ -300,100 +316,51 @@
   </div>
 </section>
 
-<!-- ═══════════════════ THE SCIENCE ═══════════════════ -->
-<section style="background:#0a0a0a;padding:6rem 1.5rem;">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
-
-    <!-- Text -->
-    <div>
-      <p class="section-label" style="margin-bottom:0.75rem;">The Science</p>
-      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:#F8FAFB;margin-bottom:1.5rem;">Why Creatine Works</h2>
-      <p style="color:#9ca3af;line-height:1.75;margin-bottom:1.25rem;font-size:0.9375rem;">
-        Your muscles run on ATP (adenosine triphosphate). During intense effort, ATP is depleted faster than your body can regenerate it. That is where creatine comes in.
-      </p>
-      <p style="color:#9ca3af;line-height:1.75;margin-bottom:1.25rem;font-size:0.9375rem;">
-        Creatine phosphate donates a phosphate group to ADP, rapidly regenerating ATP. The result: you push harder, recover faster between sets, and sustain peak output for longer before hitting failure.
-      </p>
-      <p style="color:#9ca3af;line-height:1.75;font-size:0.9375rem;">
-        Over weeks of consistent use, creatine also increases intramuscular water retention, creating a volumizing effect that supports lean body mass accumulation. This is why it is one of the only supplements with consistent, peer-reviewed evidence across decades of sports research.
-      </p>
-    </div>
-
-    <!-- Ingredient Card -->
-    <div>
-      <div class="ingredient-card" style="padding:2.5rem;">
-        <p class="section-label" style="margin-bottom:1.5rem;">What is Inside</p>
-        <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1.25rem;margin-bottom:1.25rem;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.35rem;">
-            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;color:#F8FAFB;letter-spacing:0.04em;">CREATINE MONOHYDRATE</span>
-            <span style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#06A5C5;">5,000mg</span>
-          </div>
-          <p style="font-size:0.8rem;color:#6b7280;line-height:1.55;">Micronized for rapid absorption. 100% pure. No proprietary blend. Nothing else.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
-          <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:1rem;text-align:center;">
-            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;color:#F8FAFB;">1 Scoop</div>
-            <div style="font-size:0.75rem;color:#6b7280;margin-top:0.2rem;">Serving Size (5g)</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:1rem;text-align:center;">
-            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;color:#F8FAFB;">50</div>
-            <div style="font-size:0.75rem;color:#6b7280;margin-top:0.2rem;">Servings Per Container</div>
-          </div>
-        </div>
-        <div style="background:rgba(6,165,197,0.08);border:1px solid rgba(6,165,197,0.2);border-radius:10px;padding:1rem;font-size:0.82rem;color:#9ca3af;line-height:1.55;">
-          <strong style="color:#06A5C5;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;">UNFLAVORED</strong> — mixes cleanly into any beverage. Stack it with protein, pre-workout, or water. No taste. No clumping.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════════════ INGREDIENT WHEEL ═══════════════════ -->
 <section style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;overflow:hidden;">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:3.5rem;">
+  <div style="max-width:800px;margin:0 auto;text-align:center;">
+    <div style="margin-bottom:3.5rem;">
       <p class="section-label" style="margin-bottom:0.75rem;">Formula Breakdown</p>
       <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">Inside the Formula</h2>
       <p style="color:#6b7280;margin-top:0.5rem;font-size:0.875rem;">Click any node to explore.</p>
     </div>
 
-    <div style="display:flex;align-items:center;justify-content:center;gap:5rem;flex-wrap:wrap;">
-      <!-- WHEEL -->
-      <div id="wheel-wrap" style="position:relative;width:520px;height:520px;flex-shrink:0;">
+    <!-- WHEEL — centered -->
+    <div style="display:flex;justify-content:center;">
+      <div id="wheel-wrap" style="position:relative;width:660px;height:660px;flex-shrink:0;">
         <!-- SVG: orbit ring + connector line -->
-        <svg id="wheel-svg" viewBox="0 0 520 520" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;">
-          <!-- Orbit ring -->
-          <circle cx="260" cy="260" r="185" fill="none" stroke="rgba(6,165,197,0.12)" stroke-width="1" stroke-dasharray="5 10"/>
-          <circle cx="260" cy="260" r="185" fill="none" stroke="rgba(6,165,197,0.04)" stroke-width="24"/>
-          <!-- Connector line (drawn by JS) -->
-          <line id="wheel-line" x1="260" y1="260" x2="260" y2="260" stroke="#06A5C5" stroke-width="1" stroke-dasharray="4 4" opacity="0"/>
+        <svg id="wheel-svg" viewBox="0 0 660 660" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;">
+          <circle cx="330" cy="330" r="250" fill="none" stroke="rgba(6,165,197,0.10)" stroke-width="1" stroke-dasharray="5 12"/>
+          <circle cx="330" cy="330" r="250" fill="none" stroke="rgba(6,165,197,0.03)" stroke-width="30"/>
+          <line id="wheel-line" x1="330" y1="330" x2="330" y2="330" stroke="#06A5C5" stroke-width="1" stroke-dasharray="4 5" opacity="0"/>
         </svg>
 
-        <!-- Center: product image -->
+        <!-- Center: product image (transparent via multiply blend) -->
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;">
-          <div style="width:130px;height:130px;border-radius:50%;overflow:hidden;background:#f5f5f5;border:3px solid rgba(6,165,197,0.5);box-shadow:0 0 0 10px rgba(6,165,197,0.07),0 0 40px rgba(6,165,197,0.25),0 0 80px rgba(6,165,197,0.1);display:flex;align-items:center;justify-content:center;">
+          <div style="width:170px;height:170px;border-radius:50%;overflow:hidden;background:#080808;border:2.5px solid rgba(6,165,197,0.45);box-shadow:0 0 0 12px rgba(6,165,197,0.06),0 0 50px rgba(6,165,197,0.22),0 0 100px rgba(6,165,197,0.09);display:flex;align-items:center;justify-content:center;">
             <img id="wheel-product-img"
               src="/brand_assets/Labels/recharge/Recharge%20one.jpeg"
               alt="Recharge"
-              style="width:86%;height:86%;object-fit:contain;">
+              style="width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;">
           </div>
-          <!-- Glow ping rings -->
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;border-radius:50%;border:1px solid rgba(6,165,197,0.2);animation:wping 2.5s ease-out infinite;"></div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;border-radius:50%;border:1px solid rgba(6,165,197,0.15);animation:wping 2.5s ease-out 1.25s infinite;"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:182px;height:182px;border-radius:50%;border:1px solid rgba(6,165,197,0.18);animation:wping 2.8s ease-out infinite;"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:182px;height:182px;border-radius:50%;border:1px solid rgba(6,165,197,0.12);animation:wping 2.8s ease-out 1.4s infinite;"></div>
         </div>
 
         <!-- Nodes (JS rendered) -->
         <div id="wheel-nodes" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>
       </div>
+    </div>
 
-      <!-- DETAIL PANEL (desktop, right of wheel) -->
-      <div id="wheel-detail-panel" style="width:280px;opacity:0;transform:translateX(12px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;">
-        <div style="background:#131313;border:1px solid rgba(6,165,197,0.25);border-radius:16px;padding:1.75rem;">
-          <div id="wdp-tag" style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.5rem;"></div>
-          <div id="wdp-name" style="font-family:Georgia,serif;font-size:1.35rem;font-weight:700;color:#F8FAFB;margin-bottom:0.2rem;line-height:1.2;"></div>
-          <div id="wdp-amount" style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.06em;color:#06A5C5;margin-bottom:1rem;"></div>
-          <p id="wdp-desc" style="font-size:0.875rem;color:#9ca3af;line-height:1.7;"></p>
+    <!-- DETAIL CARD — appears below wheel on click -->
+    <div id="wheel-detail-panel" style="max-width:480px;margin:2rem auto 0;opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;">
+      <div style="background:#131313;border:1px solid rgba(6,165,197,0.25);border-radius:16px;padding:1.75rem 2rem;text-align:left;">
+        <div id="wdp-tag" style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.5rem;"></div>
+        <div style="display:flex;align-items:baseline;gap:0.75rem;margin-bottom:0.75rem;">
+          <div id="wdp-name" style="font-family:Georgia,serif;font-size:1.35rem;font-weight:700;color:#F8FAFB;line-height:1.2;"></div>
+          <div id="wdp-amount" style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.06em;color:#06A5C5;white-space:nowrap;"></div>
         </div>
+        <p id="wdp-desc" style="font-size:0.875rem;color:#9ca3af;line-height:1.7;"></p>
       </div>
     </div>
   </div>
@@ -499,7 +466,7 @@
     }
   ];
 
-  var CX = 260, CY = 260, RADIUS = 185;
+  var CX = 330, CY = 330, RADIUS = 250;
   var rotation = 0;
   var speed = 0.18; // degrees per frame
   var activeId = null;
@@ -621,7 +588,7 @@
     document.getElementById('wdp-amount').textContent = node.amount;
     document.getElementById('wdp-desc').textContent   = node.desc;
     panel.style.opacity = '1';
-    panel.style.transform = 'translateX(0)';
+    panel.style.transform = 'translateY(0)';
     panel.style.pointerEvents = 'auto';
   }
 
@@ -635,7 +602,7 @@
     });
     lineEl.setAttribute('opacity', '0');
     panel.style.opacity = '0';
-    panel.style.transform = 'translateX(12px)';
+    panel.style.transform = 'translateY(10px)';
     panel.style.pointerEvents = 'none';
   }
 
@@ -684,47 +651,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ SUPPLEMENT FACTS ═══════════════════ -->
-<section style="background:#0a0a0a;padding:6rem 1.5rem;" id="supplement-facts">
-  <div style="max-width:700px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <p class="section-label" style="margin-bottom:0.75rem;">Transparency</p>
-      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">Supplement Facts</h2>
-    </div>
-    <div style="background:#131313;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
-      <!-- Header -->
-      <div style="background:rgba(255,255,255,0.04);padding:1.5rem 2rem;border-bottom:3px solid rgba(255,255,255,0.15);">
-        <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Supplement Facts</div>
-        <div style="font-size:0.85rem;color:#9ca3af;">Serving Size: 1 Scoop (5g)</div>
-        <div style="font-size:0.85rem;color:#9ca3af;">Servings Per Container: 50</div>
-      </div>
-      <!-- Column Headers -->
-      <div style="display:flex;justify-content:space-between;padding:0.75rem 2rem;border-bottom:2px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.02);">
-        <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;"></span>
-        <div style="display:flex;gap:3rem;">
-          <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;text-align:right;">Amount Per Serving</span>
-          <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;text-align:right;width:60px;">% DV</span>
-        </div>
-      </div>
-      <!-- Rows -->
-      <div style="padding:0 2rem;">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,0.06);">
-          <span style="font-size:0.95rem;font-weight:700;color:#F8FAFB;">Creatine Monohydrate</span>
-          <div style="display:flex;gap:3rem;align-items:center;">
-            <span style="font-size:0.95rem;color:#9ca3af;text-align:right;">5,000 mg</span>
-            <span style="font-size:0.9rem;color:#9ca3af;text-align:right;width:60px;">**</span>
-          </div>
-        </div>
-      </div>
-      <!-- Footer -->
-      <div style="padding:1rem 2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
-        <p style="font-size:0.78rem;color:#6b7280;">** Daily Value not established.</p>
-        <p style="font-size:0.78rem;color:#4b5563;margin-top:0.5rem;">Other Ingredients: None.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════════════ FAQ ═══════════════════ -->
 <section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;" id="faq">
   <div style="max-width:700px;margin:0 auto;">
@@ -756,25 +682,6 @@
           <p style="color:#9ca3af;line-height:1.7;font-size:0.9375rem;">Solid creatine. Mixes well, no clumping, no weird taste. I've been taking it daily for two months and the strength numbers are moving in the right direction. The unflavored formula stacks perfectly with my protein without changing the taste.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ COMPLETE THE STACK ═══════════════════ -->
-<section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <p class="section-label" style="margin-bottom:0.75rem;">Pair It With</p>
-      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">Complete the Stack</h2>
-      <p style="color:#6b7280;margin-top:0.75rem;font-size:0.9375rem;">Recharge works best alongside these performance essentials.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" id="related-grid"></div>
-    <div style="text-align:center;margin-top:2.5rem;">
-      <a href="/shop.html" style="display:inline-block;border:1px solid rgba(255,255,255,0.12);color:#9ca3af;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 2rem;border-radius:8px;text-decoration:none;transition:border-color 0.2s,color 0.2s;"
-        onmouseover="this.style.borderColor='rgba(6,165,197,0.4)';this.style.color='#06A5C5'"
-        onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='#9ca3af'">
-        View All Products
-      </a>
     </div>
   </div>
 </section>
