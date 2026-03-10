@@ -348,6 +348,306 @@
   </div>
 </section>
 
+<!-- ═══════════════════ INGREDIENT WHEEL ═══════════════════ -->
+<section style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;overflow:hidden;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <p class="section-label" style="margin-bottom:0.75rem;">Formula Breakdown</p>
+      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">Inside the Formula</h2>
+      <p style="color:#6b7280;margin-top:0.5rem;font-size:0.875rem;">Click any node to explore.</p>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:5rem;flex-wrap:wrap;">
+      <!-- WHEEL -->
+      <div id="wheel-wrap" style="position:relative;width:520px;height:520px;flex-shrink:0;">
+        <!-- SVG: orbit ring + connector line -->
+        <svg id="wheel-svg" viewBox="0 0 520 520" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;">
+          <!-- Orbit ring -->
+          <circle cx="260" cy="260" r="185" fill="none" stroke="rgba(6,165,197,0.12)" stroke-width="1" stroke-dasharray="5 10"/>
+          <circle cx="260" cy="260" r="185" fill="none" stroke="rgba(6,165,197,0.04)" stroke-width="24"/>
+          <!-- Connector line (drawn by JS) -->
+          <line id="wheel-line" x1="260" y1="260" x2="260" y2="260" stroke="#06A5C5" stroke-width="1" stroke-dasharray="4 4" opacity="0"/>
+        </svg>
+
+        <!-- Center: product image -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;">
+          <div style="width:130px;height:130px;border-radius:50%;overflow:hidden;background:#f5f5f5;border:3px solid rgba(6,165,197,0.5);box-shadow:0 0 0 10px rgba(6,165,197,0.07),0 0 40px rgba(6,165,197,0.25),0 0 80px rgba(6,165,197,0.1);display:flex;align-items:center;justify-content:center;">
+            <img id="wheel-product-img"
+              src="/brand_assets/Labels/recharge/Recharge%20one.jpeg"
+              alt="Recharge"
+              style="width:86%;height:86%;object-fit:contain;">
+          </div>
+          <!-- Glow ping rings -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;border-radius:50%;border:1px solid rgba(6,165,197,0.2);animation:wping 2.5s ease-out infinite;"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;border-radius:50%;border:1px solid rgba(6,165,197,0.15);animation:wping 2.5s ease-out 1.25s infinite;"></div>
+        </div>
+
+        <!-- Nodes (JS rendered) -->
+        <div id="wheel-nodes" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+      </div>
+
+      <!-- DETAIL PANEL (desktop, right of wheel) -->
+      <div id="wheel-detail-panel" style="width:280px;opacity:0;transform:translateX(12px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;">
+        <div style="background:#131313;border:1px solid rgba(6,165,197,0.25);border-radius:16px;padding:1.75rem;">
+          <div id="wdp-tag" style="font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.5rem;"></div>
+          <div id="wdp-name" style="font-family:Georgia,serif;font-size:1.35rem;font-weight:700;color:#F8FAFB;margin-bottom:0.2rem;line-height:1.2;"></div>
+          <div id="wdp-amount" style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.06em;color:#06A5C5;margin-bottom:1rem;"></div>
+          <p id="wdp-desc" style="font-size:0.875rem;color:#9ca3af;line-height:1.7;"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes wping {
+    0%   { transform: translate(-50%,-50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%,-50%) scale(1.6); opacity: 0; }
+  }
+  .wnode {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #131313;
+    border: 1.5px solid rgba(6,165,197,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    z-index: 20;
+  }
+  .wnode:hover { border-color: #06A5C5; background: rgba(6,165,197,0.12); transform: translate(-50%,-50%) scale(1.1); }
+  .wnode.active { background: #06A5C5; border-color: #06A5C5; box-shadow: 0 0 20px rgba(6,165,197,0.5); transform: translate(-50%,-50%) scale(1.2); }
+  .wnode svg { pointer-events: none; }
+  .wnode-label {
+    position: absolute;
+    width: 90px;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(248,250,251,0.6);
+    pointer-events: none;
+    line-height: 1.3;
+    transition: color 0.25s;
+  }
+  .wnode-label.active { color: #06A5C5; }
+</style>
+
+<script>
+(function() {
+  // ─── INGREDIENT DATA: RECHARGE ───────────────────
+  var NODES = [
+    {
+      id: 1,
+      tag: 'Core Ingredient',
+      name: 'Creatine Monohydrate',
+      amount: '5,000mg',
+      desc: 'The most researched performance compound in sports science. Every scoop delivers the full 5g clinical dose that drives strength, power, and lean body mass accumulation.',
+      color: '#06A5C5',
+      icon: '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
+    },
+    {
+      id: 2,
+      tag: 'Mechanism',
+      name: 'ATP Regeneration',
+      amount: 'How It Works',
+      desc: 'Creatine phosphate donates a phosphate group to ADP, rapidly regenerating ATP during high-intensity effort. More ATP means more reps, more power, less fatigue between sets.',
+      color: '#8B5CF6',
+      icon: '<circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>'
+    },
+    {
+      id: 3,
+      tag: 'Formula Purity',
+      name: 'Zero Fillers',
+      amount: '100% Pure',
+      desc: 'No binders. No dyes. No flavoring agents. No anti-caking additives. One ingredient, one purpose. What you see on the label is all that is in the tub.',
+      color: '#22C55E',
+      icon: '<path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+    },
+    {
+      id: 4,
+      tag: 'Muscle Saturation',
+      name: 'Loading Protocol',
+      amount: '3-4 Weeks',
+      desc: 'Creatine accumulates in muscle tissue. Full saturation is reached in 3-4 weeks at 5g/day, or in 5-7 days with a 20g/day loading phase spread across 4 doses.',
+      color: '#F59E0B',
+      icon: '<path d="M3 3v18h18M3 9l6-2 4 4 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
+    },
+    {
+      id: 5,
+      tag: 'Versatility',
+      name: 'Unflavored',
+      amount: 'Stacks Clean',
+      desc: 'Dissolves completely in water, juice, or protein shakes without altering taste or texture. Add it to any beverage in your stack. No grit. No clumping.',
+      color: '#06A5C5',
+      icon: '<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+    },
+    {
+      id: 6,
+      tag: 'Value',
+      name: 'Serving Profile',
+      amount: '50 x 5g',
+      desc: '50 servings at 5g each. At the daily maintenance dose, one tub fuels 50 straight days of training. No rationing. No running out mid-cycle.',
+      color: '#EF4444',
+      icon: '<rect x="3" y="6" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 6V4a2 2 0 0 1 4 0v2M16 6V4a2 2 0 0 0-4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+    }
+  ];
+
+  var CX = 260, CY = 260, RADIUS = 185;
+  var rotation = 0;
+  var speed = 0.18; // degrees per frame
+  var activeId = null;
+  var paused = false;
+  var rafId;
+
+  var nodesEl = document.getElementById('wheel-nodes');
+  var svgEl   = document.getElementById('wheel-svg');
+  var lineEl  = document.getElementById('wheel-line');
+  var panel   = document.getElementById('wheel-detail-panel');
+
+  // ─── BUILD NODE DOM ─────────────────────────────
+  var nodeEls = {};
+  var labelEls = {};
+
+  NODES.forEach(function(n) {
+    var div = document.createElement('div');
+    div.className = 'wnode';
+    div.id = 'wnode-' + n.id;
+    div.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" style="color:#9ca3af">' + n.icon + '</svg>';
+    div.addEventListener('click', function(e) { e.stopPropagation(); toggleNode(n.id); });
+    nodesEl.appendChild(div);
+    nodeEls[n.id] = div;
+
+    var lbl = document.createElement('div');
+    lbl.className = 'wnode-label';
+    lbl.id = 'wlbl-' + n.id;
+    lbl.textContent = n.name;
+    nodesEl.appendChild(lbl);
+    labelEls[n.id] = lbl;
+  });
+
+  // ─── POSITION UPDATE ────────────────────────────
+  function getPos(index, total, angle) {
+    var deg = (index / total) * 360 + angle;
+    var rad = (deg * Math.PI) / 180;
+    var x = CX + RADIUS * Math.cos(rad);
+    var y = CY + RADIUS * Math.sin(rad);
+    return { x: x, y: y, rad: rad };
+  }
+
+  function updatePositions() {
+    NODES.forEach(function(n, i) {
+      var p = getPos(i, NODES.length, rotation);
+      var depth = (Math.sin(p.rad) + 1) / 2; // 0=back, 1=front
+      var opacity = 0.35 + 0.65 * depth;
+      var scale = 0.8 + 0.2 * depth;
+
+      var nodeEl = nodeEls[n.id];
+      var lblEl  = labelEls[n.id];
+
+      nodeEl.style.left = p.x + 'px';
+      nodeEl.style.top  = p.y + 'px';
+      nodeEl.style.zIndex = Math.round(10 + 20 * depth);
+      if (!nodeEl.classList.contains('active')) {
+        nodeEl.style.opacity = opacity;
+      }
+
+      // Label offset: push outward from center
+      var outX = p.x + Math.cos(p.rad) * 38;
+      var outY = p.y + Math.sin(p.rad) * 38;
+      lblEl.style.left = (outX - 45) + 'px';
+      lblEl.style.top  = (outY - 9) + 'px';
+      lblEl.style.opacity = opacity * 0.85;
+      if (!lblEl.classList.contains('active')) {
+        lblEl.style.opacity = opacity * 0.75;
+      }
+    });
+  }
+
+  // ─── ANIMATION LOOP ─────────────────────────────
+  function loop() {
+    if (!paused) rotation = (rotation + speed) % 360;
+    updatePositions();
+    rafId = requestAnimationFrame(loop);
+  }
+  loop();
+
+  // ─── TOGGLE NODE ────────────────────────────────
+  function toggleNode(id) {
+    if (activeId === id) {
+      // Deactivate
+      deactivate();
+      return;
+    }
+    activeId = id;
+    paused = true;
+
+    // Style nodes
+    NODES.forEach(function(n) {
+      var el = nodeEls[n.id];
+      var lbl = labelEls[n.id];
+      if (n.id === id) {
+        el.classList.add('active');
+        el.querySelector('svg').style.color = '#fff';
+        lbl.classList.add('active');
+        lbl.style.color = '#06A5C5';
+        lbl.style.opacity = '1';
+      } else {
+        el.classList.remove('active');
+        el.querySelector('svg').style.color = '#9ca3af';
+        lbl.classList.remove('active');
+      }
+    });
+
+    // Draw connector line
+    var idx = NODES.findIndex(function(n) { return n.id === id; });
+    var p = getPos(idx, NODES.length, rotation);
+    lineEl.setAttribute('x1', CX);
+    lineEl.setAttribute('y1', CY);
+    lineEl.setAttribute('x2', p.x);
+    lineEl.setAttribute('y2', p.y);
+    lineEl.setAttribute('opacity', '0.4');
+
+    // Update detail panel
+    var node = NODES.find(function(n) { return n.id === id; });
+    document.getElementById('wdp-tag').textContent    = node.tag;
+    document.getElementById('wdp-name').textContent   = node.name;
+    document.getElementById('wdp-amount').textContent = node.amount;
+    document.getElementById('wdp-desc').textContent   = node.desc;
+    panel.style.opacity = '1';
+    panel.style.transform = 'translateX(0)';
+    panel.style.pointerEvents = 'auto';
+  }
+
+  function deactivate() {
+    activeId = null;
+    paused = false;
+    NODES.forEach(function(n) {
+      nodeEls[n.id].classList.remove('active');
+      nodeEls[n.id].querySelector('svg').style.color = '#9ca3af';
+      labelEls[n.id].classList.remove('active');
+    });
+    lineEl.setAttribute('opacity', '0');
+    panel.style.opacity = '0';
+    panel.style.transform = 'translateX(12px)';
+    panel.style.pointerEvents = 'none';
+  }
+
+  // Click outside deactivates
+  document.getElementById('wheel-wrap').addEventListener('click', function(e) {
+    if (e.target === this || e.target.id === 'wheel-svg' || e.target.tagName === 'circle' || e.target.tagName === 'line') {
+      deactivate();
+    }
+  });
+})();
+</script>
+
 <!-- ═══════════════════ HOW TO USE ═══════════════════ -->
 <section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;">
   <div style="max-width:900px;margin:0 auto;text-align:center;">
