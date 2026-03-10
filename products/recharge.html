@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recharge — Creatine Monohydrate | Ascend Performance Nutrition</title>
+  <meta name="description" content="5,000mg of 100% pure creatine monohydrate. 50 servings. Unflavored. Built for athletes who train with purpose.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0a0a0a; color: #F8FAFB; font-family: 'Barlow', sans-serif; line-height: 1.65; }
+
+    /* NAV */
+    .nav-link { color: #9ca3af; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: #F8FAFB; }
+    .btn-nav { background: #06A5C5; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.1rem; border-radius: 6px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn-nav:hover { background: #048FAB; transform: translateY(-1px); }
+
+    /* GALLERY */
+    .thumb { cursor: pointer; border: 2px solid transparent; border-radius: 10px; overflow: hidden; transition: border-color 0.2s, opacity 0.2s; opacity: 0.6; }
+    .thumb:hover { opacity: 0.85; }
+    .thumb.active { border-color: #06A5C5; opacity: 1; }
+    #main-img { transition: opacity 0.25s; }
+
+    /* STATS PILL */
+    .stat-pill { background: rgba(6,165,197,0.1); border: 1px solid rgba(6,165,197,0.25); border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: #06A5C5; white-space: nowrap; }
+
+    /* CTA BUTTON */
+    .btn-cta { display: block; width: 100%; background: #06A5C5; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 2rem; border-radius: 10px; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(6,165,197,0.35), 0 1px 4px rgba(0,0,0,0.4);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s; }
+    .btn-cta:hover { background: #048FAB; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(6,165,197,0.45), 0 2px 8px rgba(0,0,0,0.4); }
+    .btn-cta:active { transform: translateY(0); }
+    .btn-cta.added { background: #22C55E; }
+
+    /* BENEFIT CHECK */
+    .benefit-item { display: flex; align-items: flex-start; gap: 0.65rem; }
+    .benefit-icon { width: 20px; height: 20px; background: rgba(6,165,197,0.15); border: 1px solid #06A5C5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+    /* IMPACT STRIP */
+    .impact-card { border-right: 1px solid rgba(255,255,255,0.07); }
+    .impact-card:last-child { border-right: none; }
+
+    /* SCIENCE CARD */
+    .ingredient-card { background: linear-gradient(135deg, rgba(6,165,197,0.12) 0%, rgba(6,165,197,0.04) 100%); border: 1px solid rgba(6,165,197,0.2); border-radius: 16px; }
+
+    /* STEPS */
+    .step-num { width: 40px; height: 40px; background: #06A5C5; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; flex-shrink: 0; }
+
+    /* SUPP FACTS TABLE */
+    .supp-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .supp-table th, .supp-table td { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.6rem 0; }
+    .supp-table th { text-align: left; font-weight: 700; color: #F8FAFB; }
+    .supp-table td:last-child { text-align: right; color: #9ca3af; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .faq-btn { width: 100%; text-align: left; background: none; border: none; color: #F8FAFB; cursor: pointer; padding: 1.25rem 0; display: flex; justify-content: space-between; align-items: center; font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 600; }
+    .faq-btn svg { flex-shrink: 0; transition: transform 0.25s; color: #06A5C5; }
+    .faq-btn[aria-expanded="true"] svg { transform: rotate(45deg); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: #9ca3af; line-height: 1.7; font-size: 0.9375rem; }
+    .faq-body.open { max-height: 200px; padding-bottom: 1.25rem; }
+
+    /* RELATED CARD */
+    .related-card { background: #131313; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; }
+    .related-card:hover { border-color: rgba(6,165,197,0.35); transform: translateY(-3px); }
+
+    /* STAR RATING */
+    .stars { color: #FBBF24; letter-spacing: -1px; }
+
+    /* TRUST ICON ROW */
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #9ca3af; }
+    .trust-item svg { color: #06A5C5; }
+
+    /* BREADCRUMB */
+    .breadcrumb a { color: #6b7280; font-size: 0.8rem; text-decoration: none; letter-spacing: 0.04em; }
+    .breadcrumb a:hover { color: #9ca3af; }
+    .breadcrumb span { color: #374151; margin: 0 0.4rem; font-size: 0.8rem; }
+
+    /* SECTION LABEL */
+    .section-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #06A5C5; }
+
+    /* CART BADGE */
+    #cart-badge { display: none; background: #06A5C5; color: #fff; border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700; align-items: center; justify-content: center; position: absolute; top: -5px; right: -5px; }
+    #cart-badge.visible { display: flex; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;">
+    <a href="/index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;">
+      <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend" style="height:40px;width:auto;">
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;color:#9ca3af;text-transform:uppercase;">Performance</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;color:#9ca3af;text-transform:uppercase;">Nutrition</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;">
+      <a href="/shop.html" class="nav-link">Shop</a>
+      <a href="/index.html#framework" class="nav-link">Framework</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/quiz.html" class="nav-link">Quiz</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/shop.html" class="btn-nav" style="position:relative;">
+        Shop All
+        <span id="cart-badge"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ BREADCRUMB ═══════════════════ -->
+<div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;" class="breadcrumb">
+  <div style="padding-top:88px;padding-bottom:0.75rem;display:flex;align-items:center;">
+    <a href="/index.html">Home</a>
+    <span>/</span>
+    <a href="/shop.html">Shop</a>
+    <span>/</span>
+    <a href="/shop.html?cat=recovery" style="color:#9ca3af;">Recovery</a>
+    <span>/</span>
+    <span style="color:#F8FAFB;font-size:0.8rem;">Recharge</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRODUCT HERO ═══════════════════ -->
+<section style="max-width:1200px;margin:0 auto;padding:1.5rem 1.5rem 5rem;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+
+    <!-- LEFT: IMAGE GALLERY -->
+    <div style="position:sticky;top:84px;">
+      <!-- Main Image -->
+      <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
+        <img id="main-img"
+          src="/brand_assets/Labels/recharge/Recharge%20one.jpeg"
+          alt="Recharge Creatine Monohydrate"
+          style="width:90%;height:90%;object-fit:contain;">
+      </div>
+      <!-- Thumbnails -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1rem;">
+        <div class="thumb active" onclick="setImg(this, '/brand_assets/Labels/recharge/Recharge%20one.jpeg')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
+            <img src="/brand_assets/Labels/recharge/Recharge%20one.jpeg" alt="" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+        </div>
+        <div class="thumb" onclick="setImg(this, '/brand_assets/Labels/recharge/Recharge%202.jpeg')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
+            <img src="/brand_assets/Labels/recharge/Recharge%202.jpeg" alt="" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+        </div>
+        <div class="thumb" onclick="setImg(this, '/brand_assets/Labels/recharge/Recharge%203.jpeg')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
+            <img src="/brand_assets/Labels/recharge/Recharge%203.jpeg" alt="" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+        </div>
+        <div class="thumb" onclick="setImg(this, '/brand_assets/Labels/recharge/Recharge%20supplement%20facts.png')">
+          <div style="background:#fff;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
+            <img src="/brand_assets/Labels/recharge/Recharge%20supplement%20facts.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: BUY BOX -->
+    <div style="padding-top:0.5rem;">
+
+      <!-- Category Badge -->
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+        <span class="section-label" style="background:rgba(6,165,197,0.1);border:1px solid rgba(6,165,197,0.25);padding:0.3rem 0.75rem;border-radius:999px;">Recovery</span>
+        <span style="font-size:0.75rem;color:#6b7280;letter-spacing:0.04em;">SKU: RLC4CREA</span>
+      </div>
+
+      <!-- Product Name -->
+      <h1 style="font-family:Georgia,serif;font-size:3rem;font-weight:700;letter-spacing:-0.03em;line-height:1;color:#F8FAFB;margin-bottom:0.35rem;">RECHARGE</h1>
+      <p style="font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6b7280;margin-bottom:1.25rem;">Creatine Monohydrate</p>
+
+      <!-- Rating -->
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1.5rem;">
+        <span class="stars">★★★★★</span>
+        <span style="font-size:0.875rem;font-weight:600;color:#F8FAFB;">5.0</span>
+        <a href="#reviews" style="font-size:0.8rem;color:#06A5C5;text-decoration:none;">1 Review</a>
+      </div>
+
+      <!-- Divider -->
+      <div style="border-top:1px solid rgba(255,255,255,0.07);margin-bottom:1.5rem;"></div>
+
+      <!-- Price -->
+      <div style="display:flex;align-items:baseline;gap:0.75rem;margin-bottom:1.5rem;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:2.25rem;font-weight:800;color:#F8FAFB;">$39.99</span>
+        <span style="font-size:0.85rem;color:#6b7280;">/ 50 servings</span>
+        <span style="font-size:0.8rem;color:#22C55E;font-weight:600;">In Stock</span>
+      </div>
+
+      <!-- Stat Pills -->
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.75rem;">
+        <span class="stat-pill">5,000mg Creatine</span>
+        <span class="stat-pill">50 Servings</span>
+        <span class="stat-pill">Unflavored</span>
+        <span class="stat-pill">100% Pure</span>
+      </div>
+
+      <!-- Description -->
+      <p style="color:#9ca3af;line-height:1.7;font-size:0.9375rem;margin-bottom:1.75rem;">
+        Formulated for those pursuing strength, power, and endurance with purpose. Recharge delivers a clinical 5g dose of pure creatine monohydrate in every scoop. No fillers. No additives. Just the most researched performance compound in sports science history.
+      </p>
+
+      <!-- Benefit Bullets -->
+      <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#06A5C5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <span style="font-weight:600;color:#F8FAFB;">Increases Muscle Strength</span>
+            <span style="color:#6b7280;font-size:0.875rem;"> — supports peak output during high-intensity training</span>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#06A5C5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <span style="font-weight:600;color:#F8FAFB;">Supports Lean Body Mass</span>
+            <span style="color:#6b7280;font-size:0.875rem;"> — fuels the cellular processes that drive muscle growth</span>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#06A5C5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <span style="font-weight:600;color:#F8FAFB;">Boosts Muscle Energy</span>
+            <span style="color:#6b7280;font-size:0.875rem;"> — replenishes ATP faster so you recover between sets</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add to Cart -->
+      <button class="btn-cta" id="add-to-cart-btn" onclick="addToCart()">
+        Add to Cart — $39.99
+      </button>
+
+      <!-- Free Shipping Note -->
+      <p style="text-align:center;font-size:0.8rem;color:#6b7280;margin-top:0.75rem;">
+        Free shipping on orders over $50
+      </p>
+
+      <!-- Trust Row -->
+      <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.07);flex-wrap:wrap;">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.3.5-2.4 2.3.6 3.2L8 9.5l-2.9 1.5.5-3.2L3.2 5.5 6.5 5z"/></svg>
+          100% Pure
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="10" height="10" rx="2"/><path d="M6 8l2 2 3-3"/></svg>
+          No Fillers
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3l2 1"/></svg>
+          Clinical Dose
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h8M8 4v8"/><circle cx="8" cy="8" r="6"/></svg>
+          Made in USA
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ IMPACT NUMBERS ═══════════════════ -->
+<section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+
+      <div class="impact-card" style="padding:3rem 2.5rem;text-align:center;">
+        <div style="font-family:Georgia,serif;font-size:3.5rem;font-weight:700;color:#06A5C5;letter-spacing:-0.03em;line-height:1;">5,000<span style="font-size:1.5rem;">mg</span></div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:#F8FAFB;margin:0.5rem 0 0.4rem;">Pure Creatine Per Serving</div>
+        <p style="font-size:0.85rem;color:#6b7280;">The clinical dose used in research. Every single scoop.</p>
+      </div>
+
+      <div class="impact-card" style="padding:3rem 2.5rem;text-align:center;">
+        <div style="font-family:Georgia,serif;font-size:3.5rem;font-weight:700;color:#06A5C5;letter-spacing:-0.03em;line-height:1;">50</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:#F8FAFB;margin:0.5rem 0 0.4rem;">Servings Per Container</div>
+        <p style="font-size:0.85rem;color:#6b7280;">50 days of consistent fueling at the daily maintenance dose.</p>
+      </div>
+
+      <div style="padding:3rem 2.5rem;text-align:center;">
+        <div style="font-family:Georgia,serif;font-size:3.5rem;font-weight:700;color:#06A5C5;letter-spacing:-0.03em;line-height:1;">#1</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:#F8FAFB;margin:0.5rem 0 0.4rem;">Most Studied Supplement</div>
+        <p style="font-size:0.85rem;color:#6b7280;">Creatine monohydrate is the most research-backed compound in sports science.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ THE SCIENCE ═══════════════════ -->
+<section style="background:#0a0a0a;padding:6rem 1.5rem;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+
+    <!-- Text -->
+    <div>
+      <p class="section-label" style="margin-bottom:0.75rem;">The Science</p>
+      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:#F8FAFB;margin-bottom:1.5rem;">Why Creatine Works</h2>
+      <p style="color:#9ca3af;line-height:1.75;margin-bottom:1.25rem;font-size:0.9375rem;">
+        Your muscles run on ATP (adenosine triphosphate). During intense effort, ATP is depleted faster than your body can regenerate it. That is where creatine comes in.
+      </p>
+      <p style="color:#9ca3af;line-height:1.75;margin-bottom:1.25rem;font-size:0.9375rem;">
+        Creatine phosphate donates a phosphate group to ADP, rapidly regenerating ATP. The result: you push harder, recover faster between sets, and sustain peak output for longer before hitting failure.
+      </p>
+      <p style="color:#9ca3af;line-height:1.75;font-size:0.9375rem;">
+        Over weeks of consistent use, creatine also increases intramuscular water retention, creating a volumizing effect that supports lean body mass accumulation. This is why it is one of the only supplements with consistent, peer-reviewed evidence across decades of sports research.
+      </p>
+    </div>
+
+    <!-- Ingredient Card -->
+    <div>
+      <div class="ingredient-card" style="padding:2.5rem;">
+        <p class="section-label" style="margin-bottom:1.5rem;">What is Inside</p>
+        <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1.25rem;margin-bottom:1.25rem;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.35rem;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;color:#F8FAFB;letter-spacing:0.04em;">CREATINE MONOHYDRATE</span>
+            <span style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#06A5C5;">5,000mg</span>
+          </div>
+          <p style="font-size:0.8rem;color:#6b7280;line-height:1.55;">Micronized for rapid absorption. 100% pure. No proprietary blend. Nothing else.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+          <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:1rem;text-align:center;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;color:#F8FAFB;">1 Scoop</div>
+            <div style="font-size:0.75rem;color:#6b7280;margin-top:0.2rem;">Serving Size (5g)</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:1rem;text-align:center;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;color:#F8FAFB;">50</div>
+            <div style="font-size:0.75rem;color:#6b7280;margin-top:0.2rem;">Servings Per Container</div>
+          </div>
+        </div>
+        <div style="background:rgba(6,165,197,0.08);border:1px solid rgba(6,165,197,0.2);border-radius:10px;padding:1rem;font-size:0.82rem;color:#9ca3af;line-height:1.55;">
+          <strong style="color:#06A5C5;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.05em;">UNFLAVORED</strong> — mixes cleanly into any beverage. Stack it with protein, pre-workout, or water. No taste. No clumping.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ HOW TO USE ═══════════════════ -->
+<section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <p class="section-label" style="margin-bottom:0.75rem;">Directions</p>
+    <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;margin-bottom:3.5rem;">How to Use Recharge</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:left;">
+
+      <div style="background:#131313;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <div class="step-num">1</div>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;color:#F8FAFB;">Mix It</span>
+        </div>
+        <p style="font-size:0.9rem;color:#9ca3af;line-height:1.7;">Add 1 level scoop (5g) to 8 oz of water, juice, or your protein shake. Stir or shake until dissolved.</p>
+      </div>
+
+      <div style="background:#131313;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <div class="step-num">2</div>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;color:#F8FAFB;">Time It</span>
+        </div>
+        <p style="font-size:0.9rem;color:#9ca3af;line-height:1.7;">Take daily, any time of day. Consistency matters more than timing. Post-workout or with a meal works well for most athletes.</p>
+      </div>
+
+      <div style="background:#131313;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <div class="step-num">3</div>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;color:#F8FAFB;">Load (Optional)</span>
+        </div>
+        <p style="font-size:0.9rem;color:#9ca3af;line-height:1.7;">Accelerate saturation with a loading phase: 4 scoops daily (20g) spread across the day for 5 days, then drop to 1 scoop daily.</p>
+      </div>
+
+    </div>
+    <p style="margin-top:1.75rem;font-size:0.8rem;color:#4b5563;">Store in a cool, dry place. Keep out of reach of children. Consult a healthcare professional before use if you have any medical conditions.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ SUPPLEMENT FACTS ═══════════════════ -->
+<section style="background:#0a0a0a;padding:6rem 1.5rem;" id="supplement-facts">
+  <div style="max-width:700px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p class="section-label" style="margin-bottom:0.75rem;">Transparency</p>
+      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">Supplement Facts</h2>
+    </div>
+    <div style="background:#131313;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
+      <!-- Header -->
+      <div style="background:rgba(255,255,255,0.04);padding:1.5rem 2rem;border-bottom:3px solid rgba(255,255,255,0.15);">
+        <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Supplement Facts</div>
+        <div style="font-size:0.85rem;color:#9ca3af;">Serving Size: 1 Scoop (5g)</div>
+        <div style="font-size:0.85rem;color:#9ca3af;">Servings Per Container: 50</div>
+      </div>
+      <!-- Column Headers -->
+      <div style="display:flex;justify-content:space-between;padding:0.75rem 2rem;border-bottom:2px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.02);">
+        <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;"></span>
+        <div style="display:flex;gap:3rem;">
+          <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;text-align:right;">Amount Per Serving</span>
+          <span style="font-size:0.8rem;font-weight:700;color:#9ca3af;text-align:right;width:60px;">% DV</span>
+        </div>
+      </div>
+      <!-- Rows -->
+      <div style="padding:0 2rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <span style="font-size:0.95rem;font-weight:700;color:#F8FAFB;">Creatine Monohydrate</span>
+          <div style="display:flex;gap:3rem;align-items:center;">
+            <span style="font-size:0.95rem;color:#9ca3af;text-align:right;">5,000 mg</span>
+            <span style="font-size:0.9rem;color:#9ca3af;text-align:right;width:60px;">**</span>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div style="padding:1rem 2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:0.78rem;color:#6b7280;">** Daily Value not established.</p>
+        <p style="font-size:0.78rem;color:#4b5563;margin-top:0.5rem;">Other Ingredients: None.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;" id="faq">
+  <div style="max-width:700px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p class="section-label" style="margin-bottom:0.75rem;">Questions</p>
+      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">Frequently Asked</h2>
+    </div>
+    <div id="faq-list"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ REVIEW ═══════════════════ -->
+<section style="background:#0a0a0a;padding:6rem 1.5rem;" id="reviews">
+  <div style="max-width:800px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p class="section-label" style="margin-bottom:0.75rem;">Reviews</p>
+      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">What Athletes Say</h2>
+    </div>
+    <div style="background:#131313;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem 2.5rem;">
+      <div style="display:flex;align-items:flex-start;gap:1.25rem;">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,#06A5C5,#048FAB);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;">J</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.25rem;">
+            <span style="font-weight:700;color:#F8FAFB;">James K.</span>
+            <span class="stars" style="font-size:0.9rem;">★★★★★</span>
+            <span style="font-size:0.75rem;color:#6b7280;margin-left:auto;">Verified Purchase</span>
+          </div>
+          <p style="font-size:0.875rem;color:#6b7280;margin-bottom:0.75rem;">January 2025</p>
+          <p style="color:#9ca3af;line-height:1.7;font-size:0.9375rem;">Solid creatine. Mixes well, no clumping, no weird taste. I've been taking it daily for two months and the strength numbers are moving in the right direction. The unflavored formula stacks perfectly with my protein without changing the taste.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ COMPLETE THE STACK ═══════════════════ -->
+<section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);padding:6rem 1.5rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p class="section-label" style="margin-bottom:0.75rem;">Pair It With</p>
+      <h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">Complete the Stack</h2>
+      <p style="color:#6b7280;margin-top:0.75rem;font-size:0.9375rem;">Recharge works best alongside these performance essentials.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" id="related-grid"></div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="/shop.html" style="display:inline-block;border:1px solid rgba(255,255,255,0.12);color:#9ca3af;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 2rem;border-radius:8px;text-decoration:none;transition:border-color 0.2s,color 0.2s;"
+        onmouseover="this.style.borderColor='rgba(6,165,197,0.4)';this.style.color='#06A5C5'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='#9ca3af'">
+        View All Products
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.06);padding:4rem 1.5rem 2rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;">
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">
+          <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend" style="height:36px;">
+          <div style="display:flex;flex-direction:column;line-height:1.1;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.18em;color:#6b7280;text-transform:uppercase;">Performance</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.18em;color:#6b7280;text-transform:uppercase;">Nutrition</span>
+          </div>
+        </div>
+        <p style="color:#6b7280;font-size:0.85rem;line-height:1.65;max-width:240px;">Built for athletes who train with faith, family, and purpose. No shortcuts.</p>
+      </div>
+      <!-- Products -->
+      <div>
+        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-bottom:1rem;">Products</h4>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <a href="/products/recharge.html" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Recharge</a>
+          <a href="/shop.html" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Resilience</a>
+          <a href="/shop.html" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Replenish Plus</a>
+          <a href="/shop.html" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">View All</a>
+        </div>
+      </div>
+      <!-- Company -->
+      <div>
+        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-bottom:1rem;">Company</h4>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <a href="/about.html" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">About</a>
+          <a href="/quiz.html" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Performance Quiz</a>
+        </div>
+      </div>
+      <!-- Support -->
+      <div>
+        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-bottom:1rem;">Support</h4>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <a href="#" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Shipping Policy</a>
+          <a href="#" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Returns</a>
+          <a href="#" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Privacy Policy</a>
+          <a href="#" style="font-size:0.85rem;color:#6b7280;text-decoration:none;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <p style="font-size:0.78rem;color:#4b5563;">2026 Ascend Performance Nutrition. All rights reserved.</p>
+      <p style="font-size:0.75rem;color:#374151;">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script>
+  // ─── FAQ DATA ───────────────────────────────────
+  var FAQS = [
+    {
+      q: 'Do I need to do a loading phase?',
+      a: 'No. A loading phase (20g/day for 5 days) saturates muscles faster, but the same result is achieved with daily 5g doses over 3-4 weeks. Both approaches work. If you want faster results, load. If you prefer simplicity, just take one scoop daily without interruption.'
+    },
+    {
+      q: 'Will creatine cause water retention or bloating?',
+      a: 'Creatine draws water into your muscle cells, which increases cellular volume and supports muscle fullness. This is different from subcutaneous water retention that causes a soft or bloated look. Most athletes notice increased fullness in the muscle belly, not puffiness.'
+    },
+    {
+      q: 'When is the best time to take Recharge?',
+      a: 'Consistency outweighs timing. Post-workout is a popular option since muscles may be more receptive to uptake, but daily use at any time produces the same saturation over a few weeks. Pick a time you will not forget.'
+    },
+    {
+      q: 'Is Recharge truly unflavored? Will it taste like anything?',
+      a: 'Yes, completely unflavored. Pure creatine monohydrate has minimal taste on its own and dissolves cleanly. Mix it into your protein shake, water, or juice without any change in flavor.'
+    },
+    {
+      q: 'Can I stack Recharge with other Ascend products?',
+      a: 'Yes. Recharge is designed to complement the full Ascend stack. It pairs especially well with Resilience (protein) for post-workout recovery and Replenish Plus (electrolytes) for hydration. Stack them without flavor interference.'
+    }
+  ];
+
+  // ─── RELATED PRODUCTS ───────────────────────────
+  var RELATED = [
+    {
+      name: 'Resilience',
+      sub: 'Whey Protein',
+      price: '$54.99',
+      img: '/brand_assets/Labels/Resilience%20Vanilla/Resilience%20van%20one.jpeg',
+      href: '/shop.html',
+      tag: 'Protein'
+    },
+    {
+      name: 'Replenish Plus',
+      sub: 'Advanced Electrolytes',
+      price: '$29.99',
+      img: '/brand_assets/Labels/Replenish%20Plus/Replenish%20%2B1.jpeg',
+      href: '/shop.html',
+      tag: 'Hydration'
+    },
+    {
+      name: 'Fortify',
+      sub: 'Multivitamin Complex',
+      price: '$34.99',
+      img: '/brand_assets/Labels/Fortify/Fortify%20One.jpeg',
+      href: '/shop.html',
+      tag: 'Wellness'
+    }
+  ];
+
+  // ─── RENDER FAQ ─────────────────────────────────
+  (function renderFAQ() {
+    var list = document.getElementById('faq-list');
+    FAQS.forEach(function(f, i) {
+      var item = document.createElement('div');
+      item.className = 'faq-item';
+      item.innerHTML = '<button class="faq-btn" aria-expanded="false" onclick="toggleFAQ(this)">' +
+        '<span>' + f.q + '</span>' +
+        '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>' +
+        '</button>' +
+        '<div class="faq-body"><p>' + f.a + '</p></div>';
+      list.appendChild(item);
+    });
+  })();
+
+  function toggleFAQ(btn) {
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-btn').forEach(function(b) {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!expanded) {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  }
+
+  // ─── RENDER RELATED ─────────────────────────────
+  (function renderRelated() {
+    var grid = document.getElementById('related-grid');
+    RELATED.forEach(function(p) {
+      var card = document.createElement('a');
+      card.href = p.href;
+      card.className = 'related-card';
+      card.innerHTML =
+        '<div style="background:#0a0a0a;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;">' +
+          '<span style="position:absolute;top:0.75rem;left:0.75rem;background:rgba(6,165,197,0.1);border:1px solid rgba(6,165,197,0.25);border-radius:999px;padding:0.2rem 0.6rem;font-size:0.7rem;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">' + p.tag + '</span>' +
+          '<img src="' + p.img + '" alt="' + p.name + '" style="width:80%;height:80%;object-fit:contain;" onerror="this.src=\'https://placehold.co/300x300/131313/06A5C5?text=' + encodeURIComponent(p.name) + '\'">' +
+        '</div>' +
+        '<div style="padding:1.25rem 1.5rem 1.5rem;">' +
+          '<div style="font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:0.04em;color:#F8FAFB;">' + p.name + '</div>' +
+          '<div style="font-size:0.8rem;color:#6b7280;margin-bottom:0.75rem;">' + p.sub + '</div>' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;">' +
+            '<span style="font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:#F8FAFB;">' + p.price + '</span>' +
+            '<span style="font-size:0.75rem;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#06A5C5;">View Product</span>' +
+          '</div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  })();
+
+  // ─── IMAGE GALLERY ──────────────────────────────
+  function setImg(thumb, src) {
+    document.querySelectorAll('.thumb').forEach(function(t) { t.classList.remove('active'); });
+    thumb.classList.add('active');
+    var mainImg = document.getElementById('main-img');
+    mainImg.style.opacity = '0';
+    setTimeout(function() {
+      mainImg.src = src;
+      mainImg.style.opacity = '1';
+    }, 150);
+  }
+
+  // ─── CART ───────────────────────────────────────
+  function _getCart() {
+    try { return JSON.parse(localStorage.getItem('apn_cart') || '[]'); } catch(e) { return []; }
+  }
+  function _saveCart(cart) {
+    localStorage.setItem('apn_cart', JSON.stringify(cart));
+  }
+  function _updateCartBadge() {
+    var cart = _getCart();
+    var total = cart.reduce(function(s, i) { return s + (i.qty || 1); }, 0);
+    var badge = document.getElementById('cart-badge');
+    if (badge) {
+      badge.textContent = total;
+      total > 0 ? badge.classList.add('visible') : badge.classList.remove('visible');
+    }
+  }
+  function addToCart() {
+    var cart = _getCart();
+    var idx = cart.findIndex(function(i) { return i.id === 'recharge'; });
+    if (idx > -1) {
+      cart[idx].qty = (cart[idx].qty || 1) + 1;
+    } else {
+      cart.push({ id: 'recharge', name: 'Recharge — Creatine Monohydrate', price: 39.99, qty: 1, img: '/brand_assets/Labels/recharge/Recharge%20one.jpeg' });
+    }
+    _saveCart(cart);
+    _updateCartBadge();
+    var btn = document.getElementById('add-to-cart-btn');
+    var orig = btn.textContent;
+    btn.textContent = 'Added to Cart';
+    btn.classList.add('added');
+    setTimeout(function() { btn.textContent = orig; btn.classList.remove('added'); }, 1800);
+  }
+
+  // Init badge on load
+  _updateCartBadge();
+</script>
+
+</body>
+</html>

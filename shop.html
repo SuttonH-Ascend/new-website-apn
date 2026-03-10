@@ -297,9 +297,10 @@
 
     // RECOVERY
     {id:'recharge', name:'Recharge', sub:'Creatine Monohydrate', flavor:'',
-     category:'recovery', price:29.99, badge:'Essential', badgeColor:'#8B5CF6',
+     category:'recovery', price:39.99, badge:'Essential', badgeColor:'#8B5CF6',
      img:'/brand_assets/Labels/recharge/Recharge%20one.jpeg',
-     tagline:'Pure creatine monohydrate. 1,000+ studies. The proven performance edge.'},
+     tagline:'Pure creatine monohydrate. 1,000+ studies. The proven performance edge.',
+     detailUrl:'/products/recharge.html'},
     {id:'fortify', name:'Fortify', sub:'Natural Colostrum Powder', flavor:'',
      category:'recovery', price:49.99,
      img:'/brand_assets/Labels/Fortify/Fortify%20One.jpeg',
@@ -440,7 +441,7 @@
           '</div>' +
           '<div style="display:flex;flex-direction:column;gap:8px;">' +
             '<button class="btn-atc" onclick="APNShop.addToCart(\'' + p.id + '\',this)">Add to Cart</button>' +
-            '<a href="#" class="btn-details">View Details</a>' +
+            '<a href="' + (p.detailUrl || '#') + '" class="btn-details"' + (p.detailUrl ? '' : ' onclick="return false"') + '>View Details</a>' +
           '</div>' +
         '</div>';
 
