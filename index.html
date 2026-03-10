@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ascend Performance Nutrition | Equip. Empower. Elevate.</title>
+
+  <!-- ═══════════════════════════════════════════
+       MICROSOFT CLARITY
+  ═══════════════════════════════════════════ -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","v9tqcwb652");
+  </script>
+
+  <!-- ═══════════════════════════════════════════
+       META PIXEL
+  ═══════════════════════════════════════════ -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','876546821553793');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876546821553793&ev=PageView&noscript=1" /></noscript>
+
+  <!-- ═══════════════════════════════════════════
+       TIKTOK PIXEL
+  ═══════════════════════════════════════════ -->
+  <script>
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+    ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+    ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+    ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+    ttq.load('D03EC6BC77UBMD8HI7V0');ttq.page();}(window,document,'ttq');
+  </script>
+
+  <!-- ═══════════════════════════════════════════
+       GOOGLE ADS — global site tag
+  ═══════════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17918778091"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17918778091');
+  </script>
+
+  <!-- Umami Analytics — replace src and data-website-id after deploying Umami to Vercel -->
+  <!-- <script async defer src="https://YOUR-UMAMI.vercel.app/script.js" data-website-id="YOUR-SITE-ID"></script> -->
+
+  <!-- ═══════════════════════════════════════════
+       KLAVIYO
+  ═══════════════════════════════════════════ -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=R5eNpH"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal:    { DEFAULT: '#06A5C5', dark: '#048FAB', light: '#D6F0F6', xlight: '#EBF8FC' },
+            charcoal: '#0D0D0D',
+            'off-white': '#F8FAFB',
+            'border-gray': '#E2E8F0',
+            body:   '#333333',
+            muted:  '#6B7280',
+          },
+          fontFamily: {
+            display:   ['Georgia', 'serif'],
+            sans:      ['Barlow', 'system-ui', 'sans-serif'],
+            condensed: ['"Barlow Condensed"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', system-ui, sans-serif; background: #F8FAFB; color: #333333; overflow-x: hidden; }
+
+    /* ── Grain overlay ── */
+    .grain::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      border-radius: inherit;
+    }
+
+    /* ── Nav ── */
+    #main-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    #main-nav.scrolled {
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      border-bottom: 1px solid rgba(6,165,197,0.12);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+    }
+    .nav-link {
+      position: relative; color: rgba(255,255,255,0.7);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.13em;
+      text-transform: uppercase; text-decoration: none;
+      transition: color 0.2s ease;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 1.5px;
+      background: #06A5C5; transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:focus-visible { outline: 2px solid #06A5C5; outline-offset: 4px; border-radius: 2px; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, #06A5C5 0%, #048FAB 100%);
+      color: #fff; font-family: 'Barlow', sans-serif; font-weight: 700;
+      font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
+      padding: 0.875rem 2rem; border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(6,165,197,0.35), 0 1px 3px rgba(0,0,0,0.2);
+      transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(6,165,197,0.45), 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .btn-primary:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(6,165,197,0.3); }
+    .btn-primary:focus-visible { outline: 2px solid #06A5C5; outline-offset: 3px; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: rgba(255,255,255,0.85);
+      font-family: 'Barlow', sans-serif; font-weight: 600;
+      font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border: 1.5px solid rgba(255,255,255,0.25); cursor: pointer;
+      padding: 0.875rem 2rem; border-radius: 4px;
+      transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-ghost:hover {
+      color: #fff; border-color: rgba(6,165,197,0.7);
+      background: rgba(6,165,197,0.08);
+      transform: translateY(-2px);
+    }
+    .btn-ghost:active { transform: translateY(0); }
+    .btn-ghost:focus-visible { outline: 2px solid #06A5C5; outline-offset: 3px; }
+
+    .btn-nav {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: linear-gradient(135deg, #06A5C5 0%, #048FAB 100%);
+      color: #fff; font-family: 'Barlow', sans-serif; font-weight: 700;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
+      padding: 0.55rem 1.25rem; border-radius: 3px;
+      box-shadow: 0 2px 10px rgba(6,165,197,0.3);
+      transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease;
+    }
+    .btn-nav:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(6,165,197,0.4); }
+    .btn-nav:active { transform: translateY(0); }
+    .btn-nav:focus-visible { outline: 2px solid #06A5C5; outline-offset: 3px; }
+
+    /* ── Hero ── */
+    .hero-section {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg-image {
+      position: absolute; inset: 0;
+      background-image: url('/brand_assets/raising-the-flag-on-iwo-jima-february-23-1945-v0-3m5a5cuptakc1.webp');
+      background-size: cover; background-position: center 30%;
+      transform: scale(1.03);
+      transition: transform 8s ease;
+    }
+    .hero-bg-image.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(105deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.7) 50%, rgba(13,13,13,0.4) 100%),
+        radial-gradient(ellipse 70% 80% at 20% 50%, rgba(6,165,197,0.12) 0%, transparent 70%);
+    }
+    .hero-grain::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #06A5C5;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 2rem; height: 2px;
+      background: linear-gradient(90deg, #06A5C5, #048FAB); border-radius: 2px;
+    }
+
+    /* ── Stats bar ── */
+    .stat-item { position: relative; }
+    .stat-item + .stat-item::before {
+      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
+      width: 1px; background: rgba(255,255,255,0.1);
+    }
+
+    /* ── Product card ── */
+    .product-card {
+      background: #fff; border-radius: 8px; overflow: hidden;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease, border-color 0.22s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(6,165,197,0.12), 0 4px 12px rgba(0,0,0,0.08);
+      border-color: rgba(6,165,197,0.3);
+    }
+    .product-card:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; }
+    .product-img-wrap {
+      position: relative; background: linear-gradient(135deg, #f0f9fc 0%, #e8f5f9 100%);
+      overflow: hidden;
+    }
+    .product-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,165,197,0.06) 0%, transparent 60%);
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+    .product-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    /* ── Tier cards ── */
+    .tier-card {
+      position: relative; border-radius: 8px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease;
+      cursor: pointer;
+    }
+    .tier-card:hover {
+      transform: translateY(-4px);
+    }
+    .tier-card:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; }
+
+    /* ── Filter tabs ── */
+    .filter-tab {
+      font-family: 'Barlow', sans-serif; font-weight: 600;
+      font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: #6B7280; background: transparent; border: 1.5px solid #E2E8F0;
+      padding: 0.5rem 1.25rem; border-radius: 100px; cursor: pointer;
+      transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+    .filter-tab:hover { color: #06A5C5; border-color: rgba(6,165,197,0.4); }
+    .filter-tab.active {
+      color: #fff; background: linear-gradient(135deg, #06A5C5, #048FAB);
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(6,165,197,0.35);
+    }
+    .filter-tab:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; }
+
+    /* ── Add to cart btn ── */
+    .btn-add-cart {
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+      background: linear-gradient(135deg, #06A5C5 0%, #048FAB 100%);
+      color: #fff; font-family: 'Barlow', sans-serif; font-weight: 700;
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer; padding: 0.75rem;
+      border-radius: 0 0 7px 7px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-add-cart:hover { opacity: 0.9; }
+    .btn-add-cart:active { transform: scale(0.98); }
+    .btn-add-cart:focus-visible { outline: 2px solid #06A5C5; outline-offset: -2px; }
+
+    /* ── Testimonial card ── */
+    .testimonial-card {
+      background: #fff; border-radius: 10px; padding: 2rem;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C'; position: absolute; top: 1rem; left: 1.5rem;
+      font-family: Georgia, serif; font-size: 5rem; line-height: 1;
+      color: rgba(6,165,197,0.12); pointer-events: none;
+    }
+
+    /* ── Newsletter section ── */
+    .newsletter-section {
+      background:
+        radial-gradient(ellipse 60% 70% at 80% 50%, rgba(6,165,197,0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 10% 30%, rgba(4,143,171,0.08) 0%, transparent 60%),
+        linear-gradient(160deg, #0D0D0D 0%, #0a1a22 100%);
+      position: relative;
+    }
+
+    /* ── Framework section ── */
+    .framework-section {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(6,165,197,0.06) 0%, transparent 70%),
+        linear-gradient(180deg, #0D0D0D 0%, #0f1a1f 100%);
+    }
+
+    /* ── About section ── */
+    .about-img-wrap {
+      position: relative; border-radius: 10px; overflow: hidden;
+    }
+    .about-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,13,13,0.5) 0%, transparent 60%);
+    }
+    .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── Stars ── */
+    .stars { color: #F59E0B; letter-spacing: 0.05em; }
+
+    /* ── Footer ── */
+    .footer-bg {
+      background: #0D0D0D;
+      border-top: 1px solid rgba(6,165,197,0.15);
+    }
+    .footer-link {
+      color: rgba(255,255,255,0.5); font-size: 0.875rem; text-decoration: none;
+      transition: color 0.18s ease;
+      display: inline-block;
+    }
+    .footer-link:hover { color: #06A5C5; }
+    .footer-link:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; border-radius: 2px; }
+
+    /* ── Social icon ── */
+    .social-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .social-icon:hover { background: rgba(6,165,197,0.15); color: #06A5C5; border-color: rgba(6,165,197,0.4); transform: translateY(-2px); }
+    .social-icon:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; }
+
+    /* ── Email input ── */
+    .email-input {
+      flex: 1; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12);
+      color: #fff; font-family: 'Barlow', sans-serif; font-size: 0.9375rem;
+      padding: 0.875rem 1.25rem; border-radius: 4px 0 0 4px; outline: none;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+    .email-input::placeholder { color: rgba(255,255,255,0.35); }
+    .email-input:focus { border-color: rgba(6,165,197,0.6); background: rgba(6,165,197,0.05); }
+
+    /* ── Product filter logic ── */
+    .product-item { display: block; }
+    .product-item.hidden { display: none; }
+
+    /* ── Scroll fade-in ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Mobile menu ── */
+    #mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+      background: rgba(13,13,13,0.98); z-index: 99; padding: 2rem;
+      flex-direction: column; gap: 0.5rem;
+    }
+    #mobile-menu.open { display: flex; }
+    .mobile-nav-link {
+      color: rgba(255,255,255,0.8); font-size: 1.125rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+      padding: 0.875rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.18s ease;
+    }
+    .mobile-nav-link:hover { color: #06A5C5; }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════ -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+
+    <!-- Logo -->
+    <a href="/" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
+      <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;" />
+      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+
+    <!-- Desktop links -->
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
+      <a href="#products" class="nav-link">Shop</a>
+      <a href="#framework" class="nav-link">Framework</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#resources" class="nav-link">Resources</a>
+    </div>
+
+    <!-- Right actions -->
+    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
+      <!-- Cart icon -->
+      <button aria-label="View cart" style="position:relative;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.7);padding:0.4rem;border-radius:4px;transition:color 0.18s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'" onfocus="this.style.color='#fff'" onblur="this.style.color='rgba(255,255,255,0.7)'">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span style="position:absolute;top:-2px;right:-4px;background:#06A5C5;color:#fff;font-size:0.625rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;">0</span>
+      </button>
+      <a href="#quiz" class="btn-nav">Take the Quiz</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <a href="#products" class="mobile-nav-link" onclick="closeMobileMenu()">Shop</a>
+  <a href="#framework" class="mobile-nav-link" onclick="closeMobileMenu()">Framework</a>
+  <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
+  <a href="#resources" class="mobile-nav-link" onclick="closeMobileMenu()">Resources</a>
+  <div style="margin-top:1.5rem;">
+    <a href="#quiz" class="btn-primary" style="width:100%;justify-content:center;" onclick="closeMobileMenu()">Take the Quiz</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO — PILLAR SCROLL (replaces old hero)
+═══════════════════════════════════════════ -->
+<section id="hero-pillars" aria-label="Ascend Performance Nutrition — Our Pillars">
+  <div id="pillars-track" style="height:500vh;position:relative;">
+    <div id="pillars-stage" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#000;">
+
+      <!-- Backgrounds -->
+      <div style="position:absolute;inset:0;z-index:1;" aria-hidden="true">
+        <div class="pillar-bg" data-index="0" style="position:absolute;inset:0;opacity:1;">
+          <img src="/brand_assets/crusader.jpg" alt="" style="position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;object-position:center 20%;filter:brightness(0.45);" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,13,13,0.3) 0%,rgba(13,13,13,0.05) 40%,rgba(13,13,13,0.5) 100%);"></div>
+        </div>
+        <div class="pillar-bg" data-index="1" style="position:absolute;inset:0;opacity:0;">
+          <img src="/brand_assets/FAmily.jpg" alt="" style="position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;object-position:center 40%;filter:brightness(0.45);" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,13,13,0.3) 0%,rgba(13,13,13,0.05) 40%,rgba(13,13,13,0.5) 100%);"></div>
+        </div>
+        <div class="pillar-bg" data-index="2" style="position:absolute;inset:0;opacity:0;">
+          <img src="/brand_assets/raising-the-flag-on-iwo-jima-february-23-1945-v0-3m5a5cuptakc1.webp" alt="" style="position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;object-position:center 30%;filter:brightness(0.45);" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,13,13,0.3) 0%,rgba(13,13,13,0.05) 40%,rgba(13,13,13,0.5) 100%);"></div>
+        </div>
+        <div class="pillar-bg" data-index="3" style="position:absolute;inset:0;opacity:0;">
+          <img src="/brand_assets/fitness.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.45) grayscale(0.15);" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,13,13,0.3) 0%,rgba(6,165,197,0.05) 50%,rgba(13,13,13,0.55) 100%);"></div>
+        </div>
+      </div>
+
+      <!-- Grain -->
+      <div style="position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0.5;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
+
+      <!-- 3-col layout -->
+      <div style="position:absolute;inset:0;z-index:3;display:grid;grid-template-columns:280px 1fr 280px;height:100%;padding:0 3rem;">
+
+        <!-- LEFT column: all 4 core values, one highlighted per slide -->
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:2.25rem;padding-top:64px;">
+          <div class="p-left-item" data-idx="0">
+            <div class="p-item-label">Core Value 01</div>
+            <div class="p-item-title">GROUNDED<br/>IN PURPOSE</div>
+          </div>
+          <div class="p-left-item" data-idx="1">
+            <div class="p-item-label">Core Value 02</div>
+            <div class="p-item-title">BUILT FOR<br/>EVERY GEN</div>
+          </div>
+          <div class="p-left-item" data-idx="2">
+            <div class="p-item-label">Core Value 03</div>
+            <div class="p-item-title">MADE IN<br/>THE USA</div>
+          </div>
+          <div class="p-left-item" data-idx="3">
+            <div class="p-item-label">Core Value 04</div>
+            <div class="p-item-title">EQUIP<br/>EMPOWER<br/>ELEVATE</div>
+          </div>
+        </div>
+
+        <!-- CENTER: large word + teal bar + bottom CTA -->
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding-top:64px;">
+          <div style="position:relative;text-align:center;height:clamp(5rem,12vw,10rem);">
+            <span class="p-center-word" data-idx="0" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(0);opacity:1;">FAITH</span>
+            <span class="p-center-word" data-idx="1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(110%);opacity:0;">FAMILY</span>
+            <span class="p-center-word" data-idx="2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(110%);opacity:0;">AMERICA</span>
+            <span class="p-center-word" data-idx="3" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(110%);opacity:0;">FITNESS</span>
+          </div>
+          <!-- Teal accent bar under word -->
+          <div style="width:3rem;height:3px;background:linear-gradient(90deg,#06A5C5,#048FAB);border-radius:2px;margin-top:1.5rem;"></div>
+
+          <!-- Bottom CTA -->
+          <div style="position:absolute;bottom:3rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:1.25rem;">
+            <a href="#about" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+              LEARN MORE ABOUT US
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <!-- Progress -->
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <span id="pillar-current" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;color:rgba(255,255,255,0.5);">01</span>
+              <div style="width:120px;height:1.5px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;">
+                <div id="pillar-progress-fill" style="height:100%;width:0%;background:rgba(255,255,255,0.65);border-radius:2px;transition:width 0.45s ease;"></div>
+              </div>
+              <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;color:rgba(255,255,255,0.3);">04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT column: all 4 right values, one highlighted per slide -->
+        <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:2.25rem;padding-top:64px;text-align:right;">
+          <div class="p-right-item" data-idx="0">
+            <div class="p-item-label">Philippians 4:13</div>
+            <div class="p-item-title">I CAN DO<br/>ALL THINGS</div>
+          </div>
+          <div class="p-right-item" data-idx="1">
+            <div class="p-item-label">Stronger Together</div>
+            <div class="p-item-title">TRAIN<br/>AS ONE</div>
+          </div>
+          <div class="p-right-item" data-idx="2">
+            <div class="p-item-label">Proudly American</div>
+            <div class="p-item-title">HARD<br/>WORK</div>
+          </div>
+          <div class="p-right-item" data-idx="3">
+            <div class="p-item-label">Ascend Performance</div>
+            <div class="p-item-title">CLEAN<br/>CLINICALLY<br/>DOSED</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Center word */
+  .p-center-word {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(5rem, 12vw, 10rem);
+    letter-spacing: -0.04em;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+  }
+
+  /* Left/right items */
+  .p-left-item, .p-right-item {
+    opacity: 0.28;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+  }
+  .p-left-item.active, .p-right-item.active { opacity: 1; }
+
+  .p-item-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+  .p-left-item.active .p-item-label,
+  .p-right-item.active .p-item-label {
+    color: #06A5C5;
+  }
+
+  .p-item-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.15;
+  }
+  .p-left-item.active .p-item-title,
+  .p-right-item.active .p-item-title {
+    color: #fff;
+  }
+
+  /* Active indicator bullet */
+  .p-left-item { position: relative; padding-left: 0; transition: padding-left 0.3s ease, opacity 0.4s ease; }
+  .p-left-item.active { padding-left: 16px; }
+  .p-left-item.active::before {
+    content: '◆';
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    font-size: 0.45rem; color: #06A5C5; line-height: 1;
+  }
+
+  .p-right-item { position: relative; padding-right: 0; transition: padding-right 0.3s ease, opacity 0.4s ease; }
+  .p-right-item.active { padding-right: 16px; }
+  .p-right-item.active::after {
+    content: '◆';
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    font-size: 0.45rem; color: #06A5C5; line-height: 1;
+  }
+</style>
+
+
+
+<!-- ═══════════════════════════════════════════
+     FAITH DRIVEN PERFORMANCE — INTRO
+═══════════════════════════════════════════ -->
+<section id="mission" style="padding:5rem 0 4rem;background:#F8FAFB;" aria-label="Faith Driven Performance">
+  <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;text-align:center;">
+    <div class="section-label" style="justify-content:center;margin-bottom:1.25rem;">Faith Driven Performance</div>
+    <h2 style="font-family:Georgia,serif;font-size:clamp(2.25rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.03em;color:#0D0D0D;line-height:1.1;margin-bottom:1.25rem;">
+      Feel Your Faith<br/>Dominate Your Sport
+    </h2>
+    <p style="font-size:1.0625rem;line-height:1.8;color:#555;max-width:680px;margin:0 auto 2.5rem;">
+      Premium supplements for athletes who compete with purpose. Clean formulas, no compromises. Built by fighters, for warriors.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+      <a href="#about" class="btn-primary">Our Mission</a>
+      <a href="#framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;text-decoration:none;border:1.5px solid #0D0D0D;padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#0D0D0D';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#0D0D0D'">Ascend Framework</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TRUST BADGES
+═══════════════════════════════════════════ -->
+<section style="padding:3rem 0;background:#0D0D0D;border-top:1px solid rgba(6,165,197,0.15);border-bottom:1px solid rgba(6,165,197,0.15);" aria-label="Trust badges">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
+    <p style="text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem;">Trusted by athletes, coaches, and everyday warriors</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+
+      <!-- Badge 1 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.75rem 1.25rem;border:1px solid rgba(255,255,255,0.07);border-radius:8px;background:rgba(255,255,255,0.03);">
+        <div style="width:44px;height:44px;background:rgba(6,165,197,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.4rem;">Formulated by an MMA Fighter</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);line-height:1.5;">Built in the gym, tested in competition. Not in a boardroom.</div>
+      </div>
+
+      <!-- Badge 2 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.75rem 1.25rem;border:1px solid rgba(255,255,255,0.07);border-radius:8px;background:rgba(255,255,255,0.03);">
+        <div style="width:44px;height:44px;background:rgba(6,165,197,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.4rem;">Faith-Driven Mission</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);line-height:1.5;">We exist to strengthen people in purpose, performance, and faith.</div>
+      </div>
+
+      <!-- Badge 3 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.75rem 1.25rem;border:1px solid rgba(255,255,255,0.07);border-radius:8px;background:rgba(255,255,255,0.03);">
+        <div style="width:44px;height:44px;background:rgba(6,165,197,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.4rem;">No Artificial Dyes. No Gray Area Stimulants.</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);line-height:1.5;">Every ingredient disclosed. Nothing hidden. Nothing you can't pronounce.</div>
+      </div>
+
+      <!-- Badge 4 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.75rem 1.25rem;border:1px solid rgba(255,255,255,0.07);border-radius:8px;background:rgba(255,255,255,0.03);">
+        <div style="width:44px;height:44px;background:rgba(6,165,197,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;margin-bottom:0.4rem;">Performance-Focused Protocols</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);line-height:1.5;">Stacks designed around real athletic goals — not marketing trends.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WHY ATHLETES CHOOSE ASCEND
+═══════════════════════════════════════════ -->
+<section id="why-ascend" style="padding:6rem 0;background:#0D0D0D;position:relative;overflow:hidden;" aria-label="Why Athletes Choose Ascend">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(6,165,197,0.07) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;">
+
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label" style="justify-content:center;margin-bottom:1rem;">The Difference</div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#fff;line-height:1.1;">
+        Why Athletes Choose Ascend
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+      <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">Full Label Transparency</h3>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;">No proprietary blends. Every dose, every ingredient fully disclosed. You know exactly what you are putting in your body and why.</p>
+        </div>
+      </div>
+
+      <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">Built by Someone Who Competes</h3>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;">Formulated by an MMA fighter who trains twice a day. These stacks are not theoretical. They are built around real competition demands.</p>
+        </div>
+      </div>
+
+      <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">Rooted in Faith</h3>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;">We exist to strengthen people in purpose, performance, and faith. Your sport is a platform. We help you steward it well.</p>
+        </div>
+      </div>
+
+      <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">Clean. No Compromises.</h3>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;">No artificial dyes. No gray area stimulants. No banned substances. Every formula is clean, disclosed, and built for athletes who compete with conviction.</p>
+        </div>
+      </div>
+
+      <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">Performance-Protocol Driven</h3>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;">Every product fits into a system. We do not sell supplements. We sell outcomes. Use the quiz to find your exact protocol.</p>
+        </div>
+      </div>
+
+      <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#fff;margin-bottom:0.5rem;">Built for Every Athlete</h3>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;">From high school athletes to weekend warriors to pro competitors. If you train with purpose, Ascend was made for you.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAITH & PERFORMANCE STACK
+═══════════════════════════════════════════ -->
+<section id="stack" style="padding:6rem 0;background:#fff;" aria-label="The Faith and Performance Stack">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
+
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label" style="justify-content:center;margin-bottom:1rem;">The Stack</div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#0D0D0D;line-height:1.1;margin-bottom:1rem;">
+        The Faith &amp; Performance Stack
+      </h2>
+      <p style="font-size:1rem;color:#6B7280;max-width:520px;margin:0 auto;line-height:1.75;">
+        Your daily system for clean energy, hydration, and strength, all aligned with your values.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
+
+      <!-- Product 1: Resilience -->
+      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
+          <img src="/brand_assets/product1.png" alt="Resilience Whey Protein Isolate" style="height:220px;width:auto;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 24px rgba(6,165,197,0.2));" />
+          <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 1: Rebuild</div>
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.4rem;">Protein</div>
+          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0D0D0D;margin-bottom:0.25rem;">Resilience</h3>
+          <p style="font-size:0.875rem;color:#6B7280;margin-bottom:0.75rem;line-height:1.6;">Whey Protein Isolate — 25g clean protein per serving. No fillers, no fluff. Rebuild muscle with a formula you can trust.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$59.99</span>
+            <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
+          </div>
+          <button class="btn-add-cart" style="border-radius:6px;" aria-label="Add Resilience to cart">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 2: Replenish Plus -->
+      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
+          <img src="https://placehold.co/300x300/d0eef7/048FAB?text=Replenish+Plus" alt="Replenish Plus" style="height:200px;width:auto;object-fit:contain;position:relative;z-index:1;" />
+          <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 2: Hydrate</div>
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.4rem;">Hydration + Strength</div>
+          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0D0D0D;margin-bottom:0.25rem;">Replenish Plus</h3>
+          <p style="font-size:0.875rem;color:#6B7280;margin-bottom:0.75rem;line-height:1.6;">Electrolytes + Creatine — The ultimate two-in-one. Replenish what you lose, fuel the strength you're building. Every single day.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$44.99</span>
+            <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
+          </div>
+          <button class="btn-add-cart" style="border-radius:6px;" aria-label="Add Replenish Plus to cart">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 3: Fortify -->
+      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
+          <img src="https://placehold.co/300x300/d0eef7/048FAB?text=Fortify" alt="Fortify Colostrum" style="height:200px;width:auto;object-fit:contain;position:relative;z-index:1;" />
+          <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 3: Fortify</div>
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.4rem;">Recovery</div>
+          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0D0D0D;margin-bottom:0.25rem;">Fortify</h3>
+          <p style="font-size:0.875rem;color:#6B7280;margin-bottom:0.75rem;line-height:1.6;">Natural Colostrum — The recovery edge most athletes don't know about. Strengthen your gut, your immune system, and your comeback.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$39.99</span>
+            <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
+          </div>
+          <button class="btn-add-cart" style="border-radius:6px;" aria-label="Add Fortify to cart">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stack CTA -->
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="#" class="btn-primary" style="font-size:1rem;padding:1rem 2.75rem;">
+        Buy the Full Stack
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SHOP BY GOALS
+═══════════════════════════════════════════ -->
+<section id="goals" style="padding:6rem 0;background:#F8FAFB;" aria-label="Shop by Goals">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
+
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-label" style="justify-content:center;margin-bottom:1rem;">Find Your Stack</div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#0D0D0D;line-height:1.1;">
+        Shop by Goals
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;">
+
+      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+        <div style="height:140px;background:linear-gradient(135deg,#0D0D0D,#1a2a30);display:flex;align-items:center;justify-content:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5h11M6.5 17.5h11M12 2v20"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Build Muscle &amp; Strength</h3>
+          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Protein + Creatine protocols engineered for serious gains.</p>
+          <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
+        </div>
+      </a>
+
+      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+        <div style="height:140px;background:linear-gradient(135deg,#0a1a22,#0f2a35);display:flex;align-items:center;justify-content:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Hydration &amp; Recovery</h3>
+          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Replenish, restore, and come back stronger after every session.</p>
+          <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
+        </div>
+      </a>
+
+      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+        <div style="height:140px;background:linear-gradient(135deg,#0D0D0D,#1a1a0a);display:flex;align-items:center;justify-content:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Energy &amp; Focus</h3>
+          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Clean, sustained energy without the crash. Compete sharper, longer.</p>
+          <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
+        </div>
+      </a>
+
+      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+        <div style="height:140px;background:linear-gradient(135deg,#0a1a1a,#071515);display:flex;align-items:center;justify-content:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div style="padding:1.25rem;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Overall Wellness</h3>
+          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Long-game health support — gut, joints, immune, and longevity.</p>
+          <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PERFORMANCE QUIZ + FAQ
+═══════════════════════════════════════════ -->
+<section id="quiz" style="padding:6rem 0;position:relative;overflow:hidden;background:linear-gradient(160deg,#071012 0%,#0a1a22 60%,#071012 100%);" aria-label="Performance Quiz">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(6,165,197,0.1) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+
+    <!-- Quiz CTA -->
+    <div>
+      <div class="section-label" style="margin-bottom:1.25rem;">Free. Takes 2 Minutes.</div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#fff;line-height:1.1;margin-bottom:1.25rem;">
+        Take the Performance Quiz
+      </h2>
+      <p style="font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:1.75rem;">
+        Built from years of coaching experience, the Ascend Performance Quiz matches your answers to a personalized roadmap for where you need to go. Your performance tier, your supplement protocol, and the resources to back it all up, delivered straight to your inbox.
+      </p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2.5rem;">
+        <li style="display:flex;gap:0.75rem;align-items:flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:0.9375rem;color:rgba(255,255,255,0.7);">Pinpoint your performance tier from Rookie to Champion</span>
+        </li>
+        <li style="display:flex;gap:0.75rem;align-items:flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:0.9375rem;color:rgba(255,255,255,0.7);">Receive a personalized roadmap built around your goals and lifestyle</span>
+        </li>
+        <li style="display:flex;gap:0.75rem;align-items:flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:0.9375rem;color:rgba(255,255,255,0.7);">Unlock the Ascend Master Class and Performance Study Guide, delivered to your inbox</span>
+        </li>
+      </ul>
+      <a href="#" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">
+        Take the Free Quiz
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- FAQs -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:1.75rem;">About the Quiz</h3>
+      <div style="display:flex;flex-direction:column;gap:0;" id="faq-list">
+
+        <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+          <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;" aria-expanded="false">
+            <span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:0.9375rem;color:#fff;">What does the quiz actually tell me?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;transition:transform 0.25s ease;" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body" style="height:0;overflow:hidden;transition:height 0.3s ease;">
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.75;padding-bottom:1.25rem;">The quiz was built from extensive coaching knowledge and maps your answers directly to a personalized roadmap. It gauges where you are in your performance journey, identifies what you need to get to the next level, and delivers a clear plan. No generic advice. No guesswork. Just a protocol built around your answers.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+          <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;" aria-expanded="false">
+            <span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:0.9375rem;color:#fff;">Is the recommendation generic or actually personalized?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;transition:transform 0.25s ease;" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body" style="height:0;overflow:hidden;transition:height 0.3s ease;">
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.75;padding-bottom:1.25rem;">Genuinely personalized. The Ascend Framework has five tiers built around real athletic demands. Your quiz results place you in a specific tier and surface the exact products that align with your goals, not a one-size-fits-all bundle. A weekend warrior has different needs than a competitive fighter, and the quiz accounts for that.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+          <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;" aria-expanded="false">
+            <span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:0.9375rem;color:#fff;">What do you guarantee when I follow the protocol?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;transition:transform 0.25s ease;" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body" style="height:0;overflow:hidden;transition:height 0.3s ease;">
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.75;padding-bottom:1.25rem;">We guarantee a personalized roadmap that tells you exactly where you are and what you need to do to get where you want to go. You will also receive the Ascend Master Class and Performance Study Guide, two resources built from real coaching experience, sent directly to your inbox after you complete the quiz.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border-bottom:1px solid rgba(255,255,255,0.07);">
+          <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;" aria-expanded="false">
+            <span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:0.9375rem;color:#fff;">I am not a competitive athlete. Will the quiz still work for me?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;transition:transform 0.25s ease;" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body" style="height:0;overflow:hidden;transition:height 0.3s ease;">
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.75;padding-bottom:1.25rem;">Absolutely. The Rookie tier exists for exactly that reason. If you are a parent who trains, a high school athlete just getting started, or someone who simply wants more energy and discipline in their daily life, the quiz will meet you there. Everyone starts somewhere. The framework is built for every tier.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;" aria-expanded="false">
+            <span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:0.9375rem;color:#fff;">What do I get at the end and how does it get to me?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;transition:transform 0.25s ease;" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body" style="height:0;overflow:hidden;transition:height 0.3s ease;">
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.75;padding-bottom:1.25rem;">After completing the quiz, you will enter your email to receive your results. We then send your personalized roadmap, your recommended product protocol, the Ascend Master Class, and the Performance Study Guide all in one place. Eight questions, under two minutes, and everything you need to get started waiting in your inbox.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-btn:focus-visible { outline: 2px solid #06A5C5; outline-offset: 4px; border-radius: 4px; }
+  .faq-icon.open { transform: rotate(180deg); }
+</style>
+<script>
+  function toggleFaq(btn) {
+    const body = btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    // close all
+    document.querySelectorAll('.faq-btn').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.style.height = '0';
+      b.querySelector('.faq-icon').classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      body.style.height = body.scrollHeight + 'px';
+      icon.classList.add('open');
+    }
+  }
+</script>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer-bg" aria-label="Site footer">
+  <div style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+
+    <!-- Brand col -->
+    <div>
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;text-decoration:none;">
+        <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend Performance Nutrition" style="height:36px;width:auto;" />
+        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.8);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+        </div>
+      </div>
+      <p style="font-size:0.875rem;line-height:1.75;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;max-width:280px;">
+        Clean-label supplements built for athletes who refuse to settle. Equip. Empower. Elevate.
+      </p>
+      <!-- Social icons -->
+      <div style="display:flex;gap:0.5rem;">
+        <a href="#" class="social-icon" aria-label="Instagram" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Facebook" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="TikTok" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="YouTube" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Products col -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="#" class="footer-link">Resilience Whey Protein</a></li>
+        <li><a href="#" class="footer-link">Replenish Hydration</a></li>
+        <li><a href="#" class="footer-link">Recharge Creatine</a></li>
+        <li><a href="#" class="footer-link">Ignite Energy</a></li>
+        <li><a href="#" class="footer-link">Fortify Colostrum</a></li>
+        <li><a href="#" class="footer-link">View All Products →</a></li>
+      </ul>
+    </div>
+
+    <!-- Company col -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="#about" class="footer-link">About Us</a></li>
+        <li><a href="#framework" class="footer-link">The Ascend Framework</a></li>
+        <li><a href="#" class="footer-link">Resources / Blog</a></li>
+        <li><a href="#" class="footer-link">Athlete Profiles</a></li>
+        <li><a href="#" class="footer-link">Careers</a></li>
+      </ul>
+    </div>
+
+    <!-- Support col -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="#" class="footer-link">Performance Quiz</a></li>
+        <li><a href="#" class="footer-link">Macro Calculator</a></li>
+        <li><a href="#" class="footer-link">Shipping Policy</a></li>
+        <li><a href="#" class="footer-link">Returns & Refunds</a></li>
+        <li><a href="#" class="footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">© 2026 Ascend Performance Nutrition. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     RESPONSIVE + JS
+═══════════════════════════════════════════ -->
+<style>
+  @media (max-width: 900px) {
+    .hidden-mobile { display: none !important; }
+    .show-mobile { display: flex !important; }
+    #hero-content-grid { grid-template-columns: 1fr !important; }
+    #about-grid { grid-template-columns: 1fr !important; }
+    #footer-grid { grid-template-columns: 1fr 1fr !important; }
+    .hero-right { display: none; }
+  }
+  @media (max-width: 600px) {
+    #footer-grid { grid-template-columns: 1fr !important; }
+    #stats-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Pillars Scroll FX ──
+  (function() {
+    const TOTAL = 4;
+    let current = 0;
+    let isAnimating = false;
+
+    const bgs       = document.querySelectorAll('.pillar-bg');
+    const words     = document.querySelectorAll('.p-center-word');
+    const leftItems = document.querySelectorAll('.p-left-item');
+    const rightItems= document.querySelectorAll('.p-right-item');
+    const fillEl    = document.getElementById('pillar-progress-fill');
+    const currEl    = document.getElementById('pillar-current');
+
+    function goTo(to) {
+      if (to === current || isAnimating) return;
+      const from = current;
+      const down = to > from;
+      isAnimating = true;
+      const D = 0.6;
+
+      // backgrounds
+      gsap.set(bgs[to], { opacity: 0, yPercent: down ? 5 : -5 });
+      gsap.to(bgs[to],  { opacity: 1, yPercent: 0, duration: D, ease: 'power2.out' });
+      gsap.to(bgs[from],{ opacity: 0, yPercent: down ? -5 : 5, duration: D, ease: 'power2.out' });
+
+      // center word slide
+      gsap.to(words[from], { y: down ? '-110%' : '110%', opacity: 0, duration: D * 0.5, ease: 'power3.in' });
+      gsap.set(words[to],  { y: down ? '110%' : '-110%', opacity: 0 });
+      gsap.to(words[to],   { y: '0%', opacity: 1, duration: D, delay: 0.08, ease: 'power3.out' });
+
+      // side items — highlight active
+      [...leftItems, ...rightItems].forEach(el => {
+        const idx = parseInt(el.dataset.idx);
+        el.classList.toggle('active', idx === to);
+      });
+
+      // progress
+      if (fillEl) fillEl.style.width = ((to / (TOTAL - 1)) * 100) + '%';
+      if (currEl) currEl.textContent = String(to + 1).padStart(2, '0');
+
+      current = to;
+      setTimeout(() => { isAnimating = false; }, D * 1000 + 120);
+    }
+
+    window.pillarGoTo = goTo;
+
+    // Initial: set bgs[1-3] hidden, activate idx 0
+    gsap.set(Array.from(bgs).slice(1), { opacity: 0 });
+    leftItems[0].classList.add('active');
+    rightItems[0].classList.add('active');
+
+    // Pin + scroll drive
+    ScrollTrigger.create({
+      trigger: '#pillars-track',
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: '#pillars-stage',
+      pinSpacing: true,
+      onUpdate(self) {
+        if (isAnimating) return;
+        const target = Math.min(TOTAL - 1, Math.floor(self.progress * TOTAL));
+        if (target !== current) goTo(target);
+      }
+    });
+  })();
+
+  // ── Nav scroll effect — transparent over hero, dark after ──
+  const nav = document.getElementById('main-nav');
+  const heroHeight = () => window.innerHeight * 4.8; // ~end of pillar track
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > heroHeight());
+  }, { passive: true });
+
+  // ── Hero image load ──
+  const heroBg = document.getElementById('hero-bg');
+  const img = new Image();
+  img.onload = () => heroBg.classList.add('loaded');
+  img.src = '/brand_assets/raising-the-flag-on-iwo-jima-february-23-1945-v0-3m5a5cuptakc1.webp';
+
+  // ── Product filter ──
+  function filterProducts(filter) {
+    const items = document.querySelectorAll('.product-item');
+    const tabs = document.querySelectorAll('.filter-tab');
+
+    tabs.forEach(t => {
+      t.classList.toggle('active', t.dataset.filter === filter);
+      t.setAttribute('aria-pressed', t.dataset.filter === filter ? 'true' : 'false');
+    });
+
+    items.forEach(item => {
+      const match = filter === 'all' || item.dataset.category === filter;
+      item.classList.toggle('hidden', !match);
+    });
+  }
+
+  // ── Scroll fade-in ──
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── Mobile menu ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  // ── Newsletter submit ──
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('email-input');
+    const btn = e.target.querySelector('button[type="submit"]');
+    if (!input.value || !input.value.includes('@')) {
+      input.style.borderColor = '#EF4444';
+      return;
+    }
+    btn.textContent = 'You\'re In!';
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    input.value = '';
+    input.placeholder = 'Welcome to the Locker Room!';
+    input.disabled = true;
+    btn.disabled = true;
+  }
+</script>
+
+<!-- ═══════════════════════════════════════════
+     CONVERSION EVENT TRACKING
+═══════════════════════════════════════════ -->
+<script>
+  // ── Google Ads conversion helpers ──
+  function gtagConversion(sendTo, extras) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', Object.assign({ send_to: sendTo }, extras || {}));
+  }
+
+  // ── Meta + TikTok helpers ──
+  function trackAddToCart(productName, value) {
+    if (typeof fbq === 'function') fbq('track', 'AddToCart', { content_name: productName, value: value, currency: 'USD' });
+    if (typeof ttq !== 'undefined') ttq.track('AddToCart', { content_name: productName, value: value, currency: 'USD' });
+    gtagConversion('AW-17918778091/cRQ-CK-A5YUcEOu1q-BC');
+  }
+
+  function trackViewProduct(productName, value) {
+    if (typeof fbq === 'function') fbq('track', 'ViewContent', { content_name: productName, value: value, currency: 'USD' });
+    if (typeof ttq !== 'undefined') ttq.track('ViewContent', { content_name: productName });
+    gtagConversion('AW-17918778091/fzStCJya2oUcEOu1q-BC');
+  }
+
+  function trackQuizStarted() {
+    if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'Quiz Started' });
+    if (typeof ttq !== 'undefined') ttq.track('InitiateCheckout', { content_name: 'Quiz Started' });
+    gtagConversion('AW-17918778091/ry7KCNqz0YUcEOu1q-BC');
+  }
+
+  function trackQuizCompleted(email) {
+    if (typeof fbq === 'function') fbq('track', 'CompleteRegistration', { content_name: 'Quiz Completed' });
+    if (typeof ttq !== 'undefined') {
+      if (email) ttq.identify({ email: email });
+      ttq.track('CompleteRegistration', { content_name: 'Quiz Completed' });
+    }
+    gtagConversion('AW-17918778091/ZJsJCOKh2oUcEOu1q-BC');
+  }
+
+  function trackPurchase(value, transactionId) {
+    if (typeof fbq === 'function') fbq('track', 'Purchase', { value: value, currency: 'USD' });
+    if (typeof ttq !== 'undefined') ttq.track('PlaceAnOrder', { value: value, currency: 'USD' });
+    gtagConversion('AW-17918778091/95JhCKr75IUcEOu1q-BC', { value: value, currency: 'USD', transaction_id: transactionId || '' });
+  }
+
+  // ── Wire Add to Cart buttons ──
+  document.querySelectorAll('.btn-add-cart').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var label = btn.getAttribute('aria-label') || 'Product';
+      trackAddToCart(label, 0);
+    });
+  });
+
+  // ── Wire Quiz CTA buttons ──
+  document.querySelectorAll('a[href="#quiz"], a[href="#"]:not(.footer-link)').forEach(function(el) {
+    if (el.textContent.trim().toLowerCase().includes('quiz')) {
+      el.addEventListener('click', function() { trackQuizStarted(); });
+    }
+  });
+</script>
+
+</body>
+</html>

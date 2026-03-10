@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Locker Room: Weekly Intel from APN</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', system-ui, sans-serif;
+      background: #0D0D0D;
+      color: #F8FAFB;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Grain overlay ── */
+    .grain::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999;
+    }
+
+    /* ── Background mesh ── */
+    .page-bg {
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -10%, rgba(6,165,197,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 90% 60%, rgba(4,143,171,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 0% 100%, rgba(6,165,197,0.08) 0%, transparent 60%),
+        linear-gradient(175deg, #0c1c24 0%, #0D0D0D 40%, #080d10 100%);
+      min-height: 100vh;
+    }
+
+    /* ── Logo wordmark ── */
+    .wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #06A5C5;
+    }
+
+    /* ── Hero headline ── */
+    .hero-headline {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+    }
+
+    /* ── Teal rule ── */
+    .teal-rule {
+      width: 2.5rem; height: 3px;
+      background: linear-gradient(90deg, #06A5C5, #048FAB);
+      border-radius: 2px;
+    }
+
+    /* ── Email input ── */
+    .email-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(6,165,197,0.3);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 1rem;
+      color: #F8FAFB;
+      outline: none;
+      transition: border-color 0.2s cubic-bezier(0.4,0,0.2,1), background 0.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .email-input::placeholder { color: rgba(248,250,251,0.35); }
+    .email-input:focus {
+      border-color: #06A5C5;
+      background: rgba(6,165,197,0.07);
+    }
+
+    /* ── CTA button ── */
+    .btn-subscribe {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: linear-gradient(135deg, #06A5C5 0%, #048FAB 100%);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      border: none; border-radius: 6px; cursor: pointer;
+      width: 100%;
+      box-shadow:
+        0 4px 20px rgba(6,165,197,0.35),
+        0 1px 4px rgba(0,0,0,0.4);
+      transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s cubic-bezier(0.4,0,0.2,1), opacity 0.15s;
+    }
+    .btn-subscribe:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(6,165,197,0.45), 0 2px 6px rgba(0,0,0,0.4);
+    }
+    .btn-subscribe:active { transform: translateY(0); }
+    .btn-subscribe:focus-visible { outline: 2px solid #06A5C5; outline-offset: 3px; }
+
+    /* ── Benefit item ── */
+    .benefit-item {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      padding: 1.125rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .benefit-item:last-child { border-bottom: none; }
+
+    .benefit-icon {
+      flex-shrink: 0;
+      width: 2rem; height: 2rem;
+      background: rgba(6,165,197,0.12);
+      border: 1px solid rgba(6,165,197,0.25);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .benefit-icon svg { width: 0.9rem; height: 0.9rem; color: #06A5C5; }
+
+    /* ── Social proof pill ── */
+    .proof-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(6,165,197,0.08);
+      border: 1px solid rgba(6,165,197,0.2);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(248,250,251,0.7);
+    }
+    .proof-dot {
+      width: 6px; height: 6px;
+      background: #06A5C5;
+      border-radius: 50%;
+      animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── Issue preview card ── */
+    .issue-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .issue-card:hover {
+      border-color: rgba(6,165,197,0.3);
+      transform: translateY(-3px);
+    }
+    .issue-card-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #06A5C5;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(6,165,197,0.25) 30%, rgba(6,165,197,0.25) 70%, transparent);
+    }
+
+    /* ── Fade-in animation ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.35s; }
+    .delay-4 { animation-delay: 0.5s; }
+    .delay-5 { animation-delay: 0.65s; }
+
+    /* ── Success state ── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(6,165,197,0.08);
+      border: 1px solid rgba(6,165,197,0.25);
+      border-radius: 10px;
+    }
+    .success-state.visible { display: block; }
+    .form-wrap.submitted { display: none; }
+  </style>
+</head>
+
+<body class="grain">
+  <div class="page-bg">
+
+    <!-- ── Top Bar ── -->
+    <header style="padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.06);">
+      <a href="/" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+        <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="APN Logo" style="height: 36px; width: auto;" />
+        <div class="wordmark" style="color: #F8FAFB; font-size: 0.85rem; line-height: 1.1;">
+          <div style="color: #06A5C5;">PERFORMANCE</div>
+          <div>NUTRITION</div>
+        </div>
+      </a>
+    </header>
+
+    <!-- ── Main ── -->
+    <main style="max-width: 600px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem;">
+
+      <!-- Label -->
+      <div class="fade-up" style="margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+        <div class="proof-pill">
+          <div class="proof-dot"></div>
+          <span>Every Sunday · Free · Unsubscribe anytime</span>
+        </div>
+      </div>
+
+      <!-- Headline -->
+      <div class="fade-up delay-1">
+        <p class="section-label" style="margin-bottom: 0.875rem;">The Locker Room</p>
+        <h1 class="hero-headline" style="font-size: clamp(2.6rem, 8vw, 4rem); color: #F8FAFB; margin-bottom: 1.25rem;">
+          Weekly Intel<br/>
+          <span style="color: #06A5C5;">for Athletes</span><br/>
+          Who Don't Quit.
+        </h1>
+        <div class="teal-rule" style="margin-bottom: 1.5rem;"></div>
+        <p style="font-size: 1.125rem; line-height: 1.75; color: rgba(248,250,251,0.65); max-width: 520px;">
+          Every week, Sutton Huggins drops into your inbox with the no-fluff performance brief: training science, nutrition stacks, gear picks, and mindset from the field.
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider fade-up delay-2" style="margin: 2.5rem 0;"></div>
+
+      <!-- What's Inside -->
+      <div class="fade-up delay-2" style="margin-bottom: 2.5rem;">
+        <p class="section-label" style="margin-bottom: 1.25rem;">What's inside every issue</p>
+        <div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9375rem; color: #F8FAFB; margin-bottom: 0.25rem;">The Weekly Stack</div>
+              <div style="font-size: 0.875rem; color: rgba(248,250,251,0.5); line-height: 1.6;">One supplement protocol, broken down: what it is, why it works, and how to use it right.</div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9375rem; color: #F8FAFB; margin-bottom: 0.25rem;">Training Intel</div>
+              <div style="font-size: 0.875rem; color: rgba(248,250,251,0.5); line-height: 1.6;">Evidence-backed training tips and programming notes, direct from athletes and coaches in the field.</div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9375rem; color: #F8FAFB; margin-bottom: 0.25rem;">Mindset & Mission</div>
+              <div style="font-size: 0.875rem; color: rgba(248,250,251,0.5); line-height: 1.6;">A short field note from Sutton on the mental edge that separates the committed from the casual.</div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9375rem; color: #F8FAFB; margin-bottom: 0.25rem;">Subscriber Perks</div>
+              <div style="font-size: 0.875rem; color: rgba(248,250,251,0.5); line-height: 1.6;">Early access to new products, exclusive drops, and discounts that never hit the main site.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider fade-up delay-3" style="margin-bottom: 2.5rem;"></div>
+
+      <!-- Form -->
+      <div class="fade-up delay-3">
+        <p class="section-label" style="margin-bottom: 1rem;">Join the Locker Room</p>
+
+        <div class="form-wrap" id="formWrap">
+          <form id="subscribeForm" style="display: flex; flex-direction: column; gap: 0.875rem;" onsubmit="handleSubmit(event)">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <label for="firstName" style="font-size: 0.8125rem; font-weight: 600; color: rgba(248,250,251,0.5); letter-spacing: 0.04em; text-transform: uppercase;">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="John"
+                class="email-input"
+                required
+              />
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <label for="email" style="font-size: 0.8125rem; font-weight: 600; color: rgba(248,250,251,0.5); letter-spacing: 0.04em; text-transform: uppercase;">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                class="email-input"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-subscribe" style="margin-top: 0.25rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Lock In My Spot
+            </button>
+          </form>
+          <p id="formError" style="display:none; text-align:center; font-size:0.8rem; color:#f87171; margin-top:0.75rem;">Something went wrong. Please try again or email us directly.</p>
+          <p style="text-align: center; font-size: 0.8rem; color: rgba(248,250,251,0.3); margin-top: 1rem; line-height: 1.6;">
+            No spam. No selling your info. Just Sunday morning signal.<br/>Unsubscribe with one click, anytime.
+          </p>
+        </div>
+
+        <!-- Success state -->
+        <div class="success-state" id="successState">
+          <div style="margin-bottom: 1rem;">
+            <div style="width: 3rem; height: 3rem; background: rgba(6,165,197,0.15); border: 1.5px solid rgba(6,165,197,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="section-label" style="margin-bottom: 0.5rem;">You're in.</p>
+            <p style="font-family: Georgia, serif; font-size: 1.5rem; font-weight: 700; color: #F8FAFB; letter-spacing: -0.02em; margin-bottom: 0.75rem;">Welcome to The Locker Room.</p>
+            <p style="font-size: 0.9375rem; color: rgba(248,250,251,0.55); line-height: 1.7;">Check your inbox to confirm your spot. First issue drops this Sunday. Don't miss it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider fade-up delay-4" style="margin: 3rem 0 2.5rem;"></div>
+
+      <!-- Past Issues Preview -->
+      <div class="fade-up delay-4">
+        <p class="section-label" style="margin-bottom: 1.25rem;">Recent Issues</p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+
+          <div class="issue-card" style="padding: 1.125rem 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+              <div>
+                <p class="issue-card-tag" style="margin-bottom: 0.4rem;">Performance · March 2</p>
+                <p style="font-weight: 700; font-size: 0.9375rem; color: #F8FAFB; line-height: 1.4;">Creatine Loading vs. Maintenance: What the Data Actually Shows</p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(248,250,251,0.2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="issue-card" style="padding: 1.125rem 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+              <div>
+                <p class="issue-card-tag" style="margin-bottom: 0.4rem;">Mindset · Feb 23</p>
+                <p style="font-weight: 700; font-size: 0.9375rem; color: #F8FAFB; line-height: 1.4;">The 2% Rule: How Iwo Jima's Assault Teams Trained for the Impossible</p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(248,250,251,0.2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="issue-card" style="padding: 1.125rem 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+              <div>
+                <p class="issue-card-tag" style="margin-bottom: 0.4rem;">Hydration · Feb 16</p>
+                <p style="font-weight: 700; font-size: 0.9375rem; color: #F8FAFB; line-height: 1.4;">Electrolytes in the Morning: Why Timing Your Salt Actually Matters</p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(248,250,251,0.2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Founder note -->
+      <div class="fade-up delay-5" style="margin-top: 3.5rem; padding: 1.75rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-left: 3px solid #06A5C5; border-radius: 8px;">
+        <p style="font-family: Georgia, serif; font-size: 1.0625rem; font-style: italic; color: rgba(248,250,251,0.75); line-height: 1.75; margin-bottom: 1rem;">
+          "I started The Locker Room because the information athletes need is scattered everywhere. Most of it is watered down. This is the brief I wish I had when I was grinding."
+        </p>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="width: 2.25rem; height: 2.25rem; background: rgba(6,165,197,0.15); border: 1.5px solid rgba(6,165,197,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; color: #06A5C5; font-size: 0.875rem;">SH</div>
+          <div>
+            <div style="font-weight: 700; font-size: 0.875rem; color: #F8FAFB;">Sutton Huggins</div>
+            <div style="font-size: 0.75rem; color: rgba(248,250,251,0.4); letter-spacing: 0.06em;">Founder, Ascend Performance Nutrition</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer style="border-top: 1px solid rgba(255,255,255,0.06); padding: 1.75rem 1.5rem; text-align: center;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0.625rem; margin-bottom: 0.875rem;">
+        <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="APN" style="height: 28px; width: auto; opacity: 0.7;" />
+        <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; color: rgba(248,250,251,0.35); text-transform: uppercase;">Ascend Performance Nutrition</span>
+      </div>
+      <p style="font-size: 0.775rem; color: rgba(248,250,251,0.25); line-height: 1.7;">
+        &copy; 2026 Ascend Performance Nutrition · All rights reserved<br/>
+        <a href="/" style="color: rgba(6,165,197,0.6); text-decoration: none;">ascendperformancenutrition.com</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    async function handleSubmit(e) {
+      e.preventDefault();
+
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalHTML = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 0.8s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Locking in...';
+      btn.style.opacity = '0.75';
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      try {
+        const res = await fetch(
+          'https://a.klaviyo.com/client/subscriptions/?company_id=pk_8bea53b70a84a78c55c860e97d35a9c2af',
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+              'revision': '2023-12-15'
+            },
+            body: JSON.stringify({
+              data: {
+                type: 'subscription',
+                attributes: {
+                  custom_source: 'Newsletter Landing Page',
+                  profile: {
+                    data: {
+                      type: 'profile',
+                      attributes: { email, first_name: firstName }
+                    }
+                  }
+                },
+                relationships: {
+                  list: { data: { type: 'list', id: 'RSeqfi' } }
+                }
+              }
+            })
+          }
+        );
+
+        if (res.ok || res.status === 202) {
+          document.getElementById('formWrap').classList.add('submitted');
+          document.getElementById('successState').classList.add('visible');
+        } else {
+          throw new Error('Status ' + res.status);
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+        btn.style.opacity = '1';
+        document.getElementById('formError').style.display = 'block';
+      }
+    }
+  </script>
+  <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+</body>
+</html>

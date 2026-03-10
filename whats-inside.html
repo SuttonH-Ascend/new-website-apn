@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascend Replenish+ — What's Inside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: #000; color: #fff; font-family: "Barlow", system-ui, sans-serif; overflow-x: hidden; }
+
+    /* ── Scroll driver ── */
+    #wi-wrap { position: relative; height: 500vh; }
+
+    /* ── Pinned stage ── */
+    #wi-pin {
+      position: relative;
+      width: 100%; height: 100vh;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Subtle dot-grid texture ── */
+    #wi-pin::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── Teal glow ── */
+    #wi-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 900px; height: 900px;
+      margin: -450px 0 0 -450px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center,
+        rgba(185,235,40,0.10) 0%,
+        rgba(6,165,197,0.08) 38%,
+        transparent 65%);
+      pointer-events: none; z-index: 1;
+      will-change: transform;
+    }
+
+    /* ── Product (flex child — naturally centered) ── */
+    #wi-product-wrap {
+      position: relative;
+      z-index: 5;
+      will-change: transform;
+      flex-shrink: 0;
+    }
+    #wi-product-img {
+      display: block;
+      width: min(78vh, 680px);
+      height: auto;
+      /* black bg on image blends with page — no halo needed */
+      filter: drop-shadow(0 0 60px rgba(180,230,40,0.18))
+              drop-shadow(0 0 30px rgba(6,165,197,0.15));
+    }
+/* ── Canvas ── */
+    #wi-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 8; pointer-events: none; }
+
+    /* ════════════════════════════════
+       RIGHT CONTENT PANEL
+    ════════════════════════════════ */
+    #wi-content {
+      position: absolute;
+      top: 0; right: 0;
+      width: 50%;
+      height: 100%;
+      opacity: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 4rem 3rem 6rem;
+      /* Diagonal left edge */
+      clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+      background: linear-gradient(135deg, #1a2840 0%, #111e30 100%);
+      border-left: 2px solid rgba(6,165,197,0.7);
+      box-shadow: -12px 0 48px rgba(6,165,197,0.08);
+    }
+
+    /* Thin teal vertical accent line on content edge */
+    #wi-content::before {
+      content: '';
+      position: absolute;
+      left: 7.5%;
+      top: 15%; bottom: 15%;
+      width: 1.5px;
+      background: linear-gradient(to bottom, transparent, #06A5C5 30%, #06A5C5 70%, transparent);
+      opacity: 0.5;
+    }
+
+    /* ── Eyebrow + heading ── */
+    .wi-eyebrow {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: #06A5C5; margin-bottom: 0.35rem; display: flex;
+      align-items: center; gap: 0.75rem;
+    }
+    .wi-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 1px;
+      background: #06A5C5;
+      flex-shrink: 0;
+    }
+
+    .wi-heading {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2.8rem, 4.2vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 0.92;
+      margin-bottom: 0.2rem;
+    }
+    .wi-heading-accent {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.18);
+    }
+
+    .wi-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, rgba(6,165,197,0.6), rgba(255,255,255,0.06), transparent);
+      margin: 1.4rem 0;
+    }
+
+    /* ── Ingredient blocks ── */
+    .wi-ingredients { display: flex; flex-direction: column; gap: 0; margin-bottom: 1.6rem; }
+
+    .wi-ing {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.055);
+      opacity: 0;
+      gap: 1rem;
+    }
+
+    .wi-ing-name {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 0.2rem; display: block;
+    }
+
+    .wi-ing-bar-wrap {
+      position: relative;
+      height: 2px;
+      background: rgba(255,255,255,0.07);
+      margin: 0.45rem 0 0.4rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .wi-ing-bar-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0; /* animated by GSAP */
+      background: linear-gradient(to right, #06A5C5, #04c8ef);
+      box-shadow: 0 0 8px rgba(6,165,197,0.7);
+      border-radius: 2px;
+      transition: width 0s; /* GSAP handles */
+    }
+
+    .wi-ing-desc {
+      font-size: 0.72rem; color: rgba(255,255,255,0.3);
+      line-height: 1.45;
+    }
+
+    /* Amount — right column */
+    .wi-ing-amount {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-top: 0.1rem;
+    }
+    .wi-ing-num {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 1;
+    }
+    .wi-ing-unit {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #06A5C5;
+      margin-top: 0.15rem;
+    }
+
+    /* ── Pill badges ── */
+    .wi-pills {
+      display: flex; flex-wrap: wrap;
+      gap: 0.5rem;
+      opacity: 0;
+    }
+    .wi-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.28rem 0.65rem;
+      border: 1px solid rgba(6,165,197,0.22);
+      border-radius: 2px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 0.55rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      background: rgba(6,165,197,0.04);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .wi-pill:hover { border-color: #06A5C5; color: #06A5C5; background: rgba(6,165,197,0.1); }
+    .wi-pill::before { content: '✓'; color: #06A5C5; font-size: 0.65rem; }
+
+    /* ── Corner crosshairs ── */
+    .wi-corner {
+      position: absolute; width: 16px; height: 16px;
+      z-index: 15; pointer-events: none;
+    }
+    .wi-corner--tl { top: 1.5rem; left: 1.5rem; border-top: 1.5px solid rgba(6,165,197,0.4); border-left: 1.5px solid rgba(6,165,197,0.4); }
+    .wi-corner--tr { top: 1.5rem; right: 1.5rem; border-top: 1.5px solid rgba(6,165,197,0.4); border-right: 1.5px solid rgba(6,165,197,0.4); }
+    .wi-corner--bl { bottom: 1.5rem; left: 1.5rem; border-bottom: 1.5px solid rgba(6,165,197,0.4); border-left: 1.5px solid rgba(6,165,197,0.4); }
+    .wi-corner--br { bottom: 1.5rem; right: 1.5rem; border-bottom: 1.5px solid rgba(6,165,197,0.4); border-right: 1.5px solid rgba(6,165,197,0.4); }
+
+    /* ── Scroll hint ── */
+    #wi-hint {
+      position: absolute; bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
+      z-index: 20; pointer-events: none; transition: opacity 0.5s;
+    }
+    #wi-hint span {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+    }
+    #wi-hint-line {
+      width: 1px; height: 38px;
+      background: linear-gradient(to bottom, rgba(6,165,197,0.9), transparent);
+      animation: pulse 1.7s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:.2;transform:scaleY(.9)} 50%{opacity:1;transform:scaleY(1.1)} }
+
+    /* ── Mobile ── */
+    @media (max-width: 900px) {
+      #wi-content {
+        top: auto; bottom: 0; right: 0; left: 0;
+        width: 100%; height: 55%;
+        padding: 2rem 1.5rem 2rem 2.5rem;
+        clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0% 100%);
+      }
+      #wi-content::before { display: none; }
+      .wi-heading { font-size: 2.2rem; }
+      #wi-product-img { width: min(42vh, 280px); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="wi-wrap">
+  <div id="wi-pin">
+
+    <!-- Crosshairs -->
+    <div class="wi-corner wi-corner--tl"></div>
+    <div class="wi-corner wi-corner--tr"></div>
+    <div class="wi-corner wi-corner--bl"></div>
+    <div class="wi-corner wi-corner--br"></div>
+
+    <div id="wi-glow"></div>
+
+    <!-- Product — in flex flow for natural centering -->
+    <div id="wi-product-wrap">
+      <img id="wi-product-img" src="/brand_assets/lemon%20spalsh.jpeg" alt="Ascend Replenish+ Lemon Lime">
+    </div>
+
+    <canvas id="wi-canvas"></canvas>
+
+    <!-- Right panel -->
+    <div id="wi-content">
+      <span class="wi-eyebrow">Replenish+ · Electrolyte Formula</span>
+
+      <h2 class="wi-heading">
+        What's<br>
+        <span class="wi-heading-accent">Inside</span>
+      </h2>
+
+      <div class="wi-divider"></div>
+
+      <div class="wi-ingredients">
+
+        <div class="wi-ing" id="ing-0">
+          <div>
+            <span class="wi-ing-name">Sodium</span>
+            <div class="wi-ing-bar-wrap"><div class="wi-ing-bar-fill" id="bar-0" data-fill="72"></div></div>
+            <span class="wi-ing-desc">Hydration, nerve function &amp; muscle contraction</span>
+          </div>
+          <div class="wi-ing-amount">
+            <span class="wi-ing-num">500</span>
+            <span class="wi-ing-unit">mg</span>
+          </div>
+        </div>
+
+        <div class="wi-ing" id="ing-1">
+          <div>
+            <span class="wi-ing-name">Potassium</span>
+            <div class="wi-ing-bar-wrap"><div class="wi-ing-bar-fill" id="bar-1" data-fill="52"></div></div>
+            <span class="wi-ing-desc">Muscle recovery &amp; fluid balance</span>
+          </div>
+          <div class="wi-ing-amount">
+            <span class="wi-ing-num">200</span>
+            <span class="wi-ing-unit">mg</span>
+          </div>
+        </div>
+
+        <div class="wi-ing" id="ing-2">
+          <div>
+            <span class="wi-ing-name">Magnesium</span>
+            <div class="wi-ing-bar-wrap"><div class="wi-ing-bar-fill" id="bar-2" data-fill="34"></div></div>
+            <span class="wi-ing-desc">Supports muscle strength &amp; relaxation</span>
+          </div>
+          <div class="wi-ing-amount">
+            <span class="wi-ing-num">60</span>
+            <span class="wi-ing-unit">mg</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pill badges -->
+      <div class="wi-pills" id="wi-pills">
+        <span class="wi-pill">No Fillers</span>
+        <span class="wi-pill">Clinically Dosed</span>
+        <span class="wi-pill">No Artificial Dyes</span>
+        <span class="wi-pill">Non-GMO</span>
+        <span class="wi-pill">Made in USA</span>
+      </div>
+    </div>
+
+    <div id="wi-hint"><span>Scroll</span><div id="wi-hint-line"></div></div>
+
+  </div>
+</div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── Canvas / Particles ── */
+const canvas = document.getElementById('wi-canvas');
+const ctx    = canvas.getContext('2d');
+let particles = [], burstFired = false, raf;
+
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Lemon-lime palette: yellows, lime greens, white droplets, teal accents
+const PAL = [[245,230,50],[185,235,40],[200,248,80],[255,255,180],[6,165,197],[220,255,120]];
+
+class Particle {
+  constructor(x, y, kind) {
+    this.x=x; this.y=y; this.kind=kind;
+    const c=PAL[Math.floor(Math.random()*PAL.length)];
+    this.r=c[0]; this.g=c[1]; this.b=c[2];
+    if(kind==='cloud'){
+      this.size=Math.random()*22+8; this.vx=(Math.random()-.5)*9; this.vy=-(Math.random()*11+3);
+      this.decay=.007+Math.random()*.006; this.blur=16;
+    } else if(kind==='grain'){
+      this.size=Math.random()*4+1; this.vx=(Math.random()-.5)*20; this.vy=-(Math.random()*24+8);
+      this.decay=.015+Math.random()*.01; this.blur=0;
+    } else {
+      // geometric square shards
+      this.size=Math.random()*5+2; this.vx=(Math.random()-.5)*16; this.vy=-(Math.random()*28+12);
+      this.decay=.018+Math.random()*.014; this.blur=0;
+    }
+    this.life=1; this.grav=.2+Math.random()*.15;
+    this.angle=Math.random()*Math.PI*2; this.spin=(Math.random()-.5)*.18;
+  }
+  update(){ this.vx*=.983; this.vy+=this.grav; this.x+=this.vx; this.y+=this.vy; this.life-=this.decay; this.angle+=this.spin; }
+  draw(){
+    if(this.life<=0) return;
+    const a=Math.max(0,this.life*.88);
+    ctx.save();
+    if(this.blur) ctx.filter=`blur(${(this.blur*this.life).toFixed(1)}px)`;
+    ctx.globalAlpha=a;
+    ctx.fillStyle=`rgba(${this.r},${this.g},${this.b},${a})`;
+    ctx.translate(this.x,this.y); ctx.rotate(this.angle);
+    ctx.beginPath();
+    if(this.kind==='shard'){ ctx.rect(-this.size/2,-this.size/2,this.size,this.size); }
+    else ctx.arc(0,0,this.size,0,Math.PI*2);
+    ctx.fill(); ctx.restore();
+  }
+}
+
+function spawnBurst(cx,cy){
+  for(let i=0;i<160;i++) particles.push(new Particle(cx+(Math.random()-.5)*90,cy+Math.random()*30,'cloud'));
+  for(let i=0;i<110;i++) particles.push(new Particle(cx+(Math.random()-.5)*60,cy+Math.random()*16,'grain'));
+  for(let i=0;i<80; i++) particles.push(new Particle(cx+(Math.random()-.5)*45,cy,'shard'));
+}
+
+function loopP(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles=particles.filter(p=>p.life>0);
+  particles.forEach(p=>{p.update();p.draw();});
+  if(particles.length) raf=requestAnimationFrame(loopP);
+}
+
+function fireBurst(){
+  if(burstFired) return; burstFired=true;
+  const rect=document.getElementById('wi-product-img').getBoundingClientRect();
+  spawnBurst(rect.left+rect.width*.5, rect.top+rect.height*.09);
+  cancelAnimationFrame(raf); loopP();
+}
+function resetBurst(){ burstFired=false; particles=[]; cancelAnimationFrame(raf); ctx.clearRect(0,0,canvas.width,canvas.height); }
+
+/* ── GSAP Timeline ── */
+const mobile = window.innerWidth <= 900;
+const shiftX = mobile ? 0 : window.innerWidth * -0.27;
+
+// Animate power bars after reveal
+function animateBars(){
+  document.querySelectorAll('.wi-ing-bar-fill').forEach(bar => {
+    const fill = bar.dataset.fill + '%';
+    gsap.to(bar, { width: fill, duration: 1.2, ease: 'power2.out', delay: 0.1 });
+  });
+}
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger:'#wi-wrap', pin:'#wi-pin',
+    start:'top top', end:'bottom bottom', scrub:0.8,
+    onUpdate(s){ document.getElementById('wi-hint').style.opacity = s.progress>.04?'0':'1'; }
+  }
+});
+
+/* P1: zoom out — start zoomed into tub, scroll reveals full splash */
+tl.fromTo('#wi-product-wrap',
+  { scale: 2.0, y: '22%' },
+  { scale: 1, y: '0%', duration: .30, ease: 'power2.out' },
+  0)
+
+/* P2: product + glow shift left */
+.to('#wi-product-wrap',{ x:shiftX, scale:mobile?.75:.8, duration:.28, ease:'power2.inOut' },.34)
+.to('#wi-glow',        { x:shiftX, scale:.75,            duration:.28, ease:'power2.inOut' },.34)
+
+/* P3: content panel sweeps in */
+.fromTo('#wi-content',{ opacity:0, x:60 },{ opacity:1, x:0, duration:.25, ease:'power2.out' },.46)
+
+/* P4: ingredient rows stagger */
+.to('#ing-0',{ opacity:1, duration:.14 },.56)
+.to('#ing-1',{ opacity:1, duration:.14 },.63)
+.to('#ing-2',{ opacity:1, duration:.14, onComplete: animateBars },.70)
+
+/* P5: pills */
+.to('#wi-pills',{ opacity:1, duration:.18 },.82);
+
+/* ── Particle burst fires when zoom-out completes (~28% scroll) ── */
+ScrollTrigger.create({
+  trigger:'#wi-wrap', start:'top+=26% top', end:'top+=38% top',
+  onEnter:    ()=>fireBurst(),
+  onEnterBack:()=>{ resetBurst(); setTimeout(fireBurst,80); }
+});
+</script>
+</body>
+</html>

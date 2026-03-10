@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# Redirect bare domain to www (Cloudflare handles this automatically when you set the custom domain)
+# Friendly URL aliases
+/quiz          /quiz.html          301
+/about         /about.html         301
+/home          /index.html         301

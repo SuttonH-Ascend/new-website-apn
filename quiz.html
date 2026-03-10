@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance Assessment | Ascend Performance Nutrition</title>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","v9tqcwb652");
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','876546821553793');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876546821553793&ev=PageView&noscript=1"/></noscript>
+
+  <!-- TikTok Pixel -->
+  <script>
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load('D03EC6BC77UBMD8HI7V0');ttq.page();}(window,document,'ttq');
+  </script>
+
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17918778091"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17918778091');
+  </script>
+
+  <!-- Umami Analytics — replace src and data-website-id after deploying Umami to Vercel -->
+  <!-- <script async defer src="https://YOUR-UMAMI.vercel.app/script.js" data-website-id="YOUR-SITE-ID"></script> -->
+
+  <!-- Klaviyo -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=R5eNpH"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Barlow',system-ui,sans-serif;background:#0a0a0a;color:#f0ede8;overflow-x:hidden;}
+
+    /* Nav */
+    #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+    .nav-link{font-family:'Barlow',sans-serif;font-size:0.875rem;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;letter-spacing:0.02em;position:relative;transition:color 0.18s ease;}
+    .nav-link:hover{color:#fff;}
+    .nav-link:focus-visible{outline:2px solid #06A5C5;outline-offset:4px;border-radius:2px;}
+    .btn-nav{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.5rem 1.25rem;border-radius:4px;text-decoration:none;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+    .btn-nav:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(6,165,197,0.4);}
+    .btn-nav:active{transform:translateY(0);}
+    .hidden-mobile{display:flex;}
+    .show-mobile{display:none;}
+    @media(max-width:900px){.hidden-mobile{display:none!important;}.show-mobile{display:flex!important;}}
+
+    /* Mobile menu */
+    #mobile-menu{position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(10,10,10,0.98);backdrop-filter:blur(16px);padding:1.5rem;display:none;flex-direction:column;gap:0.25rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+    #mobile-menu.open{display:flex;}
+    .mobile-nav-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .mobile-nav-link:hover{color:#06A5C5;}
+
+    /* Footer */
+    .footer-link{font-size:0.875rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;}
+    .footer-link:hover{color:#06A5C5;}
+    .footer-link:focus-visible{outline:2px solid #06A5C5;outline-offset:2px;border-radius:2px;}
+
+    /* Quiz core */
+    .apn-step{display:none;animation:fadeUp 0.4s ease both;}
+    .apn-step.active{display:block;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+    .apn-option{background:#181818;border:1px solid #2a2a2a;border-radius:10px;padding:18px 22px;cursor:pointer;transition:border-color 0.2s ease,background 0.2s ease,transform 0.2s ease;display:flex;align-items:center;gap:14px;width:100%;}
+    .apn-option:hover{border-color:#06A5C5;background:#091518;transform:translateX(4px);}
+    .apn-option.selected{border-color:#06A5C5;background:linear-gradient(135deg,#07161a,#041018);box-shadow:0 0 0 1px #06A5C5,0 4px 20px rgba(6,165,197,0.15);}
+    .apn-option-dot{width:20px;height:20px;min-width:20px;border-radius:50%;border:2px solid #2a2a2a;flex-shrink:0;transition:all 0.2s ease;display:flex;align-items:center;justify-content:center;}
+    .apn-option.selected .apn-option-dot{border-color:#06A5C5;background:#06A5C5;}
+    .apn-option.selected .apn-option-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:#0a0a0a;display:block;}
+
+    .apn-insight{display:none;margin-top:20px;background:linear-gradient(135deg,#041318,#02100f);border:1px solid rgba(6,165,197,0.3);border-left:3px solid #06A5C5;border-radius:8px;padding:20px 22px;}
+    .apn-insight.visible{display:block;animation:fadeUp 0.35s ease both;}
+
+    .apn-btn-primary{display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;border:none;padding:14px 36px;border-radius:6px;cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease;}
+    .apn-btn-primary.visible{display:inline-block;animation:fadeUp 0.3s ease both;}
+    .apn-btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(6,165,197,0.4);}
+    .apn-btn-primary:active{transform:translateY(0);}
+
+    .apn-mini-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#048FAB,#09c4e8);transition:width 1.4s cubic-bezier(0.4,0,0.2,1);width:0;}
+
+    @media(max-width:520px){
+      .apn-option:hover{transform:none;}
+      .quiz-container{padding:24px 16px 60px;}
+    }
+    @media(hover:none) and (pointer:coarse){
+      .apn-option:hover{transform:none;border-color:#2a2a2a;background:#181818;}
+      .apn-option:active{border-color:#06A5C5;background:#091518;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="/index.html" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
+      <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;"/>
+      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
+      <a href="/index.html#products" class="nav-link">Shop</a>
+      <a href="/index.html#framework" class="nav-link">Framework</a>
+      <a href="/index.html#about" class="nav-link">About</a>
+      <a href="/index.html#resources" class="nav-link">Resources</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
+      <a href="/index.html#products" aria-label="Cart" style="position:relative;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)';" onmouseout="this.style.color='rgba(255,255,255,0.55)';">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cart-badge" style="display:none;position:absolute;top:-7px;right:-9px;background:#06A5C5;color:#fff;font-size:0.5rem;font-weight:700;width:15px;height:15px;border-radius:50%;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0;line-height:1;">0</span>
+      </a>
+      <a href="/index.html#products" class="btn-nav">Shop Now</a>
+    </div>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="/index.html#products" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
+  <a href="/index.html#framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/index.html#about" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="/index.html#resources" class="mobile-nav-link" onclick="closeMenu()">Resources</a>
+  <div style="margin-top:1rem;"><a href="/index.html#products" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Shop Now</a></div>
+</div>
+
+<!-- HERO -->
+<section id="quiz-hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#0a0a0a 0%,#081318 55%,#0a0a0a 100%);padding-top:64px;">
+
+  <!-- Radial glow -->
+  <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
+    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,165,197,0.13) 0%,transparent 70%);"></div>
+    <div style="position:absolute;bottom:0;left:20%;width:600px;height:400px;background:radial-gradient(ellipse 60% 40% at 30% 100%,rgba(6,165,197,0.06) 0%,transparent 70%);"></div>
+  </div>
+
+  <!-- Grain -->
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.45;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
+
+  <div style="position:relative;z-index:2;text-align:center;padding:4rem 1.5rem;max-width:760px;margin:0 auto;">
+    <!-- Eyebrow -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.25rem;">
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.6;"></div>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Ascend Performance Nutrition</span>
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.6;"></div>
+    </div>
+
+    <h1 style="font-family:Georgia,serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:#f0ede8;margin-bottom:1.25rem;">
+      Your Athletic<br/><span style="color:#06A5C5;">Performance Score</span><br/>Awaits
+    </h1>
+
+    <p style="font-size:1.0625rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 2.5rem;line-height:1.75;font-weight:300;">
+      Answer 10 questions across sleep, nutrition, training, recovery, and mindset. Get your personal score from 0 to 100, your performance tier, and a free personalized playbook delivered to your inbox.
+    </p>
+
+    <button id="start-btn" onclick="APNQuiz.start()" style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;border:none;padding:1.125rem 3rem;border-radius:6px;cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease;display:inline-flex;align-items:center;gap:10px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(6,165,197,0.45)';" onmouseout="this.style.transform='';this.style.boxShadow='';">
+      Start the Assessment
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+
+    <!-- Trust row -->
+    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1.75rem;">
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px;">
+        <span style="color:#06A5C5;font-weight:700;">&#10003;</span> Takes 3 minutes
+      </span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px;">
+        <span style="color:#06A5C5;font-weight:700;">&#10003;</span> 10 expert questions
+      </span>
+      <span style="font-size:0.8125rem;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px;">
+        <span style="color:#06A5C5;font-weight:700;">&#10003;</span> Personalized product stack
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS BAR (hidden until quiz starts) -->
+<div id="quiz-progress" style="display:none;background:#111;border-bottom:1px solid #1e1e1e;padding:14px 1.5rem;position:sticky;top:64px;z-index:50;">
+  <div style="max-width:760px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#555;margin-bottom:8px;">
+      <span id="step-label">Question 1 of 10</span>
+      <span style="display:flex;align-items:center;gap:12px;">
+        <span id="step-pct">0%</span>
+        <span id="live-score-badge" style="display:none;background:rgba(6,165,197,0.15);border:1px solid rgba(6,165,197,0.3);border-radius:20px;padding:2px 10px;color:#06A5C5;font-size:0.625rem;letter-spacing:0.1em;align-items:center;gap:4px;">SCORE: <strong id="live-score-num">0</strong></span>
+      </span>
+    </div>
+    <div style="height:4px;background:#1e1e1e;border-radius:2px;overflow:hidden;">
+      <div id="progress-fill" style="height:100%;background:linear-gradient(90deg,#048FAB,#09c4e8);border-radius:2px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1);width:0%;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ BODY -->
+<div id="quiz-body" style="display:none;background:#0a0a0a;min-height:100vh;">
+  <div class="quiz-container" style="max-width:760px;margin:0 auto;padding:48px 1.5rem 80px;">
+
+    <!-- STEP 1: SLEEP -->
+    <div class="apn-step" id="apn-step-1">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 01 / 10 &middot; Sleep Quality</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How many hours of quality, uninterrupted sleep do you get on average per night?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(1,0,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Under 5 hours</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">I rarely feel rested</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(1,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">5 to 6 hours</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Some nights decent, some rough</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(1,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">7 to 8 hours</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Consistent and restful</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(1,3,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">9+ hours</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">I sleep a lot but feel groggy</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-1"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-1" onclick="APNQuiz.next(1)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 2: RECOVERY -->
+    <div class="apn-step" id="apn-step-2">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 02 / 10 &middot; Recovery</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How do you feel 24 to 48 hours after an intense training session?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(2,1,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Extremely sore, can barely move</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Affects my next session significantly</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(2,3,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Moderately sore but functional</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">A little stiff but manageable</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(2,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Slightly sore and feeling capable</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Recovery is dialed in</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(2,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Zero soreness, feel fresh</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Never really sore no matter what I do</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-2"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-2" onclick="APNQuiz.next(2)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 3: HYDRATION -->
+    <div class="apn-step" id="apn-step-3">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 03 / 10 &middot; Hydration</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How much total water (including electrolyte drinks) do you consume daily?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(3,0,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Less than 4 cups (about 1 liter)</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Mostly coffee, soda, or no water</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(3,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">4 to 6 cups (about 1 to 1.5 liters)</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Some water but not consistent</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(3,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">6 to 10 cups (about 1.5 to 2.5 liters)</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Consistent daily hydration</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(3,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">10+ cups (2.5+ liters)</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Plus electrolytes around training</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-3"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-3" onclick="APNQuiz.next(3)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 4: NUTRITION -->
+    <div class="apn-step" id="apn-step-4">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 04 / 10 &middot; Nutrition Quality</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How would you honestly describe your daily diet?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(4,0,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Fast food / highly processed</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Most meals are convenience or takeout</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(4,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Mixed: some healthy, some junk</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Inconsistent eating habits</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(4,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Mostly whole foods</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Lean proteins, veggies, complex carbs most of the time</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(4,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Strictly dialed: tracked and meal prepped</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Macros tracked, food intentional</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-4"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-4" onclick="APNQuiz.next(4)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 5: TRAINING FREQUENCY -->
+    <div class="apn-step" id="apn-step-5">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 05 / 10 &middot; Training Frequency</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How many days per week do you engage in structured physical training?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(5,1,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">1 to 2 days</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Just getting started or sporadic</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(5,3,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">3 to 4 days</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Solid consistency with rest days</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(5,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">5 to 6 days</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">High frequency, structured programming</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(5,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Every day with no rest days</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">I grind 7 days a week</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-5"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-5" onclick="APNQuiz.next(5)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 6: TRAINING INTENSITY -->
+    <div class="apn-step" id="apn-step-6">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 06 / 10 &middot; Training Intensity</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How would you rate the average effort level of your training sessions?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(6,1,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Light / casual</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Walks, light stretching, easy movement</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(6,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Moderate: I break a sweat</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Cardio, some weights, regular gym work</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(6,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Hard: I push myself consistently</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Heavy lifts, HIIT, sport-specific intensity</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(6,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Elite / Maximal</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Competition-level intensity, periodized programming</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-6"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-6" onclick="APNQuiz.next(6)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 7: SUPPLEMENTATION -->
+    <div class="apn-step" id="apn-step-7">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 07 / 10 &middot; Supplementation</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How would you describe your current supplement protocol?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(7,0,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">None at all</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Food only, no supplementation</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(7,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Basic: protein shake occasionally</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Nothing consistent or structured</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(7,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Structured: protein, creatine, electrolytes</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Intentional daily stack, clean ingredients</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(7,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Advanced: full protocol, periodized</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Pre, intra, post, recovery, adaptogens</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-7"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-7" onclick="APNQuiz.next(7)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 8: MENTAL FOCUS -->
+    <div class="apn-step" id="apn-step-8">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 08 / 10 &middot; Mental Focus</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How sharp is your mental focus and clarity during training and competition?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(8,1,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Easily distracted: mind wanders</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Hard to lock in even when I want to</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(8,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Somewhat focused, inconsistent</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Some sessions great, some scattered</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(8,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Usually dialed in</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">I can get into the zone most sessions</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(8,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Elite mental clarity</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Present, locked in, mentally primed consistently</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-8"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-8" onclick="APNQuiz.next(8)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 9: STRESS -->
+    <div class="apn-step" id="apn-step-9">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 09 / 10 &middot; Lifestyle Stress</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How would you rate your overall stress level outside of training?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(9,0,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Extremely high: constantly overwhelmed</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Stress is affecting sleep, mood, and training</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(9,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">High: regularly stressed</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Managing but it takes a toll</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(9,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Moderate: manageable with effort</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">I have systems to manage stress</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(9,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Low: calm, grounded, disciplined</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Prayer, mindfulness, structure keep me anchored</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-9"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-9" onclick="APNQuiz.next(9)">Continue &rarr;</button></div>
+    </div>
+
+    <!-- STEP 10: CONSISTENCY -->
+    <div class="apn-step" id="apn-step-10">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:10px;">Question 10 / 10 &middot; Consistency</div>
+      <div style="font-family:Georgia,serif;font-size:clamp(1.375rem,3.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:28px;">How long have you been consistently following your current training and nutrition routine?</div>
+      <div style="display:grid;gap:10px;">
+        <button class="apn-option" onclick="APNQuiz.pick(10,1,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">Less than 1 month</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Just getting started on this path</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(10,2,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">1 to 3 months</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Building momentum</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(10,4,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">3 to 12 months</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">Solid habits established</div></div></button>
+        <button class="apn-option" onclick="APNQuiz.pick(10,5,this)"><div class="apn-option-dot"></div><div style="text-align:left;"><div style="font-size:0.9375rem;font-weight:600;color:#f0ede8;line-height:1.3;">1+ year(s)</div><div style="font-size:0.75rem;color:#666;margin-top:2px;line-height:1.4;">This is my lifestyle, deeply ingrained</div></div></button>
+      </div>
+      <div class="apn-insight" id="apn-insight-10"></div>
+      <div style="margin-top:24px;display:flex;justify-content:flex-end;"><button class="apn-btn-primary" id="apn-next-10" onclick="APNQuiz.finish()">Calculate My Score &rarr;</button></div>
+    </div>
+
+    <!-- EMAIL GATE -->
+    <div id="apn-email-gate" style="display:none;animation:fadeUp 0.4s ease both;">
+      <div style="text-align:center;max-width:560px;margin:0 auto;padding:2rem 0;">
+
+        <!-- Eyebrow -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.5rem;">
+          <div style="height:1px;width:30px;background:#06A5C5;opacity:0.6;"></div>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Assessment Complete</span>
+          <div style="height:1px;width:30px;background:#06A5C5;opacity:0.6;"></div>
+        </div>
+
+        <h2 style="font-family:Georgia,serif;font-size:clamp(1.875rem,4.5vw,2.75rem);font-weight:700;letter-spacing:-0.02em;color:#f0ede8;margin-bottom:0.75rem;line-height:1.1;">Your Score Is Ready</h2>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.45);max-width:400px;margin:0 auto 2.5rem;line-height:1.75;font-weight:300;">Enter your email to unlock your full Performance Report, personalized supplement stack, and an exclusive discount on your recommended products.</p>
+
+        <!-- Blurred score preview -->
+        <div style="position:relative;margin-bottom:2.5rem;overflow:hidden;border-radius:14px;background:#181818;border:1px solid #2a2a2a;padding:2.5rem 2rem;">
+          <div style="filter:blur(7px);user-select:none;pointer-events:none;opacity:0.45;" aria-hidden="true">
+            <div style="font-family:Georgia,serif;font-size:5rem;font-weight:700;color:#f0ede8;line-height:1;">??</div>
+            <div style="font-size:0.75rem;color:#555;letter-spacing:0.14em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:600;margin-top:6px;">Performance Score</div>
+            <div style="margin:1.25rem auto;max-width:240px;height:6px;background:#1e1e1e;border-radius:3px;overflow:hidden;">
+              <div style="height:100%;width:60%;background:linear-gradient(90deg,#048FAB,#09c4e8);border-radius:3px;"></div>
+            </div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#777;">[ Your Tier ]</div>
+          </div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(10,10,10,0.6);backdrop-filter:blur(2px);">
+            <div style="font-size:2rem;margin-bottom:0.625rem;line-height:1;">&#128274;</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">Unlock Your Results</div>
+          </div>
+        </div>
+
+        <!-- Email form -->
+        <div style="background:linear-gradient(160deg,#080808,#040e12);border:1px solid rgba(6,165,197,0.35);border-radius:16px;padding:2.5rem 2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(6,165,197,0.08) 0%,transparent 70%);"></div>
+          <div style="position:relative;z-index:1;max-width:420px;margin:0 auto;">
+            <div style="font-size:2rem;margin-bottom:0.875rem;line-height:1;">&#128203;</div>
+            <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:0.625rem;line-height:1.2;">Get Your Free <span style="color:#06A5C5;">Performance Playbook</span></h3>
+            <p style="font-size:0.8125rem;color:#666;margin-bottom:1.75rem;line-height:1.7;">Your score, tier breakdown, top growth gaps, and a personalized supplement stack are waiting.</p>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <input type="email" id="gate-email-input" placeholder="your@email.com" autocomplete="email"
+                  style="flex:1;min-width:200px;background:#181818;border:1px solid #2a2a2a;border-radius:6px;padding:14px 16px;font-family:'Barlow',sans-serif;font-size:0.875rem;color:#f0ede8;outline:none;transition:border-color 0.2s ease;min-height:50px;"
+                  onfocus="this.style.borderColor='#06A5C5';this.style.boxShadow='0 0 0 3px rgba(6,165,197,0.12)';"
+                  onblur="this.style.borderColor='#2a2a2a';this.style.boxShadow='';"
+                  onkeydown="if(event.key==='Enter')APNQuiz.submitEmail();" />
+                <button onclick="APNQuiz.submitEmail()"
+                  style="font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;border:none;padding:14px 28px;border-radius:6px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:box-shadow 0.2s ease,transform 0.15s ease;min-height:50px;"
+                  onmouseover="this.style.boxShadow='0 6px 20px rgba(6,165,197,0.4)';this.style.transform='translateY(-1px)';"
+                  onmouseout="this.style.boxShadow='';this.style.transform='';">Reveal My Results</button>
+              </div>
+              <div id="gate-email-error" style="display:none;color:#e74c3c;font-size:0.75rem;text-align:left;">Please enter a valid email address.</div>
+              <p style="font-size:0.6875rem;color:#444;text-align:center;">No spam. Unsubscribe anytime. Faith-driven, no BS.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="apn-results" style="display:none;">
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:3rem;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.875rem;">Your Results Are In</div>
+        <h2 id="results-title" style="font-family:Georgia,serif;font-size:clamp(1.75rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em;color:#f0ede8;margin-bottom:0.5rem;">Performance Score</h2>
+        <p id="results-sub" style="font-size:0.9375rem;color:#666;max-width:440px;margin:0 auto;line-height:1.6;">Calculating your score...</p>
+      </div>
+
+      <!-- Dial -->
+      <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+        <div style="position:relative;width:300px;height:180px;">
+          <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 24px rgba(6,165,197,0.18));">
+            <defs>
+              <filter id="dial-glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <linearGradient id="dial-grad-red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c0392b"/><stop offset="100%" stop-color="#e74c3c"/></linearGradient>
+              <linearGradient id="dial-grad-yellow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#e67e22"/><stop offset="100%" stop-color="#f39c12"/></linearGradient>
+              <linearGradient id="dial-grad-green" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#048FAB"/><stop offset="100%" stop-color="#06A5C5"/></linearGradient>
+              <linearGradient id="dial-grad-elite" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#06A5C5"/><stop offset="100%" stop-color="#09c4e8"/></linearGradient>
+            </defs>
+            <path fill="none" stroke="#1e1e1e" stroke-width="18" stroke-linecap="round" d="M 30 145 A 110 110 0 0 1 250 145"/>
+            <path id="dial-fill-arc" fill="none" stroke-width="18" stroke-linecap="round" stroke="url(#dial-grad-green)" filter="url(#dial-glow)" d="M 30 145 A 110 110 0 0 1 250 145" style="transition:stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1),stroke 0.5s ease;"/>
+            <text id="dial-score-num" x="140" y="120" text-anchor="middle" font-family="Georgia,serif" font-size="52" font-weight="700" fill="#f0ede8">0</text>
+            <text x="140" y="142" text-anchor="middle" font-family="Barlow,sans-serif" font-size="11" letter-spacing="2" fill="#555" text-transform="uppercase">PERFORMANCE SCORE</text>
+            <text x="28" y="158" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10" fill="#444">0</text>
+            <text x="252" y="158" text-anchor="middle" font-family="Barlow,sans-serif" font-size="10" fill="#444">100</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Tier badge -->
+      <div style="display:flex;justify-content:center;margin-bottom:3rem;">
+        <div id="tier-badge" style="display:inline-flex;align-items:center;gap:10px;background:#181818;border:1px solid rgba(6,165,197,0.25);border-radius:50px;padding:12px 28px;">
+          <div id="tier-dot" style="width:10px;height:10px;border-radius:50%;background:#06A5C5;flex-shrink:0;"></div>
+          <span id="tier-name" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#f0ede8;">Loading...</span>
+        </div>
+      </div>
+
+      <!-- Category Breakdown -->
+      <div style="background:#181818;border:1px solid #2a2a2a;border-radius:12px;padding:32px 28px;margin-bottom:20px;">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #2a2a2a;">Category Breakdown</h3>
+        <div id="bars-container"></div>
+      </div>
+
+      <!-- Growth Opportunities -->
+      <div style="background:linear-gradient(135deg,#030e12,#020c0f);border:1px solid rgba(6,165,197,0.2);border-radius:12px;padding:32px 28px;margin-bottom:20px;">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(6,165,197,0.15);">&#9889; Your Top Growth Opportunities</h3>
+        <div id="gaps-container"></div>
+      </div>
+
+      <!-- Product Recommendations -->
+      <div id="recs-section" style="background:#181818;border:1px solid #2a2a2a;border-radius:12px;padding:32px 28px;margin-bottom:20px;">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:6px;">&#128170; Your Personalized Ascend Stack</h3>
+        <p style="font-size:0.8125rem;color:#555;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #2a2a2a;line-height:1.5;">Based on your top performance gaps, here are the products that will move the needle fastest.</p>
+        <div id="recs-container"></div>
+      </div>
+
+      <!-- Discount / Follow-up -->
+      <div style="background:linear-gradient(160deg,#080808,#040e12);border:1px solid rgba(6,165,197,0.35);border-radius:16px;padding:44px 36px;text-align:center;position:relative;overflow:hidden;margin-bottom:20px;">
+        <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(6,165,197,0.09) 0%,transparent 70%);"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="font-size:2.5rem;margin-bottom:0.875rem;line-height:1.2;">&#128591;</div>
+          <h3 style="font-family:Georgia,serif;font-size:clamp(1.375rem,3vw,1.875rem);font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:0.625rem;line-height:1.15;">Your Playbook Is On Its Way</h3>
+          <p style="font-size:0.875rem;color:#666;margin:0 auto 1.75rem;max-width:420px;line-height:1.75;">Check your inbox. Use the exclusive code below on your personalized stack today.</p>
+          <div style="background:#181818;border:2px dashed #06A5C5;border-radius:10px;padding:20px 24px;max-width:360px;margin:0 auto 1.25rem;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#666;margin-bottom:8px;">Your Exclusive Discount</div>
+            <div id="discount-code" onclick="APNQuiz.copyCode()" style="font-family:Georgia,serif;font-size:1.875rem;font-weight:700;color:#06A5C5;letter-spacing:0.25em;margin-bottom:6px;cursor:pointer;user-select:all;">ASCEND15</div>
+            <div id="copy-msg" style="font-size:0.6875rem;color:#555;">Click to copy &middot; Valid for 48 hours</div>
+          </div>
+          <a href="/index.html#products" style="color:#06A5C5;text-decoration:none;font-weight:600;font-size:0.875rem;display:inline-block;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Explore the Full Ascend Stack &rarr;</a>
+        </div>
+      </div>
+    </div><!-- /results -->
+
+  </div><!-- /quiz-container -->
+</div><!-- /quiz-body -->
+
+<!-- FOOTER -->
+<footer style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);">
+  <div id="footer-grid" style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+
+    <!-- Brand -->
+    <div>
+      <a href="/index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
+        <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend Performance Nutrition" style="height:36px;width:auto;"/>
+        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+        </div>
+      </a>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:280px;margin-bottom:1.5rem;">Faith-driven performance nutrition for athletes who refuse to separate their values from their results.</p>
+    </div>
+
+    <!-- Products -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/index.html#products" class="footer-link">Resilience Whey Protein</a></li>
+        <li><a href="/index.html#products" class="footer-link">Replenish Hydration</a></li>
+        <li><a href="/index.html#products" class="footer-link">Recharge Creatine</a></li>
+        <li><a href="/index.html#products" class="footer-link">Ignite Energy</a></li>
+        <li><a href="/index.html#products" class="footer-link">View All Products &rarr;</a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/index.html#about" class="footer-link">About Us</a></li>
+        <li><a href="/index.html#framework" class="footer-link">The Ascend Framework</a></li>
+        <li><a href="/index.html#resources" class="footer-link">Resources</a></li>
+        <li><a href="#" class="footer-link">Careers</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/quiz.html" class="footer-link">Performance Quiz</a></li>
+        <li><a href="#" class="footer-link">Shipping Policy</a></li>
+        <li><a href="#" class="footer-link">Returns &amp; Refunds</a></li>
+        <li><a href="#" class="footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-left:1.5rem;padding-right:1.5rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">© 2026 Ascend Performance Nutrition. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media(max-width:900px){#footer-grid{grid-template-columns:1fr 1fr!important;}}
+  @media(max-width:600px){#footer-grid{grid-template-columns:1fr!important;}}
+</style>
+
+<script>
+(function() {
+
+  /* ── CONFIG ─────────────────────────────── */
+  var KLAVIYO_KEY = 'R5eNpH';
+  // Tier-based list IDs — users route to their tier list on completion
+  var TIER_LISTS = {
+    'Rookie':     'UPxEy7',
+    'Athlete':    'WtTxsw',
+    'Competitor': 'UN7UrW',
+    'Elite':      'TLxQ8H',
+    'Champion':   'TTMkEY'
+  };
+  var DISCOUNT_CODE = 'ASCEND15';
+
+  /* ── INSIGHTS ────────────────────────────── */
+  var INSIGHTS = {
+    1:{0:{headline:"Critical Gap: Severely Under-Slept",body:"Under 5 hours puts you in <strong style='color:#09c4e8;'>performance debt</strong>. During sleep, your body releases growth hormone, consolidates motor memory, and repairs micro-tears in muscle. Chronic sleep deprivation raises cortisol by up to 37%, directly suppressing testosterone and blocking muscle protein synthesis. Gaining even 1 to 2 extra hours can measurably improve sprint speed, reaction time, and pain tolerance within 2 weeks."},2:{headline:"Below Threshold: Sleep Is Limiting Your Gains",body:"5 to 6 hours places you just under the recovery threshold. Research from Stanford shows athletes averaging under 7 hours had <strong style='color:#09c4e8;'>30% higher injury risk</strong> and significantly lower reaction times. Magnesium glycinate before bed and a consistent sleep window can add meaningful quality rest within days."},4:{headline:"Solid Foundation: Sleep Is an Asset",body:"7 to 8 hours is the <strong style='color:#09c4e8;'>athletic sweet spot</strong>. During this window your body completes 4 to 5 full sleep cycles, each delivering a dose of HGH, cortisol clearance, and memory consolidation. The next upgrade is tracking sleep quality via HRV to ensure those hours are truly restorative."},3:{headline:"Oversleeping May Signal Recovery Issues",body:"9 or more hours can indicate <strong style='color:#09c4e8;'>inadequate sleep quality</strong> or underlying fatigue. If you are sleeping long and still waking groggy, you may be cycling through light sleep too much. Improving sleep hygiene and adding magnesium can dramatically shift sleep architecture toward deep, restorative stages."}},
+    2:{1:{headline:"Recovery Is Your #1 Bottleneck",body:"Extreme DOMS 24 to 48 hours out signals that your body is not keeping pace with the demand you are placing on it. <strong style='color:#09c4e8;'>Adaptation happens during recovery, not during training.</strong> Without proper protein timing, creatine supplementation, and sleep, you are grinding muscle down without rebuilding it."},3:{headline:"Recovery Is Functional But Has Room to Grow",body:"Moderate soreness means you are training hard enough to create adaptation stimulus, but your recovery infrastructure needs leveling up. <strong style='color:#09c4e8;'>Post-workout nutrition within 45 minutes</strong>, proper creatine loading, and anti-inflammatory whole foods can meaningfully cut recovery time."},5:{headline:"Recovery Is a Competitive Advantage",body:"Slight soreness with full function means your recovery systems are <strong style='color:#09c4e8;'>optimally calibrated</strong>. Your nutrition timing, sleep, and supplementation are working in harmony. Keep optimizing: periodized deload weeks, HRV monitoring, and colostrum supplementation can take you to the next tier."},2:{headline:"No Soreness May Mean Insufficient Stimulus",body:"If you are training hard but never sore, it may signal <strong style='color:#09c4e8;'>training adaptation (good)</strong> or insufficient stimulus. If your progress has plateaued, adding progressive overload or increasing training density can re-trigger adaptation signals."}},
+    3:{0:{headline:"Severe Dehydration Risk: Act Today",body:"Even <strong style='color:#09c4e8;'>2% dehydration reduces athletic performance by 10 to 20%</strong>, affecting strength, endurance, and cognitive function. At less than 1 liter daily, your blood volume is reduced, forcing your heart to work harder. Start with a 32oz glass of water with a pinch of sea salt immediately upon waking."},2:{headline:"Under-Hydrated: Your Performance Is Suffering",body:"You are partially fueled but leaving performance on the table. Optimal hydration for athletes is body weight (lbs) divided by 2 in ounces daily, and <strong style='color:#09c4e8;'>more during training</strong>. Add a structured hydration protocol: morning, pre, during, and post-training."},4:{headline:"Good Hydration Habits",body:"You are in the performance hydration zone. To optimize further: <strong style='color:#09c4e8;'>add electrolytes (sodium, potassium, magnesium) around training sessions</strong> rather than plain water. This ensures cellular hydration and prevents dilutional hyponatremia."},5:{headline:"Hydration Is Dialed",body:"You understand that <strong style='color:#09c4e8;'>hydration is a performance lever</strong>, not just a survival mechanism. At 2.5 or more liters with electrolytes, you are supporting peak blood plasma volume, creatine uptake, and cognitive performance."}},
+    4:{0:{headline:"Fuel Quality Is Critically Low",body:"Processed foods spike and crash blood sugar, trigger systemic inflammation, and <strong style='color:#09c4e8;'>block the anabolic signaling pathways you need for adaptation</strong>. One strategic swap: replace one processed meal per day with a whole-food protein and veggie combination."},2:{headline:"Inconsistent Fuel Produces Inconsistent Results",body:"Mixed nutrition creates mixed adaptation. The key insight: <strong style='color:#09c4e8;'>nutrition consistency matters more than perfection</strong>. Aim for the 80/20 rule (80% whole foods, 20% flexibility) and you will see sustainable performance improvements over 30 to 60 days."},4:{headline:"Strong Nutritional Foundation",body:"Mostly whole foods means you are providing your body with the micronutrients, amino acids, and complex carbs that athletic performance demands. <strong style='color:#09c4e8;'>Your recovery and adaptation rate is significantly higher than the average athlete.</strong>"},5:{headline:"Elite Nutritional Discipline",body:"Tracked macros and structured meal prep puts you in the top 5% of athletes by nutritional discipline. <strong style='color:#09c4e8;'>Food is data and your body is the output.</strong> The elite edge comes from nutrient timing precision and periodizing nutrition alongside training phases."}},
+    5:{1:{headline:"Early Stage: The Foundation Is Being Built",body:"1 to 2 sessions per week is enough to begin adaptation. <strong style='color:#09c4e8;'>Frequency is the most underrated training variable.</strong> Even adding a third training day doubles the adaptation stimulus. Focus on building the habit before escalating volume."},3:{headline:"Solid Training Frequency",body:"3 to 4 days per week with strategic rest hits the sweet spot for natural athletes. <strong style='color:#09c4e8;'>This is the frequency elite coaches prescribe for sustainable, long-term progress.</strong> Make each session intentional with progressive overload built in."},5:{headline:"High-Frequency Athlete",body:"5 to 6 structured training days per week requires elite-level nutrition and recovery to match. At this frequency, <strong style='color:#09c4e8;'>you are only as good as your recovery infrastructure</strong>. Sleep, protein, and electrolyte balance are non-negotiable."},2:{headline:"Zero Rest Days Is a Risk Factor",body:"Training 7 days a week without recovery days is one of the fastest paths to <strong style='color:#09c4e8;'>overtraining, burnout, and injury</strong>. Add 1 to 2 intentional rest or active recovery days and watch your performance metrics actually improve."}},
+    6:{1:{headline:"Low Intensity: Consider Progressing",body:"Light activity is excellent for cardiovascular baseline and stress reduction. However, <strong style='color:#09c4e8;'>to drive significant athletic adaptation, you need progressive overload</strong>. Consider adding 1 to 2 moderate-to-hard sessions per week."},2:{headline:"Moderate Training: Building a Solid Engine",body:"Moderate intensity builds your aerobic base and improves insulin sensitivity. <strong style='color:#09c4e8;'>The next level is strategic intensification.</strong> Adding HIIT intervals or heavy compound lifts 2 times per week creates the hormonal surge that multiplies your moderate sessions."},4:{headline:"Hard Training: You Are in the Adaptation Zone",body:"Consistent hard training is where the real transformation happens. <strong style='color:#09c4e8;'>The key at this level is periodization</strong>, cycling intensity so you peak at the right time rather than staying maxed out."},5:{headline:"Elite Intensity: Manage Recovery or Risk Burning Out",body:"Maximal, periodized training is the apex of athletic preparation. At this level, the differentiator is recovery quality. <strong style='color:#09c4e8;'>The athletes who stay at elite intensity the longest are the ones whose recovery infrastructure matches their training demand.</strong>"}},
+    7:{0:{headline:"No Supplementation: Food-Only Has Gaps",body:"A whole-food diet is the foundation, but even elite-caliber diets leave <strong style='color:#09c4e8;'>measurable micronutrient gaps</strong>. Creatine monohydrate alone has 1,000+ peer-reviewed studies and delivers 5 to 15% strength and power gains in 4 to 8 weeks."},2:{headline:"Inconsistent Supplementation: Leaving Gains on the Table",body:"Occasional protein shakes help but do not provide the consistent substrate needed. <strong style='color:#09c4e8;'>Creatine only works with daily loading.</strong> Build a simple, consistent daily stack: creatine (5g/day), protein (0.7g/lb bodyweight), electrolytes around training."},4:{headline:"Solid Supplement Foundation",body:"Protein plus creatine plus electrolytes is the evidence-based core stack. <strong style='color:#09c4e8;'>These three compounds have the highest ROI in sports nutrition science.</strong> The next tier: add targeted recovery support like magnesium glycinate for sleep and colostrum for immune and gut health."},5:{headline:"Advanced Protocol: Execute with Precision",body:"A periodized, full-stack protocol is the mark of an elite-mindset athlete. <strong style='color:#09c4e8;'>You understand that supplements are systems, not just products.</strong> Focus on timing precision, ingredient quality, and cycling adaptogens with your training phases."}},
+    8:{1:{headline:"Mental Focus Is a Performance Limiter",body:"Inability to lock in during training is often a <strong style='color:#09c4e8;'>nutritional and sleep issue, not a willpower issue</strong>. Clean pre-workout energy, structured sleep, and magnesium supplementation are the most direct levers."},2:{headline:"Inconsistent Focus: Identify the Pattern",body:"Inconsistent focus usually has a consistent trigger. <strong style='color:#09c4e8;'>Start journaling your training focus alongside sleep, pre-workout nutrition, and stress level.</strong> Within 2 to 3 weeks you will see a pattern."},4:{headline:"Solid Mental Performance",body:"Getting into the zone consistently is a <strong style='color:#09c4e8;'>competitive advantage most athletes do not have</strong>. The next upgrade: develop a pre-training ritual (3 minutes of box breathing plus a specific activation phrase or prayer)."},5:{headline:"Mental Elite: Protect and Sharpen This Edge",body:"Consistent elite mental clarity means your physiology is fully supporting peak brain function. <strong style='color:#09c4e8;'>This is one of the most underappreciated performance advantages.</strong> Protect it: prioritize sleep, manage cortisol, and consider emerging cognitive support tools."}},
+    9:{0:{headline:"High Cortisol Is Killing Your Performance",body:"Chronic high stress floods your body with cortisol, which is <strong style='color:#09c4e8;'>directly catabolic to muscle tissue</strong>, suppresses testosterone and immune function, and disrupts sleep. The highest-leverage move: anchor your mornings with faith, breathwork, or prayer before picking up your phone."},2:{headline:"Elevated Stress Is Limiting Your Ceiling",body:"Regular high stress means your cortisol rhythm is frequently dysregulated. <strong style='color:#09c4e8;'>Stress does not stay in your head. It shows up in your training performance and recovery data.</strong> Prioritize adaptogens like ashwagandha, structured sleep, and daily intentional recovery rituals."},4:{headline:"Manageable Stress: Systems Are Working",body:"Having systems to manage stress is itself an athletic discipline. <strong style='color:#09c4e8;'>Mental recovery is as important as physical recovery.</strong> Build your stress management protocol the same way you build your training program."},5:{headline:"Grounded Competitor: Rare and Powerful",body:"Low, managed stress in a high-performance life is rare and enormously powerful. <strong style='color:#09c4e8;'>Your cortisol rhythm is working for you, not against you.</strong> Faith, discipline, and routine are your stress management tools. This is the foundation champions are built on."}},
+    10:{1:{headline:"The Journey Is Just Beginning: Lock In Now",body:"The first 30 days are critical for habit formation. <strong style='color:#09c4e8;'>Your neural pathways are literally being rewired right now.</strong> Your sole job in the next 30 days is to show up regardless of mood, energy, or motivation."},2:{headline:"Building Momentum: Do Not Break the Chain",body:"1 to 3 months is when real physiological adaptation begins to compound. <strong style='color:#09c4e8;'>The hormonal and structural adaptations are catching up.</strong> Stay the course: the 3 to 6 month window produces the most visible transformation."},4:{headline:"Established Athlete: Compound Interest Is Building",body:"3 to 12 months of consistent training is when <strong style='color:#09c4e8;'>adaptation compounds exponentially</strong>. This is where Ascend's supplementation stack has the most measurable impact."},5:{headline:"Seasoned Competitor: Your Body Is Your Proof of Work",body:"1 or more years of consistent training means your <strong style='color:#09c4e8;'>body has undergone genuine structural adaptation</strong>. At this level, 1% improvements compound powerfully. Supplementation precision and periodization are your growth levers."}}
+  };
+
+  // Weights reflect real-world performance impact on adaptation and results:
+  // Foundation (1.5x): Sleep, Recovery, Nutrition, Consistency — non-negotiable pillars
+  // Core (1.25x): Hydration, Stress — directly impact recovery and output daily
+  // Performance (1.0x): Training Frequency and Intensity
+  // Supporting (0.75x): Supplementation, Mental Focus — amplifiers, not foundations
+  var CATEGORIES = [
+    {key:'sleep',      label:'Sleep Quality',      max:4, weight:1.5},
+    {key:'recovery',   label:'Recovery',           max:5, weight:1.5},
+    {key:'hydration',  label:'Hydration',          max:5, weight:1.25},
+    {key:'nutrition',  label:'Nutrition Quality',  max:5, weight:1.5},
+    {key:'frequency',  label:'Training Frequency', max:5, weight:1.0},
+    {key:'intensity',  label:'Training Intensity', max:5, weight:1.0},
+    {key:'supps',      label:'Supplementation',    max:5, weight:0.75},
+    {key:'focus',      label:'Mental Focus',       max:5, weight:0.75},
+    {key:'stress',     label:'Stress Management',  max:5, weight:1.25},
+    {key:'consistency',label:'Consistency',        max:5, weight:1.5}
+  ];
+  // MAX_SCORE = sum(max * weight) per category
+  // = 6 + 7.5 + 6.25 + 7.5 + 5 + 5 + 3.75 + 3.75 + 6.25 + 7.5 = 58.5
+  var MAX_SCORE = 58.5;
+
+  var PRODUCT_MAP = {
+    sleep:[{name:'Function — Magnesium Glycinate',icon:'😴',reason:'Supports deep sleep quality and nervous system relaxation for restful recovery.',tag:'Sleep Optimizer'}],
+    recovery:[{name:'Recharge — Creatine Monohydrate',icon:'🔥',reason:'Increases phosphocreatine stores for faster muscle repair and power output.',tag:'Recovery Core'},{name:'Fortify — Natural Colostrum Powder',icon:'🛡️',reason:'Supports gut health and immune function during high training volumes.',tag:'Advanced Recovery'}],
+    hydration:[{name:'Replenish — Hydration Powder',icon:'💧',reason:'Replaces sodium, potassium, and magnesium lost through sweat during training.',tag:'Hydration Core'}],
+    nutrition:[{name:'Resilience — Whey Protein Isolate',icon:'🥩',reason:'Bridges the gap between whole food protein and your daily target with fast-absorbing amino acids.',tag:'Nutrition Core'},{name:'Nourish — Greens Superfood',icon:'🥬',reason:'Fills micronutrient gaps that even clean diets often miss with whole food greens.',tag:'Micronutrients'}],
+    frequency:[{name:'Ignite — Energy Powder',icon:'⚡',reason:'Clean energy without gray-area stimulants to fuel consistent training sessions.',tag:'Pre-Workout'}],
+    intensity:[{name:'Ignite — Energy Powder',icon:'⚡',reason:'Supports training output and mental focus for high-intensity sessions.',tag:'Pre-Workout'},{name:'Recharge — Creatine Monohydrate',icon:'🔥',reason:'5g daily loading maximizes strength and explosive power output.',tag:'Power Output'}],
+    supps:[{name:'Recharge — Creatine Monohydrate',icon:'💪',reason:'The most studied supplement in sports science. 5g daily is the proven baseline.',tag:'Foundation'},{name:'Resilience — Whey Protein Isolate',icon:'🥩',reason:'Hit your protein target daily with clean, fast-absorbing whey isolate.',tag:'Foundation'},{name:'Replenish — Hydration Powder',icon:'💧',reason:'Complete electrolyte profile for training-day hydration.',tag:'Foundation'}],
+    focus:[{name:'Clarity — Methylene Blue Drops',icon:'🧠',reason:'Supports mitochondrial efficiency and cognitive performance during competition.',tag:'Cognitive Edge'},{name:'Adapt — Organic Ashwagandha',icon:'🙏',reason:'Clinically shown to reduce cortisol, supporting clear thinking under pressure.',tag:'Adaptogen'}],
+    stress:[{name:'Adapt — Organic Ashwagandha',icon:'🙏',reason:'Reduces cortisol by roughly 27% in clinical trials, protecting your anabolic environment.',tag:'Stress Defense'},{name:'Function — Magnesium Glycinate',icon:'✨',reason:'Supports nervous system relaxation and deep sleep for cortisol management.',tag:'Recovery'}],
+    consistency:[{name:'Resilience — Whey Protein Isolate',icon:'🔒',reason:'The easiest daily habit anchor. One shake a day keeps your protein target on track.',tag:'Daily Habit'}]
+  };
+
+  var GAP_DETAILS = {
+    sleep:{icon:'😴',gap:'Sleep Optimization',fix:'Establish a consistent 7 to 8 hour sleep window. Add magnesium glycinate 30 minutes before bed and eliminate screens 1 hour before sleep. Darkness and temperature (65 to 68 degrees F) are the most impactful environmental levers.'},
+    recovery:{icon:'🔥',gap:'Recovery Protocol',fix:'Consume 0.3g/kg protein within 30 minutes post-training. Load creatine monohydrate daily (5g). Consider colostrum for advanced gut and immune recovery support. Prioritize sleep over extra training volume.'},
+    hydration:{icon:'💧',gap:'Hydration Protocol',fix:'Drink half your body weight (lbs) in ounces of water daily. Add electrolytes (sodium, potassium, magnesium) around all training sessions. Start each morning with 16 to 32oz before coffee.'},
+    nutrition:{icon:'🥩',gap:'Nutrition Quality',fix:'Shift to the 80/20 rule: 80% whole foods (lean proteins, complex carbs, vegetables), 20% flexibility. Meal prep 2 to 3 days of food on Sundays. Hit your protein target first and everything else follows.'},
+    frequency:{icon:'📅',gap:'Training Frequency',fix:'Aim for 4 to 5 structured sessions per week. 3 focused 45-minute sessions are more effective than 1 long unfocused one. Each week of consistent training is a deposit in your long-term performance account.'},
+    intensity:{icon:'⚡',gap:'Training Intensity',fix:'Add 1 to 2 high-intensity sessions per week (heavy compound lifts or HIIT intervals). These trigger the most powerful hormonal responses. Use rate of perceived effort (RPE 8 to 9 out of 10) as your intensity benchmark.'},
+    supps:{icon:'💊',gap:'Supplementation Stack',fix:'Build the core performance stack: creatine monohydrate (5g daily), quality protein (hit 0.7g per lb of bodyweight daily), and electrolyte replenishment around training.'},
+    focus:{icon:'🧠',gap:'Mental Performance',fix:'Build a 3-minute pre-training ritual: box breathing (4-4-4-4 pattern) plus an activation phrase or prayer. Eliminate caffeine crashes with clean, natural energy sources.'},
+    stress:{icon:'🙏',gap:'Stress Management',fix:'Implement daily anchor rituals: morning prayer, devotion, breathwork, or journaling before screens. Consider ashwagandha (clinically proven to reduce cortisol by roughly 27%).'},
+    consistency:{icon:'🔒',gap:'Consistency and Habit',fix:'Do not miss twice. One missed session is a rest day; two in a row is the start of a broken habit. Schedule training like appointments, not aspirations.'}
+  };
+
+  var state = {currentStep:0,scores:[0,0,0,0,0,0,0,0,0,0],selected:[null,null,null,null,null,null,null,null,null,null],worstKeys:[],recNames:[],finalScore:0,finalTier:null};
+
+  function getTier(score) {
+    if (score <= 30) return {name:'Rookie',     color:'#22C55E', desc:'Major opportunities across all pillars. The ascent starts here.'};
+    if (score <= 55) return {name:'Athlete',    color:'#06A5C5', desc:'Solid base with key gaps holding you back. Time to close them.'};
+    if (score <= 75) return {name:'Competitor', color:'#F59E0B', desc:'Strong foundation with clear next steps to break through.'};
+    if (score <= 90) return {name:'Elite',      color:'#8B5CF6', desc:'High performer operating near the top. Protect and refine your edge.'};
+    return             {name:'Champion',        color:'#EF4444', desc:'Operating at peak. You are in rare company.'};
+  }
+
+  function getCatStatus(pct) {
+    if (pct <= 20) return {icon:'\uD83D\uDD34', label:'Critical'};
+    if (pct <= 40) return {icon:'\uD83D\uDFE0', label:'Needs Work'};
+    if (pct <= 60) return {icon:'\uD83D\uDFE1', label:'Solid'};
+    if (pct <= 80) return {icon:'\uD83D\uDFE2', label:'Strong'};
+    return           {icon:'\u2705',            label:'Elite'};
+  }
+
+  function r(n) { return Math.round(n); }
+
+  window.APNQuiz = {
+
+    start: function() {
+      document.getElementById('quiz-hero').style.display = 'none';
+      document.getElementById('quiz-progress').style.display = 'block';
+      document.getElementById('quiz-body').style.display = 'block';
+      this.showStep(1);
+      // Track quiz started
+      if (typeof fbq === 'function') fbq('track','Lead',{content_name:'Quiz Started'});
+      if (typeof ttq !== 'undefined') ttq.track('InitiateCheckout',{content_name:'Quiz Started'});
+      if (typeof gtag === 'function') gtag('event','conversion',{send_to:'AW-17918778091/ry7KCNqz0YUcEOu1q-BC'});
+    },
+
+    showStep: function(n) {
+      document.querySelectorAll('.apn-step').forEach(function(el){el.classList.remove('active');});
+      document.getElementById('apn-results').style.display = 'none';
+      if (n <= 10) {
+        state.currentStep = n;
+        document.getElementById('apn-step-' + n).classList.add('active');
+        var pct = r(((n-1)/10)*100);
+        document.getElementById('progress-fill').style.width = pct + '%';
+        document.getElementById('step-label').textContent = 'Question ' + n + ' of 10';
+        document.getElementById('step-pct').textContent = pct + '%';
+        window.scrollTo({top:0,behavior:'smooth'});
+      }
+    },
+
+    pick: function(qNum, points, el) {
+      el.closest('div').querySelectorAll('.apn-option').forEach(function(o){o.classList.remove('selected');});
+      el.classList.add('selected');
+      state.scores[qNum-1] = points;
+      state.selected[qNum-1] = points;
+
+      // Live score update (weighted)
+      var runningWeighted = 0;
+      CATEGORIES.forEach(function(cat,idx){ runningWeighted += state.scores[idx] * cat.weight; });
+      var liveScore = Math.max(1,Math.min(100,r((runningWeighted/MAX_SCORE)*100)));
+      var badge = document.getElementById('live-score-badge');
+      if (badge) { badge.style.display='inline-flex'; document.getElementById('live-score-num').textContent=liveScore; }
+
+      var insightEl = document.getElementById('apn-insight-' + qNum);
+      var data = INSIGHTS[qNum][points];
+      if (data) {
+        insightEl.innerHTML = '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:8px;display:flex;align-items:center;gap:6px;"><span>⚡</span>Performance Insight</div><p style="font-size:0.875rem;line-height:1.75;color:#aaa;margin:0 0 8px;"><strong style="color:#f0ede8;">' + data.headline + '</strong></p><p style="font-size:0.875rem;line-height:1.75;color:#888;margin:0;">' + data.body + '</p>';
+        insightEl.classList.add('visible');
+      }
+      var btn = document.getElementById('apn-next-' + qNum);
+      if (btn) btn.classList.add('visible');
+      setTimeout(function(){insightEl.scrollIntoView({behavior:'smooth',block:'nearest'});}, 150);
+    },
+
+    next: function(qNum) {
+      if (state.selected[qNum-1] === null) return;
+      this.showStep(qNum + 1);
+    },
+
+    finish: function() {
+      if (state.selected[9] === null) return;
+      document.querySelectorAll('.apn-step').forEach(function(el){el.classList.remove('active');});
+      document.getElementById('progress-fill').style.width = '100%';
+      document.getElementById('step-label').textContent = 'Results Ready';
+      document.getElementById('step-pct').textContent = '100%';
+
+      var weighted = 0;
+      CATEGORIES.forEach(function(cat,i){ weighted += state.scores[i] * cat.weight; });
+      state.finalScore = Math.max(1,Math.min(100,r((weighted/MAX_SCORE)*100)));
+      state.finalTier = getTier(state.finalScore);
+
+      document.getElementById('apn-email-gate').style.display = 'block';
+      document.getElementById('apn-results').style.display = 'none';
+      window.scrollTo({top:0,behavior:'smooth'});
+    },
+
+    _revealResults: function() {
+      document.getElementById('apn-email-gate').style.display = 'none';
+
+      var score = state.finalScore;
+      var tier = state.finalTier;
+
+      document.getElementById('apn-results').style.display = 'block';
+      document.getElementById('results-title').textContent = 'You Scored ' + score + ' / 100';
+      document.getElementById('results-sub').textContent = tier.desc;
+      document.getElementById('tier-name').textContent = tier.name + ' Level';
+      document.getElementById('tier-dot').style.background = tier.color;
+
+      this._animateDial(score, tier);
+      this._buildBars();
+      this._buildGaps();
+      this._buildRecs();
+
+      window.scrollTo({top:0,behavior:'smooth'});
+    },
+
+    _animateDial: function(score, tier) {
+      var arc = document.getElementById('dial-fill-arc');
+      var arcLen = Math.PI * 110;
+      arc.style.strokeDasharray = arcLen;
+      arc.style.strokeDashoffset = arcLen;
+      var gradId = score <= 30 ? 'dial-grad-red' : score <= 55 ? 'dial-grad-green' : score <= 75 ? 'dial-grad-yellow' : 'dial-grad-elite';
+      arc.setAttribute('stroke','url(#' + gradId + ')');
+      var targetOffset = arcLen - (arcLen * score / 100);
+      setTimeout(function(){arc.style.strokeDashoffset = targetOffset;}, 200);
+      var numEl = document.getElementById('dial-score-num');
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var p = Math.min((ts-startTime)/1800,1);
+        var e = 1 - Math.pow(1-p,3);
+        numEl.textContent = r(e * score);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    },
+
+    _buildBars: function() {
+      var container = document.getElementById('bars-container');
+      container.innerHTML = '';
+      CATEGORIES.forEach(function(cat,i) {
+        var pct = r((state.scores[i]/cat.max)*100);
+        var status = getCatStatus(pct);
+        var item = document.createElement('div');
+        item.style.marginBottom = '20px';
+        item.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8125rem;color:#ccc;margin-bottom:8px;">'
+          + '<span style="font-weight:500;">' + cat.label + '</span>'
+          + '<span style="display:flex;align-items:center;gap:8px;">'
+          + '<span style="font-size:0.75rem;">' + status.icon + ' ' + status.label + '</span>'
+          + '<span style="font-family:\'Barlow Condensed\',sans-serif;color:#06A5C5;font-size:0.9375rem;font-weight:700;letter-spacing:0.05em;min-width:38px;text-align:right;">' + pct + '%</span>'
+          + '</span>'
+          + '</div>'
+          + '<div style="height:6px;background:#222;border-radius:3px;overflow:hidden;"><div class="apn-mini-fill" data-pct="' + pct + '"></div></div>';
+        container.appendChild(item);
+      });
+      setTimeout(function(){
+        document.querySelectorAll('.apn-mini-fill').forEach(function(el){el.style.width=el.getAttribute('data-pct')+'%';});
+      },300);
+    },
+
+    _buildGaps: function() {
+      // Rank by weighted deficit: prioritises foundational pillars with higher weight
+      var ranked = CATEGORIES.map(function(cat,i){
+        return {cat:cat, score:state.scores[i], max:cat.max, weightedDeficit:(cat.max-state.scores[i])*cat.weight};
+      }).sort(function(a,b){ return b.weightedDeficit - a.weightedDeficit; });
+      var worst = ranked.slice(0,3);
+      state.worstKeys = worst.map(function(w){return w.cat.key;});
+      var container = document.getElementById('gaps-container');
+      container.innerHTML = '';
+      worst.forEach(function(w,idx) {
+        var detail = GAP_DETAILS[w.cat.key];
+        var item = document.createElement('div');
+        item.style.cssText = 'display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.04);';
+        if (idx === worst.length - 1) item.style.borderBottom = 'none';
+        item.innerHTML = '<div style="font-size:20px;margin-top:2px;flex-shrink:0;width:28px;text-align:center;">' + detail.icon + '</div><div style="flex:1;"><strong style="display:block;font-size:0.875rem;color:#f0ede8;margin-bottom:4px;font-weight:600;">Priority ' + (idx+1) + ': ' + detail.gap + '</strong><p style="font-size:0.8125rem;line-height:1.7;color:#777;margin:0;">' + detail.fix + '</p></div>';
+        container.appendChild(item);
+      });
+    },
+
+    _buildRecs: function() {
+      var container = document.getElementById('recs-container');
+      container.innerHTML = '';
+      var seen = {};
+      var recs = [];
+      state.worstKeys.forEach(function(key) {
+        (PRODUCT_MAP[key]||[]).forEach(function(p) {
+          if (!seen[p.name]) { seen[p.name] = true; recs.push(p); }
+        });
+      });
+      recs = recs.slice(0,5);
+      state.recNames = recs.map(function(r){return r.name;});
+      if (recs.length === 0) { document.getElementById('recs-section').style.display='none'; return; }
+      recs.forEach(function(rec) {
+        var card = document.createElement('div');
+        card.style.cssText = 'display:flex;align-items:flex-start;gap:16px;background:#1e1e1e;border:1px solid #2a2a2a;border-radius:10px;padding:18px 20px;margin-bottom:12px;';
+        var safeName = rec.name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+        card.innerHTML = '<div style="width:48px;height:48px;min-width:48px;background:rgba(6,165,197,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;margin-top:2px;">' + rec.icon + '</div>'
+          + '<div style="flex:1;min-width:0;">'
+          + '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#f0ede8;margin-bottom:3px;line-height:1.2;">' + rec.name + '</div>'
+          + '<div style="font-size:0.75rem;color:#666;line-height:1.5;">' + rec.reason + '</div>'
+          + '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;">'
+          + '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.5625rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(6,165,197,0.12);color:#06A5C5;padding:3px 8px;border-radius:4px;display:inline-block;">' + rec.tag + '</div>'
+          + '<button onclick="APNQuiz.addToCart(\'' + safeName + '\',this)" style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:#1e1e1e;border:1px solid rgba(6,165,197,0.4);color:#06A5C5;padding:4px 14px;border-radius:4px;cursor:pointer;transition:background 0.18s ease,border-color 0.18s ease;white-space:nowrap;" onmouseover="this.style.background=\'rgba(6,165,197,0.12)\';this.style.borderColor=\'#06A5C5\';" onmouseout="this.style.background=\'#1e1e1e\';this.style.borderColor=\'rgba(6,165,197,0.4)\';">+ Add to Cart</button>'
+          + '</div>'
+          + '</div>';
+        container.appendChild(card);
+      });
+
+      // Add Full Stack button
+      if (recs.length > 1) {
+        var stackWrap = document.createElement('div');
+        stackWrap.style.cssText = 'margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid #2a2a2a;';
+        stackWrap.innerHTML = '<div style="font-size:0.8125rem;color:#666;line-height:1.5;">Save time: add your entire recommended stack at once.</div>'
+          + '<button onclick="APNQuiz.addFullStack(this)" style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;border:none;padding:14px 28px;border-radius:8px;cursor:pointer;transition:transform 0.18s ease,box-shadow 0.18s ease;white-space:nowrap;flex-shrink:0;" onmouseover="this.style.transform=\'translateY(-2px)\';this.style.boxShadow=\'0 8px 24px rgba(6,165,197,0.35)\';" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\';">Add Full Stack to Cart</button>';
+        container.appendChild(stackWrap);
+      }
+    },
+
+    submitEmail: function() {
+      var emailInput = document.getElementById('gate-email-input');
+      var email = emailInput ? emailInput.value.trim() : '';
+      var errEl = document.getElementById('gate-email-error');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (errEl) errEl.style.display = 'block'; return;
+      }
+      if (errEl) errEl.style.display = 'none';
+
+      var score = state.finalScore;
+      var tier = state.finalTier;
+
+      var catPcts = {};
+      var catTiers = {};
+      var catRanked = [];
+      CATEGORIES.forEach(function(cat,i) {
+        var pct = r((state.scores[i]/cat.max)*100);
+        catPcts[cat.key] = pct;
+        var label = pct <= 20 ? 'critical' : pct <= 40 ? 'needs_work' : pct <= 60 ? 'solid' : pct <= 80 ? 'strong' : 'elite';
+        catTiers[cat.key] = label;
+        catRanked.push({key:cat.key,pct:pct,label:label});
+      });
+      catRanked.sort(function(a,b){return a.pct-b.pct;});
+      var catBest = catRanked.slice().sort(function(a,b){return b.pct-a.pct;});
+      var gap1 = catRanked[0]?catRanked[0].key:'';
+      var gap2 = catRanked[1]?catRanked[1].key:'';
+      var gap3 = catRanked[2]?catRanked[2].key:'';
+      var str1 = catBest[0]?catBest[0].key:'';
+      var str2 = catBest[1]?catBest[1].key:'';
+      var scoreBand = score<=30?'rookie':score<=55?'athlete':score<=75?'competitor':score<=90?'elite':'champion';
+      var criticalCount = catRanked.filter(function(c){return c.label==='critical';}).length;
+      var eliteCount = catRanked.filter(function(c){return c.label==='elite';}).length;
+      var archetypeMap = {sleep:'Under-Recovered',recovery:'Overtrained',hydration:'Dehydrated Performer',nutrition:'Under-Fueled',frequency:'Inconsistent',intensity:'Under-Stimulated',supps:'Unsupplemented',focus:'Scattered',stress:'Cortisol-Driven',consistency:'Early Stage'};
+      var archetype = tier.name + ' — ' + (archetypeMap[gap1]||'General');
+
+      var properties = {
+        performance_score:score,performance_tier:tier.name,score_band:scoreBand,profile_archetype:archetype,
+        critical_gap_count:criticalCount,elite_area_count:eliteCount,
+        quiz_sleep:state.scores[0],quiz_recovery:state.scores[1],quiz_hydration:state.scores[2],
+        quiz_nutrition:state.scores[3],quiz_frequency:state.scores[4],quiz_intensity:state.scores[5],
+        quiz_supps:state.scores[6],quiz_focus:state.scores[7],quiz_stress:state.scores[8],quiz_consistency:state.scores[9],
+        pct_sleep:catPcts.sleep,pct_recovery:catPcts.recovery,pct_hydration:catPcts.hydration,
+        pct_nutrition:catPcts.nutrition,pct_frequency:catPcts.frequency,pct_intensity:catPcts.intensity,
+        pct_supps:catPcts.supps,pct_focus:catPcts.focus,pct_stress:catPcts.stress,pct_consistency:catPcts.consistency,
+        tier_sleep:catTiers.sleep,tier_recovery:catTiers.recovery,tier_hydration:catTiers.hydration,
+        tier_nutrition:catTiers.nutrition,tier_frequency:catTiers.frequency,tier_intensity:catTiers.intensity,
+        tier_supps:catTiers.supps,tier_focus:catTiers.focus,tier_stress:catTiers.stress,tier_consistency:catTiers.consistency,
+        gap_1:gap1,gap_2:gap2,gap_3:gap3,strength_1:str1,strength_2:str2,
+        top_gaps:[gap1,gap2,gap3].join(', '),
+        recommended_products:state.recNames.join(', '),
+        source:'Performance Quiz - Ascend',
+        quiz_completed_at:new Date().toISOString()
+      };
+
+      // Klaviyo subscribe — route to tier-specific list
+      var listId = TIER_LISTS[tier.name] || TIER_LISTS['Rookie'];
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
+        method:'POST',
+        headers:{'Content-Type':'application/vnd.api+json','revision':'2023-12-15'},
+        body:JSON.stringify({data:{type:'subscription',attributes:{profile:{data:{type:'profile',attributes:{email:email,properties:properties}}}},relationships:{list:{data:{type:'list',id:listId}}}}})
+      }).catch(function(e){console.warn('Klaviyo subscribe:',e);});
+
+      // Klaviyo event
+      fetch('https://a.klaviyo.com/client/events/?company_id=' + KLAVIYO_KEY, {
+        method:'POST',
+        headers:{'Content-Type':'application/vnd.api+json','revision':'2023-12-15'},
+        body:JSON.stringify({data:{type:'event',attributes:{metric:{data:{type:'metric',attributes:{name:'Performance Quiz Completed'}}},profile:{data:{type:'profile',attributes:{email:email}}},properties:{score:score,tier:tier.name,score_band:scoreBand,archetype:archetype,gap_1:gap1,gap_2:gap2,gap_3:gap3,strength_1:str1,critical_count:criticalCount,elite_count:eliteCount,recommended_products:state.recNames.join(', '),pct_sleep:catPcts.sleep,pct_recovery:catPcts.recovery,pct_hydration:catPcts.hydration,pct_nutrition:catPcts.nutrition,pct_frequency:catPcts.frequency,pct_intensity:catPcts.intensity,pct_supps:catPcts.supps,pct_focus:catPcts.focus,pct_stress:catPcts.stress,pct_consistency:catPcts.consistency}}}})
+      }).catch(function(e){console.warn('Klaviyo event:',e);});
+
+      // Ad tracking
+      if (typeof fbq==='function') fbq('track','CompleteRegistration',{content_name:'Quiz Completed'});
+      if (typeof ttq!=='undefined'){ttq.identify({email:email});ttq.track('CompleteRegistration',{content_name:'Quiz Completed'});}
+      if (typeof gtag==='function') gtag('event','conversion',{send_to:'AW-17918778091/ZJsJCOKh2oUcEOu1q-BC'});
+
+      this._revealResults();
+    },
+
+    addToCart: function(name, btn) {
+      var cart = JSON.parse(localStorage.getItem('apn_cart')||'[]');
+      cart.push(name);
+      localStorage.setItem('apn_cart', JSON.stringify(cart));
+      this._updateCartBadge();
+      if (btn) {
+        var orig = btn.innerHTML;
+        btn.innerHTML = '&#10003; Added!';
+        btn.style.background = 'rgba(34,197,94,0.15)';
+        btn.style.borderColor = '#22C55E';
+        btn.style.color = '#22C55E';
+        setTimeout(function(){btn.innerHTML=orig;btn.style.background='#1e1e1e';btn.style.borderColor='rgba(6,165,197,0.4)';btn.style.color='#06A5C5';},1800);
+      }
+      if (typeof fbq==='function') fbq('track','AddToCart',{content_name:name,content_category:'Supplement'});
+      if (typeof ttq!=='undefined') ttq.track('AddToCart',{content_name:name});
+      if (typeof gtag==='function') gtag('event','conversion',{send_to:'AW-17918778091/cRQ-CK-A5YUcEOu1q-BC'});
+    },
+
+    addFullStack: function(btn) {
+      var cart = JSON.parse(localStorage.getItem('apn_cart')||'[]');
+      state.recNames.forEach(function(n){cart.push(n);});
+      localStorage.setItem('apn_cart', JSON.stringify(cart));
+      this._updateCartBadge();
+      if (btn) {
+        var orig = btn.innerHTML;
+        btn.innerHTML = '&#10003; Full Stack Added!';
+        btn.style.background = '#22C55E';
+        btn.style.boxShadow = '0 6px 20px rgba(34,197,94,0.35)';
+        setTimeout(function(){btn.innerHTML=orig;btn.style.background='';btn.style.boxShadow='';},2200);
+      }
+      if (typeof fbq==='function') fbq('track','AddToCart',{content_name:'Full Stack',content_category:'Bundle'});
+      if (typeof gtag==='function') gtag('event','conversion',{send_to:'AW-17918778091/cRQ-CK-A5YUcEOu1q-BC'});
+    },
+
+    _updateCartBadge: function() {
+      var cart = JSON.parse(localStorage.getItem('apn_cart')||'[]');
+      var badge = document.getElementById('cart-badge');
+      if (badge) {
+        badge.textContent = cart.length;
+        badge.style.display = cart.length > 0 ? 'flex' : 'none';
+      }
+    },
+
+    copyCode: function() {
+      var code = document.getElementById('discount-code').textContent.trim();
+      var msg = document.getElementById('copy-msg');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(function(){msg.textContent='Copied to clipboard!';setTimeout(function(){msg.textContent='Click to copy · Valid for 48 hours';},2500);});
+      }
+    }
+  };
+
+  // Init cart badge on load
+  window.APNQuiz._updateCartBadge();
+
+  // Mobile menu
+  window.toggleMenu = function() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    var open = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  window.closeMenu = function() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded','false');
+  };
+
+})();
+</script>
+
+</body>
+</html>

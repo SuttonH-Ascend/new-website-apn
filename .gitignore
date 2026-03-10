@@ -1,0 +1,5 @@
+node_modules/
+temporary screenshots/
+apn-next/
+.DS_Store
+*.log
