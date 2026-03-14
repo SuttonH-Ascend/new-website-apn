@@ -1,0 +1,51 @@
+<section id="newsletter" style="background:#06A5C5;padding:4rem 1.5rem;">
+  <div style="max-width:640px;margin:0 auto;text-align:center;" class="apn-fade-up">
+
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:1rem;">{{ section.settings.eyebrow | default: 'Stay in the Game' }}</div>
+    <h2 class="apn-display" style="font-size:clamp(1.75rem,4vw,2.5rem);color:#fff;margin:0 0 0.875rem;">{{ section.settings.heading | default: 'Get Performance Tips & Exclusive Offers' }}</h2>
+    <p style="color:rgba(255,255,255,0.8);line-height:1.7;margin:0 0 2rem;">{{ section.settings.subheading | default: 'Join the Ascend community. No spam — just training insights, new product drops, and deals for athletes who mean business.' }}</p>
+
+    {%- form 'customer', id: 'apn-newsletter-form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter" />
+      <div style="display:flex;gap:0.75rem;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+        <input
+          type="email"
+          name="contact[email]"
+          placeholder="{{ section.settings.placeholder | default: 'Your email address' }}"
+          required
+          aria-label="Email address"
+          style="flex:1;min-width:200px;padding:0.875rem 1.25rem;border:2px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.15);color:#fff;font-family:'Barlow',sans-serif;font-size:0.9375rem;border-radius:4px;outline:none;transition:border-color 0.18s ease;"
+          onfocus="this.style.borderColor='rgba(255,255,255,0.8)'"
+          onblur="this.style.borderColor='rgba(255,255,255,0.3)'"
+        />
+        <button type="submit" class="apn-btn" style="background:#0D0D0D;color:#fff;padding:0.875rem 1.5rem;font-size:0.875rem;white-space:nowrap;transition:background 0.18s ease;" onmouseover="this.style.background='#1a1a1a'" onmouseout="this.style.background='#0D0D0D'">
+          {{ section.settings.btn_label | default: 'Subscribe' }}
+        </button>
+      </div>
+
+      {%- if form.posted_successfully? -%}
+        <p style="color:#fff;font-weight:600;margin-top:1rem;">Thanks for subscribing! We'll be in touch.</p>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <p style="color:rgba(255,255,255,0.8);margin-top:0.75rem;font-size:0.875rem;">{{ form.errors | default_errors }}</p>
+      {%- endif -%}
+    {%- endform -%}
+
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.55);margin-top:1rem;">{{ section.settings.disclaimer | default: 'Unsubscribe anytime. We respect your inbox.' }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home — Newsletter",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Stay in the Game" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get Performance Tips & Exclusive Offers" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Join the Ascend community. No spam — just training insights, new product drops, and deals for athletes who mean business." },
+    { "type": "text", "id": "placeholder", "label": "Input placeholder", "default": "Your email address" },
+    { "type": "text", "id": "btn_label", "label": "Button label", "default": "Subscribe" },
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "Unsubscribe anytime. We respect your inbox." }
+  ],
+  "presets": [{ "name": "Home — Newsletter" }]
+}
+{% endschema %}

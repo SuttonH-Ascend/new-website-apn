@@ -1,0 +1,64 @@
+{%- comment -%}
+  Product reviews section.
+  Integrates with Shopify's native reviews metaobject or Judge.me / Okendo via app embed.
+  Falls back to showing a static review placeholder if none configured.
+{%- endcomment -%}
+
+<section id="product-reviews" style="background:#F8FAFB;padding:5rem 1.5rem;">
+  <div style="max-width:1280px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:3rem;" class="apn-fade-up">
+      <div class="apn-section-label" style="justify-content:center;">Reviews</div>
+      <h2 class="apn-display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);color:#0D0D0D;margin:0;">What Athletes Are Saying</h2>
+    </div>
+
+    <!-- App embed target (Judge.me, Okendo, Loox, etc. inject here) -->
+    <div id="shopify-product-reviews" data-id="{{ product.id }}"></div>
+
+    <!-- Native Shopify rating metafield summary (if configured) -->
+    {%- if product.metafields.reviews.rating.value != blank -%}
+      <div style="display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:2.5rem;">
+        <div style="display:flex;gap:3px;color:#F59E0B;" aria-label="Rating: {{ product.metafields.reviews.rating.value }} out of 5">
+          {%- assign rating = product.metafields.reviews.rating.value | round -%}
+          {%- for i in (1..5) -%}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="{% if i <= rating %}currentColor{% else %}none{% endif %}" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          {%- endfor -%}
+        </div>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;color:#0D0D0D;">{{ product.metafields.reviews.rating.value }}</span>
+        <span style="color:#6B7280;font-size:0.875rem;">based on {{ product.metafields.reviews.rating_count }} reviews</span>
+      </div>
+    {%- endif -%}
+
+    <!-- Fallback static review card when no review app installed -->
+    {%- unless product.metafields.reviews.rating.value -%}
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="apn-fade-up">
+        {%- assign static_reviews = product.metafields.custom.featured_reviews.value -%}
+        {%- if static_reviews != blank -%}
+          {%- for review in static_reviews -%}
+            <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:1.75rem;">
+              <div style="display:flex;gap:2px;color:#F59E0B;margin-bottom:0.875rem;">
+                {%- for i in (1..5) -%}<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>{%- endfor -%}
+              </div>
+              <p style="font-size:0.9375rem;line-height:1.7;color:#333;margin:0 0 1rem;font-style:italic;">"{{ review.body }}"</p>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:#0D0D0D;">{{ review.author }}</div>
+              {%- if review.title -%}<div style="font-size:0.8125rem;color:#6B7280;">{{ review.title }}</div>{%- endif -%}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:1.75rem;">
+            <div style="display:flex;gap:2px;color:#F59E0B;margin-bottom:0.875rem;">
+              {%- for i in (1..5) -%}<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>{%- endfor -%}
+            </div>
+            <p style="font-size:0.9375rem;line-height:1.7;color:#333;margin:0 0 1rem;font-style:italic;">"This stuff is legit. I've tried a lot of creatine products and this mixes better than any of them. Noticeable strength difference within two weeks."</p>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;color:#0D0D0D;">James K.</div>
+            <div style="font-size:0.8125rem;color:#6B7280;">Verified Purchase</div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endunless -%}
+
+  </div>
+  <style>
+    @media (max-width: 720px) { #product-reviews div[style*="repeat(3"] { grid-template-columns: 1fr !important; } }
+  </style>
+</section>

@@ -1,0 +1,139 @@
+<footer class="apn-footer" aria-label="Site footer">
+  <div style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+
+    <!-- Brand column -->
+    <div>
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | image_url: height: 72 }}" alt="{{ shop.name }}" style="height:36px;width:auto;" />
+        {%- else -%}
+          <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="{{ shop.name }}" style="height:36px;width:auto;" />
+        {%- endif -%}
+        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.8);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+        </div>
+      </div>
+      <p style="font-size:0.875rem;line-height:1.75;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;max-width:280px;">
+        {{ section.settings.tagline | default: 'Clean-label supplements built for athletes who refuse to settle. Equip. Empower. Elevate.' }}
+      </p>
+      <!-- Social icons -->
+      <div style="display:flex;gap:0.5rem;">
+        {%- if section.settings.instagram != blank -%}
+          <a href="{{ section.settings.instagram }}" class="apn-social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.facebook != blank -%}
+          <a href="{{ section.settings.facebook }}" class="apn-social-btn" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.tiktok != blank -%}
+          <a href="{{ section.settings.tiktok }}" class="apn-social-btn" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.72a8.18 8.18 0 0 0 4.78 1.52V6.82a4.85 4.85 0 0 1-1.01-.13z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.youtube != blank -%}
+          <a href="{{ section.settings.youtube }}" class="apn-social-btn" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Products column -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin:0 0 1.25rem;">Products</h3>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="{{ routes.collections_url }}/protein" class="apn-footer-link">Resilience Whey Protein</a></li>
+        <li><a href="{{ routes.collections_url }}/hydration" class="apn-footer-link">Replenish Hydration</a></li>
+        <li><a href="{{ routes.collections_url }}/recovery" class="apn-footer-link">Recharge Creatine</a></li>
+        <li><a href="{{ routes.collections_url }}/energy" class="apn-footer-link">Ignite Energy</a></li>
+        <li><a href="{{ routes.collections_url }}/wellness" class="apn-footer-link">Fortify Colostrum</a></li>
+        <li><a href="{{ routes.collections_url }}/all" class="apn-footer-link" style="color:#06A5C5;">View All Products →</a></li>
+      </ul>
+    </div>
+
+    <!-- Company column -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin:0 0 1.25rem;">Company</h3>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/about" class="apn-footer-link">About Us</a></li>
+        <li><a href="/pages/framework" class="apn-footer-link">The Ascend Framework</a></li>
+        <li><a href="{{ routes.root_url }}blogs/news" class="apn-footer-link">Resources / Blog</a></li>
+        <li><a href="/pages/athletes" class="apn-footer-link">Athlete Profiles</a></li>
+      </ul>
+    </div>
+
+    <!-- Support column -->
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin:0 0 1.25rem;">Support</h3>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/quiz" class="apn-footer-link">Performance Quiz</a></li>
+        <li><a href="{{ routes.root_url }}policies/shipping-policy" class="apn-footer-link">Shipping Policy</a></li>
+        <li><a href="{{ routes.root_url }}policies/refund-policy" class="apn-footer-link">Returns & Refunds</a></li>
+        <li><a href="/pages/contact" class="apn-footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);margin:0;">© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="{{ routes.root_url }}policies/privacy-policy" class="apn-footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="{{ routes.root_url }}policies/terms-of-service" class="apn-footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- Mobile footer stack -->
+  <style>
+    @media (max-width: 720px) {
+      .apn-footer > div:first-child {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+  </style>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Brand tagline",
+      "default": "Clean-label supplements built for athletes who refuse to settle. Equip. Empower. Elevate."
+    },
+    {
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube",
+      "label": "YouTube URL"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,74 @@
+<section id="home-hero" style="position:relative;min-height:100vh;background:#0D0D0D;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+
+  <!-- Background gradient -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,165,197,0.15) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 80% 100%,rgba(6,165,197,0.08) 0%,transparent 50%);pointer-events:none;"></div>
+
+  <!-- Background image (if set) -->
+  {%- if section.settings.bg_image != blank -%}
+    <div style="position:absolute;inset:0;background-image:url('{{ section.settings.bg_image | image_url: width: 1600 }}');background-size:cover;background-position:center;opacity:0.18;"></div>
+  {%- endif -%}
+
+  <!-- Content -->
+  <div style="position:relative;z-index:1;text-align:center;padding:6rem 1.5rem 4rem;max-width:900px;margin:0 auto;">
+
+    <!-- Eyebrow -->
+    <div style="display:inline-flex;align-items:center;gap:0.75rem;margin-bottom:2rem;">
+      <div style="width:32px;height:1px;background:#06A5C5;"></div>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:#06A5C5;">{{ section.settings.eyebrow | default: 'Faith · Family · America · Fitness' }}</span>
+      <div style="width:32px;height:1px;background:#06A5C5;"></div>
+    </div>
+
+    <!-- Headline -->
+    <h1 style="font-family:Georgia,serif;font-weight:700;font-size:clamp(2.75rem,7vw,5.5rem);line-height:1;letter-spacing:-0.03em;color:#fff;margin:0 0 1.5rem;">
+      {{ section.settings.heading | default: 'Performance Built on<br>What Matters Most' }}
+    </h1>
+
+    <!-- Subheadline -->
+    <p style="font-family:'Barlow',sans-serif;font-size:clamp(1rem,2vw,1.25rem);line-height:1.7;color:rgba(255,255,255,0.6);max-width:620px;margin:0 auto 2.5rem;">
+      {{ section.settings.subheading | default: 'Clean-label supplements for athletes who compete with conviction. No shortcuts. No gray-area ingredients. Just performance you can be proud of.' }}
+    </p>
+
+    <!-- CTAs -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+      <a href="{{ section.settings.primary_cta_url | default: routes.collections_url | append: '/all' }}" class="apn-btn apn-btn-primary">
+        {{ section.settings.primary_cta_label | default: 'Shop the Stack' }}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/pages/quiz" class="apn-btn apn-btn-outline-light">Take the Performance Quiz</a>
+    </div>
+
+    <!-- Stats strip -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:3rem;margin-top:4rem;flex-wrap:wrap;">
+      {%- assign stats = 'Clean Label,No Artificial Dyes,Faith-Driven,Athlete-Formulated' | split: ',' -%}
+      {%- for stat in stats -%}
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#06A5C5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);">{{ stat }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+
+  <!-- Scroll indicator -->
+  <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0.4;">
+    <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;color:#fff;">Scroll</span>
+    <div style="width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,0.6),transparent);"></div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Home — Hero",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "Faith · Family · America · Fitness" },
+    { "type": "textarea", "id": "heading", "label": "Headline", "default": "Performance Built on What Matters Most" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Clean-label supplements for athletes who compete with conviction. No shortcuts. No gray-area ingredients. Just performance you can be proud of." },
+    { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label", "default": "Shop the Stack" },
+    { "type": "url", "id": "primary_cta_url", "label": "Primary CTA URL" }
+  ],
+  "presets": [{ "name": "Home — Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,53 @@
+<section id="products" style="background:#fff;padding:5rem 1.5rem;">
+  <div style="max-width:1280px;margin:0 auto;">
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;" class="apn-fade-up">
+      <div>
+        <div class="apn-section-label">{{ section.settings.eyebrow | default: 'The Stack' }}</div>
+        <h2 class="apn-display" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#0D0D0D;margin:0;">{{ section.settings.heading | default: 'Performance, Simplified' }}</h2>
+      </div>
+      <a href="{{ section.settings.cta_url | default: routes.collections_url | append: '/all' }}" class="apn-btn apn-btn-outline">
+        {{ section.settings.cta_label | default: 'View All Products' }}
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    {%- assign featured_collection = collections[section.settings.collection] -%}
+    {%- if featured_collection != blank and featured_collection.products.size > 0 -%}
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+        {%- for product in featured_collection.products limit: section.settings.product_limit -%}
+          {%- render 'product-card', product: product -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <!-- Fallback: show from all collection -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+        {%- for product in collections.all.products limit: section.settings.product_limit -%}
+          {%- render 'product-card', product: product -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  <style>
+    @media (max-width: 1024px) { #products .grid-4 { grid-template-columns: repeat(3,1fr) !important; } }
+    @media (max-width: 720px)  { #products .grid-4 { grid-template-columns: repeat(2,1fr) !important; } }
+    @media (max-width: 480px)  { #products .grid-4 { grid-template-columns: 1fr !important; } }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Home — Products",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Stack" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Performance, Simplified" },
+    { "type": "collection", "id": "collection", "label": "Collection to show" },
+    { "type": "range", "id": "product_limit", "min": 4, "max": 12, "step": 4, "label": "Products to show", "default": 8 },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View All Products" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" }
+  ],
+  "presets": [{ "name": "Home — Products" }]
+}
+{% endschema %}

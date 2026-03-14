@@ -1,0 +1,81 @@
+<section style="background:#F8FAFB;padding:3rem 1.5rem 5rem;">
+  <div style="max-width:1280px;margin:0 auto;">
+
+    <!-- Filter tabs -->
+    <div id="apn-filter-bar" style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid #E2E8F0;">
+      <a href="{{ routes.collections_url }}/all" class="apn-filter-tab{% if collection.handle == 'all' %} active{% endif %}" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.25rem;border-radius:100px;background:{% if collection.handle == 'all' %}#0D0D0D{% else %}#fff{% endif %};color:{% if collection.handle == 'all' %}#fff{% else %}#6B7280{% endif %};border:1px solid {% if collection.handle == 'all' %}#0D0D0D{% else %}#E2E8F0{% endif %};text-decoration:none;transition:background 0.18s,color 0.18s,border-color 0.18s;" onmouseover="if(!this.classList.contains('active')){this.style.borderColor='#0D0D0D';this.style.color='#0D0D0D';}" onmouseout="if(!this.classList.contains('active')){this.style.borderColor='#E2E8F0';this.style.color='#6B7280';}">All Products</a>
+
+      {%- assign filter_collections = 'protein,hydration,energy,recovery,wellness' | split: ',' -%}
+      {%- assign filter_labels = 'Protein,Hydration,Energy,Recovery,Wellness' | split: ',' -%}
+      {%- for handle in filter_collections -%}
+        {%- assign filter_label = filter_labels[forloop.index0] -%}
+        {%- assign is_active = false -%}
+        {%- if collection.handle == handle -%}{%- assign is_active = true -%}{%- endif -%}
+        <a href="{{ routes.collections_url }}/{{ handle }}" class="apn-filter-tab{% if is_active %} active{% endif %}" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.25rem;border-radius:100px;background:{{ is_active | ternary: '#0D0D0D', '#fff' }};color:{{ is_active | ternary: '#fff', '#6B7280' }};border:1px solid {{ is_active | ternary: '#0D0D0D', '#E2E8F0' }};text-decoration:none;transition:background 0.18s,color 0.18s,border-color 0.18s;">{{ filter_label }}</a>
+      {%- endfor -%}
+
+      <!-- Sort -->
+      <div style="margin-left:auto;">
+        <select onchange="window.location=this.value" aria-label="Sort products" style="font-family:'Barlow',sans-serif;font-size:0.875rem;padding:0.5rem 1rem;border:1px solid #E2E8F0;border-radius:4px;background:#fff;color:#0D0D0D;cursor:pointer;outline:none;">
+          <option value="?sort_by=manual"{% if collection.sort_by == 'manual' %} selected{% endif %}>Featured</option>
+          <option value="?sort_by=price-ascending"{% if collection.sort_by == 'price-ascending' %} selected{% endif %}>Price: Low → High</option>
+          <option value="?sort_by=price-descending"{% if collection.sort_by == 'price-descending' %} selected{% endif %}>Price: High → Low</option>
+          <option value="?sort_by=title-ascending"{% if collection.sort_by == 'title-ascending' %} selected{% endif %}>Name: A → Z</option>
+          <option value="?sort_by=best-selling"{% if collection.sort_by == 'best-selling' %} selected{% endif %}>Best Selling</option>
+          <option value="?sort_by=created-descending"{% if collection.sort_by == 'created-descending' %} selected{% endif %}>Newest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product grid -->
+    {%- if collection.products.size > 0 -%}
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+        {%- for product in collection.products -%}
+          {%- render 'product-card', product: product -%}
+        {%- endfor -%}
+      </div>
+
+      <!-- Pagination -->
+      {%- if paginate.pages > 1 -%}
+        <div style="display:flex;justify-content:center;gap:0.5rem;margin-top:3rem;" aria-label="Pagination">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="apn-btn apn-btn-outline" style="padding:0.625rem 1.25rem;font-size:0.875rem;">← Previous</a>
+          {%- endif -%}
+          {%- for part in paginate.parts -%}
+            {%- if part.is_link -%}
+              <a href="{{ part.url }}" class="apn-btn apn-btn-outline" style="padding:0.625rem 1rem;font-size:0.875rem;min-width:44px;justify-content:center;">{{ part.title }}</a>
+            {%- else -%}
+              <span style="padding:0.625rem 1rem;font-family:'Barlow',sans-serif;font-size:0.875rem;font-weight:700;background:#0D0D0D;color:#fff;border-radius:4px;min-width:44px;display:flex;align-items:center;justify-content:center;">{{ part.title }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="apn-btn apn-btn-outline" style="padding:0.625rem 1.25rem;font-size:0.875rem;">Next →</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    {%- else -%}
+      <div style="text-align:center;padding:4rem 1.5rem;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:#6B7280;">No products found in this collection.</p>
+        <a href="{{ routes.collections_url }}/all" class="apn-btn apn-btn-dark" style="margin-top:1.5rem;">View All Products</a>
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  <style>
+    @media (max-width: 1024px) { #apn-filter-bar + div { grid-template-columns: repeat(3,1fr) !important; } }
+    @media (max-width: 720px)  { #apn-filter-bar + div { grid-template-columns: repeat(2,1fr) !important; } }
+    @media (max-width: 480px)  { #apn-filter-bar + div { grid-template-columns: 1fr !important; } }
+  </style>
+</section>
+
+{%- paginate collection.products by 12 -%}{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Collection — Grid",
+  "settings": [],
+  "presets": [{ "name": "Collection — Grid" }]
+}
+{% endschema %}

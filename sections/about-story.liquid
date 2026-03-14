@@ -1,0 +1,60 @@
+<section id="about-story" style="background:#fff;padding:5rem 1.5rem;">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+
+    <!-- Image -->
+    <div class="apn-fade-up">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image_alt | default: 'Sutton Huggins, Founder' }}" style="width:100%;border-radius:8px;object-fit:cover;aspect-ratio:3/4;" />
+      {%- else -%}
+        <div style="width:100%;aspect-ratio:3/4;background:#F8FAFB;border:1px solid #E2E8F0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#E2E8F0;">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Copy -->
+    <div class="apn-fade-up">
+      <div class="apn-section-label">{{ section.settings.eyebrow | default: 'The Founder' }}</div>
+      <h2 class="apn-display" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#0D0D0D;margin:0 0 1.5rem;">{{ section.settings.heading | default: 'Meet Sutton Huggins' }}</h2>
+
+      {%- if section.settings.body != blank -%}
+        <div style="font-size:1rem;line-height:1.8;color:#6B7280;display:flex;flex-direction:column;gap:1rem;">
+          {{ section.settings.body }}
+        </div>
+      {%- else -%}
+        <div style="font-size:1rem;line-height:1.8;color:#6B7280;display:flex;flex-direction:column;gap:1rem;">
+          <p>Sutton Huggins is a competing MMA fighter, faith-driven entrepreneur, and the founder of Ascend Performance Nutrition. After years of training at the highest levels and finding no supplement brand that shared his values — clean ingredients, transparent labels, and a commitment to something greater than performance — he built one.</p>
+          <p>Ascend is the brand Sutton wished existed. Every formula is tested in real training environments. Every ingredient is chosen for efficacy, not marketing appeal. And every product is built to honor the four pillars he competes for: Faith, Family, America, and Fitness.</p>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.quote != blank -%}
+        <blockquote style="margin:2rem 0;padding:1.5rem;background:#F8FAFB;border-left:3px solid #06A5C5;border-radius:0 4px 4px 0;">
+          <p style="font-family:Georgia,serif;font-size:1.125rem;line-height:1.6;color:#0D0D0D;font-style:italic;margin:0 0 0.75rem;">"{{ section.settings.quote }}"</p>
+          <cite style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.1em;text-transform:uppercase;color:#6B7280;font-style:normal;">— {{ section.settings.quote_author | default: 'Sutton Huggins, Founder' }}</cite>
+        </blockquote>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  <style>
+    @media (max-width: 900px) { #about-story > div { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "About — Story",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Founder image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Sutton Huggins, Founder" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Founder" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Meet Sutton Huggins" },
+    { "type": "richtext", "id": "body", "label": "Story body" },
+    { "type": "textarea", "id": "quote", "label": "Pull quote" },
+    { "type": "text", "id": "quote_author", "label": "Quote author", "default": "Sutton Huggins, Founder" }
+  ],
+  "presets": [{ "name": "About — Story" }]
+}
+{% endschema %}
