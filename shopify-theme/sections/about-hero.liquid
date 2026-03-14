@@ -1,0 +1,23 @@
+<section style="background:#0D0D0D;padding:6rem 1.5rem 4rem;margin-top:64px;position:relative;overflow:hidden;">
+
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,165,197,0.12) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <div style="max-width:800px;margin:0 auto;text-align:center;position:relative;">
+    <div class="apn-section-label" style="justify-content:center;color:#06A5C5;margin-bottom:1.25rem;">{{ section.settings.eyebrow | default: 'About Ascend' }}</div>
+    <h1 class="apn-display" style="font-size:clamp(2.5rem,6vw,4.5rem);color:#fff;margin:0 0 1.25rem;">{{ section.settings.heading | default: 'Built on Faith. Forged in Competition.' }}</h1>
+    <p style="font-size:1.125rem;line-height:1.8;color:rgba(255,255,255,0.55);max-width:600px;margin:0 auto;">{{ section.settings.subheading | default: 'Ascend Performance Nutrition exists for the athlete who refuses to separate who they are from what they do. Clean supplements for the whole person.' }}</p>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "About — Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "About Ascend" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Built on Faith. Forged in Competition." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Ascend Performance Nutrition exists for the athlete who refuses to separate who they are from what they do." }
+  ],
+  "presets": [{ "name": "About — Hero" }]
+}
+{% endschema %}

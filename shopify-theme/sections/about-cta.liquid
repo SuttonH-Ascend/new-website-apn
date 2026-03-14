@@ -1,0 +1,44 @@
+<section id="about-cta" style="background:#0D0D0D;padding:5rem 1.5rem;">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+
+    <!-- Shop CTA -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:3rem;text-align:center;" class="apn-fade-up">
+      <div class="apn-section-label" style="justify-content:center;color:#06A5C5;margin-bottom:1rem;">{{ section.settings.shop_eyebrow | default: 'The Stack' }}</div>
+      <h2 class="apn-display" style="font-size:clamp(1.5rem,3vw,2.25rem);color:#fff;margin:0 0 0.875rem;">{{ section.settings.shop_heading | default: 'Shop the Full Line' }}</h2>
+      <p style="font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.5);margin:0 0 2rem;max-width:360px;margin-left:auto;margin-right:auto;">{{ section.settings.shop_body | default: 'Every product in the Ascend stack is built around a specific performance outcome. Find your protocol.' }}</p>
+      <a href="{{ section.settings.shop_url | default: routes.collections_url | append: '/all' }}" class="apn-btn apn-btn-primary">{{ section.settings.shop_cta | default: 'View All Products' }}</a>
+    </div>
+
+    <!-- Quiz CTA -->
+    <div style="background:#06A5C5;border-radius:8px;padding:3rem;text-align:center;" class="apn-fade-up">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:1rem;">{{ section.settings.quiz_eyebrow | default: "Not Sure Where to Start" }}</div>
+      <h2 class="apn-display" style="font-size:clamp(1.5rem,3vw,2.25rem);color:#fff;margin:0 0 0.875rem;">{{ section.settings.quiz_heading | default: 'Take the Performance Quiz' }}</h2>
+      <p style="font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.8);margin:0 0 2rem;max-width:360px;margin-left:auto;margin-right:auto;">{{ section.settings.quiz_body | default: 'Answer 5 quick questions and get a personalized supplement protocol built for your goals.' }}</p>
+      <a href="{{ section.settings.quiz_url | default: '/pages/quiz' }}" class="apn-btn" style="background:#0D0D0D;color:#fff;">{{ section.settings.quiz_cta | default: 'Start the Quiz' }}</a>
+    </div>
+
+  </div>
+
+  <style>
+    @media (max-width: 720px) { #about-cta > div { grid-template-columns: 1fr !important; } }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "About — CTA",
+  "settings": [
+    { "type": "text", "id": "shop_eyebrow", "label": "Shop eyebrow", "default": "The Stack" },
+    { "type": "text", "id": "shop_heading", "label": "Shop heading", "default": "Shop the Full Line" },
+    { "type": "textarea", "id": "shop_body", "label": "Shop body", "default": "Every product in the Ascend stack is built around a specific performance outcome." },
+    { "type": "text", "id": "shop_cta", "label": "Shop CTA label", "default": "View All Products" },
+    { "type": "url", "id": "shop_url", "label": "Shop CTA URL" },
+    { "type": "text", "id": "quiz_eyebrow", "label": "Quiz eyebrow", "default": "Not Sure Where to Start" },
+    { "type": "text", "id": "quiz_heading", "label": "Quiz heading", "default": "Take the Performance Quiz" },
+    { "type": "textarea", "id": "quiz_body", "label": "Quiz body", "default": "Answer 5 quick questions and get a personalized supplement protocol built for your goals." },
+    { "type": "text", "id": "quiz_cta", "label": "Quiz CTA label", "default": "Start the Quiz" },
+    { "type": "url", "id": "quiz_url", "label": "Quiz CTA URL" }
+  ],
+  "presets": [{ "name": "About — CTA" }]
+}
+{% endschema %}

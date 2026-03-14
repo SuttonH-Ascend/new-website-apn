@@ -1,0 +1,89 @@
+<section id="mission" style="background:#fff;padding:5rem 1.5rem;">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+
+    <!-- Left: copy -->
+    <div class="apn-fade-up">
+      <div class="apn-section-label">{{ section.settings.eyebrow | default: 'Faith-Driven Performance' }}</div>
+      <h2 class="apn-display" style="font-size:clamp(2rem,4vw,3rem);color:#0D0D0D;margin:0 0 1.25rem;">{{ section.settings.heading | default: 'Built for Athletes Who Compete With Conviction' }}</h2>
+      <p style="font-size:1.0625rem;line-height:1.8;color:#6B7280;margin:0 0 1.5rem;">{{ section.settings.body | default: 'Ascend Performance Nutrition was founded by an MMA fighter with a simple belief: your supplements should be as clean as your conscience. Every formula is crafted with full-label transparency, zero gray-area stimulants, and ingredients that actually move the needle.' }}</p>
+
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="{{ section.settings.cta_url | default: routes.collections_url | append: '/all' }}" class="apn-btn apn-btn-dark">{{ section.settings.cta_label | default: 'Shop Products' }}</a>
+        <a href="/pages/about" class="apn-btn apn-btn-outline">Our Story</a>
+      </div>
+    </div>
+
+    <!-- Right: trust badges -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;" class="apn-fade-up">
+      {%- assign badges = section.blocks -%}
+      {%- if badges.size > 0 -%}
+        {%- for block in badges -%}
+          <div style="background:#F8FAFB;border:1px solid #E2E8F0;border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;" {{ block.shopify_attributes }}>
+            <div style="width:44px;height:44px;background:#D6F0F6;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#06A5C5;">
+              {%- if block.settings.icon == 'shield' -%}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {%- elsif block.settings.icon == 'check' -%}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              {%- elsif block.settings.icon == 'star' -%}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              {%- else -%}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              {%- endif -%}
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.25rem;">{{ block.settings.title }}</div>
+              <p style="font-size:0.8125rem;line-height:1.6;color:#6B7280;margin:0;">{{ block.settings.body }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- assign default_badges = 'Full Label Transparency|Every ingredient, every dose — no proprietary blends.|shield,Built by a Competitor|Formulated by an MMA fighter who trains and competes.|check,Faith-Driven Mission|Rooted in values that go beyond the gym.|star,Zero Gray-Area Stimulants|No banned substances. No artificial dyes. No compromises.|shield' | split: ',' -%}
+        {%- for badge_data in default_badges -%}
+          {%- assign parts = badge_data | split: '|' -%}
+          <div style="background:#F8FAFB;border:1px solid #E2E8F0;border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
+            <div style="width:44px;height:44px;background:#D6F0F6;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#06A5C5;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.25rem;">{{ parts[0] }}</div>
+              <p style="font-size:0.8125rem;line-height:1.6;color:#6B7280;margin:0;">{{ parts[1] }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  <style>
+    @media (max-width: 900px) {
+      #mission > div { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Home — Mission",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Faith-Driven Performance" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Built for Athletes Who Compete With Conviction" },
+    { "type": "textarea", "id": "body", "label": "Body text", "default": "Ascend Performance Nutrition was founded by an MMA fighter with a simple belief: your supplements should be as clean as your conscience." },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop Products" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Trust Badge",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Full Label Transparency" },
+        { "type": "textarea", "id": "body", "label": "Description", "default": "Every ingredient, every dose — no proprietary blends." },
+        { "type": "select", "id": "icon", "label": "Icon", "options": [{"value":"shield","label":"Shield"},{"value":"check","label":"Check"},{"value":"star","label":"Star"},{"value":"clock","label":"Clock"}], "default": "shield" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "Home — Mission" }]
+}
+{% endschema %}

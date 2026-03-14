@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0D0D0D" />
+
+  <title>
+    {%- if page_title == blank -%}
+      {{ shop.name }}
+    {%- else -%}
+      {{ page_title }} – {{ shop.name }}
+    {%- endif -%}
+  </title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}" />
+  {%- endif -%}
+
+  {{ content_for_header }}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Global styles -->
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <!-- OG / Social -->
+  <meta property="og:site_name" content="{{ shop.name }}" />
+  <meta property="og:url" content="{{ canonical_url }}" />
+  <meta property="og:title" content="{{ page_title | default: shop.name }}" />
+  <meta property="og:type" content="website" />
+  {%- if page_image -%}
+    <meta property="og:image" content="{{ page_image | image_url: width: 1200 }}" />
+    <meta property="og:image:width" content="{{ page_image.width }}" />
+    <meta property="og:image:height" content="{{ page_image.height }}" />
+  {%- endif -%}
+</head>
+
+<body class="apn-body">
+
+  {%- sections 'header' -%}
+
+  <main id="main-content" role="main" tabindex="-1">
+    {{ content_for_layout }}
+  </main>
+
+  {%- sections 'footer' -%}
+
+  <!-- Cart drawer overlay -->
+  <div id="cart-overlay" onclick="APN.closeCart()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;"></div>
+
+  <!-- Cart drawer -->
+  <aside id="cart-drawer" aria-label="Shopping cart" style="position:fixed;top:0;right:0;bottom:0;width:min(400px,100vw);background:#fff;z-index:999;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 32px rgba(0,0,0,0.2);">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid #E2E8F0;">
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:#0D0D0D;margin:0;">Your Cart <span id="cart-count-label" style="color:#06A5C5;"></span></h2>
+      <button onclick="APN.closeCart()" aria-label="Close cart" style="background:none;border:none;cursor:pointer;padding:0.25rem;color:#0D0D0D;line-height:1;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="cart-items" style="flex:1;overflow-y:auto;padding:1.5rem;"></div>
+    <div style="padding:1.5rem;border-top:1px solid #E2E8F0;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:1rem;">
+        <span style="font-family:'Barlow',sans-serif;font-weight:600;color:#0D0D0D;">Subtotal</span>
+        <span id="cart-subtotal" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#0D0D0D;"></span>
+      </div>
+      <a href="/cart" style="display:block;width:100%;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:1rem;border-radius:4px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#06A5C5'" onmouseout="this.style.background='#0D0D0D'">Checkout</a>
+    </div>
+  </aside>
+
+  {{ 'theme.js' | asset_url | script_tag }}
+</body>
+</html>

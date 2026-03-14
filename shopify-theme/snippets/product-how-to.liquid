@@ -1,0 +1,48 @@
+{%- comment -%}
+  How to Use section.
+  Uses product.metafields.custom.how_to_use (JSON array of {step, title, body})
+{%- endcomment -%}
+
+{%- assign steps = product.metafields.custom.how_to_use.value -%}
+
+<section id="product-how-to" style="background:#F8FAFB;padding:5rem 1.5rem;">
+  <div style="max-width:960px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:3rem;" class="apn-fade-up">
+      <div class="apn-section-label" style="justify-content:center;">How to Use</div>
+      <h2 class="apn-display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);color:#0D0D0D;margin:0;">{{ product.metafields.custom.how_to_heading | default: 'Simple Protocol. Real Results.' }}</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;" class="apn-fade-up">
+      {%- if steps != blank -%}
+        {%- for step in steps -%}
+          <div style="text-align:center;">
+            <div style="width:56px;height:56px;background:#0D0D0D;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;margin:0 auto 1rem;">{{ forloop.index }}</div>
+            <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin:0 0 0.5rem;">{{ step.title }}</h3>
+            <p style="font-size:0.875rem;line-height:1.7;color:#6B7280;margin:0;">{{ step.body }}</p>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <div style="text-align:center;">
+          <div style="width:56px;height:56px;background:#0D0D0D;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;margin:0 auto 1rem;">1</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin:0 0 0.5rem;">Mix It</h3>
+          <p style="font-size:0.875rem;line-height:1.7;color:#6B7280;margin:0;">Add one scoop to 8–12 oz of cold water or your preferred beverage.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:56px;height:56px;background:#0D0D0D;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;margin:0 auto 1rem;">2</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin:0 0 0.5rem;">Time It</h3>
+          <p style="font-size:0.875rem;line-height:1.7;color:#6B7280;margin:0;">Take before, during, or after training for best results.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:56px;height:56px;background:#0D0D0D;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;margin:0 auto 1rem;">3</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin:0 0 0.5rem;">Stay Consistent</h3>
+          <p style="font-size:0.875rem;line-height:1.7;color:#6B7280;margin:0;">Daily use compounds results. Stack with other Ascend products for full protocol benefits.</p>
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+  <style>
+    @media (max-width: 600px) { #product-how-to div[style*="repeat(3"] { grid-template-columns: 1fr !important; } }
+  </style>
+</section>
