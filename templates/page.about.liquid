@@ -396,7 +396,7 @@
         <div style="font-size:2.5rem;margin-bottom:1rem;line-height:1.2;">&#127947;&#65039;</div>
         <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:0.75rem;">Take the Performance Quiz</h3>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:1.75rem;">10 questions. Your performance score, your tier, and a personalized supplement roadmap, delivered free.</p>
-        <a href="/pages/quiz" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);padding:0.875rem 2rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s ease,color 0.2s ease;" onmouseover="this.style.borderColor='#06A5C5';this.style.color='#06A5C5';" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.75)';">Start the Quiz &rarr;</a>
+        <a href="/pages/performance-quiz" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);padding:0.875rem 2rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s ease,color 0.2s ease;" onmouseover="this.style.borderColor='#06A5C5';this.style.color='#06A5C5';" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.75)';">Start the Quiz &rarr;</a>
       </div>
     </div>
   </div>
@@ -416,6 +416,16 @@
   @media(max-width:600px){
     .values-grid{grid-template-columns:1fr!important;}
     #footer-grid{grid-template-columns:1fr!important;}
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr !important; }
+    .values-grid { grid-template-columns: 1fr !important; }
+    .team-grid { grid-template-columns: repeat(2,1fr) !important; }
+    .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (max-width: 480px) {
+    .team-grid { grid-template-columns: 1fr !important; }
   }
 </style>
 

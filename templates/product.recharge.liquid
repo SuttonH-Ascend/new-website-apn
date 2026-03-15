@@ -83,6 +83,27 @@
     /* CART BADGE */
     #cart-badge { display: none; background: #06A5C5; color: #fff; border-radius: 50%; width: 18px; height: 18px; font-size: 0.65rem; font-weight: 700; align-items: center; justify-content: center; position: absolute; top: -5px; right: -5px; }
     #cart-badge.visible { display: flex; }
+
+    /* ── Mobile Responsive ── */
+    @media (max-width: 1024px) {
+      .product-hero-grid { grid-template-columns: 1fr !important; }
+      .product-gallery { flex-direction: row !important; flex-wrap: wrap !important; }
+    }
+    @media (max-width: 768px) {
+      .product-hero { padding: 6rem 1rem 3rem !important; }
+      .product-hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .orbital-wheel { transform: scale(0.8) !important; }
+      .ingredients-grid { grid-template-columns: 1fr !important; }
+      .product-tabs { flex-wrap: wrap !important; gap: 0.5rem !important; }
+      .product-tabs button { font-size: 0.7rem !important; padding: 0.5rem 0.75rem !important; }
+      .faq-list { gap: 0.5rem !important; }
+      .review-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 480px) {
+      .gallery-thumbs { display: none !important; }
+      .variant-btns { flex-wrap: wrap !important; }
+      .variant-btns button { flex: 0 0 calc(50% - 0.5rem) !important; }
+    }
   </style>
 
 <!-- ═══════════════════ NAV ═══════════════════ -->
@@ -107,31 +128,45 @@
 
     <!-- LEFT: IMAGE GALLERY -->
     <div style="position:sticky;top:84px;">
+      <div id="product-image-data"
+        data-main="{{ product.featured_image | image_url: width: 800 }}"
+        data-img0="{{ product.images[0] | image_url: width: 800 }}"
+        data-img1="{{ product.images[1] | image_url: width: 800 }}"
+        data-img2="{{ product.images[2] | image_url: width: 800 }}"
+        data-thumb0="{{ product.images[0] | image_url: width: 300 }}"
+        data-thumb1="{{ product.images[1] | image_url: width: 300 }}"
+        data-thumb2="{{ product.images[2] | image_url: width: 300 }}"
+        style="display:none"></div>
       <!-- Main Image -->
       <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
         <img id="main-img"
-          src="{{ 'recharge-one.png' | asset_url }}"
-          alt="Recharge Creatine Monohydrate"
-          style="width:90%;height:90%;object-fit:contain;">
+          src="{{ product.featured_image | image_url: width: 800 }}"
+          alt="{{ product.title }}"
+          style="width:90%;height:90%;object-fit:contain;"
+          onerror="this.src='https://placehold.co/600x600/0a1a22/06A5C5?text={{ product.title | url_encode }}'">
       </div>
       <!-- Thumbnails -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1rem;">
-        <div class="thumb active" onclick="setImg(this, '{{ 'recharge-one.png' | asset_url }}')">
+        <div class="thumb active" onclick="setImg(this, document.getElementById('product-image-data').dataset.img0)">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="{{ 'recharge-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="{{ product.images[0] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
-        <div class="thumb" onclick="setImg(this, '{{ 'recharge-one.png' | asset_url }}')">
+        {% if product.images[1] %}
+        <div class="thumb" onclick="setImg(this, document.getElementById('product-image-data').dataset.img1)">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="{{ 'recharge-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="{{ product.images[1] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
-        <div class="thumb" onclick="setImg(this, '{{ 'recharge-one.png' | asset_url }}')">
+        {% endif %}
+        {% if product.images[2] %}
+        <div class="thumb" onclick="setImg(this, document.getElementById('product-image-data').dataset.img2)">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="{{ 'recharge-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="{{ product.images[2] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
-        <div class="thumb" onclick="setImg(this, '{{ 'recharge-one.png' | asset_url }}')">
+        {% endif %}
+        <div class="thumb" onclick="setImg(this, 'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts')">
           <div style="background:#fff;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
             <img src="https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
@@ -318,8 +353,8 @@
           <div style="position:absolute;width:220px;height:220px;border-radius:50%;border:2px solid rgba(6,165,197,0.4);box-shadow:0 0 0 10px rgba(6,165,197,0.05),0 0 50px rgba(6,165,197,0.2),0 0 90px rgba(6,165,197,0.08);"></div>
           <!-- Transparent PNG  -  no masking needed -->
           <img id="wheel-product-img"
-            src="{{ 'recharge-one.png' | asset_url }}"
-            alt="Recharge"
+            src="{{ product.featured_image | image_url: width: 400 }}"
+            alt="{{ product.title }}"
             style="position:relative;z-index:2;width:250px;height:250px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(6,165,197,0.25));">
           <canvas id="wheel-product-canvas" style="display:none;"></canvas>
           <div style="position:absolute;width:234px;height:234px;border-radius:50%;border:1px solid rgba(6,165,197,0.18);animation:wping 2.8s ease-out infinite;"></div>
@@ -700,7 +735,7 @@
       name: 'Resilience',
       sub: 'Whey Protein',
       price: '$54.99',
-      img: '{{ 'resilience-one.png' | asset_url }}',
+      img: 'https://placehold.co/300x300/131313/06A5C5?text=Resilience',
       href: '/shop.html',
       tag: 'Protein'
     },
@@ -708,7 +743,7 @@
       name: 'Replenish Plus',
       sub: 'Advanced Electrolytes',
       price: '$29.99',
-      img: '{{ 'replenish-plus-one.jpeg' | asset_url }}',
+      img: 'https://placehold.co/300x300/131313/06A5C5?text=Replenish+Plus',
       href: '/shop.html',
       tag: 'Hydration'
     },
@@ -716,7 +751,7 @@
       name: 'Fortify',
       sub: 'Multivitamin Complex',
       price: '$34.99',
-      img: '{{ 'fortify-one.png' | asset_url }}',
+      img: 'https://placehold.co/300x300/131313/06A5C5?text=Fortify',
       href: '/shop.html',
       tag: 'Wellness'
     }
@@ -806,20 +841,7 @@
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({id: '{{ product.variants.first.id }}', quantity: 1})
-    }).then(() => { window.location = '/cart'; });
-  });
-    if (idx > -1) {
-      cart[idx].qty = (cart[idx].qty || 1) + 1;
-    } else {
-      cart.push({ id: 'recharge', name: 'Recharge  -  Creatine Monohydrate', price: 39.99, qty: 1, img: '{{ 'recharge-one.png' | asset_url }}' });
-    }
-    _saveCart(cart);
-    _updateCartBadge();
-    var btn = document.getElementById('add-to-cart-btn');
-    var orig = btn.textContent;
-    btn.textContent = 'Added to Cart';
-    btn.classList.add('added');
-    setTimeout(function() { btn.textContent = orig; btn.classList.remove('added'); }, 1800);
+    }).then(function() { window.location = '/cart'; });
   }
 
   // Init badge on load

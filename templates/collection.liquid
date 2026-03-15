@@ -161,6 +161,15 @@
   @media(max-width:1100px){#product-grid{grid-template-columns:repeat(3,1fr)!important;}}
   @media(max-width:720px){#product-grid{grid-template-columns:repeat(2,1fr)!important;gap:14px!important;}}
   @media(max-width:420px){#product-grid{grid-template-columns:1fr!important;}}
+
+  @media (max-width: 1024px) {
+    .collection-grid { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (max-width: 640px) {
+    .collection-grid { grid-template-columns: 1fr !important; }
+    .filter-tabs { flex-wrap: wrap !important; gap: 0.5rem !important; }
+    .filter-tab { font-size: 0.7rem !important; padding: 0.4rem 0.8rem !important; }
+  }
 </style>
 
 <script>

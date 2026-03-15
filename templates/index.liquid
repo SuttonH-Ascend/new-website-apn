@@ -473,7 +473,7 @@
 
           <!-- Bottom CTA -->
           <div style="position:absolute;bottom:3rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:1.25rem;">
-            <a href="/pages/about" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            <a href="/pages/about-us" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
               LEARN MORE ABOUT US
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -595,8 +595,8 @@
       Premium supplements for athletes who compete with purpose. Clean formulas, no compromises. Built by fighters, for warriors.
     </p>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
-      <a href="/pages/about" class="btn-primary">Our Mission</a>
-      <a href="/pages/framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;text-decoration:none;border:1.5px solid #0D0D0D;padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#0D0D0D';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#0D0D0D'">Ascend Framework</a>
+      <a href="/pages/about-us" class="btn-primary">Our Mission</a>
+      <a href="/pages/the-ascend-framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;text-decoration:none;border:1.5px solid #0D0D0D;padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#0D0D0D';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#0D0D0D'">Ascend Framework</a>
     </div>
   </div>
 </section>
@@ -909,7 +909,7 @@
           <span style="font-size:0.9375rem;color:rgba(255,255,255,0.7);">Unlock the Ascend Master Class and Performance Study Guide, delivered to your inbox</span>
         </li>
       </ul>
-      <a href="/pages/quiz" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">
+      <a href="/pages/performance-quiz" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">
         Take the Free Quiz
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1020,6 +1020,47 @@
     #stats-grid { grid-template-columns: 1fr 1fr !important; }
   }
   .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+  /* ── Mobile Responsive ── */
+  @media (max-width: 1024px) {
+    /* Hero slides - reduce height on tablet */
+    .hero-slide { min-height: 85vh !important; }
+    /* Product grid - 2 columns on tablet */
+    .product-grid-4 { grid-template-columns: repeat(2,1fr) !important; }
+  }
+
+  @media (max-width: 768px) {
+    /* Hero */
+    .hero-slide { min-height: 100svh !important; }
+    /* Sections - tighter padding */
+    section { padding: 3.5rem 0 !important; }
+    /* Typography scale down */
+    h1 { font-size: clamp(2rem,8vw,3rem) !important; }
+    h2 { font-size: clamp(1.6rem,6vw,2.5rem) !important; }
+    /* Stack grid - single column */
+    [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+    /* Goals grid - 2x2 */
+    [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+    /* Mission section buttons - stack vertically */
+    .mission-ctas { flex-direction: column !important; align-items: stretch !important; }
+    /* Quiz FAQ accordion - full width */
+    .quiz-faq { padding: 0 !important; }
+    /* Stats grid stacks on mobile */
+    #stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+    /* About grid stacks */
+    #about-grid { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 480px) {
+    /* Stack grid - single column */
+    [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+    /* Tighter horizontal padding */
+    [style*="padding:0 1.5rem"] { padding: 0 1rem !important; }
+    /* Goals - single column on very small screens */
+    [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
+    /* Stats single column */
+    #stats-grid { grid-template-columns: 1fr !important; }
+  }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -1220,7 +1261,7 @@
   });
 
   // ── Wire Quiz CTA buttons ──
-  document.querySelectorAll('a[href="/pages/quiz"], a[href="#"]:not(.footer-link)').forEach(function(el) {
+  document.querySelectorAll('a[href="/pages/performance-quiz"], a[href="#"]:not(.footer-link)').forEach(function(el) {
     if (el.textContent.trim().toLowerCase().includes('quiz')) {
       el.addEventListener('click', function() { trackQuizStarted(); });
     }

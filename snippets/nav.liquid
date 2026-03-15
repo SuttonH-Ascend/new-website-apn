@@ -195,9 +195,24 @@
   .hidden-mobile { display: flex; }
   .show-mobile   { display: none; }
 
+  @media (max-width: 768px) {
+    .hidden-mobile { display: none !important; }
+    .show-mobile   { display: flex !important; }
+    /* Ensure Shop dropdown never shows on mobile */
+    .shop-dropdown-panel { display: none !important; }
+  }
+
   @media (max-width: 900px) {
     .hidden-mobile { display: none !important; }
     .show-mobile   { display: flex !important; }
+  }
+
+  /* ── Mobile nav touch targets ── */
+  @media (max-width: 768px) {
+    #hamburger { min-height: 44px; min-width: 44px; display: flex !important; align-items: center; justify-content: center; }
+    .mobile-nav-link { min-height: 44px; display: flex; align-items: center; padding: 0.75rem 0; }
+    .mobile-sub-link { min-height: 44px; display: flex; align-items: center; }
+    #mobile-menu { padding: 5rem 1.25rem 2rem; }
   }
 
   /* ── Mobile nav link ── */
@@ -376,8 +391,8 @@
         </div>
       </div>
 
-      <a href="/pages/framework" class="nav-link">Framework</a>
-      <a href="/pages/about" class="nav-link">About</a>
+      <a href="/pages/the-ascend-framework" class="nav-link">Framework</a>
+      <a href="/pages/about-us" class="nav-link">About</a>
       <a href="/pages/resources" class="nav-link">Resources</a>
     </div>
 
@@ -393,7 +408,7 @@
         <span class="cart-badge">{{ cart.item_count }}</span>
         {% endif %}
       </a>
-      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
+      <a href="/pages/performance-quiz" class="btn-nav">Take the Quiz</a>
     </div>
 
     <!-- Mobile hamburger -->
@@ -441,8 +456,8 @@
     <a href="/collections/all" class="mobile-sub-link" style="color:#06A5C5;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;font-size:0.875rem;" onclick="closeMobileMenu()">View All Products →</a>
   </div>
 
-  <a href="/pages/framework" class="mobile-nav-link" onclick="closeMobileMenu()">Framework</a>
-  <a href="/pages/about" class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
+  <a href="/pages/the-ascend-framework" class="mobile-nav-link" onclick="closeMobileMenu()">Framework</a>
+  <a href="/pages/about-us" class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
   <a href="/pages/resources" class="mobile-nav-link" onclick="closeMobileMenu()">Resources</a>
 
   <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
@@ -453,7 +468,7 @@
       </svg>
       Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
     </a>
-    <a href="/pages/quiz" class="btn-nav" style="width:100%;justify-content:center;text-align:center;" onclick="closeMobileMenu()">Take the Quiz</a>
+    <a href="/pages/performance-quiz" class="btn-nav" style="width:100%;justify-content:center;text-align:center;" onclick="closeMobileMenu()">Take the Quiz</a>
   </div>
 </div>
 

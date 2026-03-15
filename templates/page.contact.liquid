@@ -65,12 +65,12 @@
     </a>
     <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
       <a href="/collections/all" class="nav-link">Shop</a>
-      <a href="/pages/framework" class="nav-link">Framework</a>
-      <a href="/pages/about" class="nav-link">About</a>
+      <a href="/pages/the-ascend-framework" class="nav-link">Framework</a>
+      <a href="/pages/about-us" class="nav-link">About</a>
       <a href="/pages/resources" class="nav-link">Resources</a>
     </div>
     <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
-      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
+      <a href="/pages/performance-quiz" class="btn-nav">Take the Quiz</a>
     </div>
     <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -79,10 +79,10 @@
 </nav>
 <div id="mobile-menu" role="menu" aria-label="Mobile navigation">
   <a href="/collections/all" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
-  <a href="/pages/framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
-  <a href="/pages/about" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="/pages/the-ascend-framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/pages/about-us" class="mobile-nav-link" onclick="closeMenu()">About</a>
   <a href="/pages/resources" class="mobile-nav-link" onclick="closeMenu()">Resources</a>
-  <div style="margin-top:1rem;"><a href="/pages/quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+  <div style="margin-top:1rem;"><a href="/pages/performance-quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
 </div>
 
 <!-- ═══════════════════════════════════
@@ -219,7 +219,7 @@
               </a>
             </li>
             <li>
-              <a href="/pages/quiz" style="font-size:0.9rem;color:#0D0D0D;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.18s ease;" onmouseover="this.style.color='#06A5C5';" onmouseout="this.style.color='#0D0D0D';">
+              <a href="/pages/performance-quiz" style="font-size:0.9rem;color:#0D0D0D;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.18s ease;" onmouseover="this.style.color='#06A5C5';" onmouseout="this.style.color='#0D0D0D';">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
                 Performance Quiz
               </a>
@@ -288,8 +288,8 @@
     <div>
       <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="/pages/about" class="footer-link">About Us</a></li>
-        <li><a href="/pages/framework" class="footer-link">The Framework</a></li>
+        <li><a href="/pages/about-us" class="footer-link">About Us</a></li>
+        <li><a href="/pages/the-ascend-framework" class="footer-link">The Framework</a></li>
         <li><a href="/pages/resources" class="footer-link">Resources</a></li>
         <li><a href="/pages/athlete-profiles" class="footer-link">Athlete Profiles</a></li>
         <li><a href="/pages/careers" class="footer-link">Careers</a></li>
@@ -298,10 +298,10 @@
     <div>
       <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="/pages/quiz" class="footer-link">Performance Quiz</a></li>
+        <li><a href="/pages/performance-quiz" class="footer-link">Performance Quiz</a></li>
         <li><a href="{{ routes.root_url }}policies/shipping-policy" class="footer-link">Shipping Policy</a></li>
         <li><a href="{{ routes.root_url }}policies/refund-policy" class="footer-link">Refund Policy</a></li>
-        <li><a href="/pages/contact" class="footer-link">Contact Us</a></li>
+        <li><a href="/pages/contact-us" class="footer-link">Contact Us</a></li>
       </ul>
     </div>
   </div>
