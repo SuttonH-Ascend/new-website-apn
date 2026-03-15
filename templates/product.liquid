@@ -1,5 +1,5 @@
 {% comment %}
-  APN Product Template  -  dynamic for all products via Liquid variables.
+  APN Product Template — dynamic for all products via Liquid variables.
   Visual design preserved exactly from products/recharge.html.
 {% endcomment %}
 
@@ -92,7 +92,29 @@
 </style>
 
 <!-- ═══════════════════ NAV ═══════════════════ -->
-{% render 'nav' %}
+<nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;">
+    <a href="{{ routes.root_url }}" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend" style="height:40px;width:auto;">
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;color:#9ca3af;text-transform:uppercase;">Performance</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;color:#9ca3af;text-transform:uppercase;">Nutrition</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;">
+      <a href="{{ routes.collections_url }}/all" class="nav-link">Shop</a>
+      <a href="{{ routes.root_url }}#framework" class="nav-link">Framework</a>
+      <a href="{{ routes.root_url }}pages/about" class="nav-link">About</a>
+      <a href="{{ routes.root_url }}pages/quiz" class="nav-link">Quiz</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="{{ routes.collections_url }}/all" class="btn-nav" style="position:relative;">
+        Shop All
+        <span id="cart-badge">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</nav>
 
 <!-- ═══════════════════ BREADCRUMB ═══════════════════ -->
 <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;" class="breadcrumb">
@@ -204,7 +226,7 @@
 
       <!-- Add to Cart -->
       <button class="btn-cta" id="add-to-cart-btn" onclick="APN.addToCart(document.getElementById('selected-variant-id').value, 1, this)">
-        Add to Cart  -  {{ product.price | money }}
+        Add to Cart &mdash; {{ product.price | money }}
       </button>
 
       <!-- Free Shipping Note -->
@@ -247,6 +269,9 @@
     </div>
   </div>
 </div>
+
+<!-- ═══════════════════ FLAVOR SHOWCASE ═══════════════════ -->
+{% render 'flavor-showcase', product: product %}
 
 <!-- ═══════════════════ IMPACT NUMBERS ═══════════════════ -->
 <section style="background:#0D0D0D;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);">
@@ -395,8 +420,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
-{% render 'footer' %}
 
 <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
 <script>
@@ -418,13 +441,13 @@
         { q: 'Will creatine cause water retention or bloating?', a: 'Creatine draws water into your muscle cells, which increases cellular volume and supports muscle fullness. This is different from subcutaneous water retention that causes a soft or bloated look. Most athletes notice increased fullness in the muscle belly, not puffiness.' },
         { q: 'When is the best time to take Recharge?', a: 'Consistency outweighs timing. Post-workout is a popular option since muscles may be more receptive to uptake, but daily use at any time produces the same saturation over a few weeks. Pick a time you will not forget.' },
         { q: 'Is Recharge truly unflavored? Will it taste like anything?', a: 'Yes, completely unflavored. Pure creatine monohydrate has minimal taste on its own and dissolves cleanly. Mix it into your protein shake, water, or juice without any change in flavor.' },
-        { q: 'Can I stack Recharge with other Ascend products?', a: 'Yes. Recharge is designed to complement the full Ascend stack. It pairs especially well with Resilience (protein) for post-workout recovery and Recover (electrolytes) for hydration. Stack them without flavor interference.' }
+        { q: 'Can I stack Recharge with other Ascend products?', a: 'Yes. Recharge is designed to complement the full Ascend stack. It pairs especially well with Resilience (protein) for post-workout recovery and Replenish Plus (electrolytes) for hydration. Stack them without flavor interference.' }
       ],
       'resilience': [
-        { q: 'What is the difference between whey isolate and whey concentrate?', a: 'Whey isolate undergoes additional filtration to remove most of the fat and lactose, resulting in a higher protein percentage per gram. Resilience uses 100% whey protein isolate  -  no concentrate  -  which means a cleaner profile, fewer calories from fat, and better tolerance for those sensitive to lactose.' },
+        { q: 'What is the difference between whey isolate and whey concentrate?', a: 'Whey isolate undergoes additional filtration to remove most of the fat and lactose, resulting in a higher protein percentage per gram. Resilience uses 100% whey protein isolate — no concentrate — which means a cleaner profile, fewer calories from fat, and better tolerance for those sensitive to lactose.' },
         { q: 'Are both flavors made with the same formula?', a: 'Yes, with minor differences. Both use whey protein isolate, natural flavors, and stevia. The Chocolate flavor delivers 18g protein per 25g scoop. The Vanilla flavor delivers 19g protein per 24.4g scoop. Both have 90 calories per serving and the same clean three-ingredient profile.' },
         { q: 'Can I stack Resilience with Recharge?', a: 'Absolutely. Adding one scoop of Recharge (creatine) to your Resilience shake is a popular and effective post-workout stack. The unflavored creatine does not affect the taste of the protein.' },
-        { q: 'How does Resilience mix?', a: 'Resilience is designed to mix easily with a shaker bottle or blender. Use 6-8 oz of water or milk for a thicker consistency, or 10-12 oz for a lighter shake. Avoid stirring  -  shake it.' },
+        { q: 'How does Resilience mix?', a: 'Resilience is designed to mix easily with a shaker bottle or blender. Use 6-8 oz of water or milk for a thicker consistency, or 10-12 oz for a lighter shake. Avoid stirring — shake it.' },
         { q: 'Is Resilience suitable for people who are lactose intolerant?', a: 'Whey protein isolate contains very low levels of lactose due to the additional filtration process. Many people with mild lactose sensitivity tolerate whey isolate well. If you have severe lactose intolerance, consult your healthcare provider.' }
       ]
     };
@@ -443,7 +466,7 @@
       ],
       'resilience': [
         { num: '1', title: 'Scoop', body: 'Add 1 scoop to your shaker bottle. Use 6-10 oz of water or milk depending on your preferred consistency.' },
-        { num: '2', title: 'Shake', body: 'Seal your shaker and shake for 10-15 seconds until fully mixed. No blender needed  -  Resilience dissolves cleanly.' },
+        { num: '2', title: 'Shake', body: 'Seal your shaker and shake for 10-15 seconds until fully mixed. No blender needed — Resilience dissolves cleanly.' },
         { num: '3', title: 'Drink', body: 'Consume within 30-60 minutes post-workout for optimal muscle protein synthesis, or any time as a high-quality protein source.' }
       ]
     };
@@ -491,7 +514,7 @@
         { id:2, tag:'Amino Acids', name:'Leucine Content', amount:'~2g', desc:'Leucine is the primary anabolic trigger for muscle protein synthesis. Whey protein isolate is naturally high in leucine, making it an optimal choice for post-workout recovery and muscle building.', color:'#8B5CF6', icon:'<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' },
         { id:3, tag:'Formula Purity', name:'3-Ingredient Formula', amount:'Nothing Else', desc:'Whey protein isolate, natural flavors, stevia. No soy. No fillers. No artificial sweeteners beyond stevia. The cleanest protein formula we could build.', color:'#22C55E', icon:'<path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' },
         { id:4, tag:'Serving Size', name:'Scoop Weight', amount:'Choc 25g / Van 24.4g', desc:'Serving size is one scoop. Chocolate is 25g per scoop, Vanilla is 24.4g per scoop. Both deliver 90 calories and a complete amino acid profile per serving.', color:'#F59E0B', icon:'<path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>' },
-        { id:5, tag:'Sweetener', name:'Stevia Only', amount:'No Sucralose', desc:'Sweetened exclusively with stevia  -  a natural, zero-calorie plant-derived sweetener. No sucralose, no acesulfame-K, no aspartame. Clean sweetness, clean formula.', color:'#06A5C5', icon:'<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' },
+        { id:5, tag:'Sweetener', name:'Stevia Only', amount:'No Sucralose', desc:'Sweetened exclusively with stevia — a natural, zero-calorie plant-derived sweetener. No sucralose, no acesulfame-K, no aspartame. Clean sweetness, clean formula.', color:'#06A5C5', icon:'<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' },
         { id:6, tag:'Value', name:'Serving Profile', amount:'28 Servings', desc:'28 servings per tub. At one shake per day, one tub fuels a full month of post-workout recovery nutrition. No cutting corners on protein content to inflate serving counts.', color:'#EF4444', icon:'<rect x="3" y="6" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 6V4a2 2 0 0 1 4 0v2M16 6V4a2 2 0 0 0-4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' }
       ]
     };
@@ -502,7 +525,7 @@
   // Hardcoded defaults; theme.js recommendations API handles dynamic loading
   var RELATED = [
     { name: 'Resilience', sub: 'Whey Protein Isolate', price: '$54.99', img: '/brand_assets/Labels/Resilience%20Vanilla/Resilience%20van%20one.jpeg', href: '/products/resilience', tag: 'Protein' },
-    { name: 'Recover', sub: 'Advanced Electrolytes', price: '$29.99', img: '/brand_assets/Labels/Replenish%20Plus/Replenish%20%2B1.jpeg', href: '/products/replenishplus', tag: 'Hydration' },
+    { name: 'Replenish Plus', sub: 'Advanced Electrolytes', price: '$29.99', img: '/brand_assets/Labels/Replenish%20Plus/Replenish%20%2B1.jpeg', href: '/products/replenish-plus', tag: 'Hydration' },
     { name: 'Fortify', sub: 'Multivitamin Complex', price: '$34.99', img: '/brand_assets/Labels/Fortify/Fortify%20One.jpeg', href: '/products/fortify', tag: 'Wellness' }
   ];
 

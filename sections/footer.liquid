@@ -1,5 +1,16 @@
-<footer class="apn-footer" aria-label="Site footer">
-  <div style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+<footer class="apn-footer" aria-label="Site footer" style="position:relative;background:#0D0D0D;overflow:hidden;border-radius:24px;margin:0 1rem 1rem;">
+
+  <!-- Radial background gradient layer -->
+  <div style="position:absolute;inset:0;z-index:0;background:radial-gradient(125% 125% at 50% 10%, rgba(13,13,17,0.4) 50%, rgba(6,165,197,0.18) 100%);pointer-events:none;"></div>
+
+  <!-- Grain texture overlay -->
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.03;pointer-events:none;z-index:1;" aria-hidden="true">
+    <filter id="apn-grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#apn-grain)"/>
+  </svg>
+
+  <!-- Main grid -->
+  <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:4rem 1.5rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;" class="apn-footer-grid">
 
     <!-- Brand column -->
     <div>
@@ -51,7 +62,7 @@
         <li><a href="{{ routes.collections_url }}/recovery" class="apn-footer-link">Recharge Creatine</a></li>
         <li><a href="{{ routes.collections_url }}/energy" class="apn-footer-link">Ignite Energy</a></li>
         <li><a href="{{ routes.collections_url }}/wellness" class="apn-footer-link">Fortify Colostrum</a></li>
-        <li><a href="{{ routes.collections_url }}/all" class="apn-footer-link" style="color:#06A5C5;">View All Products →</a></li>
+        <li><a href="{{ routes.collections_url }}/all" class="apn-footer-link" style="color:#06A5C5;">View All Products &rarr;</a></li>
       </ul>
     </div>
 
@@ -72,7 +83,7 @@
       <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.625rem;">
         <li><a href="/pages/quiz" class="apn-footer-link">Performance Quiz</a></li>
         <li><a href="{{ routes.root_url }}policies/shipping-policy" class="apn-footer-link">Shipping Policy</a></li>
-        <li><a href="{{ routes.root_url }}policies/refund-policy" class="apn-footer-link">Returns & Refunds</a></li>
+        <li><a href="{{ routes.root_url }}policies/refund-policy" class="apn-footer-link">Returns &amp; Refunds</a></li>
         <li><a href="/pages/contact" class="apn-footer-link">Contact Us</a></li>
       </ul>
     </div>
@@ -80,23 +91,195 @@
   </div>
 
   <!-- Bottom bar -->
-  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);margin:0;">© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+  <div style="position:relative;z-index:2;border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);margin:0;">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
     <div style="display:flex;gap:1.5rem;">
       <a href="{{ routes.root_url }}policies/privacy-policy" class="apn-footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
       <a href="{{ routes.root_url }}policies/terms-of-service" class="apn-footer-link" style="font-size:0.8125rem;">Terms of Service</a>
     </div>
   </div>
 
-  <!-- Mobile footer stack -->
+  <!-- Animated ASCEND text hover effect (desktop only) -->
+  <div class="apn-hover-text-wrap" style="position:relative;z-index:2;display:flex;height:18rem;margin-top:-9rem;margin-bottom:-5rem;overflow:hidden;">
+    <svg
+      id="apn-hover-svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 300 100"
+      xmlns="http://www.w3.org/2000/svg"
+      style="cursor:default;user-select:none;"
+      aria-hidden="true"
+    >
+      <defs>
+        <!-- Gradient revealed under cursor -->
+        <linearGradient id="apn-text-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="300" y2="0">
+          <stop offset="0%"   stop-color="#06A5C5" />
+          <stop offset="33%"  stop-color="#048FAB" />
+          <stop offset="66%"  stop-color="#06d6c7" />
+          <stop offset="100%" stop-color="#0ea5e9" />
+        </linearGradient>
+
+        <!-- Radial reveal mask that follows the cursor -->
+        <radialGradient id="apn-reveal-mask" gradientUnits="userSpaceOnUse" r="22%" cx="50%" cy="50%">
+          <stop offset="0%"   stop-color="white" />
+          <stop offset="100%" stop-color="black" />
+        </radialGradient>
+        <mask id="apn-text-mask">
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#apn-reveal-mask)" />
+        </mask>
+      </defs>
+
+      <!-- Ghost outline - visible on hover -->
+      <text
+        id="apn-ghost-text"
+        x="50%" y="50%"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        stroke-width="0.3"
+        style="fill:transparent;stroke:rgba(255,255,255,0.12);font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transition:opacity 0.3s;"
+      >ASCEND</text>
+
+      <!-- Animated draw-in outline (teal, plays once on load) -->
+      <text
+        id="apn-draw-text"
+        x="50%" y="50%"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        stroke-width="0.3"
+        style="fill:transparent;stroke:#06A5C5;stroke-opacity:0.6;font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;stroke-dasharray:1000;stroke-dashoffset:1000;"
+      >ASCEND</text>
+
+      <!-- Gradient fill revealed by cursor mask -->
+      <text
+        x="50%" y="50%"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        stroke="url(#apn-text-gradient)"
+        stroke-width="0.3"
+        mask="url(#apn-text-mask)"
+        style="fill:transparent;font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;"
+      >ASCEND</text>
+    </svg>
+  </div>
+
+  <!-- Mobile responsive styles -->
   <style>
-    @media (max-width: 720px) {
-      .apn-footer > div:first-child {
+    .apn-footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+    @media (max-width: 900px) {
+      .apn-footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+    @media (max-width: 560px) {
+      .apn-footer-grid {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
       }
     }
+    @media (max-width: 720px) {
+      .apn-hover-text-wrap { display: none !important; }
+    }
+
+    .apn-footer-link {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .apn-footer-link:hover,
+    .apn-footer-link:focus-visible {
+      color: #06A5C5;
+    }
+    .apn-footer-link:focus-visible {
+      outline: 2px solid #06A5C5;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .apn-social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.18s, border-color 0.18s, background 0.18s;
+    }
+    .apn-social-btn:hover,
+    .apn-social-btn:focus-visible {
+      color: #06A5C5;
+      border-color: #06A5C5;
+      background: rgba(6,165,197,0.08);
+    }
+    .apn-social-btn:focus-visible {
+      outline: 2px solid #06A5C5;
+      outline-offset: 2px;
+    }
+    .apn-social-btn:active {
+      background: rgba(6,165,197,0.18);
+    }
   </style>
+
+  <!-- Hover effect JS -->
+  <script>
+    (function() {
+      var svg = document.getElementById('apn-hover-svg');
+      if (!svg) return;
+
+      var ghostText = document.getElementById('apn-ghost-text');
+      var drawText  = document.getElementById('apn-draw-text');
+      var revealGrad = document.getElementById('apn-reveal-mask');
+      var isHovered = false;
+
+      // Animate the draw-in stroke on page load
+      var startTime = null;
+      var drawDuration = 4000;
+      function animateDraw(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / drawDuration, 1);
+        // ease in-out
+        var eased = progress < 0.5
+          ? 2 * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        drawText.style.strokeDashoffset = (1000 * (1 - eased)).toString();
+        if (progress < 1) {
+          requestAnimationFrame(animateDraw);
+        }
+      }
+      requestAnimationFrame(animateDraw);
+
+      // Mouse tracking
+      svg.addEventListener('mouseenter', function() {
+        isHovered = true;
+        if (ghostText) ghostText.style.opacity = '0.7';
+      });
+
+      svg.addEventListener('mouseleave', function() {
+        isHovered = false;
+        if (ghostText) ghostText.style.opacity = '0';
+        // Reset mask to center on leave
+        revealGrad.setAttribute('cx', '50%');
+        revealGrad.setAttribute('cy', '50%');
+      });
+
+      svg.addEventListener('mousemove', function(e) {
+        if (!isHovered) return;
+        var rect = svg.getBoundingClientRect();
+        var cx = ((e.clientX - rect.left) / rect.width * 100).toFixed(2) + '%';
+        var cy = ((e.clientY - rect.top)  / rect.height * 100).toFixed(2) + '%';
+        revealGrad.setAttribute('cx', cx);
+        revealGrad.setAttribute('cy', cy);
+      });
+    })();
+  </script>
+
 </footer>
 
 {% schema %}
