@@ -38,6 +38,11 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     body { background: #0a0a0a; color: #F8FAFB; font-family: 'Barlow', system-ui, sans-serif; }
+    @media (max-width: 768px) {
+      .product-hero-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      .product-sticky-img { position: static !important; top: auto !important; }
+      .thumb-grid { grid-template-columns: repeat(4,1fr) !important; }
+    }
   </style>
 </head>
 
