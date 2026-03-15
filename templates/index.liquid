@@ -1065,8 +1065,8 @@
     }
     .p-right-item:not(.active) { display: none !important; }
 
-    /* Shorten scroll travel on mobile */
-    #pillars-track { height: 350vh !important; }
+    /* Match track height to stage so no dead scroll space below banner */
+    #pillars-track { height: min(100vw, 85svh) !important; }
   }
   @media (max-width: 600px) {
     #footer-grid { grid-template-columns: 1fr !important; }
