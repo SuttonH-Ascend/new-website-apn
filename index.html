@@ -400,6 +400,24 @@
       transition: color 0.18s ease;
     }
     .mobile-nav-link:hover { color: #06A5C5; }
+
+    /* ── Shop dropdown ── */
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+      background: rgba(10,10,14,0.97); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+      padding: 6px; min-width: 170px; display: none; flex-direction: column;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5); z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-dropdown { display: flex; }
+    .nav-dropdown-item {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.8125rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6);
+      text-decoration: none; padding: 8px 14px; border-radius: 5px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .nav-dropdown-item:hover { background: rgba(6,165,197,0.12); color: #06A5C5; }
   </style>
 </head>
 
@@ -422,7 +440,21 @@
 
     <!-- Desktop links -->
     <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
-      <a href="/shop.html" class="nav-link">Shop Now</a>
+      <!-- Shop Now with dropdown -->
+      <div style="position:relative;" class="nav-dropdown-wrap">
+        <a href="/shop.html" class="nav-link" style="display:flex;align-items:center;gap:4px;">Shop Now
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="/shop.html?cat=protein" class="nav-dropdown-item">Protein</a>
+          <a href="/shop.html?cat=hydration" class="nav-dropdown-item">Hydration</a>
+          <a href="/shop.html?cat=energy" class="nav-dropdown-item">Energy</a>
+          <a href="/shop.html?cat=recovery" class="nav-dropdown-item">Recovery</a>
+          <a href="/shop.html?cat=wellness" class="nav-dropdown-item">Wellness</a>
+          <div style="height:1px;background:rgba(255,255,255,0.07);margin:6px 0;"></div>
+          <a href="/shop.html" class="nav-dropdown-item" style="color:#06A5C5;">View All Products</a>
+        </div>
+      </div>
       <a href="#framework" class="nav-link">Framework</a>
       <a href="/about.html" class="nav-link">About Us</a>
       <a href="/quiz.html" class="nav-link">Resources</a>
@@ -431,13 +463,13 @@
     <!-- Right actions -->
     <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
       <!-- Cart icon -->
-      <button aria-label="View cart" style="position:relative;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.7);padding:0.4rem;border-radius:4px;transition:color 0.18s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'" onfocus="this.style.color='#fff'" onblur="this.style.color='rgba(255,255,255,0.7)'">
+      <a href="/shop.html" aria-label="View cart" style="position:relative;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.4rem;border-radius:4px;transition:color 0.18s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
         </svg>
-        <span style="position:absolute;top:-2px;right:-4px;background:#06A5C5;color:#fff;font-size:0.625rem;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;">0</span>
-      </button>
+        <span id="index-cart-badge" style="display:none;position:absolute;top:-2px;right:-4px;background:#06A5C5;color:#fff;font-size:0.5rem;font-weight:700;width:16px;height:16px;border-radius:50%;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0;line-height:1;">0</span>
+      </a>
       <a href="/quiz.html" class="btn-nav">Take the Quiz</a>
     </div>
 
@@ -452,12 +484,27 @@
 
 <!-- Mobile menu -->
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-  <a href="/shop.html" class="mobile-nav-link" onclick="closeMobileMenu()">Shop Now</a>
+  <!-- Shop with category links -->
+  <div>
+    <a href="/shop.html" class="mobile-nav-link" onclick="closeMobileMenu()" style="border-bottom:none;padding-bottom:0.5rem;">Shop Now</a>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;padding:0.5rem 0 0.875rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <a href="/shop.html?cat=protein" onclick="closeMobileMenu()" style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;border:1px solid rgba(255,255,255,0.12);padding:5px 12px;border-radius:20px;transition:color 0.15s ease,border-color 0.15s ease;">Protein</a>
+      <a href="/shop.html?cat=hydration" onclick="closeMobileMenu()" style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;border:1px solid rgba(255,255,255,0.12);padding:5px 12px;border-radius:20px;transition:color 0.15s ease,border-color 0.15s ease;">Hydration</a>
+      <a href="/shop.html?cat=energy" onclick="closeMobileMenu()" style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;border:1px solid rgba(255,255,255,0.12);padding:5px 12px;border-radius:20px;transition:color 0.15s ease,border-color 0.15s ease;">Energy</a>
+      <a href="/shop.html?cat=recovery" onclick="closeMobileMenu()" style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;border:1px solid rgba(255,255,255,0.12);padding:5px 12px;border-radius:20px;transition:color 0.15s ease,border-color 0.15s ease;">Recovery</a>
+      <a href="/shop.html?cat=wellness" onclick="closeMobileMenu()" style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;border:1px solid rgba(255,255,255,0.12);padding:5px 12px;border-radius:20px;transition:color 0.15s ease,border-color 0.15s ease;">Wellness</a>
+    </div>
+  </div>
   <a href="#framework" class="mobile-nav-link" onclick="closeMobileMenu()">Framework</a>
   <a href="/about.html" class="mobile-nav-link" onclick="closeMobileMenu()">About Us</a>
   <a href="/quiz.html" class="mobile-nav-link" onclick="closeMobileMenu()">Resources</a>
-  <div style="margin-top:1.5rem;">
+  <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
     <a href="/quiz.html" class="btn-primary" style="width:100%;justify-content:center;" onclick="closeMobileMenu()">Take the Quiz</a>
+    <a href="/shop.html" onclick="closeMobileMenu()" style="display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;border:1.5px solid rgba(255,255,255,0.15);padding:0.75rem 1.25rem;border-radius:4px;transition:color 0.18s ease,border-color 0.18s ease;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      View Cart
+      <span id="mobile-cart-badge" style="background:#06A5C5;color:#fff;font-size:0.6rem;font-weight:700;padding:2px 6px;border-radius:10px;display:none;">0</span>
+    </a>
   </div>
 </div>
 
@@ -531,9 +578,9 @@
         </div>
       </div>
 
-      <!-- BOTTOM: active right label - I Can Do All Things / etc -->
-      <div style="position:absolute;bottom:3.5rem;left:0;right:0;z-index:3;text-align:center;">
-        <div style="position:relative;height:4rem;max-width:600px;margin:0 auto;">
+      <!-- BOTTOM: active right label + Learn More CTA -->
+      <div style="position:absolute;bottom:1.25rem;left:0;right:0;z-index:3;text-align:center;">
+        <div style="position:relative;height:4rem;max-width:600px;margin:0 auto 1rem;">
           <div class="p-right-item" data-idx="0" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
             <div class="p-item-label">Philippians 4:13</div>
             <div class="p-item-title">I CAN DO ALL THINGS</div>
@@ -551,6 +598,10 @@
             <div class="p-item-title">CLEAN CLINICALLY DOSED</div>
           </div>
         </div>
+        <a href="/about.html" style="display:inline-flex;align-items:center;gap:0.45rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);padding:0.6rem 1.4rem;border-radius:4px;backdrop-filter:blur(6px);background:rgba(255,255,255,0.06);transition:color 0.18s ease,border-color 0.18s ease,background 0.18s ease;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(6,165,197,0.8)';this.style.background='rgba(6,165,197,0.12)'" onmouseout="this.style.color='rgba(255,255,255,0.7)';this.style.borderColor='rgba(255,255,255,0.3)';this.style.background='rgba(255,255,255,0.06)'">
+          Learn More About Us
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -618,7 +669,7 @@
       Premium supplements for athletes who compete with purpose. Clean formulas, no compromises. Built by fighters, for warriors.
     </p>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
-      <a href="#about" class="btn-primary">Our Mission</a>
+      <a href="/about.html" class="btn-primary">Our Mission</a>
       <a href="#framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;text-decoration:none;border:1.5px solid #0D0D0D;padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#0D0D0D';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#0D0D0D'">Ascend Framework</a>
     </div>
   </div>
@@ -914,7 +965,7 @@
 <!-- ═══════════════════════════════════════════
      PERFORMANCE QUIZ + FAQ
 ═══════════════════════════════════════════ -->
-<section id="quiz" style="padding:6rem 0;position:relative;overflow:hidden;background:linear-gradient(160deg,#071012 0%,#0a1a22 60%,#071012 100%);" aria-label="Performance Quiz">
+<section id="framework" style="padding:6rem 0;position:relative;overflow:hidden;background:linear-gradient(160deg,#071012 0%,#0a1a22 60%,#071012 100%);" aria-label="Performance Quiz">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(6,165,197,0.1) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
 
@@ -1041,7 +1092,8 @@
       <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;text-decoration:none;">
         <img src="/brand_assets/ascend%20real%201_2%20trans.png" alt="Ascend Performance Nutrition" style="height:36px;width:auto;" />
         <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.8);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">ASCEND</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);">PERFORMANCE</span>
           <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
         </div>
       </div>
@@ -1082,7 +1134,7 @@
     <div>
       <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="#about" class="footer-link">About Us</a></li>
+        <li><a href="/about.html" class="footer-link">About Us</a></li>
         <li><a href="#framework" class="footer-link">The Ascend Framework</a></li>
         <li><a href="#" class="footer-link">Resources / Blog</a></li>
         <li><a href="#" class="footer-link">Athlete Profiles</a></li>
@@ -1259,6 +1311,17 @@
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
+
+  // ── Cart badge sync from localStorage ──
+  (function() {
+    var cart = JSON.parse(localStorage.getItem('apn_cart') || '[]');
+    var badge = document.getElementById('index-cart-badge');
+    var mobileBadge = document.getElementById('mobile-cart-badge');
+    if (cart.length > 0) {
+      if (badge) { badge.textContent = cart.length; badge.style.display = 'flex'; }
+      if (mobileBadge) { mobileBadge.textContent = cart.length; mobileBadge.style.display = 'inline-block'; }
+    }
+  })();
 
   // ── Newsletter submit ──
   function handleNewsletterSubmit(e) {
