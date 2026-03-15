@@ -31,7 +31,7 @@
   <div class="product-hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
     <div class="product-sticky-img" style="position:sticky;top:84px;">
       <div id="product-image-data" data-main="{{ product.featured_image | image_url: width: 800 }}" data-img0="{{ product.images[0] | image_url: width: 800 }}" data-img1="{{ product.images[1] | image_url: width: 800 }}" data-img2="{{ product.images[2] | image_url: width: 800 }}" style="display:none"></div>
-      <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);"><img id="main-img" src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" style="width:90%;height:90%;object-fit:contain;" onerror="this.src='https://placehold.co/600x600/0a1a22/06A5C5?text={{ product.title | url_encode }}'"></div>
+      <div id="img-container" style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);"><img id="main-img" src="{{ 'ignite-mc-one.png' | asset_url }}" alt="{{ product.title }}" style="width:90%;height:90%;object-fit:contain;" onerror="this.src='https://placehold.co/600x600/0a1a22/06A5C5?text={{ product.title | url_encode }}'"></div>
       <div class="thumb-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1rem;">
         <div class="thumb active" onclick="setImg(this,document.getElementById('product-image-data').dataset.img0)"><div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ product.images[0] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div></div>
         {% if product.images[1] %}<div class="thumb" onclick="setImg(this,document.getElementById('product-image-data').dataset.img1)"><div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ product.images[1] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div></div>{% endif %}
@@ -48,9 +48,9 @@
       <div style="margin-bottom:1.5rem;">
         <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6b7280;margin-bottom:0.65rem;">Flavor: <span id="flavor-label" style="color:#F8FAFB;">Melon Creamsicle</span></p>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <button class="flavor-btn active" onclick="selectFlavor('Melon Creamsicle',document.getElementById('product-image-data').dataset.img0,'ignite-mc',this)">Melon Creamsicle</button>
-          <button class="flavor-btn" onclick="selectFlavor('Guava Berry',document.getElementById('product-image-data').dataset.img0,'ignite-gb',this)">Guava Berry</button>
-          <button class="flavor-btn" onclick="selectFlavor('Cotton Candy',document.getElementById('product-image-data').dataset.img0,'ignite-cc',this)">Cotton Candy</button>
+          <button class="flavor-btn active" onclick="selectFlavor('Melon Creamsicle','{{ 'ignite-mc-one.png' | asset_url }}','ignite-mc',this)">Melon Creamsicle</button>
+          <button class="flavor-btn" onclick="selectFlavor('Guava Berry','{{ 'ignite-gb-one.jpeg' | asset_url }}','ignite-gb',this)">Guava Berry</button>
+          <button class="flavor-btn" onclick="selectFlavor('Cotton Candy','{{ 'ignite-cc-one.jpeg' | asset_url }}','ignite-cc',this)">Cotton Candy</button>
         </div>
       </div>
       <div style="display:flex;align-items:baseline;gap:0.75rem;margin-bottom:1.5rem;"><span style="font-family:'Barlow Condensed',sans-serif;font-size:2.25rem;font-weight:800;color:#F8FAFB;">$44.99</span><span style="font-size:0.85rem;color:#6b7280;">/ 20 servings</span><span style="font-size:0.8rem;color:#22C55E;font-weight:600;">In Stock</span></div>
@@ -130,9 +130,23 @@
 <section style="background:#0a0a0a;padding:6rem 1.5rem;" id="reviews"><div style="max-width:800px;margin:0 auto;"><div style="text-align:center;margin-bottom:3rem;"><p class="section-label" style="margin-bottom:0.75rem;">Reviews</p><h2 style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;">What Athletes Say</h2></div><div style="background:#131313;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem 2.5rem;"><div style="display:flex;align-items:flex-start;gap:1.25rem;"><div style="width:48px;height:48px;background:linear-gradient(135deg,#06A5C5,#048FAB);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;">A</div><div style="flex:1;"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.25rem;"><span style="font-weight:700;color:#F8FAFB;">Alex W.</span><span class="stars" style="font-size:0.9rem;">★★★★★</span><span style="font-size:0.75rem;color:#6b7280;margin-left:auto;">Verified Purchase</span></div><p style="font-size:0.875rem;color:#6b7280;margin-bottom:0.75rem;">February 2025</p><p style="color:#9ca3af;line-height:1.7;font-size:0.9375rem;">Best pre-workout I have ever used. The energy is smooth and focused, not edgy or overstimulated. Melon Creamsicle flavor is excellent. Clean ingredients, great taste, and no crash two hours later. Stacks perfectly with Recharge.</p></div></div></div></div></section>
 {% render 'footer' %}
 <script>
-  var _imgData=document.getElementById('product-image-data');
-  var currentCartId='ignite-mc',currentFlavor='Melon Creamsicle',currentImg=_imgData?_imgData.dataset.main:'';
-  function selectFlavor(flavor,img,cartId,btn){document.querySelectorAll('.flavor-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');currentFlavor=flavor;currentCartId=cartId;currentImg=img;document.getElementById('flavor-label').textContent=flavor;}
+  var currentCartId='ignite-mc',currentFlavor='Melon Creamsicle',currentImg='{{ 'ignite-mc-one.png' | asset_url }}';
+  var igniteDarkBg = ['Melon Creamsicle'];
+  function selectFlavor(flavor,img,cartId,btn){
+    document.querySelectorAll('.flavor-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    currentFlavor=flavor;currentCartId=cartId;currentImg=img;
+    document.getElementById('flavor-label').textContent=flavor;
+    var mainImg=document.getElementById('main-img');
+    mainImg.style.opacity='0';
+    setTimeout(function(){mainImg.src=img;mainImg.style.opacity='1';},150);
+    var container=document.getElementById('img-container');
+    if(container){
+      var dark=igniteDarkBg.indexOf(flavor)!==-1;
+      container.style.background=dark?'#131313':'#f0f4f6';
+      container.style.borderColor=dark?'rgba(255,255,255,0.06)':'rgba(6,165,197,0.15)';
+    }
+  }
   function setImg(thumb,src){document.querySelectorAll('.thumb').forEach(function(t){t.classList.remove('active');});thumb.classList.add('active');var mainImg=document.getElementById('main-img');mainImg.style.opacity='0';setTimeout(function(){mainImg.src=src;mainImg.style.opacity='1';},150);}
   var FAQS=[
     {q:'How much caffeine does Ignite contain?',a:'Each 2-scoop serving contains 200mg of natural caffeine sourced from green tea. This is roughly equivalent to 2 cups of coffee. The 100mg of L-theanine in the formula smooths the stimulant effect, reducing jitters while extending the duration of focused energy.'},

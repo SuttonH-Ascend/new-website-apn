@@ -82,7 +82,7 @@
         style="display:none"></div>
       <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
         <img id="main-img"
-          src="{{ product.featured_image | image_url: width: 800 }}"
+          src="{{ 'resilience-one.png' | asset_url }}"
           alt="{{ product.title }}"
           style="width:90%;height:90%;object-fit:contain;"
           onerror="this.src='https://placehold.co/600x600/0a1a22/06A5C5?text={{ product.title | url_encode }}'">
@@ -137,8 +137,8 @@
       <div style="margin-bottom:1.5rem;">
         <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6b7280;margin-bottom:0.65rem;">Flavor: <span id="flavor-label" style="color:#F8FAFB;">Chocolate</span></p>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <button class="flavor-btn active" onclick="selectFlavor('Chocolate', document.getElementById('product-image-data').dataset.img0, 'resilience-choc', this)">Chocolate</button>
-          <button class="flavor-btn" onclick="selectFlavor('Vanilla', document.getElementById('product-image-data').dataset.img0, 'resilience-van', this)">Vanilla</button>
+          <button class="flavor-btn active" onclick="selectFlavor('Chocolate', '{{ 'resilience-one.png' | asset_url }}', 'resilience-choc', this)">Chocolate</button>
+          <button class="flavor-btn" onclick="selectFlavor('Vanilla', '{{ 'resilience-vanilla-one.png' | asset_url }}', 'resilience-van', this)">Vanilla</button>
         </div>
       </div>
 
@@ -400,7 +400,7 @@
   var currentCartId = 'resilience-choc';
   var currentFlavor = 'Chocolate';
   var _imgData = document.getElementById('product-image-data');
-  var currentImg = _imgData ? _imgData.dataset.main : '';
+  var currentImg = '{{ 'resilience-one.png' | asset_url }}';
 
   var flavorData = {
     'Chocolate': { protein: '18g', calories: '90', servingSize: '1 Scoop (25g)', sodium: '50mg', sfImg: 'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts' },

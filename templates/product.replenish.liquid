@@ -65,7 +65,7 @@
         data-img1="{{ product.images[1] | image_url: width: 800 }}"
         data-img2="{{ product.images[2] | image_url: width: 800 }}"
         style="display:none"></div>
-      <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
+      <div style="background:#f0f4f6;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(6,165,197,0.15);box-shadow:0 24px 60px rgba(0,0,0,0.4);">
         <img id="main-img" src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" style="width:90%;height:90%;object-fit:contain;" onerror="this.src='https://placehold.co/600x600/0a1a22/06A5C5?text={{ product.title | url_encode }}'">
       </div>
       <div class="thumb-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1rem;">
@@ -107,9 +107,9 @@
         <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6b7280;margin-bottom:0.65rem;">Flavor: <span id="flavor-label" style="color:#F8FAFB;">Lychee</span></p>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
           <button class="flavor-btn active" onclick="selectFlavor('Lychee',document.getElementById('product-image-data').dataset.img0,'replenish-lychee',this)">Lychee</button>
-          <button class="flavor-btn" onclick="selectFlavor('Peach Mango',document.getElementById('product-image-data').dataset.img0,'replenish-pm',this)">Peach Mango</button>
-          <button class="flavor-btn" onclick="selectFlavor('Passion Fruit',document.getElementById('product-image-data').dataset.img0,'replenish-pf',this)">Passion Fruit</button>
-          <button class="flavor-btn" onclick="selectFlavor('Lemonade',document.getElementById('product-image-data').dataset.img0,'replenish-lem',this)">Lemonade</button>
+          <button class="flavor-btn" onclick="selectFlavor('Peach Mango','{{ 'replenish-pm-one.png' | asset_url }}','replenish-pm',this)">Peach Mango</button>
+          <button class="flavor-btn" onclick="selectFlavor('Passion Fruit','{{ 'replenish-pf-one.png' | asset_url }}','replenish-pf',this)">Passion Fruit</button>
+          <button class="flavor-btn" onclick="selectFlavor('Lemonade','{{ 'replenish-lem-one.png' | asset_url }}','replenish-lem',this)">Lemonade</button>
         </div>
       </div>
 
