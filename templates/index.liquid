@@ -663,7 +663,7 @@
       </h2>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+    <div class="why-athletes-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
 
       <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
         <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -770,7 +770,7 @@
       <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
         <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
-          <img src="{{ 'replenish-plus-one.jpeg' | asset_url }}" alt="Recover" style="height:200px;width:auto;object-fit:contain;position:relative;z-index:1;" />
+          <img src="{{ 'replenish-plus-two.jpeg' | asset_url }}" alt="Replenish Plus" style="height:200px;width:auto;object-fit:contain;position:relative;z-index:1;" />
           <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 2: Hydrate</div>
         </div>
         <div style="padding:1.5rem;">
@@ -884,7 +884,7 @@
 ═══════════════════════════════════════════ -->
 <section id="quiz" style="padding:6rem 0;position:relative;overflow:hidden;background:linear-gradient(160deg,#071012 0%,#0a1a22 60%,#071012 100%);" aria-label="Performance Quiz">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(6,165,197,0.1) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
-  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+  <div class="quiz-layout-grid" style="max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
 
     <!-- Quiz CTA -->
     <div>
@@ -1069,8 +1069,12 @@
     #pillars-stage { height: min(115vw, 88svh) !important; }
     /* Track = stage + 4 slide transitions (~40vh each) so all slides cycle */
     #pillars-track { height: calc(min(115vw, 88svh) + 160vh) !important; }
-    /* Less padding on Faith-Driven Performance section */
-    #mission { padding-top: 2rem !important; }
+    /* Faith-Driven Performance: right under the banner, no extra gap */
+    #mission { padding-top: 0 !important; }
+    /* Why Athletes Choose Ascend: 1-col on mobile */
+    .why-athletes-grid { grid-template-columns: 1fr !important; }
+    /* Quiz + FAQ: stack vertically on mobile */
+    .quiz-layout-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
   }
   @media (max-width: 600px) {
     #footer-grid { grid-template-columns: 1fr !important; }
@@ -1264,20 +1268,6 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   fadeEls.forEach(el => observer.observe(el));
-
-  // ── Mobile menu ──
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
 
   // ── Newsletter submit ──
   function handleNewsletterSubmit(e) {

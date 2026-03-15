@@ -41,8 +41,18 @@
     .wheel-section { padding: 3rem 1rem !important; }
     .how-to-section { padding: 3rem 1rem !important; }
 
-    /* Impact/stat cards - 2 col grid */
+    /* Impact stat numbers: single column */
+    .impact-stat-grid { grid-template-columns: 1fr !important; }
     .impact-card { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; }
+
+    /* Ingredient wheel: scale to fit viewport */
+    #wheel-wrap {
+      width: min(90vw, 480px) !important;
+      height: min(90vw, 480px) !important;
+    }
+
+    /* How to use: single column */
+    .how-to-steps-grid { grid-template-columns: 1fr !important; }
   }
 
   @media (max-width: 480px) {
