@@ -182,7 +182,7 @@
       {% if product.variants.size > 1 %}
         <div style="margin-bottom:1.75rem;">
           <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6b7280;margin-bottom:0.65rem;">
-            Flavor: <span id="flavor-label" style="color:#F8FAFB;">{{ product.selected_or_first_available_variant.title }}</span>
+            {{ product.options[0] }}: <span id="flavor-label" style="color:#F8FAFB;">{{ product.selected_or_first_available_variant.title }}</span>
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
             {% for variant in product.variants %}
@@ -201,7 +201,7 @@
 
       <!-- Add to Cart -->
       <button class="btn-cta" id="add-to-cart-btn" onclick="APN.addToCart(document.getElementById('selected-variant-id').value, 1, this)">
-        Add to Cart &mdash; {{ product.price | money }}
+        Add to Cart - {{ product.price | money }}
       </button>
 
       <!-- Free Shipping Note -->

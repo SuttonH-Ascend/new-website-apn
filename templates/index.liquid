@@ -162,65 +162,84 @@
   .p-item-mobile-label { display: none; }
   .p-item-mobile-bottom { display: none; }
 
-  /* Mobile: flex-column, only active items visible, images centered */
   @media (max-width: 768px) {
     #pillars-grid {
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
-      justify-content: space-between !important;
-      padding: 80px 1.5rem 5rem !important;
+      justify-content: center !important;
+      padding: 100px 1.5rem 100px !important;
+      gap: 1.5rem !important;
+      height: 100% !important;
     }
     #pillars-left {
-      flex-direction: row !important;
+      flex-direction: column !important;
       justify-content: center !important;
       align-items: center !important;
       width: 100% !important;
       text-align: center !important;
       gap: 0 !important;
+      flex-shrink: 0 !important;
     }
-    .p-left-item:not(.active) { display: none !important; }
-    .p-right-item:not(.active) { display: none !important; }
-    .p-left-item.active, .p-right-item.active { text-align: center !important; }
+    #pillars-center {
+      flex-shrink: 0 !important;
+      width: 100% !important;
+    }
+    #pillars-center > div:first-child {
+      height: clamp(4rem, 20vw, 7rem) !important;
+    }
+    .p-center-word {
+      font-size: clamp(3.5rem, 18vw, 6rem) !important;
+    }
     #pillars-right-col {
       flex-direction: column !important;
       align-items: center !important;
-      gap: 1rem !important;
+      gap: 0 !important;
       width: 100% !important;
+      flex-shrink: 0 !important;
     }
     #pillars-right {
       align-items: center !important;
       gap: 0 !important;
+      width: 100% !important;
     }
-    .p-item-title { font-size: 0.875rem !important; }
-    /* Center crusader image on mobile */
+    .p-left-item:not(.active) { display: none !important; }
+    .p-right-item:not(.active) { display: none !important; }
+    .p-left-item.active { text-align: center !important; opacity: 1 !important; }
+    .p-right-item.active { text-align: center !important; opacity: 1 !important; }
     .pillar-bg img { object-position: center center !important; }
-    /* Show mobile-specific text, hide desktop-specific */
     .p-item-label { display: none !important; }
     .p-item-title { display: none !important; }
     .p-item-mobile-label {
       display: block !important;
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #06A5C5;
       text-align: center;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .p-item-mobile-bottom {
       display: block !important;
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 600;
-      font-size: 0.875rem;
-      letter-spacing: 0.06em;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
       color: rgba(255,255,255,0.85);
       text-align: center;
+      line-height: 1.4;
     }
-    /* Learn More CTA - centered at bottom on mobile */
     #learn-more-cta {
-      bottom: 2rem !important;
+      bottom: 1.75rem !important;
+      font-size: 0.7rem !important;
+      letter-spacing: 0.16em !important;
+    }
+    /* Hide teal bar and progress on mobile */
+    #pillars-center > div:nth-child(2),
+    #pillars-center > div:nth-child(3) {
+      display: none !important;
     }
   }
 </style>
@@ -230,18 +249,18 @@
 <!-- ═══════════════════════════════════════════
      FAITH DRIVEN PERFORMANCE — INTRO
 ═══════════════════════════════════════════ -->
-<section id="mission" style="padding:5rem 0 4rem;background:#F8FAFB;" aria-label="Faith Driven Performance">
+<section id="mission" style="padding:5rem 0 4rem;background:#0a0a0a;" aria-label="Faith Driven Performance">
   <div style="max-width:860px;margin:0 auto;padding:0 1.5rem;text-align:center;">
     <div class="section-label" style="justify-content:center;margin-bottom:1.25rem;">Faith Driven Performance</div>
-    <h2 style="font-family:Georgia,serif;font-size:clamp(2.25rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.03em;color:#0D0D0D;line-height:1.1;margin-bottom:1.25rem;">
+    <h2 style="font-family:Georgia,serif;font-size:clamp(2.25rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;line-height:1.1;margin-bottom:1.25rem;">
       Feel Your Faith<br/>Dominate Your Sport
     </h2>
-    <p style="font-size:1.0625rem;line-height:1.8;color:#555;max-width:680px;margin:0 auto 2.5rem;">
+    <p style="font-size:1.0625rem;line-height:1.8;color:rgba(255,255,255,0.6);max-width:680px;margin:0 auto 2.5rem;">
       Premium supplements for athletes who compete with purpose. Clean formulas, no compromises. Built by fighters, for warriors.
     </p>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
       <a href="/pages/about-us" class="btn-primary">Our Mission</a>
-      <a href="/pages/the-ascend-framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;text-decoration:none;border:1.5px solid #0D0D0D;padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#0D0D0D';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#0D0D0D'">Ascend Framework</a>
+      <a href="/pages/the-ascend-framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#fff';this.style.color='#0a0a0a'" onmouseout="this.style.background='transparent';this.style.color='rgba(255,255,255,0.7)'">Ascend Framework</a>
     </div>
   </div>
 </section>
@@ -380,15 +399,15 @@
 {%- assign _resilience    = all_products['resilience'] -%}
 {%- assign _replenish_plus = all_products['replenish-plus'] -%}
 {%- assign _fortify       = all_products['fortify'] -%}
-<section id="stack" style="padding:6rem 0;background:#fff;" aria-label="The Faith and Performance Stack">
+<section id="stack" style="padding:6rem 0;background:#111111;" aria-label="The Faith and Performance Stack">
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
 
     <div style="text-align:center;margin-bottom:3.5rem;">
       <div class="section-label" style="justify-content:center;margin-bottom:1rem;">The Stack</div>
-      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#0D0D0D;line-height:1.1;margin-bottom:1rem;">
+      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;line-height:1.1;margin-bottom:1rem;">
         The Faith &amp; Performance Stack
       </h2>
-      <p style="font-size:1rem;color:#6B7280;max-width:520px;margin:0 auto;line-height:1.75;">
+      <p style="font-size:1rem;color:rgba(255,255,255,0.5);max-width:520px;margin:0 auto;line-height:1.75;">
         Your daily system for clean energy, hydration, and strength, all aligned with your values.
       </p>
     </div>
@@ -396,18 +415,18 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
 
       <!-- Product 1: Resilience -->
-      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-        <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);background:#131313;">
+        <div style="background:linear-gradient(135deg,#0f1f24,#0a1a22);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
           <img src="{{ 'resilience-one.png' | asset_url }}" alt="Resilience Whey Protein Isolate" style="height:220px;width:auto;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 24px rgba(6,165,197,0.2));" />
           <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 1: Rebuild</div>
         </div>
         <div style="padding:1.5rem;">
           <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.4rem;">Protein</div>
-          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0D0D0D;margin-bottom:0.25rem;">Resilience</h3>
-          <p style="font-size:0.875rem;color:#6B7280;margin-bottom:0.75rem;line-height:1.6;">Whey Protein Isolate — 25g clean protein per serving. No fillers, no fluff. Rebuild muscle with a formula you can trust.</p>
+          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Resilience</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;line-height:1.6;">Whey Protein Isolate - 25g clean protein per serving. No fillers, no fluff. Rebuild muscle with a formula you can trust.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
-            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$59.99</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#F8FAFB;">$59.99</span>
             <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
           </div>
           <button class="btn-add-cart btn-add-cart-teal" onclick="APN.addToCart({{ _resilience.variants.first.id | default: 0 }},1,this)" aria-label="Add Resilience to cart">
@@ -418,18 +437,18 @@
       </div>
 
       <!-- Product 2: Replenish Plus -->
-      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-        <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);background:#131313;">
+        <div style="background:linear-gradient(135deg,#0f1f24,#0a1a22);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
           <img src="{{ 'replenish-plus-trans.png' | asset_url }}" alt="Replenish Plus" style="height:220px;width:auto;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 24px rgba(6,165,197,0.2));" />
           <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 2: Hydrate</div>
         </div>
         <div style="padding:1.5rem;">
           <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.4rem;">Hydration + Strength</div>
-          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0D0D0D;margin-bottom:0.25rem;">Replenish Plus</h3>
-          <p style="font-size:0.875rem;color:#6B7280;margin-bottom:0.75rem;line-height:1.6;">Electrolytes + Creatine — The ultimate two-in-one. Replenish what you lose, fuel the strength you're building. Every single day.</p>
+          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Replenish Plus</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;line-height:1.6;">Electrolytes + Creatine - The ultimate two-in-one. Replenish what you lose, fuel the strength you're building. Every single day.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
-            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$44.99</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#F8FAFB;">$44.99</span>
             <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
           </div>
           <button class="btn-add-cart btn-add-cart-teal" onclick="APN.addToCart({{ _replenish_plus.variants.first.id | default: 0 }},1,this)" aria-label="Add Replenish Plus to cart">
@@ -440,18 +459,18 @@
       </div>
 
       <!-- Product 3: Fortify -->
-      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-        <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+      <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);background:#131313;">
+        <div style="background:linear-gradient(135deg,#0f1f24,#0a1a22);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
           <img src="{{ 'fortify-one.png' | asset_url }}" alt="Fortify Colostrum" style="height:220px;width:auto;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 24px rgba(6,165,197,0.2));" />
           <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 3: Fortify</div>
         </div>
         <div style="padding:1.5rem;">
           <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.4rem;">Recovery</div>
-          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0D0D0D;margin-bottom:0.25rem;">Fortify</h3>
-          <p style="font-size:0.875rem;color:#6B7280;margin-bottom:0.75rem;line-height:1.6;">Natural Colostrum — The recovery edge most athletes don't know about. Strengthen your gut, your immune system, and your comeback.</p>
+          <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Fortify</h3>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;line-height:1.6;">Natural Colostrum - The recovery edge most athletes don't know about. Strengthen your gut, your immune system, and your comeback.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
-            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$39.99</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#F8FAFB;">$39.99</span>
             <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
           </div>
           <button class="btn-add-cart btn-add-cart-teal" onclick="APN.addToCart({{ _fortify.variants.first.id | default: 0 }},1,this)" aria-label="Add Fortify to cart">
@@ -476,58 +495,58 @@
 <!-- ═══════════════════════════════════════════
      SHOP BY GOALS
 ═══════════════════════════════════════════ -->
-<section id="goals" style="padding:6rem 0;background:#F8FAFB;" aria-label="Shop by Goals">
+<section id="goals" style="padding:6rem 0;background:#0a0a0a;" aria-label="Shop by Goals">
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
 
     <div style="text-align:center;margin-bottom:3rem;">
       <div class="section-label" style="justify-content:center;margin-bottom:1rem;">Find Your Stack</div>
-      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#0D0D0D;line-height:1.1;">
+      <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#F8FAFB;line-height:1.1;">
         Shop by Goals
       </h2>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;">
 
-      <a href="https://ascendperformancenutrition.com/collections/build-muscle-and-strength" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/build-muscle-and-strength" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.08);background:#131313;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,0.08)'">
         <div style="height:140px;background:linear-gradient(135deg,#0D0D0D,#1a2a30);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5h11M6.5 17.5h11M12 2v20"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
         <div style="padding:1.25rem;">
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Build Muscle &amp; Strength</h3>
-          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Protein + Creatine protocols engineered for serious gains.</p>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#F8FAFB;margin-bottom:0.4rem;">Build Muscle &amp; Strength</h3>
+          <p style="font-size:0.8125rem;color:rgba(255,255,255,0.5);line-height:1.55;margin-bottom:0.75rem;">Protein + Creatine protocols engineered for serious gains.</p>
           <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
         </div>
       </a>
 
-      <a href="https://ascendperformancenutrition.com/collections/hydration-and-recovery" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/hydration-and-recovery" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.08);background:#131313;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,0.08)'">
         <div style="height:140px;background:linear-gradient(135deg,#0a1a22,#0f2a35);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
         </div>
         <div style="padding:1.25rem;">
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Hydration &amp; Recovery</h3>
-          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Replenish, restore, and come back stronger after every session.</p>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#F8FAFB;margin-bottom:0.4rem;">Hydration &amp; Recovery</h3>
+          <p style="font-size:0.8125rem;color:rgba(255,255,255,0.5);line-height:1.55;margin-bottom:0.75rem;">Replenish, restore, and come back stronger after every session.</p>
           <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
         </div>
       </a>
 
-      <a href="https://ascendperformancenutrition.com/collections/energy-and-focus" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/energy-and-focus" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.08);background:#131313;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,0.08)'">
         <div style="height:140px;background:linear-gradient(135deg,#0D0D0D,#1a1a0a);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
         <div style="padding:1.25rem;">
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Energy &amp; Focus</h3>
-          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Clean, sustained energy without the crash. Compete sharper, longer.</p>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#F8FAFB;margin-bottom:0.4rem;">Energy &amp; Focus</h3>
+          <p style="font-size:0.8125rem;color:rgba(255,255,255,0.5);line-height:1.55;margin-bottom:0.75rem;">Clean, sustained energy without the crash. Compete sharper, longer.</p>
           <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
         </div>
       </a>
 
-      <a href="https://ascendperformancenutrition.com/collections/overall-wellness" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/overall-wellness" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.08);background:#131313;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,0.08)'">
         <div style="height:140px;background:linear-gradient(135deg,#0a1a1a,#071515);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
         <div style="padding:1.25rem;">
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Overall Wellness</h3>
-          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Long-game health support - gut, joints, immune, and longevity.</p>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#F8FAFB;margin-bottom:0.4rem;">Overall Wellness</h3>
+          <p style="font-size:0.8125rem;color:rgba(255,255,255,0.5);line-height:1.55;margin-bottom:0.75rem;">Long-game health support - gut, joints, immune, and longevity.</p>
           <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
         </div>
       </a>
