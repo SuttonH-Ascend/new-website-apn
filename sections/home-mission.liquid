@@ -37,7 +37,7 @@
           </div>
         {%- endfor -%}
       {%- else -%}
-        {%- assign default_badges = 'Full Label Transparency|Every ingredient, every dose — no proprietary blends.|shield,Built by a Competitor|Formulated by an MMA fighter who trains and competes.|check,Faith-Driven Mission|Rooted in values that go beyond the gym.|star,Zero Gray-Area Stimulants|No banned substances. No artificial dyes. No compromises.|shield' | split: ',' -%}
+        {%- assign default_badges = 'Full Label Transparency|Every ingredient, every dose  -  no proprietary blends.|shield,Built by a Competitor|Formulated by an MMA fighter who trains and competes.|check,Faith-Driven Mission|Rooted in values that go beyond the gym.|star,Zero Gray-Area Stimulants|No banned substances. No artificial dyes. No compromises.|shield' | split: ',' -%}
         {%- for badge_data in default_badges -%}
           {%- assign parts = badge_data | split: '|' -%}
           <div style="background:#F8FAFB;border:1px solid #E2E8F0;border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
@@ -64,7 +64,7 @@
 
 {% schema %}
 {
-  "name": "Home — Mission",
+  "name": "Home  -  Mission",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Faith-Driven Performance" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Built for Athletes Who Compete With Conviction" },
@@ -78,12 +78,12 @@
       "name": "Trust Badge",
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Full Label Transparency" },
-        { "type": "textarea", "id": "body", "label": "Description", "default": "Every ingredient, every dose — no proprietary blends." },
+        { "type": "textarea", "id": "body", "label": "Description", "default": "Every ingredient, every dose  -  no proprietary blends." },
         { "type": "select", "id": "icon", "label": "Icon", "options": [{"value":"shield","label":"Shield"},{"value":"check","label":"Check"},{"value":"star","label":"Star"},{"value":"clock","label":"Clock"}], "default": "shield" }
       ]
     }
   ],
   "max_blocks": 4,
-  "presets": [{ "name": "Home — Mission" }]
+  "presets": [{ "name": "Home  -  Mission" }]
 }
 {% endschema %}

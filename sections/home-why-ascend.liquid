@@ -14,7 +14,7 @@
           <p style="font-size:0.875rem;line-height:1.7;color:#6B7280;margin:0;">{{ block.settings.body | default: 'No proprietary blends, no fillers. Every ingredient listed with exact dosages.' }}</p>
         </div>
       {%- else -%}
-        {%- assign defaults = 'Clean Ingredients|No proprietary blends, no fillers. Every ingredient listed with exact dosages.,Athlete-Formulated|Created by a competing MMA fighter — tested in real training environments.,Faith-Grounded|Built on values that extend beyond performance into who you are.,Full Transparency|What you see is what you get. No hidden doses, no vague blends.,No Banned Substances|Third-party tested and safe for competitive athletes.,Performance-First|Protocols designed around real athletic goals, not marketing.' | split: ',' -%}
+        {%- assign defaults = 'Clean Ingredients|No proprietary blends, no fillers. Every ingredient listed with exact dosages.,Athlete-Formulated|Created by a competing MMA fighter  -  tested in real training environments.,Faith-Grounded|Built on values that extend beyond performance into who you are.,Full Transparency|What you see is what you get. No hidden doses, no vague blends.,No Banned Substances|Third-party tested and safe for competitive athletes.,Performance-First|Protocols designed around real athletic goals, not marketing.' | split: ',' -%}
         {%- for def in defaults -%}
           {%- assign parts = def | split: '|' -%}
           <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:2rem;" class="apn-fade-up">
@@ -40,7 +40,7 @@
 
 {% schema %}
 {
-  "name": "Home — Why Ascend",
+  "name": "Home  -  Why Ascend",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Ascend" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Why Athletes Choose Ascend" }
@@ -56,6 +56,6 @@
     }
   ],
   "max_blocks": 6,
-  "presets": [{ "name": "Home — Why Ascend" }]
+  "presets": [{ "name": "Home  -  Why Ascend" }]
 }
 {% endschema %}

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_primary": "#06A5C5",
@@ -8,6 +17,26 @@
     "meta_pixel_id": "876546821553793",
     "tiktok_pixel_id": "D03EC6BC77UBMD8HI7V0",
     "google_ads_id": "AW-17918778091",
-    "ms_clarity_id": "v9tqcwb652"
+    "ms_clarity_id": "v9tqcwb652",
+    "sections": {
+      "header": {
+        "type": "header",
+        "custom_css": [],
+        "settings": {
+          "menu": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "tagline": "Clean-label supplements built for athletes who refuse to settle. Equip. Empower. Elevate.",
+          "instagram": "",
+          "facebook": "",
+          "tiktok": "",
+          "youtube": ""
+        }
+      }
+    },
+    "content_for_index": []
   }
 }
