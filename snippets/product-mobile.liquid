@@ -1,50 +1,105 @@
 <style>
   /* ── Product page mobile layout ── */
   @media (max-width: 900px) {
-    /* Stack image + details */
-    .product-hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    /* Stack image above details, tight padding */
+    .product-hero-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1.25rem !important;
+      padding: 0.75rem 1rem 3rem !important;
+    }
     .product-sticky-img { position: static !important; top: auto !important; }
-    /* Breadcrumb smaller */
-    .breadcrumb { font-size: 0.75rem !important; }
-    /* H1 smaller */
-    .product-hero-grid h1 { font-size: 2.25rem !important; }
+
+    /* Breadcrumb smaller + less top padding */
+    .breadcrumb { font-size: 0.7rem !important; }
+    .breadcrumb > div { padding-top: 76px !important; padding-bottom: 0.5rem !important; }
+
+    /* H1 scale down on tablet */
+    .product-hero-grid h1 { font-size: 2rem !important; }
+
+    /* Main image - full-width square, capped height */
+    .product-sticky-img > div:first-child {
+      border-radius: 14px !important;
+      max-height: 380px !important;
+      aspect-ratio: 1/1 !important;
+    }
+
     /* Thumb row - scrollable horizontal strip */
-    .thumb-grid { grid-template-columns: repeat(4,72px) !important; gap: 0.5rem !important; overflow-x: auto !important; scrollbar-width: none !important; -webkit-overflow-scrolling: touch; }
+    .thumb-grid {
+      grid-template-columns: repeat(5, 64px) !important;
+      gap: 0.5rem !important;
+      overflow-x: auto !important;
+      scrollbar-width: none !important;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+    }
     .thumb-grid::-webkit-scrollbar { display: none; }
-    /* Ingredient wheel section */
+
+    /* Stat pills wrap nicely */
+    .product-hero-grid [style*="flex-wrap"] { flex-wrap: wrap !important; gap: 0.5rem !important; }
+
+    /* Ingredient wheel + how-to sections */
     .wheel-section { padding: 3rem 1rem !important; }
-    /* How to use */
     .how-to-section { padding: 3rem 1rem !important; }
+
+    /* Impact/stat cards - 2 col grid */
+    .impact-card { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; }
   }
 
   @media (max-width: 480px) {
-    .product-hero-grid h1 { font-size: 1.875rem !important; }
-    .product-hero-grid { padding: 1rem !important; }
-    /* Full-width main image */
-    #main-img-wrap { border-radius: 12px !important; }
-    /* ATC button larger touch target */
-    .btn-atc-main { min-height: 56px !important; font-size: 1rem !important; }
-    /* Flavor buttons full width scroll */
-    .flavor-grid { flex-wrap: nowrap !important; overflow-x: auto !important; scrollbar-width: none !important; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+    /* Hero: full bleed */
+    .product-hero-grid { padding: 0.5rem 0.75rem 2.5rem !important; }
+    .product-hero-grid h1 { font-size: 1.75rem !important; letter-spacing: -0.02em !important; }
+
+    /* Limit image height on small phones */
+    .product-sticky-img > div:first-child { max-height: 300px !important; }
+
+    /* ATC button: big touch target */
+    .btn-atc-main, button.btn-cta { min-height: 54px !important; font-size: 1rem !important; }
+
+    /* Flavor buttons scroll horizontally */
+    .flavor-grid {
+      flex-wrap: nowrap !important;
+      overflow-x: auto !important;
+      scrollbar-width: none !important;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+      gap: 0.5rem !important;
+    }
     .flavor-grid::-webkit-scrollbar { display: none; }
+
+    /* Price text size */
+    .product-hero-grid [style*="font-size:1.75rem"] { font-size: 1.5rem !important; }
+    .product-hero-grid [style*="font-size:2rem"] { font-size: 1.625rem !important; }
+
+    /* Related products: 1 col on very small */
+    .related-grid { grid-template-columns: 1fr !important; }
   }
 
   /* ── Swipe indicator ── */
   .swipe-hint {
     display: none;
     text-align: center;
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.35);
+    font-size: 0.6875rem;
+    color: rgba(255,255,255,0.3);
     margin-top: 0.5rem;
     letter-spacing: 0.08em;
     font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
   }
   @media (max-width: 900px) {
     .swipe-hint { display: block; }
-    /* Thumbnail gallery on mobile: horizontal strip below image */
-    .thumb-strip { display: flex !important; flex-direction: row !important; gap: 0.5rem !important; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+    /* Thumbnail strip layout */
+    .thumb-strip {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 0.5rem !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
     .thumb-strip::-webkit-scrollbar { display: none; }
-    .thumb-strip .thumb { flex-shrink: 0 !important; width: 64px !important; height: 64px !important; }
+    .thumb-strip .thumb { flex-shrink: 0 !important; width: 60px !important; height: 60px !important; }
   }
 </style>
 
@@ -57,7 +112,6 @@
   var touchStartX = 0;
   var touchStartY = 0;
   var thumbs = document.querySelectorAll('.thumb');
-  var currentIdx = 0;
 
   function getActiveIdx() {
     for (var i = 0; i < thumbs.length; i++) {
@@ -81,20 +135,16 @@
     var dx = e.changedTouches[0].clientX - touchStartX;
     var dy = e.changedTouches[0].clientY - touchStartY;
     if (Math.abs(dx) < 40 || Math.abs(dy) > Math.abs(dx)) return;
-    var idx = getActiveIdx();
-    if (dx < 0) {
-      goToThumb(idx + 1);
-    } else {
-      goToThumb(idx - 1);
-    }
+    goToThumb(dx < 0 ? getActiveIdx() + 1 : getActiveIdx() - 1);
   }, { passive: true });
 
-  /* Add swipe hint if on mobile */
+  /* Show swipe hint on mobile */
   if (window.innerWidth <= 900 && thumbs.length > 1) {
     var hint = document.createElement('p');
     hint.className = 'swipe-hint';
-    hint.textContent = 'Swipe to see more views';
-    mainImg.parentNode.parentNode.appendChild(hint);
+    hint.textContent = 'Swipe to see more';
+    var wrap = mainImg.closest('[style*="border-radius"]') || mainImg.parentNode;
+    if (wrap && wrap.parentNode) wrap.parentNode.insertBefore(hint, wrap.nextSibling);
   }
 })();
 </script>

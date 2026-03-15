@@ -173,8 +173,9 @@
 </style>
 
 {% assign img_resilience = 'resilience-one.png' | asset_url %}
+{% assign img_resilience_van = 'resilience-vanilla-one.png' | asset_url %}
 {% assign img_replenish = 'replenish-one.png' | asset_url %}
-{% assign img_replenishplus = 'replenish-plus-one.jpeg' | asset_url %}
+{% assign img_replenishplus = 'replenish-plus-two.jpeg' | asset_url %}
 {% assign img_ignite = 'ignite-mc-one.png' | asset_url %}
 {% assign img_recharge = 'recharge-one.png' | asset_url %}
 {% assign img_fortify = 'fortify-one.png' | asset_url %}
@@ -184,7 +185,7 @@
 {% assign img_function = 'function-one.png' | asset_url %}
 {% assign img_foundation = 'foundation-one.png' | asset_url %}
 {% assign img_omega3 = 'omega3-one.png' | asset_url %}
-{% assign img_adapt = 'recharge-one.png' | asset_url %}
+{% assign img_adapt = 'adapt-one.jpeg' | asset_url %}
 <script>
 (function(){
 
@@ -192,25 +193,20 @@
   // NOTE: Update prices before launch
   var PRODUCTS = [
     // PROTEIN
-    {id:'resilience-choc', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Chocolate',
+    {id:'resilience', name:'Resilience', sub:'Whey Protein Isolate',
      category:'protein', price:54.99, badge:'Bestseller', badgeColor:'#06A5C5',
      img:'{{ img_resilience }}',
      tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
      flavors:['Chocolate','Vanilla'],
-     detailUrl:'/products/resilience'},
-    {id:'resilience-van', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Vanilla',
-     category:'protein', price:54.99,
-     img:'{{ img_resilience }}',
-     tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
-     flavors:['Chocolate','Vanilla'],
+     imgByFlavor:{'Chocolate':'{{ img_resilience }}','Vanilla':'{{ img_resilience_van }}'},
      detailUrl:'/products/resilience'},
 
     // HYDRATION
-    {id:'replenish-pm', name:'Replenish', sub:'Hydration Powder', flavor:'Peach Mango',
+    {id:'replenish', name:'Replenish', sub:'Hydration Powder',
      category:'hydration', price:34.99, badge:'Top Seller', badgeColor:'#22C55E',
      img:'{{ img_replenish }}',
      tagline:'Complete electrolyte replenishment for peak training output.',
-     flavors:['Peach Mango','Lemonade','Passion Fruit','JG','Lychee'],
+     flavors:['Peach Mango','Lemonade','Passion Fruit','Lychee'],
      detailUrl:'/products/replenish'},
     {id:'replenishplus', name:'Replenish Plus', sub:'Advanced Hydration', flavor:'',
      category:'hydration', price:39.99,
@@ -237,14 +233,14 @@
      img:'{{ img_fortify }}',
      tagline:'Gut health and immune support for athletes training at high volume.',
      detailUrl:'/products/fortify'},
-    {id:'recover', name:'Recover', sub:'Muscle Recovery Cream', flavor:'',
+    {id:'recover', name:'Recover', sub:'Muscle Recovery Cream',
      category:'recovery', price:34.99,
-     img:'{{ img_recharge }}',
+     img:'{{ img_fortify }}',
      tagline:'Topical muscle recovery cream for post-workout soreness and repair.',
      detailUrl:'/products/recover'},
 
     // WELLNESS
-    {id:'adapt', name:'Adapt', sub:'Organic Ashwagandha', flavor:'',
+    {id:'adapt', name:'Adapt', sub:'Organic Ashwagandha',
      category:'wellness', price:29.99,
      img:'{{ img_adapt }}',
      tagline:'Clinically studied cortisol reduction. Compete under pressure.',
@@ -339,6 +335,12 @@
     var pills = document.querySelectorAll('#pills-'+productId+' .flavor-pill');
     pills.forEach(function(p){p.classList.remove('active');});
     el.classList.add('active');
+    // Switch product image if per-flavor images are defined
+    var prod = PRODUCTS.find(function(x){return x.id===productId;});
+    if (prod && prod.imgByFlavor && prod.imgByFlavor[flavor]) {
+      var cardImg = document.getElementById('card-img-'+productId);
+      if (cardImg) cardImg.src = prod.imgByFlavor[flavor];
+    }
   }
 
   // ── RENDER ───────────────────────────────────────────────────────────
@@ -360,6 +362,12 @@
       var card = document.createElement('div');
       card.className = 'product-card card-anim';
       card.style.animationDelay = (idx * 0.04) + 's';
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function(e) {
+        if (!e.target.closest('button') && !e.target.closest('.flavor-pill')) {
+          window.location.href = p.detailUrl || '/collections/all';
+        }
+      });
 
       // Badge HTML
       var badgeHtml = '';
@@ -388,14 +396,14 @@
 
       card.innerHTML =
         '<div class="product-img-wrap">' +
-          '<img src="' + p.img + '" alt="' + p.name + (p.flavor ? ' ' + p.flavor : '') + '" loading="lazy" onerror="this.src=\'https://placehold.co/400x480/111/333?text=' + encodeURIComponent(p.name) + '\'" />' +
+          '<img id="card-img-' + p.id + '" src="' + p.img + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'https://placehold.co/400x480/111/333?text=' + encodeURIComponent(p.name) + '\'" />' +
           '<div class="product-img-overlay"></div>' +
           badgeHtml +
           flavorCountHtml +
         '</div>' +
         '<div style="padding:20px 18px 18px;display:flex;flex-direction:column;flex:1;">' +
           '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:0.5625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:4px;">' + p.sub + '</div>' +
-          '<div style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:4px;line-height:1.2;">' + p.name + (p.flavor ? '<span style="font-family:\'Barlow\',sans-serif;font-weight:400;font-size:0.875rem;color:#666;margin-left:6px;">' + p.flavor + '</span>' : '') + '</div>' +
+          '<div style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:4px;line-height:1.2;">' + p.name + '</div>' +
           '<div style="font-size:0.8125rem;color:#666;line-height:1.55;margin-bottom:14px;flex:1;">' + p.tagline + '</div>' +
           pillsHtml +
           '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">' +
