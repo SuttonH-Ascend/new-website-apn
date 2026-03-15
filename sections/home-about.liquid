@@ -25,7 +25,7 @@
     <div class="apn-fade-up">
       <div class="apn-section-label" style="color:#06A5C5;">{{ section.settings.eyebrow | default: 'Our Mission' }}</div>
       <h2 class="apn-display" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#fff;margin:0 0 1.25rem;">{{ section.settings.heading | default: 'Performance That Means Something' }}</h2>
-      <p style="font-size:1.0625rem;line-height:1.8;color:rgba(255,255,255,0.55);margin:0 0 2rem;">{{ section.settings.body | default: "Sutton Huggins founded Ascend after years of training and competing with no supplement brand that shared his values. Faith. Family. Country. Fitness. That gap is why Ascend exists — to give athletes a stack they can stand behind, inside and outside the gym." }}</p>
+      <p style="font-size:1.0625rem;line-height:1.8;color:rgba(255,255,255,0.55);margin:0 0 2rem;">{{ section.settings.body | default: "Sutton Huggins founded Ascend after years of training and competing with no supplement brand that shared his values. Faith. Family. Country. Fitness. That gap is why Ascend exists  -  to give athletes a stack they can stand behind, inside and outside the gym." }}</p>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem;">
         {%- assign pillars = 'Faith,Family,America,Fitness' | split: ',' -%}
@@ -51,7 +51,7 @@
 
 {% schema %}
 {
-  "name": "Home — About",
+  "name": "Home  -  About",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Founder image" },
     { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Ascend founder" },
@@ -62,6 +62,6 @@
     { "type": "text", "id": "stat_label", "label": "Stat label", "default": "Core Pillars" },
     { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Read Our Story" }
   ],
-  "presets": [{ "name": "Home — About" }]
+  "presets": [{ "name": "Home  -  About" }]
 }
 {% endschema %}

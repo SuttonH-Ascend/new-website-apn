@@ -1,5 +1,5 @@
 {%- comment -%}
-  Product hero — gallery + buy box
+  Product hero  -  gallery + buy box
   Rendered by templates/product.liquid
 {%- endcomment -%}
 
@@ -132,7 +132,7 @@
             style="width:100%;justify-content:center;font-size:1rem;padding:1.125rem;"
             {%- unless first_variant.available -%}disabled style="opacity:0.5;cursor:not-allowed;"{%- endunless -%}
           >
-            {%- if first_variant.available -%}Add to Cart — {{ first_variant.price | money }}{%- else -%}Sold Out{%- endif -%}
+            {%- if first_variant.available -%}Add to Cart  -  {{ first_variant.price | money }}{%- else -%}Sold Out{%- endif -%}
           </button>
           <a href="/cart" class="apn-btn apn-btn-outline" style="width:100%;justify-content:center;font-size:1rem;padding:1.125rem;">Buy Now</a>
         </div>
@@ -189,7 +189,7 @@
           var btn = document.getElementById('apn-add-to-cart');
           if (btn) {
             btn.disabled = !match.available;
-            btn.textContent = match.available ? 'Add to Cart — $' + (match.price / 100).toFixed(2) : 'Sold Out';
+            btn.textContent = match.available ? 'Add to Cart  -  $' + (match.price / 100).toFixed(2) : 'Sold Out';
           }
         }
       }

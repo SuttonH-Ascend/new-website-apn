@@ -1,0 +1,100 @@
+<style>
+  /* ── Product page mobile layout ── */
+  @media (max-width: 900px) {
+    /* Stack image + details */
+    .product-hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .product-sticky-img { position: static !important; top: auto !important; }
+    /* Breadcrumb smaller */
+    .breadcrumb { font-size: 0.75rem !important; }
+    /* H1 smaller */
+    .product-hero-grid h1 { font-size: 2.25rem !important; }
+    /* Thumb row - scrollable horizontal strip */
+    .thumb-grid { grid-template-columns: repeat(4,72px) !important; gap: 0.5rem !important; overflow-x: auto !important; scrollbar-width: none !important; -webkit-overflow-scrolling: touch; }
+    .thumb-grid::-webkit-scrollbar { display: none; }
+    /* Ingredient wheel section */
+    .wheel-section { padding: 3rem 1rem !important; }
+    /* How to use */
+    .how-to-section { padding: 3rem 1rem !important; }
+  }
+
+  @media (max-width: 480px) {
+    .product-hero-grid h1 { font-size: 1.875rem !important; }
+    .product-hero-grid { padding: 1rem !important; }
+    /* Full-width main image */
+    #main-img-wrap { border-radius: 12px !important; }
+    /* ATC button larger touch target */
+    .btn-atc-main { min-height: 56px !important; font-size: 1rem !important; }
+    /* Flavor buttons full width scroll */
+    .flavor-grid { flex-wrap: nowrap !important; overflow-x: auto !important; scrollbar-width: none !important; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+    .flavor-grid::-webkit-scrollbar { display: none; }
+  }
+
+  /* ── Swipe indicator ── */
+  .swipe-hint {
+    display: none;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.5rem;
+    letter-spacing: 0.08em;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  @media (max-width: 900px) {
+    .swipe-hint { display: block; }
+    /* Thumbnail gallery on mobile: horizontal strip below image */
+    .thumb-strip { display: flex !important; flex-direction: row !important; gap: 0.5rem !important; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+    .thumb-strip::-webkit-scrollbar { display: none; }
+    .thumb-strip .thumb { flex-shrink: 0 !important; width: 64px !important; height: 64px !important; }
+  }
+</style>
+
+<script>
+/* ── Touch swipe for product main image ── */
+(function() {
+  var mainImg = document.getElementById('main-img');
+  if (!mainImg) return;
+
+  var touchStartX = 0;
+  var touchStartY = 0;
+  var thumbs = document.querySelectorAll('.thumb');
+  var currentIdx = 0;
+
+  function getActiveIdx() {
+    for (var i = 0; i < thumbs.length; i++) {
+      if (thumbs[i].classList.contains('active')) return i;
+    }
+    return 0;
+  }
+
+  function goToThumb(idx) {
+    if (idx < 0) idx = thumbs.length - 1;
+    if (idx >= thumbs.length) idx = 0;
+    if (thumbs[idx]) thumbs[idx].click();
+  }
+
+  mainImg.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  mainImg.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) < 40 || Math.abs(dy) > Math.abs(dx)) return;
+    var idx = getActiveIdx();
+    if (dx < 0) {
+      goToThumb(idx + 1);
+    } else {
+      goToThumb(idx - 1);
+    }
+  }, { passive: true });
+
+  /* Add swipe hint if on mobile */
+  if (window.innerWidth <= 900 && thumbs.length > 1) {
+    var hint = document.createElement('p');
+    hint.className = 'swipe-hint';
+    hint.textContent = 'Swipe to see more views';
+    mainImg.parentNode.parentNode.appendChild(hint);
+  }
+})();
+</script>
