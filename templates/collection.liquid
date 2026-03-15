@@ -26,7 +26,7 @@
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17918778091');
   </script>
 
-  <!-- Umami Analytics — replace src and data-website-id after deploying Umami to Vercel -->
+  <!-- Umami Analytics - replace src and data-website-id after deploying Umami to Vercel -->
   <!-- <script async defer src="https://YOUR-UMAMI.vercel.app/script.js" data-website-id="YOUR-SITE-ID"></script> -->
 
   <!-- Klaviyo -->
@@ -172,6 +172,19 @@
   }
 </style>
 
+{% assign img_resilience = 'resilience-one.png' | asset_url %}
+{% assign img_replenish = 'replenish-one.png' | asset_url %}
+{% assign img_replenishplus = 'replenish-plus-one.jpeg' | asset_url %}
+{% assign img_ignite = 'ignite-mc-one.png' | asset_url %}
+{% assign img_recharge = 'recharge-one.png' | asset_url %}
+{% assign img_fortify = 'fortify-one.png' | asset_url %}
+{% assign img_balance = 'balance-one.png' | asset_url %}
+{% assign img_clarity = 'clarity-one.png' | asset_url %}
+{% assign img_nourish = 'nourish-one.png' | asset_url %}
+{% assign img_function = 'function-one.png' | asset_url %}
+{% assign img_foundation = 'foundation-one.png' | asset_url %}
+{% assign img_omega3 = 'omega3-one.png' | asset_url %}
+{% assign img_adapt = 'recharge-one.png' | asset_url %}
 <script>
 (function(){
 
@@ -181,13 +194,13 @@
     // PROTEIN
     {id:'resilience-choc', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Chocolate',
      category:'protein', price:54.99, badge:'Bestseller', badgeColor:'#06A5C5',
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png',
+     img:'{{ img_resilience }}',
      tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
      flavors:['Chocolate','Vanilla'],
      detailUrl:'/products/resilience'},
     {id:'resilience-van', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Vanilla',
      category:'protein', price:54.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_van_one.png',
+     img:'{{ img_resilience }}',
      tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
      flavors:['Chocolate','Vanilla'],
      detailUrl:'/products/resilience'},
@@ -195,86 +208,75 @@
     // HYDRATION
     {id:'replenish-pm', name:'Replenish', sub:'Hydration Powder', flavor:'Peach Mango',
      category:'hydration', price:34.99, badge:'Top Seller', badgeColor:'#22C55E',
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PM_1.png',
+     img:'{{ img_replenish }}',
      tagline:'Complete electrolyte replenishment for peak training output.',
      flavors:['Peach Mango','Lemonade','Passion Fruit','JG','Lychee'],
      detailUrl:'/products/replenish'},
     {id:'replenishplus', name:'Replenish Plus', sub:'Advanced Hydration', flavor:'',
      category:'hydration', price:39.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png',
+     img:'{{ img_replenishplus }}',
      tagline:'Enhanced formula with added recovery and performance support.',
      detailUrl:'/products/replenishplus'},
 
     // ENERGY
-    {id:'ignite-gb', name:'Ignite', sub:'Energy Powder', flavor:'Guava Berry',
-     category:'energy', price:44.99, badge:'New Flavor', badgeColor:'#F59E0B',
-     img:'/brand_assets/Labels/Ignite%20Guava%20Berry/Ignite%20GB1.jpeg',
-     tagline:'Clean energy and mental focus without gray-area stimulants.',
-     flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu'],
-     detailUrl:'/products/ignite'},
-    {id:'ignite-mc', name:'Ignite', sub:'Energy Powder', flavor:'Melon Creamsicle',
+    {id:'ignite', name:'Ignite', sub:'Energy Powder', flavor:'Melon Creamsicle',
      category:'energy', price:44.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Ignite_MC1.png',
+     img:'{{ img_ignite }}',
      tagline:'Clean energy and mental focus without gray-area stimulants.',
      flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu'],
      detailUrl:'/products/ignite'},
-    {id:'ignite-cc', name:'Ignite', sub:'Energy Powder', flavor:'Cotton Candy',
-     category:'energy', price:44.99,
-     img:'/brand_assets/Labels/ignite%20cotton%20candy/Ignite%20CC1.jpeg',
-     tagline:'Clean energy and mental focus without gray-area stimulants.',
-     flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu'],
-     detailUrl:'/products/ignite'},
-    {id:'freedom-fuel', name:'Freedom Fuel', sub:'Performance Blend', flavor:'',
-     category:'energy', price:39.99, badge:'New', badgeColor:'#EF4444',
-     img:'/brand_assets/Labels/Freedom%20Fuel/Freedom%20field%20one.jpeg',
-     tagline:'American-made performance fuel. No compromises, no apologies.'},
 
     // RECOVERY
     {id:'recharge', name:'Recharge', sub:'Creatine Monohydrate', flavor:'',
      category:'recovery', price:39.99, badge:'Essential', badgeColor:'#8B5CF6',
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Recharge_one.png',
+     img:'{{ img_recharge }}',
      tagline:'Pure creatine monohydrate. 1,000+ studies. The proven performance edge.',
      detailUrl:'/products/recharge'},
     {id:'fortify', name:'Fortify', sub:'Natural Colostrum Powder', flavor:'',
      category:'recovery', price:49.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Fortify_One.png',
+     img:'{{ img_fortify }}',
      tagline:'Gut health and immune support for athletes training at high volume.',
      detailUrl:'/products/fortify'},
+    {id:'recover', name:'Recover', sub:'Muscle Recovery Cream', flavor:'',
+     category:'recovery', price:34.99,
+     img:'{{ img_recharge }}',
+     tagline:'Topical muscle recovery cream for post-workout soreness and repair.',
+     detailUrl:'/products/recover'},
 
     // WELLNESS
     {id:'adapt', name:'Adapt', sub:'Organic Ashwagandha', flavor:'',
      category:'wellness', price:29.99,
-     img:'/brand_assets/Labels/adapt/Adopt%20one.jpeg',
+     img:'{{ img_adapt }}',
      tagline:'Clinically studied cortisol reduction. Compete under pressure.',
      detailUrl:'/products/adapt'},
     {id:'clarity', name:'Clarity', sub:'Methylene Blue Drops', flavor:'',
      category:'wellness', price:34.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Clarity_.png',
+     img:'{{ img_clarity }}',
      tagline:'Mitochondrial efficiency and elite cognitive performance support.',
      detailUrl:'/products/clarity'},
     {id:'nourish', name:'Nourish', sub:'Greens Superfood', flavor:'',
      category:'wellness', price:39.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Nourish_one.png',
+     img:'{{ img_nourish }}',
      tagline:'Dense micronutrient coverage from whole food greens and superfoods.',
      detailUrl:'/products/nourish'},
     {id:'function', name:'Function', sub:'Magnesium Glycinate', flavor:'',
      category:'wellness', price:24.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Function_one.png',
+     img:'{{ img_function }}',
      tagline:'Deep sleep architecture and nervous system recovery support.',
      detailUrl:'/products/function'},
     {id:'balance', name:'Balance', sub:'Hormone Support Formula', flavor:'',
      category:'wellness', price:29.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Balance_one.png',
+     img:'{{ img_balance }}',
      tagline:'Natural hormone balance for consistent energy and performance.',
      detailUrl:'/products/balance'},
     {id:'foundation', name:'Foundation', sub:'Daily Multivitamin', flavor:'',
      category:'wellness', price:34.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Foundation_one.png',
+     img:'{{ img_foundation }}',
      tagline:'Complete micronutrient foundation built for high-output athletes.',
      detailUrl:'/products/foundation'},
     {id:'omega3', name:'Omega-3', sub:'Ultra-Pure Fish Oil', flavor:'',
      category:'wellness', price:24.99,
-     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Omega_3-1.png',
+     img:'{{ img_omega3 }}',
      tagline:'High-potency omega-3 for inflammation support and joint recovery.',
      detailUrl:'/products/omega3'}
   ];
@@ -298,7 +300,7 @@
     var selectedFlavor = '';
     var activePill = document.querySelector('#pills-'+productId+' .flavor-pill.active');
     if (activePill) selectedFlavor = activePill.textContent.trim();
-    var fullName = p.name + (p.sub ? ' — '+p.sub : '') + (selectedFlavor ? ' ('+selectedFlavor+')' : '');
+    var fullName = p.name + (p.sub ? ' - '+p.sub : '') + (selectedFlavor ? ' ('+selectedFlavor+')' : '');
     // Use the Shopify variant ID stored on the product object if available, otherwise use productId as a placeholder
     var variantId = p.variantId || productId;
     if (btn) { btn.disabled = true; btn.innerHTML = 'Adding…'; }
@@ -402,7 +404,7 @@
           '</div>' +
           '<div style="display:flex;flex-direction:column;gap:8px;">' +
             '<button class="btn-atc" onclick="APNShop.addToCart(\'' + p.id + '\',this)">Add to Cart</button>' +
-            '<a href="' + (p.detailUrl || '#') + '" class="btn-details"' + (p.detailUrl ? '' : ' onclick="return false"') + '>View Details</a>' +
+            '<a href="' + (p.detailUrl || '/collections/all') + '" class="btn-details">View Details</a>' +
           '</div>' +
         '</div>';
 
