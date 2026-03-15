@@ -690,12 +690,8 @@
     });
   })();
 
-  // ── Nav scroll effect — transparent over hero, dark after ──
-  const nav = document.getElementById('main-nav');
-  const heroHeight = () => window.innerHeight * 4.8; // ~end of pillar track
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > heroHeight());
-  }, { passive: true });
+  // ── Nav scroll effect — always dark (fixed nav style in theme.css) ──
+  // Nav is always visible with dark background; no additional scroll toggle needed.
 
   // ── Hero image load ──
   const heroBg = document.getElementById('hero-bg');
@@ -730,20 +726,6 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   fadeEls.forEach(el => observer.observe(el));
-
-  // ── Mobile menu ──
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
 
   // ── Newsletter submit ──
   function handleNewsletterSubmit(e) {
