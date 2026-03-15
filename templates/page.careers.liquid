@@ -1,0 +1,329 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Barlow',system-ui,sans-serif;background:#F8FAFB;color:#0D0D0D;overflow-x:hidden;}
+
+  /* Nav */
+  #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+  #main-nav.solid{background:rgba(10,10,10,0.98);}
+  .nav-link{font-family:'Barlow',sans-serif;font-size:0.875rem;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;letter-spacing:0.02em;transition:color 0.18s ease;}
+  .nav-link:hover{color:#fff;}
+  .nav-link:focus-visible{outline:2px solid #06A5C5;outline-offset:4px;border-radius:2px;}
+  .btn-nav{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.5rem 1.25rem;border-radius:4px;text-decoration:none;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+  .btn-nav:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(6,165,197,0.4);}
+  .btn-nav:active{transform:translateY(0);}
+  .btn-nav:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;}
+  .hidden-mobile{display:flex;}
+  .show-mobile{display:none;}
+  @media(max-width:900px){.hidden-mobile{display:none!important;}.show-mobile{display:flex!important;}}
+
+  /* Mobile menu */
+  #mobile-menu{position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(10,10,10,0.98);backdrop-filter:blur(16px);padding:1.5rem;display:none;flex-direction:column;gap:0.25rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+  #mobile-menu.open{display:flex;}
+  .mobile-nav-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+  .mobile-nav-link:hover{color:#06A5C5;}
+
+  /* Footer */
+  .footer-link{font-size:0.875rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;}
+  .footer-link:hover{color:#06A5C5;}
+  .footer-link:focus-visible{outline:2px solid #06A5C5;outline-offset:2px;border-radius:2px;}
+
+  /* Values cards */
+  .values-card{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:2.25rem;transition:border-color 0.25s ease,transform 0.25s ease,box-shadow 0.25s ease;}
+  .values-card:hover{border-color:rgba(6,165,197,0.35);transform:translateY(-4px);box-shadow:0 16px 48px rgba(6,165,197,0.08);}
+
+  /* Position cards */
+  .position-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:2rem 2.25rem;transition:border-color 0.2s ease,box-shadow 0.2s ease;}
+  .position-card:hover{border-color:rgba(6,165,197,0.35);box-shadow:0 8px 32px rgba(6,165,197,0.06);}
+
+  /* Apply button */
+  .apply-btn{font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.75rem 1.75rem;border-radius:5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+  .apply-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(6,165,197,0.35);}
+  .apply-btn:active{transform:translateY(0);}
+  .apply-btn:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;}
+
+  @media(max-width:900px){
+    #footer-grid{grid-template-columns:1fr 1fr!important;}
+    .values-grid{grid-template-columns:1fr!important;}
+    .positions-grid{grid-template-columns:1fr!important;}
+  }
+  @media(max-width:600px){
+    #footer-grid{grid-template-columns:1fr!important;}
+  }
+</style>
+
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="{{ routes.root_url }}" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;"/>
+      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
+      <a href="/collections/all" class="nav-link">Shop</a>
+      <a href="/pages/framework" class="nav-link">Framework</a>
+      <a href="/pages/about" class="nav-link">About</a>
+      <a href="/pages/resources" class="nav-link">Resources</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
+      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
+    </div>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" role="menu" aria-label="Mobile navigation">
+  <a href="/collections/all" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
+  <a href="/pages/framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/pages/about" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="/pages/resources" class="mobile-nav-link" onclick="closeMenu()">Resources</a>
+  <div style="margin-top:1rem;"><a href="/pages/quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section style="position:relative;overflow:hidden;padding:9rem 1.5rem 7rem;text-align:center;background:linear-gradient(160deg,#080808 0%,#081218 55%,#080808 100%);">
+  <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
+    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:1000px;height:600px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,165,197,0.1) 0%,transparent 70%);"></div>
+  </div>
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.35;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
+  <div style="position:relative;z-index:2;max-width:800px;margin:0 auto;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.25rem;">
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.55;"></div>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">We're Hiring</span>
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.55;"></div>
+    </div>
+    <h1 style="font-family:Georgia,serif;font-size:clamp(2.75rem,7vw,5rem);font-weight:700;letter-spacing:-0.03em;line-height:1.02;color:#f0ede8;margin-bottom:1.25rem;">Join the Mission</h1>
+    <p style="font-size:1.125rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.75;max-width:560px;margin:0 auto;">We're building the premier faith-driven performance nutrition brand in the world. If that mission resonates with you, we'd love to work together.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CULTURE / VALUES
+═══════════════════════════════════ -->
+<section style="padding:6rem 1.5rem;background:#F8FAFB;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1rem;">
+        <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Culture</span>
+        <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+      </div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(1.875rem,4vw,2.875rem);font-weight:700;letter-spacing:-0.02em;color:#0D0D0D;margin-bottom:0.75rem;">How We Operate</h2>
+      <p style="font-size:1rem;color:#6B7280;max-width:500px;margin:0 auto;line-height:1.7;">We're not just a supplement company. We're a mission-driven team with a culture built on these three principles.</p>
+    </div>
+
+    <div class="values-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+
+      <!-- Faith-Driven -->
+      <div class="values-card">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,rgba(6,165,197,0.12),rgba(4,143,171,0.06));border:1px solid rgba(6,165,197,0.2);margin-bottom:1.25rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 2a1 1 0 0 0 2 0"/><line x1="12" y1="3" x2="12" y2="14"/><line x1="8" y1="7" x2="16" y2="7"/></svg>
+        </div>
+        <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;color:#0D0D0D;margin-bottom:0.75rem;">Faith-Driven</h3>
+        <p style="font-size:0.9rem;color:#6B7280;line-height:1.75;margin-bottom:1.25rem;">Everything we build is filtered through a Christ-centered worldview. We don't leave our values at the door &mdash; they're the foundation of every decision we make, from product formulation to how we treat customers.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#06A5C5;font-size:0.625rem;">&#9679;</span>Purpose over profit</li>
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#06A5C5;font-size:0.625rem;">&#9679;</span>Character in every interaction</li>
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#06A5C5;font-size:0.625rem;">&#9679;</span>Integrity above all</li>
+        </ul>
+      </div>
+
+      <!-- Performance-First -->
+      <div class="values-card">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(239,68,68,0.04));border:1px solid rgba(239,68,68,0.2);margin-bottom:1.25rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;color:#0D0D0D;margin-bottom:0.75rem;">Performance-First</h3>
+        <p style="font-size:0.9rem;color:#6B7280;line-height:1.75;margin-bottom:1.25rem;">We hold ourselves to elite standards. Mediocrity is not an option. Whether you're writing copy, formulating a product, or answering a support ticket, we expect the kind of output that makes people say "this is different."</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#EF4444;font-size:0.625rem;">&#9679;</span>Results over activity</li>
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#EF4444;font-size:0.625rem;">&#9679;</span>High standards, always</li>
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#EF4444;font-size:0.625rem;">&#9679;</span>Own your outcomes</li>
+        </ul>
+      </div>
+
+      <!-- Community -->
+      <div class="values-card">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.04));border:1px solid rgba(34,197,94,0.2);margin-bottom:1.25rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;color:#0D0D0D;margin-bottom:0.75rem;">Community</h3>
+        <p style="font-size:0.9rem;color:#6B7280;line-height:1.75;margin-bottom:1.25rem;">We're building something together &mdash; teammates, not employees. Our best work comes from real relationships, honest feedback, and a shared commitment to the athletes we serve. We celebrate wins together and solve problems together.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#22C55E;font-size:0.625rem;">&#9679;</span>Teammates, not just coworkers</li>
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#22C55E;font-size:0.625rem;">&#9679;</span>Radical transparency</li>
+          <li style="font-size:0.8125rem;color:#6B7280;display:flex;align-items:center;gap:8px;"><span style="color:#22C55E;font-size:0.625rem;">&#9679;</span>Shared mission, shared wins</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     OPEN POSITIONS
+═══════════════════════════════════ -->
+<section style="padding:6rem 1.5rem;background:#fff;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1rem;">
+        <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Open Roles</span>
+        <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+      </div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(1.875rem,4vw,2.875rem);font-weight:700;letter-spacing:-0.02em;color:#0D0D0D;margin-bottom:0.75rem;">Current Openings</h2>
+      <p style="font-size:1rem;color:#6B7280;max-width:480px;margin:0 auto;line-height:1.7;">Fully remote. Mission-driven. Built for people who take their work as seriously as their faith.</p>
+    </div>
+
+    <div class="positions-grid" style="display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:900px;margin:0 auto;">
+
+      <!-- Position 1 -->
+      <article class="position-card">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:240px;">
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.875rem;">
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:#D6F0F6;color:#048FAB;padding:0.25rem 0.75rem;border-radius:3px;">Marketing</span>
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:#F0FDF4;color:#166534;padding:0.25rem 0.75rem;border-radius:3px;">Remote</span>
+            </div>
+            <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;letter-spacing:-0.01em;color:#0D0D0D;margin-bottom:0.5rem;">Brand Ambassador</h3>
+            <p style="font-size:0.9rem;color:#6B7280;line-height:1.7;max-width:580px;">Represent Ascend Performance Nutrition in your community, on social media, and at events. You live the Ascend values, compete in your sport, and understand the faith-driven athlete's mindset from the inside. Commission-based with product benefits included.</p>
+          </div>
+          <div style="flex-shrink:0;">
+            <a href="mailto:careers@ascendpn.com?subject=Brand Ambassador Application" class="apply-btn">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Position 2 -->
+      <article class="position-card">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:240px;">
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.875rem;">
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:#D6F0F6;color:#048FAB;padding:0.25rem 0.75rem;border-radius:3px;">Content</span>
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:#F0FDF4;color:#166534;padding:0.25rem 0.75rem;border-radius:3px;">Remote</span>
+            </div>
+            <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;letter-spacing:-0.01em;color:#0D0D0D;margin-bottom:0.5rem;">Performance Content Creator</h3>
+            <p style="font-size:0.9rem;color:#6B7280;line-height:1.7;max-width:580px;">Create high-quality video, written, and social content that educates and inspires faith-driven athletes. You understand performance nutrition, can communicate complex ideas clearly, and produce content that genuinely helps people train better and live with more purpose.</p>
+          </div>
+          <div style="flex-shrink:0;">
+            <a href="mailto:careers@ascendpn.com?subject=Performance Content Creator Application" class="apply-btn">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Position 3 -->
+      <article class="position-card">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:240px;">
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.875rem;">
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:#D6F0F6;color:#048FAB;padding:0.25rem 0.75rem;border-radius:3px;">Support</span>
+              <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:#F0FDF4;color:#166534;padding:0.25rem 0.75rem;border-radius:3px;">Remote</span>
+            </div>
+            <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;letter-spacing:-0.01em;color:#0D0D0D;margin-bottom:0.5rem;">Customer Success Specialist</h3>
+            <p style="font-size:0.9rem;color:#6B7280;line-height:1.7;max-width:580px;">Be the front line of the Ascend customer experience. You'll handle questions, resolve issues, and help athletes find the right products for their tier and goals. You're empathetic, fast, and you genuinely care about the people you serve. Knowledge of sports nutrition is a plus.</p>
+          </div>
+          <div style="flex-shrink:0;">
+            <a href="mailto:careers@ascendpn.com?subject=Customer Success Specialist Application" class="apply-btn">Apply Now &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     OPEN APPLICATION CTA
+═══════════════════════════════════ -->
+<section style="padding:6rem 1.5rem;background:#F8FAFB;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:3.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.05);">
+      <div style="font-size:2.5rem;margin-bottom:1.25rem;line-height:1;">&#128232;</div>
+      <h2 style="font-family:Georgia,serif;font-size:1.75rem;font-weight:700;letter-spacing:-0.02em;color:#0D0D0D;margin-bottom:0.875rem;">Don't See Your Role?</h2>
+      <p style="font-size:1rem;color:#6B7280;line-height:1.75;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;">If you believe in this mission and have a skill set that could help us grow, we want to hear from you. Send us an email and tell us what you'd bring to the team.</p>
+      <a href="mailto:careers@ascendpn.com" style="font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:1rem 2.5rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 24px rgba(6,165,197,0.25);transition:transform 0.18s ease,box-shadow 0.18s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 32px rgba(6,165,197,0.4)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(6,165,197,0.25)';">Email Us &rarr;</a>
+      <p style="font-size:0.875rem;color:#9CA3AF;margin-top:1.25rem;">careers@ascendpn.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);">
+  <div id="footer-grid" style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+    <div>
+      <a href="{{ routes.root_url }}" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
+        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition" style="height:36px;width:auto;"/>
+        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+        </div>
+      </a>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:280px;">Faith-driven performance nutrition for athletes who refuse to separate their values from their results.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/products/resilience" class="footer-link">Resilience Whey</a></li>
+        <li><a href="/products/replenish" class="footer-link">Replenish Hydration</a></li>
+        <li><a href="/products/recharge" class="footer-link">Recharge Creatine</a></li>
+        <li><a href="/products/ignite" class="footer-link">Ignite Energy</a></li>
+        <li><a href="/products/fortify" class="footer-link">Fortify Immunity</a></li>
+        <li><a href="/collections/all" class="footer-link">View All &rarr;</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/about" class="footer-link">About Us</a></li>
+        <li><a href="/pages/framework" class="footer-link">The Framework</a></li>
+        <li><a href="/pages/resources" class="footer-link">Resources</a></li>
+        <li><a href="/pages/athlete-profiles" class="footer-link">Athlete Profiles</a></li>
+        <li><a href="/pages/careers" class="footer-link">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/quiz" class="footer-link">Performance Quiz</a></li>
+        <li><a href="{{ routes.root_url }}policies/shipping-policy" class="footer-link">Shipping Policy</a></li>
+        <li><a href="{{ routes.root_url }}policies/refund-policy" class="footer-link">Refund Policy</a></li>
+        <li><a href="/pages/contact" class="footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-left:1.5rem;padding-right:1.5rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">&copy; {{ 'now' | date: '%Y' }} Ascend Performance Nutrition. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="{{ routes.root_url }}policies/privacy-policy" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="{{ routes.root_url }}policies/terms-of-service" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.toggleMenu = function() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    var open = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  window.closeMenu = function() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded','false');
+  };
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('main-nav');
+    if (window.scrollY > 20) { nav.classList.add('solid'); } else { nav.classList.remove('solid'); }
+  }, {passive: true});
+</script>

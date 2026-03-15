@@ -104,39 +104,7 @@
 
 
 <!-- NAV -->
-<nav id="main-nav" role="navigation" aria-label="Main navigation">
-  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
-    <a href="{{ routes.root_url }}" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
-      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;"/>
-      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
-        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
-        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
-      </div>
-    </a>
-    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
-      <a href="/collections/all" class="nav-link" style="color:#f0ede8;">Shop</a>
-      <a href="{{ routes.root_url }}#framework" class="nav-link">Framework</a>
-      <a href="/pages/about" class="nav-link">About</a>
-      <a href="/pages/quiz" class="nav-link">Quiz</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
-      <a href="/collections/all" aria-label="Cart" style="position:relative;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)';" onmouseout="this.style.color='rgba(255,255,255,0.55)';">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span id="cart-badge" style="display:none;position:absolute;top:-7px;right:-9px;background:#06A5C5;color:#fff;font-size:0.5rem;font-weight:700;width:15px;height:15px;border-radius:50%;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0;line-height:1;">0</span>
-      </a>
-      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
-    </div>
-    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</nav>
-<div id="mobile-menu">
-  <a href="/collections/all" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
-  <a href="{{ routes.root_url }}#framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
-  <a href="/pages/about" class="mobile-nav-link" onclick="closeMenu()">About</a>
-  <a href="/pages/quiz" class="mobile-nav-link" onclick="closeMenu()">Quiz</a>
-  <div style="margin-top:1rem;"><a href="/pages/quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+{% render 'nav' %}
 </div>
 
 <!-- HERO STRIP -->
@@ -187,54 +155,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);">
-  <div id="footer-grid" style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
-    <div>
-      <a href="{{ routes.root_url }}" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
-        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition" style="height:36px;width:auto;"/>
-        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
-          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
-        </div>
-      </a>
-      <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:280px;">Faith-driven performance nutrition for athletes who refuse to separate their values from their results.</p>
-    </div>
-    <div>
-      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="/shop.html?cat=protein" class="footer-link">Protein</a></li>
-        <li><a href="/shop.html?cat=hydration" class="footer-link">Hydration</a></li>
-        <li><a href="/shop.html?cat=energy" class="footer-link">Energy</a></li>
-        <li><a href="/shop.html?cat=recovery" class="footer-link">Recovery</a></li>
-        <li><a href="/shop.html?cat=wellness" class="footer-link">Wellness</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="/pages/about" class="footer-link">About Us</a></li>
-        <li><a href="/pages/quiz" class="footer-link">Performance Quiz</a></li>
-        <li><a href="#" class="footer-link">Careers</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="#" class="footer-link">Shipping Policy</a></li>
-        <li><a href="#" class="footer-link">Returns &amp; Refunds</a></li>
-        <li><a href="#" class="footer-link">Contact Us</a></li>
-        <li><a href="#" class="footer-link">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-left:1.5rem;padding-right:1.5rem;">
-    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">© {{ 'now' | date: '%Y' }} Ascend Performance Nutrition. All rights reserved.</p>
-    <div style="display:flex;gap:1.5rem;">
-      <a href="#" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
-      <a href="#" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
-    </div>
-  </div>
-</footer>
+{% render 'footer' %}
 
 <style>
   @media(max-width:1100px){#product-grid{grid-template-columns:repeat(3,1fr)!important;}}

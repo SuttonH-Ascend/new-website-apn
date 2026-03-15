@@ -1,0 +1,70 @@
+<footer class="footer-bg" aria-label="Site footer">
+  <div style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 2rem;">
+    <div id="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;">
+
+      <!-- Brand col -->
+      <div>
+        <a href="{{ routes.root_url }}" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
+          <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition" style="height:36px;width:auto;" />
+          <div style="display:flex;flex-direction:column;line-height:1.1;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.15em;text-transform:uppercase;color:#fff;">ASCEND</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.5);">PERFORMANCE / NUTRITION</span>
+          </div>
+        </a>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.45);line-height:1.7;max-width:260px;">Built for athletes who compete for something bigger than themselves. Faith. Performance. Purpose.</p>
+      </div>
+
+      <!-- Products col -->
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem;">Products</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="/products/resilience" class="footer-link">Resilience Whey Protein</a></li>
+          <li><a href="/products/replenish" class="footer-link">Replenish Hydration</a></li>
+          <li><a href="/products/recharge" class="footer-link">Recharge Creatine</a></li>
+          <li><a href="/products/ignite" class="footer-link">Ignite Energy</a></li>
+          <li><a href="/products/fortify" class="footer-link">Fortify Colostrum</a></li>
+          <li><a href="/collections/all" class="footer-link">View All Products &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Company col -->
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem;">Company</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="/pages/about" class="footer-link">About Us</a></li>
+          <li><a href="/pages/framework" class="footer-link">The Ascend Framework</a></li>
+          <li><a href="/pages/resources" class="footer-link">Resources / Blog</a></li>
+          <li><a href="/pages/athlete-profiles" class="footer-link">Athlete Profiles</a></li>
+          <li><a href="/pages/careers" class="footer-link">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Support col -->
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem;">Support</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="/pages/quiz" class="footer-link">Performance Quiz</a></li>
+          <li><a href="/pages/quiz" class="footer-link">Macro Calculator</a></li>
+          <li><a href="{{ shop.url }}/policies/shipping-policy" class="footer-link">Shipping Policy</a></li>
+          <li><a href="{{ shop.url }}/policies/refund-policy" class="footer-link">Returns &amp; Refunds</a></li>
+          <li><a href="/pages/contact" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">&copy; {{ 'now' | date: '%Y' }} Ascend Performance Nutrition. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:1.5rem;">
+        <a href="{{ shop.url }}/policies/privacy-policy" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+        <a href="{{ shop.url }}/policies/terms-of-service" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    @media (max-width: 900px) { #footer-grid { grid-template-columns: 1fr 1fr !important; } }
+    @media (max-width: 560px) { #footer-grid { grid-template-columns: 1fr !important; } }
+  </style>
+</footer>

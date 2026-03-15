@@ -1,0 +1,343 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Barlow',system-ui,sans-serif;background:#F8FAFB;color:#0D0D0D;overflow-x:hidden;}
+
+  /* Nav */
+  #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+  #main-nav.solid{background:rgba(10,10,10,0.98);}
+  .nav-link{font-family:'Barlow',sans-serif;font-size:0.875rem;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;letter-spacing:0.02em;transition:color 0.18s ease;}
+  .nav-link:hover{color:#fff;}
+  .nav-link:focus-visible{outline:2px solid #06A5C5;outline-offset:4px;border-radius:2px;}
+  .btn-nav{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.5rem 1.25rem;border-radius:4px;text-decoration:none;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+  .btn-nav:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(6,165,197,0.4);}
+  .btn-nav:active{transform:translateY(0);}
+  .btn-nav:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;}
+  .hidden-mobile{display:flex;}
+  .show-mobile{display:none;}
+  @media(max-width:900px){.hidden-mobile{display:none!important;}.show-mobile{display:flex!important;}}
+
+  /* Mobile menu */
+  #mobile-menu{position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(10,10,10,0.98);backdrop-filter:blur(16px);padding:1.5rem;display:none;flex-direction:column;gap:0.25rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+  #mobile-menu.open{display:flex;}
+  .mobile-nav-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+  .mobile-nav-link:hover{color:#06A5C5;}
+
+  /* Footer */
+  .footer-link{font-size:0.875rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;}
+  .footer-link:hover{color:#06A5C5;}
+  .footer-link:focus-visible{outline:2px solid #06A5C5;outline-offset:2px;border-radius:2px;}
+
+  /* Form fields */
+  .form-field{width:100%;background:#F8FAFB;border:1px solid #E2E8F0;border-radius:8px;padding:0.875rem 1.125rem;font-family:'Barlow',sans-serif;font-size:0.9375rem;color:#0D0D0D;outline:none;transition:border-color 0.18s ease,box-shadow 0.18s ease;}
+  .form-field:focus{border-color:#06A5C5;box-shadow:0 0 0 3px rgba(6,165,197,0.12);}
+  .form-field::placeholder{color:#9CA3AF;}
+  label{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#374151;display:block;margin-bottom:0.5rem;}
+
+  /* Social links */
+  .social-link{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#fff;border:1px solid #E2E8F0;color:#6B7280;text-decoration:none;transition:border-color 0.18s ease,color 0.18s ease,transform 0.18s ease;}
+  .social-link:hover{border-color:#06A5C5;color:#06A5C5;transform:translateY(-2px);}
+  .social-link:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;}
+
+  @media(max-width:900px){
+    #footer-grid{grid-template-columns:1fr 1fr!important;}
+    .contact-grid{grid-template-columns:1fr!important;}
+  }
+  @media(max-width:600px){
+    #footer-grid{grid-template-columns:1fr!important;}
+  }
+</style>
+
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="{{ routes.root_url }}" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;"/>
+      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
+      <a href="/collections/all" class="nav-link">Shop</a>
+      <a href="/pages/framework" class="nav-link">Framework</a>
+      <a href="/pages/about" class="nav-link">About</a>
+      <a href="/pages/resources" class="nav-link">Resources</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
+      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
+    </div>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" role="menu" aria-label="Mobile navigation">
+  <a href="/collections/all" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
+  <a href="/pages/framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/pages/about" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="/pages/resources" class="mobile-nav-link" onclick="closeMenu()">Resources</a>
+  <div style="margin-top:1rem;"><a href="/pages/quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section style="position:relative;overflow:hidden;padding:9rem 1.5rem 6rem;text-align:center;background:linear-gradient(160deg,#080808 0%,#081218 55%,#080808 100%);">
+  <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
+    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:1000px;height:600px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,165,197,0.1) 0%,transparent 70%);"></div>
+  </div>
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.35;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
+  <div style="position:relative;z-index:2;max-width:700px;margin:0 auto;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.25rem;">
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.55;"></div>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Get in Touch</span>
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.55;"></div>
+    </div>
+    <h1 style="font-family:Georgia,serif;font-size:clamp(2.75rem,7vw,5rem);font-weight:700;letter-spacing:-0.03em;line-height:1.02;color:#f0ede8;margin-bottom:1.25rem;">Contact Us</h1>
+    <p style="font-size:1.125rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.75;max-width:500px;margin:0 auto;">We're here to help. Whether it's a product question, order issue, or partnership inquiry &mdash; we respond within 24&ndash;48 hours.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CONTACT FORM + INFO
+═══════════════════════════════════ -->
+<section style="padding:6rem 1.5rem 7rem;background:#F8FAFB;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:start;">
+
+      <!-- LEFT: Form -->
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:3rem;box-shadow:0 4px 24px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:2rem;">
+          <h2 style="font-family:Georgia,serif;font-size:1.75rem;font-weight:700;letter-spacing:-0.02em;color:#0D0D0D;margin-bottom:0.5rem;">Send a Message</h2>
+          <p style="font-size:0.9rem;color:#6B7280;line-height:1.7;">Fill out the form below and our team will get back to you within 24&ndash;48 hours.</p>
+        </div>
+
+        {% form 'contact' %}
+          {% if form.posted_successfully? %}
+            <div style="background:#D6F0F6;border:1px solid rgba(6,165,197,0.3);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem;display:flex;align-items:center;gap:0.75rem;">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#048FAB" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="font-size:0.9rem;color:#048FAB;font-weight:500;">Your message has been sent! We'll be in touch shortly.</span>
+            </div>
+          {% endif %}
+
+          {% if form.errors %}
+            <div style="background:#FEF2F2;border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem;">
+              <span style="font-size:0.9rem;color:#DC2626;font-weight:500;">Please fix the errors below and try again.</span>
+            </div>
+          {% endif %}
+
+          <div style="display:flex;flex-direction:column;gap:1.25rem;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;" class="form-row">
+              <div>
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="contact[name]" placeholder="Full name" required autocomplete="name" class="form-field" value="{{ form.name }}"/>
+              </div>
+              <div>
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" name="contact[email]" placeholder="you@example.com" required autocomplete="email" class="form-field" value="{{ form.email }}"/>
+              </div>
+            </div>
+
+            <div>
+              <label for="contact-subject">Subject</label>
+              <select id="contact-subject" name="contact[body_prefix]" class="form-field" style="cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%236B7280%27 stroke-width=%272%27 stroke-linecap=%27round%27%3E%3Cpolyline points=%276 9 12 15 18 9%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 1rem center;">
+                <option value="">Select a subject...</option>
+                <option value="Order Issue">Order Issue</option>
+                <option value="Product Question">Product Question</option>
+                <option value="Partnership Inquiry">Partnership</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="contact[body]" placeholder="Tell us how we can help..." required rows="6" class="form-field" style="resize:vertical;min-height:150px;line-height:1.65;">{{ form.body }}</textarea>
+            </div>
+
+            <div>
+              <button type="submit" style="font-family:'Barlow Condensed',sans-serif;font-size:0.9375rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;border:none;padding:1rem 2.5rem;border-radius:6px;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 24px rgba(6,165,197,0.25);transition:transform 0.18s ease,box-shadow 0.18s ease;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 10px 32px rgba(6,165,197,0.4)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(6,165,197,0.25)';" onfocus="this.style.outline='2px solid #06A5C5';this.style.outlineOffset='3px';" onblur="this.style.outline='none';">
+                Send Message
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+          </div>
+        {% endform %}
+      </div>
+
+      <!-- RIGHT: Contact Info -->
+      <div style="display:flex;flex-direction:column;gap:1.5rem;padding-top:0.5rem;">
+
+        <!-- Response time card -->
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:1.75rem 2rem;">
+          <div style="display:flex;align-items:center;gap:0.875rem;margin-bottom:1rem;">
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#D6F0F6;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#048FAB" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:2px;">Response Time</div>
+              <div style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;color:#0D0D0D;">24&ndash;48 Hours</div>
+            </div>
+          </div>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.7;">We reply to all messages within two business days. For urgent order issues, please include your order number.</p>
+        </div>
+
+        <!-- Email card -->
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:1.75rem 2rem;">
+          <div style="display:flex;align-items:center;gap:0.875rem;margin-bottom:1rem;">
+            <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#D6F0F6;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#048FAB" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#06A5C5;margin-bottom:2px;">Email</div>
+              <div style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;color:#0D0D0D;">Customer Support</div>
+            </div>
+          </div>
+          <a href="mailto:support@ascendpn.com" style="font-size:0.9375rem;color:#06A5C5;text-decoration:none;font-weight:500;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75';" onmouseout="this.style.opacity='1';">support@ascendpn.com</a>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.7;margin-top:0.5rem;">For order inquiries, product questions, and general support.</p>
+        </div>
+
+        <!-- Quick links card -->
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:1.75rem 2rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#374151;margin-bottom:1.125rem;">Quick Links</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
+            <li>
+              <a href="{{ routes.root_url }}policies/shipping-policy" style="font-size:0.9rem;color:#0D0D0D;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.18s ease;" onmouseover="this.style.color='#06A5C5';" onmouseout="this.style.color='#0D0D0D';">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Shipping Policy
+              </a>
+            </li>
+            <li>
+              <a href="{{ routes.root_url }}policies/refund-policy" style="font-size:0.9rem;color:#0D0D0D;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.18s ease;" onmouseover="this.style.color='#06A5C5';" onmouseout="this.style.color='#0D0D0D';">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Refund &amp; Return Policy
+              </a>
+            </li>
+            <li>
+              <a href="/pages/quiz" style="font-size:0.9rem;color:#0D0D0D;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.18s ease;" onmouseover="this.style.color='#06A5C5';" onmouseout="this.style.color='#0D0D0D';">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Performance Quiz
+              </a>
+            </li>
+            <li>
+              <a href="/collections/all" style="font-size:0.9rem;color:#0D0D0D;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.18s ease;" onmouseover="this.style.color='#06A5C5';" onmouseout="this.style.color='#0D0D0D';">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                Shop All Products
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social card -->
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:1.75rem 2rem;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#374151;margin-bottom:1.125rem;">Follow Us</div>
+          <div style="display:flex;gap:0.75rem;">
+            <!-- Instagram -->
+            <a href="#" class="social-link" aria-label="Follow Ascend on Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" class="social-link" aria-label="Follow Ascend on TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.69a8.19 8.19 0 0 0 4.83 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="social-link" aria-label="Follow Ascend on Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" class="social-link" aria-label="Follow Ascend on YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);">
+  <div id="footer-grid" style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+    <div>
+      <a href="{{ routes.root_url }}" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
+        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition" style="height:36px;width:auto;"/>
+        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+        </div>
+      </a>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:280px;">Faith-driven performance nutrition for athletes who refuse to separate their values from their results.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/products/resilience" class="footer-link">Resilience Whey</a></li>
+        <li><a href="/products/replenish" class="footer-link">Replenish Hydration</a></li>
+        <li><a href="/products/recharge" class="footer-link">Recharge Creatine</a></li>
+        <li><a href="/products/ignite" class="footer-link">Ignite Energy</a></li>
+        <li><a href="/products/fortify" class="footer-link">Fortify Immunity</a></li>
+        <li><a href="/collections/all" class="footer-link">View All &rarr;</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/about" class="footer-link">About Us</a></li>
+        <li><a href="/pages/framework" class="footer-link">The Framework</a></li>
+        <li><a href="/pages/resources" class="footer-link">Resources</a></li>
+        <li><a href="/pages/athlete-profiles" class="footer-link">Athlete Profiles</a></li>
+        <li><a href="/pages/careers" class="footer-link">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/quiz" class="footer-link">Performance Quiz</a></li>
+        <li><a href="{{ routes.root_url }}policies/shipping-policy" class="footer-link">Shipping Policy</a></li>
+        <li><a href="{{ routes.root_url }}policies/refund-policy" class="footer-link">Refund Policy</a></li>
+        <li><a href="/pages/contact" class="footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-left:1.5rem;padding-right:1.5rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">&copy; {{ 'now' | date: '%Y' }} Ascend Performance Nutrition. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="{{ routes.root_url }}policies/privacy-policy" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="{{ routes.root_url }}policies/terms-of-service" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media(max-width:900px){
+    .contact-grid{grid-template-columns:1fr!important;}
+    .form-row{grid-template-columns:1fr!important;}
+    #footer-grid{grid-template-columns:1fr 1fr!important;}
+  }
+  @media(max-width:600px){
+    #footer-grid{grid-template-columns:1fr!important;}
+  }
+</style>
+
+<script>
+  window.toggleMenu = function() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    var open = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  window.closeMenu = function() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded','false');
+  };
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('main-nav');
+    if (window.scrollY > 20) { nav.classList.add('solid'); } else { nav.classList.remove('solid'); }
+  }, {passive: true});
+</script>

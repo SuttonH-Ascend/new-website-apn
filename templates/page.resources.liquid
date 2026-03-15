@@ -1,0 +1,364 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Barlow',system-ui,sans-serif;background:#F8FAFB;color:#0D0D0D;overflow-x:hidden;}
+
+  /* Nav */
+  #main-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+  #main-nav.solid{background:rgba(10,10,10,0.98);}
+  .nav-link{font-family:'Barlow',sans-serif;font-size:0.875rem;font-weight:500;color:rgba(255,255,255,0.65);text-decoration:none;letter-spacing:0.02em;transition:color 0.18s ease;}
+  .nav-link:hover{color:#fff;}
+  .nav-link:focus-visible{outline:2px solid #06A5C5;outline-offset:4px;border-radius:2px;}
+  .nav-link.active{color:#06A5C5;}
+  .btn-nav{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.5rem 1.25rem;border-radius:4px;text-decoration:none;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+  .btn-nav:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(6,165,197,0.4);}
+  .btn-nav:active{transform:translateY(0);}
+  .btn-nav:focus-visible{outline:2px solid #06A5C5;outline-offset:3px;}
+  .hidden-mobile{display:flex;}
+  .show-mobile{display:none;}
+  @media(max-width:900px){.hidden-mobile{display:none!important;}.show-mobile{display:flex!important;}}
+
+  /* Mobile menu */
+  #mobile-menu{position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(10,10,10,0.98);backdrop-filter:blur(16px);padding:1.5rem;display:none;flex-direction:column;gap:0.25rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+  #mobile-menu.open{display:flex;}
+  .mobile-nav-link{font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+  .mobile-nav-link:hover{color:#06A5C5;}
+
+  /* Footer */
+  .footer-link{font-size:0.875rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;}
+  .footer-link:hover{color:#06A5C5;}
+  .footer-link:focus-visible{outline:2px solid #06A5C5;outline-offset:2px;border-radius:2px;}
+
+  /* Resource cards */
+  .resource-card{background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;transition:border-color 0.25s ease,transform 0.25s ease,box-shadow 0.25s ease;}
+  .resource-card:hover{border-color:rgba(6,165,197,0.4);transform:translateY(-4px);box-shadow:0 16px 48px rgba(6,165,197,0.1);}
+  .resource-card:focus-within{outline:2px solid #06A5C5;outline-offset:4px;border-radius:14px;}
+
+  /* Blog cards */
+  .blog-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;transition:border-color 0.2s ease,transform 0.2s ease,box-shadow 0.2s ease;}
+  .blog-card:hover{border-color:rgba(6,165,197,0.35);transform:translateY(-3px);box-shadow:0 12px 36px rgba(6,165,197,0.08);}
+  .blog-card a:focus-visible{outline:2px solid #06A5C5;outline-offset:4px;}
+
+  @media(max-width:900px){
+    #footer-grid{grid-template-columns:1fr 1fr!important;}
+    .resources-grid{grid-template-columns:1fr!important;}
+    .blog-grid{grid-template-columns:1fr!important;}
+  }
+  @media(max-width:600px){
+    #footer-grid{grid-template-columns:1fr!important;}
+  }
+</style>
+
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="{{ routes.root_url }}" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;"/>
+      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
+      <a href="/collections/all" class="nav-link">Shop</a>
+      <a href="/pages/framework" class="nav-link">Framework</a>
+      <a href="/pages/about" class="nav-link">About</a>
+      <a href="/pages/resources" class="nav-link active">Resources</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
+      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
+    </div>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" role="menu" aria-label="Mobile navigation">
+  <a href="/collections/all" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
+  <a href="/pages/framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/pages/about" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="/pages/resources" class="mobile-nav-link" onclick="closeMenu()" style="color:#06A5C5;">Resources</a>
+  <div style="margin-top:1rem;"><a href="/pages/quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section style="position:relative;overflow:hidden;padding:9rem 1.5rem 7rem;text-align:center;background:linear-gradient(160deg,#080808 0%,#081218 55%,#080808 100%);">
+  <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
+    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:1000px;height:600px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,165,197,0.1) 0%,transparent 70%);"></div>
+  </div>
+  <div style="position:absolute;inset:0;pointer-events:none;opacity:0.4;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
+  <div style="position:relative;z-index:2;max-width:800px;margin:0 auto;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.25rem;">
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.55;"></div>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Knowledge Base</span>
+      <div style="height:1px;width:40px;background:#06A5C5;opacity:0.55;"></div>
+    </div>
+    <h1 style="font-family:Georgia,serif;font-size:clamp(2.75rem,7vw,5rem);font-weight:700;letter-spacing:-0.03em;line-height:1.02;color:#f0ede8;margin-bottom:1.25rem;">Resources &amp;<br/>Knowledge</h1>
+    <p style="font-size:1.125rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.75;max-width:520px;margin:0 auto;">Tools, guides, and deep dives for athletes who are serious about their faith and their performance.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FEATURED RESOURCES
+═══════════════════════════════════ -->
+<section style="padding:6rem 1.5rem;background:#F8FAFB;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1rem;">
+        <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Featured</span>
+        <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+      </div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(1.875rem,4vw,2.875rem);font-weight:700;letter-spacing:-0.02em;color:#0D0D0D;margin-bottom:0.75rem;">Core Resources</h2>
+      <p style="font-size:1rem;color:#6B7280;max-width:500px;margin:0 auto;line-height:1.7;">Our flagship guides for athletes ready to go deeper on performance, coaching, and faith.</p>
+    </div>
+
+    <div class="resources-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;">
+
+      <!-- Resource 1 -->
+      <article class="resource-card">
+        <div style="background:linear-gradient(135deg,#048FAB,#06A5C5);padding:2.5rem 2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.08);"></div>
+          <div style="position:absolute;bottom:-30px;left:-10px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
+          <div style="position:relative;z-index:1;">
+            <div style="font-size:2.5rem;margin-bottom:0.875rem;line-height:1;">&#127979;</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:0.5rem;">Coaching</div>
+            <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;color:#fff;line-height:1.25;">The Ascend Master Class</h3>
+          </div>
+        </div>
+        <div style="padding:1.75rem 2rem 2rem;">
+          <p style="font-size:0.9rem;color:#6B7280;line-height:1.75;margin-bottom:1.5rem;">Performance coaching fundamentals built on the Ascend Framework. Learn the exact protocols used by Tier 3&ndash;5 athletes to structure training, recovery, and nutrition through the lens of faith.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#D6F0F6;color:#048FAB;padding:0.3rem 0.75rem;border-radius:4px;">Video Course</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#D6F0F6;color:#048FAB;padding:0.3rem 0.75rem;border-radius:4px;">Free Access</span>
+          </div>
+          <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.75rem 1.5rem;border-radius:5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform 0.18s ease,box-shadow 0.18s ease;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(6,165,197,0.35)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';">Access Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Resource 2 -->
+      <article class="resource-card">
+        <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:2.5rem 2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(6,165,197,0.08);"></div>
+          <div style="position:relative;z-index:1;">
+            <div style="font-size:2.5rem;margin-bottom:0.875rem;line-height:1;">&#128218;</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:0.5rem;">Guide</div>
+            <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;color:#f0ede8;line-height:1.25;">Performance Study Guide</h3>
+          </div>
+        </div>
+        <div style="padding:1.75rem 2rem 2rem;">
+          <p style="font-size:0.9rem;color:#6B7280;line-height:1.75;margin-bottom:1.5rem;">A comprehensive reference covering training periodization, sport-specific nutrition protocols, recovery science, and supplementation timing. Designed for competitors at every tier.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#D6F0F6;color:#048FAB;padding:0.3rem 0.75rem;border-radius:4px;">PDF Download</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#D6F0F6;color:#048FAB;padding:0.3rem 0.75rem;border-radius:4px;">Free</span>
+          </div>
+          <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:1px solid #06A5C5;color:#06A5C5;padding:0.75rem 1.5rem;border-radius:5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#06A5C5';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='#06A5C5';">Download PDF &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Resource 3 -->
+      <article class="resource-card">
+        <div style="background:linear-gradient(135deg,#1c1008,#251508);padding:2.5rem 2rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(245,158,11,0.08);"></div>
+          <div style="position:relative;z-index:1;">
+            <div style="font-size:2.5rem;margin-bottom:0.875rem;line-height:1;">&#10013;&#65039;</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,158,11,0.65);margin-bottom:0.5rem;">Faith + Performance</div>
+            <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;color:#f0ede8;line-height:1.25;">The Athlete's Faith Playbook</h3>
+          </div>
+        </div>
+        <div style="padding:1.75rem 2rem 2rem;">
+          <p style="font-size:0.9rem;color:#6B7280;line-height:1.75;margin-bottom:1.5rem;">Integrating faith with elite athletic performance. Practical frameworks for using biblical principles to build mental toughness, manage competition anxiety, and pursue excellence as an act of worship.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#FEF3C7;color:#92400E;padding:0.3rem 0.75rem;border-radius:4px;">eBook</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#FEF3C7;color:#92400E;padding:0.3rem 0.75rem;border-radius:4px;">Free Download</span>
+          </div>
+          <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:1px solid #F59E0B;color:#F59E0B;padding:0.75rem 1.5rem;border-radius:5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#F59E0B';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='#F59E0B';">Download Free &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     BLOG PREVIEWS
+═══════════════════════════════════ -->
+<section style="padding:6rem 1.5rem;background:#fff;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem;flex-wrap:wrap;">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Latest Posts</span>
+        </div>
+        <h2 style="font-family:Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-0.02em;color:#0D0D0D;">From the Blog</h2>
+      </div>
+      <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#06A5C5;text-decoration:none;border-bottom:1px solid rgba(6,165,197,0.3);padding-bottom:2px;transition:border-color 0.18s ease;" onmouseover="this.style.borderColor='#06A5C5';" onmouseout="this.style.borderColor='rgba(6,165,197,0.3)';">View All Posts &rarr;</a>
+    </div>
+
+    <div class="blog-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;">
+
+      <!-- Blog 1 -->
+      <article class="blog-card">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;">
+          <img src="https://placehold.co/640x360/081218/06A5C5?text=Performance+Nutrition" alt="Performance nutrition guide" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)';" onmouseout="this.style.transform='scale(1)';"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 60%);pointer-events:none;"></div>
+          <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:rgba(6,165,197,0.9);color:#fff;padding:0.3rem 0.75rem;border-radius:3px;">Nutrition</div>
+        </div>
+        <div style="padding:1.5rem 1.75rem 1.75rem;">
+          <div style="font-size:0.8125rem;color:#6B7280;margin-bottom:0.75rem;">March 10, 2026</div>
+          <h3 style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.01em;line-height:1.35;color:#0D0D0D;margin-bottom:0.75rem;">How to Time Your Protein Intake Around Competition</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.7;margin-bottom:1.25rem;">The science behind pre-competition nutrition and why the 90-minute window matters more than you think.</p>
+          <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#06A5C5;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75';" onmouseout="this.style.opacity='1';">Read More &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Blog 2 -->
+      <article class="blog-card">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;">
+          <img src="https://placehold.co/640x360/0a0f18/8B5CF6?text=Faith+and+Sport" alt="Faith and athletic performance" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)';" onmouseout="this.style.transform='scale(1)';"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 60%);pointer-events:none;"></div>
+          <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:rgba(139,92,246,0.9);color:#fff;padding:0.3rem 0.75rem;border-radius:3px;">Faith</div>
+        </div>
+        <div style="padding:1.5rem 1.75rem 1.75rem;">
+          <div style="font-size:0.8125rem;color:#6B7280;margin-bottom:0.75rem;">March 5, 2026</div>
+          <h3 style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.01em;line-height:1.35;color:#0D0D0D;margin-bottom:0.75rem;">Competing With Purpose: Why "Why" Matters More Than "How"</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.7;margin-bottom:1.25rem;">What happens when you replace ambition with mission. A look at identity-first athletic training.</p>
+          <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#06A5C5;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75';" onmouseout="this.style.opacity='1';">Read More &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Blog 3 -->
+      <article class="blog-card">
+        <div style="position:relative;aspect-ratio:16/9;overflow:hidden;">
+          <img src="https://placehold.co/640x360/111806/22C55E?text=Recovery+Science" alt="Recovery science for athletes" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)';" onmouseout="this.style.transform='scale(1)';"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.5) 0%,transparent 60%);pointer-events:none;"></div>
+          <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;background:rgba(34,197,94,0.9);color:#fff;padding:0.3rem 0.75rem;border-radius:3px;">Recovery</div>
+        </div>
+        <div style="padding:1.5rem 1.75rem 1.75rem;">
+          <div style="font-size:0.8125rem;color:#6B7280;margin-bottom:0.75rem;">February 28, 2026</div>
+          <h3 style="font-family:Georgia,serif;font-size:1.125rem;font-weight:700;letter-spacing:-0.01em;line-height:1.35;color:#0D0D0D;margin-bottom:0.75rem;">Creatine, Sleep, and the Recovery Window Most Athletes Ignore</h3>
+          <p style="font-size:0.875rem;color:#6B7280;line-height:1.7;margin-bottom:1.25rem;">The 6-hour post-training window is where champions are made. Here's the evidence &mdash; and the protocol.</p>
+          <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#06A5C5;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:opacity 0.18s ease;" onmouseover="this.style.opacity='0.75';" onmouseout="this.style.opacity='1';">Read More &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     EMAIL CAPTURE
+═══════════════════════════════════ -->
+<section style="padding:7rem 1.5rem;background:linear-gradient(160deg,#081218,#040e12);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(6,165,197,0.1) 0%,transparent 70%);"></div>
+  </div>
+  <div style="position:relative;z-index:1;max-width:600px;margin:0 auto;text-align:center;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.25rem;">
+      <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:#06A5C5;">Free Resources</span>
+      <div style="height:1px;width:30px;background:#06A5C5;opacity:0.55;"></div>
+    </div>
+    <h2 style="font-family:Georgia,serif;font-size:clamp(1.875rem,4vw,2.875rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;color:#f0ede8;margin-bottom:1rem;">Get Your Free Resources</h2>
+    <p style="font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:2.5rem;">Join the Ascend community and receive the Master Class, Study Guide, and Faith Playbook &mdash; plus weekly performance insights &mdash; delivered free to your inbox.</p>
+    <!-- Klaviyo Signup Form -->
+    <div class="klaviyo-form-XXXXX" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:2rem;"></div>
+    <!-- Fallback form if Klaviyo is not loaded -->
+    <noscript>
+      <form action="#" method="post" style="display:flex;flex-direction:column;gap:1rem;">
+        <input type="email" name="email" placeholder="Your email address" required style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:1rem 1.25rem;color:#f0ede8;font-family:'Barlow',sans-serif;font-size:1rem;outline:none;" onfocus="this.style.borderColor='#06A5C5';" onblur="this.style.borderColor='rgba(255,255,255,0.12)';"/>
+        <button type="submit" style="font-family:'Barlow Condensed',sans-serif;font-size:0.875rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;border:none;padding:1rem 2rem;border-radius:6px;cursor:pointer;transition:transform 0.18s ease;" onmouseover="this.style.transform='translateY(-1px)';" onmouseout="this.style.transform='translateY(0)';">Subscribe &amp; Get Free Access</button>
+      </form>
+    </noscript>
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.25);margin-top:1rem;line-height:1.6;">No spam. No junk. Just signal. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#080808;border-top:1px solid rgba(255,255,255,0.06);">
+  <div id="footer-grid" style="max-width:1280px;margin:0 auto;padding:4rem 1.5rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;">
+    <div>
+      <a href="{{ routes.root_url }}" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
+        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition" style="height:36px;width:auto;"/>
+        <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.625rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+        </div>
+      </a>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:280px;">Faith-driven performance nutrition for athletes who refuse to separate their values from their results.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/products/resilience" class="footer-link">Resilience Whey</a></li>
+        <li><a href="/products/replenish" class="footer-link">Replenish Hydration</a></li>
+        <li><a href="/products/recharge" class="footer-link">Recharge Creatine</a></li>
+        <li><a href="/products/ignite" class="footer-link">Ignite Energy</a></li>
+        <li><a href="/products/fortify" class="footer-link">Fortify Immunity</a></li>
+        <li><a href="/collections/all" class="footer-link">View All &rarr;</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/about" class="footer-link">About Us</a></li>
+        <li><a href="/pages/framework" class="footer-link">The Framework</a></li>
+        <li><a href="/pages/resources" class="footer-link">Resources</a></li>
+        <li><a href="/pages/athlete-profiles" class="footer-link">Athlete Profiles</a></li>
+        <li><a href="/pages/careers" class="footer-link">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+        <li><a href="/pages/quiz" class="footer-link">Performance Quiz</a></li>
+        <li><a href="{{ routes.root_url }}policies/shipping-policy" class="footer-link">Shipping Policy</a></li>
+        <li><a href="{{ routes.root_url }}policies/refund-policy" class="footer-link">Refund Policy</a></li>
+        <li><a href="/pages/contact" class="footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-left:1.5rem;padding-right:1.5rem;">
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">&copy; {{ 'now' | date: '%Y' }} Ascend Performance Nutrition. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="{{ routes.root_url }}policies/privacy-policy" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="{{ routes.root_url }}policies/terms-of-service" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media(max-width:900px){
+    .resources-grid{grid-template-columns:1fr!important;}
+    .blog-grid{grid-template-columns:1fr!important;}
+    #footer-grid{grid-template-columns:1fr 1fr!important;}
+  }
+  @media(max-width:600px){
+    #footer-grid{grid-template-columns:1fr!important;}
+  }
+</style>
+
+<script>
+  window.toggleMenu = function() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    var open = m.classList.toggle('open');
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  window.closeMenu = function() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded','false');
+  };
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('main-nav');
+    if (window.scrollY > 20) { nav.classList.add('solid'); } else { nav.classList.remove('solid'); }
+  }, {passive: true});
+</script>
