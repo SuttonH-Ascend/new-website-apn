@@ -308,9 +308,9 @@
     <!-- Logo -->
     <a href="{{ routes.root_url }}" aria-label="{{ shop.name }} home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
       {%- if section.settings.logo != blank -%}
-        <img src="{{ section.settings.logo | image_url: height: 96 }}" alt="{{ shop.name }}" style="height:48px;width:auto;" />
+        <img src="{{ section.settings.logo | image_url: height: 120 }}" alt="{{ shop.name }}" style="height:60px;width:auto;" />
       {%- else -%}
-        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="{{ shop.name }}" style="height:48px;width:auto;" />
+        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="{{ shop.name }}" style="height:60px;width:auto;" />
       {%- endif -%}
       <div style="display:flex;flex-direction:column;line-height:1;gap:2px;">
         <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
@@ -336,31 +336,37 @@
             <!-- Protein -->
             <div>
               <div class="apn-dropdown-col-label">Protein</div>
-              <a href="{{ routes.collections_url }}/protein" class="apn-dropdown-link">All Protein</a>
+              <a href="/products/resilience" class="apn-dropdown-link">Resilience</a>
+              <a href="{{ routes.collections_url }}/protein" class="apn-dropdown-link" style="font-size:0.8125rem;color:rgba(255,255,255,0.38);margin-top:0.2rem;">View All</a>
             </div>
 
             <!-- Hydration -->
             <div>
               <div class="apn-dropdown-col-label">Hydration</div>
-              <a href="{{ routes.collections_url }}/hydration" class="apn-dropdown-link">All Hydration</a>
+              <a href="/products/replenish" class="apn-dropdown-link">Replenish</a>
+              <a href="/products/replenish-plus" class="apn-dropdown-link">Replenish Plus</a>
+              <a href="{{ routes.collections_url }}/hydration" class="apn-dropdown-link" style="font-size:0.8125rem;color:rgba(255,255,255,0.38);margin-top:0.2rem;">View All</a>
             </div>
 
             <!-- Energy -->
             <div>
               <div class="apn-dropdown-col-label">Energy</div>
-              <a href="{{ routes.collections_url }}/energy" class="apn-dropdown-link">All Energy</a>
+              <a href="/products/ignite" class="apn-dropdown-link">Ignite</a>
+              <a href="{{ routes.collections_url }}/energy" class="apn-dropdown-link" style="font-size:0.8125rem;color:rgba(255,255,255,0.38);margin-top:0.2rem;">View All</a>
             </div>
 
             <!-- Recovery -->
             <div>
               <div class="apn-dropdown-col-label">Recovery</div>
-              <a href="{{ routes.collections_url }}/recovery" class="apn-dropdown-link">All Recovery</a>
+              <a href="/products/recover" class="apn-dropdown-link">Recover</a>
+              <a href="{{ routes.collections_url }}/recovery" class="apn-dropdown-link" style="font-size:0.8125rem;color:rgba(255,255,255,0.38);margin-top:0.2rem;">View All</a>
             </div>
 
             <!-- Wellness -->
             <div>
               <div class="apn-dropdown-col-label">Wellness</div>
-              <a href="{{ routes.collections_url }}/wellness" class="apn-dropdown-link">All Wellness</a>
+              <a href="/products/fortify" class="apn-dropdown-link">Fortify</a>
+              <a href="{{ routes.collections_url }}/wellness" class="apn-dropdown-link" style="font-size:0.8125rem;color:rgba(255,255,255,0.38);margin-top:0.2rem;">View All</a>
             </div>
 
           </div>
@@ -415,19 +421,20 @@
     <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.07);">Shop Now</div>
 
     <div class="apn-mobile-sub-category">Protein</div>
-    <a href="{{ routes.collections_url }}/protein" class="apn-mobile-sub-link" onclick="apnCloseMenu()">All Protein</a>
+    <a href="/products/resilience" class="apn-mobile-sub-link" onclick="apnCloseMenu()">Resilience</a>
 
     <div class="apn-mobile-sub-category">Hydration</div>
-    <a href="{{ routes.collections_url }}/hydration" class="apn-mobile-sub-link" onclick="apnCloseMenu()">All Hydration</a>
+    <a href="/products/replenish" class="apn-mobile-sub-link" onclick="apnCloseMenu()">Replenish</a>
+    <a href="/products/replenish-plus" class="apn-mobile-sub-link" onclick="apnCloseMenu()">Replenish Plus</a>
 
     <div class="apn-mobile-sub-category">Energy</div>
-    <a href="{{ routes.collections_url }}/energy" class="apn-mobile-sub-link" onclick="apnCloseMenu()">All Energy</a>
+    <a href="/products/ignite" class="apn-mobile-sub-link" onclick="apnCloseMenu()">Ignite</a>
 
     <div class="apn-mobile-sub-category">Recovery</div>
-    <a href="{{ routes.collections_url }}/recovery" class="apn-mobile-sub-link" onclick="apnCloseMenu()">All Recovery</a>
+    <a href="/products/recover" class="apn-mobile-sub-link" onclick="apnCloseMenu()">Recover</a>
 
     <div class="apn-mobile-sub-category">Wellness</div>
-    <a href="{{ routes.collections_url }}/wellness" class="apn-mobile-sub-link" onclick="apnCloseMenu()">All Wellness</a>
+    <a href="/products/fortify" class="apn-mobile-sub-link" onclick="apnCloseMenu()">Fortify</a>
 
     <a href="{{ routes.collections_url }}/all" class="apn-mobile-sub-link" style="color:#06A5C5;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;font-size:0.875rem;" onclick="apnCloseMenu()">View All Products &rarr;</a>
   </div>
@@ -449,11 +456,15 @@
 </div>
 
 <script>
-  /* ── Scroll effect ── */
+  /* ── Scroll effect: transparent in hero, solid after ── */
   (function(){
     var nav = document.getElementById('main-nav');
     if(!nav) return;
-    function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+    function onScroll(){
+      var track = document.getElementById('pillars-track');
+      var threshold = track ? (track.offsetTop + track.offsetHeight - window.innerHeight) : 40;
+      nav.classList.toggle('scrolled', window.scrollY > Math.max(40, threshold));
+    }
     window.addEventListener('scroll', onScroll, {passive:true});
     onScroll();
   })();

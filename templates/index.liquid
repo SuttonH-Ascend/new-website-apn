@@ -28,11 +28,11 @@
       <!-- Grain -->
       <div style="position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0.5;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
 
-      <!-- Top/center/bottom stacked layout -->
-      <div id="pillars-grid" style="position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;padding:80px 2rem 3rem;">
+      <!-- Desktop: left | center | right columns   Mobile: flex-column top/center/bottom -->
+      <div id="pillars-grid" style="position:absolute;inset:0;z-index:3;height:100%;padding:80px 3rem 3rem;display:grid;grid-template-columns:1fr auto 1fr;gap:0 4rem;align-items:center;">
 
-        <!-- TOP: Core value labels centered -->
-        <div id="pillars-left" style="display:flex;flex-direction:row;justify-content:center;align-items:center;gap:2rem 3rem;flex-wrap:wrap;width:100%;text-align:center;">
+        <!-- LEFT COLUMN: core value items stacked -->
+        <div id="pillars-left" style="display:flex;flex-direction:column;gap:2.5rem;justify-content:center;align-items:flex-start;">
           <div class="p-left-item" data-idx="0">
             <div class="p-item-label">Core Value 01</div>
             <div class="p-item-title">GROUNDED<br/>IN PURPOSE</div>
@@ -51,8 +51,8 @@
           </div>
         </div>
 
-        <!-- CENTER: Large word + teal bar -->
-        <div id="pillars-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;position:relative;padding:1rem 0;">
+        <!-- CENTER: Large word + teal bar + progress -->
+        <div id="pillars-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
           <div style="position:relative;text-align:center;height:clamp(5rem,12vw,10rem);">
             <span class="p-center-word" data-idx="0" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(0);opacity:1;">FAITH</span>
             <span class="p-center-word" data-idx="1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(110%);opacity:0;">FAMILY</span>
@@ -71,27 +71,26 @@
           </div>
         </div>
 
-        <!-- BOTTOM: Right value labels + CTA -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:100%;">
-          <div id="pillars-right" style="display:flex;flex-direction:row;justify-content:center;align-items:center;gap:2rem 3rem;flex-wrap:wrap;width:100%;text-align:center;">
-            <div class="p-right-item" data-idx="0">
+        <!-- RIGHT COLUMN: secondary value items + Learn More CTA -->
+        <div id="pillars-right-col" style="display:flex;flex-direction:column;gap:2.5rem;justify-content:center;align-items:flex-end;">
+          <div id="pillars-right" style="display:flex;flex-direction:column;gap:2.5rem;align-items:flex-end;width:100%;">
+            <div class="p-right-item" data-idx="0" style="text-align:right;">
               <div class="p-item-label">Philippians 4:13</div>
               <div class="p-item-title">I CAN DO<br/>ALL THINGS</div>
             </div>
-            <div class="p-right-item" data-idx="1">
+            <div class="p-right-item" data-idx="1" style="text-align:right;">
               <div class="p-item-label">Stronger Together</div>
               <div class="p-item-title">TRAIN<br/>AS ONE</div>
             </div>
-            <div class="p-right-item" data-idx="2">
+            <div class="p-right-item" data-idx="2" style="text-align:right;">
               <div class="p-item-label">Proudly American</div>
               <div class="p-item-title">HARD<br/>WORK</div>
             </div>
-            <div class="p-right-item" data-idx="3">
+            <div class="p-right-item" data-idx="3" style="text-align:right;">
               <div class="p-item-label">Ascend Performance</div>
               <div class="p-item-title">CLEAN<br/>CLINICALLY<br/>DOSED</div>
             </div>
           </div>
-
           <!-- Learn More CTA -->
           <a href="/pages/about" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
             LEARN MORE ABOUT US
@@ -121,7 +120,6 @@
   .p-left-item, .p-right-item {
     opacity: 0.28;
     transition: opacity 0.4s ease;
-    cursor: pointer;
   }
   .p-left-item.active, .p-right-item.active { opacity: 1; }
 
@@ -135,9 +133,7 @@
     margin-bottom: 4px;
   }
   .p-left-item.active .p-item-label,
-  .p-right-item.active .p-item-label {
-    color: #06A5C5;
-  }
+  .p-right-item.active .p-item-label { color: #06A5C5; }
 
   .p-item-title {
     font-family: 'Barlow Condensed', sans-serif;
@@ -149,18 +145,43 @@
     line-height: 1.15;
   }
   .p-left-item.active .p-item-title,
-  .p-right-item.active .p-item-title {
-    color: #fff;
-  }
+  .p-right-item.active .p-item-title { color: #fff; }
 
-  /* Active indicator - top/bottom centered layout */
   .p-left-item { position: relative; transition: opacity 0.4s ease; }
   .p-right-item { position: relative; transition: opacity 0.4s ease; }
 
-  /* On mobile, stack left/right items vertically */
-  @media (max-width: 640px) {
-    #pillars-left, #pillars-right { gap: 0.75rem 1.5rem !important; }
+  /* Mobile: flex-column, only active items visible, images centered */
+  @media (max-width: 768px) {
+    #pillars-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 80px 1.5rem 2.5rem !important;
+    }
+    #pillars-left {
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      text-align: center !important;
+      gap: 0 !important;
+    }
+    .p-left-item:not(.active) { display: none !important; }
+    .p-right-item:not(.active) { display: none !important; }
+    .p-left-item.active, .p-right-item.active { text-align: center !important; }
+    #pillars-right-col {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 1rem !important;
+      width: 100% !important;
+    }
+    #pillars-right {
+      align-items: center !important;
+      gap: 0 !important;
+    }
     .p-item-title { font-size: 0.875rem !important; }
+    .pillar-bg img { object-position: center center !important; }
   }
 </style>
 
@@ -179,8 +200,8 @@
       Premium supplements for athletes who compete with purpose. Clean formulas, no compromises. Built by fighters, for warriors.
     </p>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
-      <a href="#about" class="btn-primary">Our Mission</a>
-      <a href="#framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;text-decoration:none;border:1.5px solid #0D0D0D;padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#0D0D0D';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#0D0D0D'">Ascend Framework</a>
+      <a href="/pages/about" class="btn-primary">Our Mission</a>
+      <a href="/pages/framework" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase;color:#0D0D0D;text-decoration:none;border:1.5px solid #0D0D0D;padding:0.875rem 2rem;border-radius:4px;transition:background 0.18s ease,color 0.18s ease;" onmouseover="this.style.background='#0D0D0D';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#0D0D0D'">Ascend Framework</a>
     </div>
   </div>
 </section>
@@ -404,10 +425,10 @@
 
     <!-- Stack CTA -->
     <div style="text-align:center;margin-top:3rem;">
-      <a href="#" class="btn-primary" style="font-size:1rem;padding:1rem 2.75rem;">
+      <button onclick="APNAddStack(this)" class="btn-primary" style="font-size:1rem;padding:1rem 2.75rem;cursor:pointer;border:none;">
         Buy the Full Stack
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -505,7 +526,7 @@
           <span style="font-size:0.9375rem;color:rgba(255,255,255,0.7);">Unlock the Ascend Master Class and Performance Study Guide, delivered to your inbox</span>
         </li>
       </ul>
-      <a href="#" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">
+      <a href="/pages/quiz" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;" onclick="trackQuizStarted()">
         Take the Free Quiz
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -722,6 +743,35 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   fadeEls.forEach(el => observer.observe(el));
+
+  // ── Buy Full Stack: add all 3 products to cart ──
+  function APNAddStack(btn) {
+    var ids = [
+      {{ _resilience.variants.first.id | default: 0 }},
+      {{ _replenish_plus.variants.first.id | default: 0 }},
+      {{ _fortify.variants.first.id | default: 0 }}
+    ].filter(function(id){ return id > 0; });
+    if (ids.length === 0) { window.location.href = '/collections/all'; return; }
+    var items = ids.map(function(id){ return { id: id, quantity: 1 }; });
+    var orig = btn.innerHTML;
+    btn.textContent = 'Adding...';
+    btn.disabled = true;
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: items })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(){
+      btn.textContent = 'Added to Cart!';
+      setTimeout(function(){ btn.innerHTML = orig; btn.disabled = false; }, 2000);
+    })
+    .catch(function(){
+      btn.innerHTML = orig;
+      btn.disabled = false;
+      window.location.href = '/cart';
+    });
+  }
 
   // ── Newsletter submit ──
   function handleNewsletterSubmit(e) {
