@@ -1065,9 +1065,10 @@
     }
     .p-right-item:not(.active) { display: none !important; }
 
-    /* Slightly taller image + track matches stage */
+    /* Slightly taller image */
     #pillars-stage { height: min(115vw, 88svh) !important; }
-    #pillars-track { height: min(115vw, 88svh) !important; }
+    /* Track = stage + 4 slide transitions (~40vh each) so all slides cycle */
+    #pillars-track { height: calc(min(115vw, 88svh) + 160vh) !important; }
     /* Less padding on Faith-Driven Performance section */
     #mission { padding-top: 2rem !important; }
   }
