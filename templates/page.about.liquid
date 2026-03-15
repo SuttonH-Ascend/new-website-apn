@@ -1,3 +1,40 @@
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Ascend Performance Nutrition</title>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","v9tqcwb652");
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','876546821553793');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876546821553793&ev=PageView&noscript=1"/></noscript>
+
+  <!-- TikTok Pixel -->
+  <script>
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load('D03EC6BC77UBMD8HI7V0');ttq.page();}(window,document,'ttq');
+  </script>
+
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17918778091"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17918778091');</script>
+
+  <!-- Umami Analytics — replace src and data-website-id after deploying Umami to Vercel -->
+  <!-- <script async defer src="https://YOUR-UMAMI.vercel.app/script.js" data-website-id="YOUR-SITE-ID"></script> -->
+
+  <!-- Klaviyo -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=R5eNpH"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -49,6 +86,7 @@
     }
   </style>
 
+
 <!-- NAV -->
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
@@ -60,13 +98,13 @@
       </div>
     </a>
     <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
-      <a href="/index.html#products" class="nav-link">Shop</a>
-      <a href="/index.html#framework" class="nav-link">Framework</a>
-      <a href="/about.html" class="nav-link" style="color:#fff;">About</a>
-      <a href="/index.html#resources" class="nav-link">Resources</a>
+      <a href="{{ routes.root_url }}#products" class="nav-link">Shop</a>
+      <a href="{{ routes.root_url }}#framework" class="nav-link">Framework</a>
+      <a href="/pages/about" class="nav-link" style="color:#fff;">About</a>
+      <a href="{{ routes.root_url }}#resources" class="nav-link">Resources</a>
     </div>
     <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
-      <a href="/quiz.html" class="btn-nav">Take the Quiz</a>
+      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
     </div>
     <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -74,11 +112,11 @@
   </div>
 </nav>
 <div id="mobile-menu">
-  <a href="/index.html#products" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
-  <a href="/index.html#framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
-  <a href="/about.html" class="mobile-nav-link" onclick="closeMenu()">About</a>
-  <a href="/index.html#resources" class="mobile-nav-link" onclick="closeMenu()">Resources</a>
-  <div style="margin-top:1rem;"><a href="/quiz.html" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+  <a href="{{ routes.root_url }}#products" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
+  <a href="{{ routes.root_url }}#framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/pages/about" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="{{ routes.root_url }}#resources" class="mobile-nav-link" onclick="closeMenu()">Resources</a>
+  <div style="margin-top:1rem;"><a href="/pages/quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
 </div>
 
 <!-- ═══════════════════════════════════
@@ -375,7 +413,7 @@
         <div style="font-size:2.5rem;margin-bottom:1rem;line-height:1.2;">&#128138;</div>
         <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:0.75rem;">Shop Supplements</h3>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:1.75rem;">Clean, effective, faith-driven nutrition. No fillers. No junk. Just performance you can trust.</p>
-        <a href="/index.html#products" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.875rem 2rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.opacity='0.9';" onmouseout="this.style.opacity='1';">View Products &rarr;</a>
+        <a href="{{ routes.root_url }}#products" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:linear-gradient(135deg,#048FAB,#06A5C5);color:#fff;padding:0.875rem 2rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.opacity='0.9';" onmouseout="this.style.opacity='1';">View Products &rarr;</a>
       </div>
     </div>
 
@@ -386,7 +424,7 @@
         <div style="font-size:2.5rem;margin-bottom:1rem;line-height:1.2;">&#127947;&#65039;</div>
         <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;letter-spacing:-0.01em;color:#f0ede8;margin-bottom:0.75rem;">Take the Performance Quiz</h3>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:1.75rem;">10 questions. Your performance score, your tier, and a personalized supplement roadmap, delivered free.</p>
-        <a href="/quiz.html" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);padding:0.875rem 2rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s ease,color 0.2s ease;" onmouseover="this.style.borderColor='#06A5C5';this.style.color='#06A5C5';" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.75)';">Start the Quiz &rarr;</a>
+        <a href="/pages/quiz" style="font-family:'Barlow Condensed',sans-serif;font-size:0.8125rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);padding:0.875rem 2rem;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s ease,color 0.2s ease;" onmouseover="this.style.borderColor='#06A5C5';this.style.color='#06A5C5';" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.75)';">Start the Quiz &rarr;</a>
       </div>
     </div>
   </div>
@@ -408,26 +446,26 @@
     <div>
       <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Products</h3>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="/index.html#products" class="footer-link">Resilience Whey Protein</a></li>
-        <li><a href="/index.html#products" class="footer-link">Replenish Hydration</a></li>
-        <li><a href="/index.html#products" class="footer-link">Recharge Creatine</a></li>
-        <li><a href="/index.html#products" class="footer-link">Ignite Energy</a></li>
-        <li><a href="/index.html#products" class="footer-link">View All Products &rarr;</a></li>
+        <li><a href="{{ routes.root_url }}#products" class="footer-link">Resilience Whey Protein</a></li>
+        <li><a href="{{ routes.root_url }}#products" class="footer-link">Replenish Hydration</a></li>
+        <li><a href="{{ routes.root_url }}#products" class="footer-link">Recharge Creatine</a></li>
+        <li><a href="{{ routes.root_url }}#products" class="footer-link">Ignite Energy</a></li>
+        <li><a href="{{ routes.root_url }}#products" class="footer-link">View All Products &rarr;</a></li>
       </ul>
     </div>
     <div>
       <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Company</h3>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="/about.html" class="footer-link">About Us</a></li>
-        <li><a href="/index.html#framework" class="footer-link">The Ascend Framework</a></li>
-        <li><a href="/index.html#resources" class="footer-link">Resources</a></li>
+        <li><a href="/pages/about" class="footer-link">About Us</a></li>
+        <li><a href="{{ routes.root_url }}#framework" class="footer-link">The Ascend Framework</a></li>
+        <li><a href="{{ routes.root_url }}#resources" class="footer-link">Resources</a></li>
         <li><a href="#" class="footer-link">Careers</a></li>
       </ul>
     </div>
     <div>
       <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:1.25rem;">Support</h3>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
-        <li><a href="/quiz.html" class="footer-link">Performance Quiz</a></li>
+        <li><a href="/pages/quiz" class="footer-link">Performance Quiz</a></li>
         <li><a href="#" class="footer-link">Shipping Policy</a></li>
         <li><a href="#" class="footer-link">Returns &amp; Refunds</a></li>
         <li><a href="#" class="footer-link">Contact Us</a></li>
@@ -437,8 +475,8 @@
   <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-left:1.5rem;padding-right:1.5rem;">
     <p style="font-size:0.8125rem;color:rgba(255,255,255,0.3);">© {{ 'now' | date: '%Y' }} Ascend Performance Nutrition. All rights reserved.</p>
     <div style="display:flex;gap:1.5rem;">
-      <a href="{{ routes.root_url }}policies/privacy-policy" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
-      <a href="{{ routes.root_url }}policies/terms-of-service" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Privacy Policy</a>
+      <a href="#" class="footer-link" style="font-size:0.8125rem;">Terms of Service</a>
     </div>
   </div>
 </footer>
@@ -469,3 +507,4 @@
     document.getElementById('hamburger').setAttribute('aria-expanded','false');
   };
 </script>
+
