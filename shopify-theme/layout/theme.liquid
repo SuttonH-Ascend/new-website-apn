@@ -35,7 +35,11 @@
 
 <body>
 
+  {% section 'header' %}
+
   {{ content_for_layout }}
+
+  {% section 'footer' %}
 
   <!-- ── Global cart drawer (opened by APN.addToCart on any page) ────── -->
   <div id="apn-cart-overlay" onclick="if(typeof APN!=='undefined')APN.closeCart()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:998;backdrop-filter:blur(2px);"></div>
