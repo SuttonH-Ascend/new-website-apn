@@ -31,7 +31,9 @@
     {%- if collection.products.size > 0 -%}
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
         {%- for product in collection.products -%}
-          {%- render 'product-card', product: product -%}
+          {%- unless product.handle == 'freedom-fuel' or product.title contains 'Freedom Fuel' or product.handle == 'replenish-jg' or product.title == 'JG' -%}
+            {%- render 'product-card', product: product -%}
+          {%- endunless -%}
         {%- endfor -%}
       </div>
 

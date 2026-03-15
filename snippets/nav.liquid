@@ -131,8 +131,8 @@
 
   .dropdown-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem 1.5rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem 1rem;
   }
   .dropdown-col-label {
     font-family: 'Barlow Condensed', sans-serif;
@@ -323,6 +323,7 @@
     <a href="{{ routes.root_url }}" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
       <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition logo" style="height:56px;width:auto;" />
       <div style="display:flex;flex-direction:column;line-height:1;gap:2px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.8125rem;letter-spacing:0.18em;text-transform:uppercase;color:#fff;">ASCEND</span>
         <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
         <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
       </div>
@@ -343,57 +344,48 @@
         <div class="shop-dropdown-panel" role="region" aria-label="Shop categories">
           <div class="dropdown-grid">
 
-            <!-- Column 1: Protein + Hydration -->
+            <!-- Protein -->
             <div>
               <div class="dropdown-col-label">Protein</div>
-              <a href="/products/resilience" class="dropdown-product-link">Resilience</a>
-
-              <div class="dropdown-col-label" style="margin-top:1.5rem;">Hydration</div>
-              <a href="/products/replenish" class="dropdown-product-link">Replenish</a>
-              <a href="/products/replenishplus" class="dropdown-product-link">Replenish Plus</a>
+              <a href="{{ routes.collections_url }}/protein" class="dropdown-product-link">All Protein</a>
             </div>
 
-            <!-- Column 2: Energy & Focus -->
+            <!-- Hydration -->
             <div>
-              <div class="dropdown-col-label">Energy &amp; Focus</div>
-              <a href="/products/ignite" class="dropdown-product-link">Ignite</a>
-              <a href="/products/recharge" class="dropdown-product-link">Recharge</a>
+              <div class="dropdown-col-label">Hydration</div>
+              <a href="{{ routes.collections_url }}/hydration" class="dropdown-product-link">All Hydration</a>
             </div>
 
-            <!-- Column 3: Recovery & Gut Health -->
+            <!-- Energy -->
             <div>
-              <div class="dropdown-col-label">Recovery &amp; Gut Health</div>
-              <a href="/products/recover" class="dropdown-product-link">Recover</a>
-              <a href="/products/fortify" class="dropdown-product-link">Fortify</a>
-              <a href="/products/omega3" class="dropdown-product-link">Omega-3</a>
-              <a href="/products/nourish" class="dropdown-product-link">Nourish</a>
+              <div class="dropdown-col-label">Energy</div>
+              <a href="{{ routes.collections_url }}/energy" class="dropdown-product-link">All Energy</a>
             </div>
 
-            <!-- Column 4: Daily Performance -->
+            <!-- Recovery -->
             <div>
-              <div class="dropdown-col-label">Daily Performance</div>
-              <a href="/products/adapt" class="dropdown-product-link">Adapt</a>
-              <a href="/products/balance" class="dropdown-product-link">Balance</a>
-              <a href="/products/clarity" class="dropdown-product-link">Clarity</a>
-              <a href="/products/foundation" class="dropdown-product-link">Foundation</a>
-              <a href="/products/function" class="dropdown-product-link">Function</a>
+              <div class="dropdown-col-label">Recovery</div>
+              <a href="{{ routes.collections_url }}/recovery" class="dropdown-product-link">All Recovery</a>
+            </div>
+
+            <!-- Wellness -->
+            <div>
+              <div class="dropdown-col-label">Wellness</div>
+              <a href="{{ routes.collections_url }}/wellness" class="dropdown-product-link">All Wellness</a>
             </div>
 
           </div>
 
           <div class="dropdown-footer">
-            <a href="/collections/all" class="dropdown-view-all">
-              View All Products
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8 3 12 7 8 11"/>
-              </svg>
+            <a href="{{ routes.collections_url }}/all" class="dropdown-view-all">
+              View All Products &rarr;
             </a>
           </div>
         </div>
       </div>
 
-      <a href="/pages/the-ascend-framework" class="nav-link">Framework</a>
-      <a href="/pages/about-us" class="nav-link">About</a>
+      <a href="/pages/framework" class="nav-link">Framework</a>
+      <a href="/pages/about" class="nav-link">About</a>
       <a href="/pages/resources" class="nav-link">Resources</a>
     </div>
 
@@ -409,7 +401,7 @@
         <span class="cart-badge">{{ cart.item_count }}</span>
         {% endif %}
       </a>
-      <a href="/pages/performance-quiz" class="btn-nav">Take the Quiz</a>
+      <a href="/pages/quiz" class="btn-nav">Take the Quiz</a>
     </div>
 
     <!-- Mobile hamburger -->
@@ -427,39 +419,30 @@
 <!-- Mobile menu -->
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
 
-  <!-- Shop section with products -->
+  <!-- Shop section with category links -->
   <div>
-    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.07);">Shop</div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.07);">Shop Now</div>
 
     <div class="mobile-sub-category">Protein</div>
-    <a href="/products/resilience" class="mobile-sub-link" onclick="closeMobileMenu()">Resilience</a>
+    <a href="{{ routes.collections_url }}/protein" class="mobile-sub-link" onclick="closeMobileMenu()">All Protein</a>
 
     <div class="mobile-sub-category">Hydration</div>
-    <a href="/products/replenish" class="mobile-sub-link" onclick="closeMobileMenu()">Replenish</a>
-    <a href="/products/replenishplus" class="mobile-sub-link" onclick="closeMobileMenu()">Replenish Plus</a>
+    <a href="{{ routes.collections_url }}/hydration" class="mobile-sub-link" onclick="closeMobileMenu()">All Hydration</a>
 
-    <div class="mobile-sub-category">Energy &amp; Focus</div>
-    <a href="/products/ignite" class="mobile-sub-link" onclick="closeMobileMenu()">Ignite</a>
-    <a href="/products/recharge" class="mobile-sub-link" onclick="closeMobileMenu()">Recharge</a>
+    <div class="mobile-sub-category">Energy</div>
+    <a href="{{ routes.collections_url }}/energy" class="mobile-sub-link" onclick="closeMobileMenu()">All Energy</a>
 
-    <div class="mobile-sub-category">Recovery &amp; Gut Health</div>
-    <a href="/products/recover" class="mobile-sub-link" onclick="closeMobileMenu()">Recover</a>
-    <a href="/products/fortify" class="mobile-sub-link" onclick="closeMobileMenu()">Fortify</a>
-    <a href="/products/omega3" class="mobile-sub-link" onclick="closeMobileMenu()">Omega-3</a>
-    <a href="/products/nourish" class="mobile-sub-link" onclick="closeMobileMenu()">Nourish</a>
+    <div class="mobile-sub-category">Recovery</div>
+    <a href="{{ routes.collections_url }}/recovery" class="mobile-sub-link" onclick="closeMobileMenu()">All Recovery</a>
 
-    <div class="mobile-sub-category">Daily Performance</div>
-    <a href="/products/adapt" class="mobile-sub-link" onclick="closeMobileMenu()">Adapt</a>
-    <a href="/products/balance" class="mobile-sub-link" onclick="closeMobileMenu()">Balance</a>
-    <a href="/products/clarity" class="mobile-sub-link" onclick="closeMobileMenu()">Clarity</a>
-    <a href="/products/foundation" class="mobile-sub-link" onclick="closeMobileMenu()">Foundation</a>
-    <a href="/products/function" class="mobile-sub-link" onclick="closeMobileMenu()">Function</a>
+    <div class="mobile-sub-category">Wellness</div>
+    <a href="{{ routes.collections_url }}/wellness" class="mobile-sub-link" onclick="closeMobileMenu()">All Wellness</a>
 
-    <a href="/collections/all" class="mobile-sub-link" style="color:#06A5C5;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;font-size:0.875rem;" onclick="closeMobileMenu()">View All Products →</a>
+    <a href="{{ routes.collections_url }}/all" class="mobile-sub-link" style="color:#06A5C5;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;font-size:0.875rem;" onclick="closeMobileMenu()">View All Products &rarr;</a>
   </div>
 
-  <a href="/pages/the-ascend-framework" class="mobile-nav-link" onclick="closeMobileMenu()">Framework</a>
-  <a href="/pages/about-us" class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
+  <a href="/pages/framework" class="mobile-nav-link" onclick="closeMobileMenu()">Framework</a>
+  <a href="/pages/about" class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
   <a href="/pages/resources" class="mobile-nav-link" onclick="closeMobileMenu()">Resources</a>
 
   <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
@@ -470,7 +453,7 @@
       </svg>
       Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
     </a>
-    <a href="/pages/performance-quiz" class="btn-nav" style="width:100%;justify-content:center;text-align:center;" onclick="closeMobileMenu()">Take the Quiz</a>
+    <a href="/pages/quiz" class="btn-nav" style="width:100%;justify-content:center;text-align:center;" onclick="closeMobileMenu()">Take the Quiz</a>
   </div>
 </div>
 

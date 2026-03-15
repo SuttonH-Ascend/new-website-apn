@@ -28,11 +28,11 @@
       <!-- Grain -->
       <div style="position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0.5;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
 
-      <!-- 3-col layout -->
-      <div id="pillars-grid" style="position:absolute;inset:0;z-index:3;display:grid;grid-template-columns:280px 1fr 280px;height:100%;padding:0 3rem;">
+      <!-- Top/center/bottom stacked layout -->
+      <div id="pillars-grid" style="position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:100%;padding:80px 2rem 3rem;">
 
-        <!-- LEFT column: all 4 core values, one highlighted per slide -->
-        <div id="pillars-left" style="display:flex;flex-direction:column;justify-content:center;gap:2.25rem;padding-top:64px;">
+        <!-- TOP: Core value labels centered -->
+        <div id="pillars-left" style="display:flex;flex-direction:row;justify-content:center;align-items:center;gap:2rem 3rem;flex-wrap:wrap;width:100%;text-align:center;">
           <div class="p-left-item" data-idx="0">
             <div class="p-item-label">Core Value 01</div>
             <div class="p-item-title">GROUNDED<br/>IN PURPOSE</div>
@@ -51,8 +51,8 @@
           </div>
         </div>
 
-        <!-- CENTER: large word + teal bar + bottom CTA -->
-        <div id="pillars-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding-top:64px;">
+        <!-- CENTER: Large word + teal bar -->
+        <div id="pillars-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;position:relative;padding:1rem 0;">
           <div style="position:relative;text-align:center;height:clamp(5rem,12vw,10rem);">
             <span class="p-center-word" data-idx="0" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(0);opacity:1;">FAITH</span>
             <span class="p-center-word" data-idx="1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(110%);opacity:0;">FAMILY</span>
@@ -61,42 +61,42 @@
           </div>
           <!-- Teal accent bar under word -->
           <div style="width:3rem;height:3px;background:linear-gradient(90deg,#06A5C5,#048FAB);border-radius:2px;margin-top:1.5rem;"></div>
-
-          <!-- Bottom CTA -->
-          <div style="position:absolute;bottom:3rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:1.25rem;">
-            <a href="#about" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
-              LEARN MORE ABOUT US
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <!-- Progress -->
-            <div style="display:flex;align-items:center;gap:0.75rem;">
-              <span id="pillar-current" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;color:rgba(255,255,255,0.5);">01</span>
-              <div style="width:120px;height:1.5px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;">
-                <div id="pillar-progress-fill" style="height:100%;width:0%;background:rgba(255,255,255,0.65);border-radius:2px;transition:width 0.45s ease;"></div>
-              </div>
-              <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;color:rgba(255,255,255,0.3);">04</span>
+          <!-- Progress -->
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-top:1.25rem;">
+            <span id="pillar-current" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;color:rgba(255,255,255,0.5);">01</span>
+            <div style="width:120px;height:1.5px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;">
+              <div id="pillar-progress-fill" style="height:100%;width:0%;background:rgba(255,255,255,0.65);border-radius:2px;transition:width 0.45s ease;"></div>
             </div>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;color:rgba(255,255,255,0.3);">04</span>
           </div>
         </div>
 
-        <!-- RIGHT column: all 4 right values, one highlighted per slide -->
-        <div id="pillars-right" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:2.25rem;padding-top:64px;text-align:right;">
-          <div class="p-right-item" data-idx="0">
-            <div class="p-item-label">Philippians 4:13</div>
-            <div class="p-item-title">I CAN DO<br/>ALL THINGS</div>
+        <!-- BOTTOM: Right value labels + CTA -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:100%;">
+          <div id="pillars-right" style="display:flex;flex-direction:row;justify-content:center;align-items:center;gap:2rem 3rem;flex-wrap:wrap;width:100%;text-align:center;">
+            <div class="p-right-item" data-idx="0">
+              <div class="p-item-label">Philippians 4:13</div>
+              <div class="p-item-title">I CAN DO<br/>ALL THINGS</div>
+            </div>
+            <div class="p-right-item" data-idx="1">
+              <div class="p-item-label">Stronger Together</div>
+              <div class="p-item-title">TRAIN<br/>AS ONE</div>
+            </div>
+            <div class="p-right-item" data-idx="2">
+              <div class="p-item-label">Proudly American</div>
+              <div class="p-item-title">HARD<br/>WORK</div>
+            </div>
+            <div class="p-right-item" data-idx="3">
+              <div class="p-item-label">Ascend Performance</div>
+              <div class="p-item-title">CLEAN<br/>CLINICALLY<br/>DOSED</div>
+            </div>
           </div>
-          <div class="p-right-item" data-idx="1">
-            <div class="p-item-label">Stronger Together</div>
-            <div class="p-item-title">TRAIN<br/>AS ONE</div>
-          </div>
-          <div class="p-right-item" data-idx="2">
-            <div class="p-item-label">Proudly American</div>
-            <div class="p-item-title">HARD<br/>WORK</div>
-          </div>
-          <div class="p-right-item" data-idx="3">
-            <div class="p-item-label">Ascend Performance</div>
-            <div class="p-item-title">CLEAN<br/>CLINICALLY<br/>DOSED</div>
-          </div>
+
+          <!-- Learn More CTA -->
+          <a href="/pages/about" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+            LEARN MORE ABOUT US
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
 
       </div>
@@ -153,21 +153,14 @@
     color: #fff;
   }
 
-  /* Active indicator bullet */
-  .p-left-item { position: relative; padding-left: 0; transition: padding-left 0.3s ease, opacity 0.4s ease; }
-  .p-left-item.active { padding-left: 16px; }
-  .p-left-item.active::before {
-    content: '◆';
-    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-    font-size: 0.45rem; color: #06A5C5; line-height: 1;
-  }
+  /* Active indicator - top/bottom centered layout */
+  .p-left-item { position: relative; transition: opacity 0.4s ease; }
+  .p-right-item { position: relative; transition: opacity 0.4s ease; }
 
-  .p-right-item { position: relative; padding-right: 0; transition: padding-right 0.3s ease, opacity 0.4s ease; }
-  .p-right-item.active { padding-right: 16px; }
-  .p-right-item.active::after {
-    content: '◆';
-    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-    font-size: 0.45rem; color: #06A5C5; line-height: 1;
+  /* On mobile, stack left/right items vertically */
+  @media (max-width: 640px) {
+    #pillars-left, #pillars-right { gap: 0.75rem 1.5rem !important; }
+    .p-item-title { font-size: 0.875rem !important; }
   }
 </style>
 

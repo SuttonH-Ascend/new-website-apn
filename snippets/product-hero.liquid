@@ -6,17 +6,17 @@
 {%- assign first_variant = product.selected_or_first_available_variant -%}
 {%- assign product_category = product.metafields.custom.category | default: product.type -%}
 
-<section id="product-hero" style="background:#fff;padding:2rem 1.5rem 4rem;">
+<section id="product-hero" style="background:#0a0a0a;padding:2rem 1.5rem 4rem;padding-top:80px;">
   <div style="max-width:1280px;margin:0 auto;">
 
     <!-- Breadcrumb -->
     <nav aria-label="Breadcrumb" style="margin-bottom:2rem;">
-      <ol style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:0.5rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#6B7280;">
-        <li><a href="{{ routes.root_url }}" style="color:#6B7280;text-decoration:none;">Home</a></li>
+      <ol style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:0.5rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(248,250,251,0.45);">
+        <li><a href="{{ routes.root_url }}" style="color:rgba(248,250,251,0.45);text-decoration:none;">Home</a></li>
         <li>/</li>
-        <li><a href="{{ routes.collections_url }}/all" style="color:#6B7280;text-decoration:none;">Shop</a></li>
+        <li><a href="{{ routes.collections_url }}/all" style="color:rgba(248,250,251,0.45);text-decoration:none;">Shop</a></li>
         <li>/</li>
-        <li style="color:#0D0D0D;">{{ product.title }}</li>
+        <li style="color:#F8FAFB;">{{ product.title }}</li>
       </ol>
     </nav>
 
@@ -25,7 +25,7 @@
       <!-- LEFT: Image gallery -->
       <div>
         <!-- Main image -->
-        <div id="product-main-img" style="background:#F8FAFB;border:1px solid #E2E8F0;border-radius:8px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:1rem;">
+        <div id="product-main-img" style="background:#131313;border:1px solid rgba(255,255,255,0.08);border-radius:8px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:1rem;">
           {%- if product.featured_image -%}
             <img id="active-img" src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" style="max-width:85%;max-height:85%;object-fit:contain;" />
           {%- endif -%}
@@ -35,7 +35,7 @@
         {%- if product.images.size > 1 -%}
           <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
             {%- for image in product.images -%}
-              <button onclick="document.getElementById('active-img').src='{{ image | image_url: width: 800 }}'" aria-label="View image {{ forloop.index }}" style="width:72px;height:72px;border:2px solid {% if forloop.first %}#06A5C5{% else %}#E2E8F0{% endif %};border-radius:6px;background:#F8FAFB;overflow:hidden;padding:0.25rem;cursor:pointer;transition:border-color 0.18s;" onmouseover="this.style.borderColor='#06A5C5'" onmouseout="if(this!==window.__activeThumb)this.style.borderColor='#E2E8F0'">
+              <button onclick="document.getElementById('active-img').src='{{ image | image_url: width: 800 }}'" aria-label="View image {{ forloop.index }}" style="width:72px;height:72px;border:2px solid {% if forloop.first %}#06A5C5{% else %}rgba(255,255,255,0.15){% endif %};border-radius:6px;background:#131313;overflow:hidden;padding:0.25rem;cursor:pointer;transition:border-color 0.18s;" onmouseover="this.style.borderColor='#06A5C5'" onmouseout="if(this!==window.__activeThumb)this.style.borderColor='rgba(255,255,255,0.15)'">
                 <img src="{{ image | image_url: width: 150 }}" alt="{{ image.alt | default: product.title | escape }}" style="width:100%;height:100%;object-fit:contain;" />
               </button>
             {%- endfor -%}
@@ -49,29 +49,29 @@
         <!-- Category + rating -->
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
           {%- if product_category != blank -%}
-            <span style="background:#D6F0F6;color:#06A5C5;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:100px;">{{ product_category }}</span>
+            <span style="background:rgba(6,165,197,0.15);color:#06A5C5;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:100px;">{{ product_category }}</span>
           {%- endif -%}
           <div style="display:flex;align-items:center;gap:0.375rem;">
             <div style="display:flex;gap:2px;color:#F59E0B;">
               {%- for i in (1..5) -%}<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>{%- endfor -%}
             </div>
-            <span style="font-family:'Barlow',sans-serif;font-size:0.8125rem;color:#6B7280;">{{ product.metafields.reviews.rating_count | default: '0' }} reviews</span>
+            <span style="font-family:'Barlow',sans-serif;font-size:0.8125rem;color:rgba(248,250,251,0.5);">{{ product.metafields.reviews.rating_count | default: '0' }} reviews</span>
           </div>
         </div>
 
         <!-- Title -->
-        <h1 style="font-family:Georgia,serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 0.25rem;line-height:1.1;">{{ product.title }}</h1>
+        <h1 style="font-family:Georgia,serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.02em;color:#F8FAFB;margin:0 0 0.25rem;line-height:1.1;">{{ product.title }}</h1>
         {%- if product.metafields.custom.subtitle != blank -%}
-          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B7280;margin:0 0 1.5rem;">{{ product.metafields.custom.subtitle }}</p>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(248,250,251,0.5);margin:0 0 1.5rem;">{{ product.metafields.custom.subtitle }}</p>
         {%- else -%}
-          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B7280;margin:0 0 1.5rem;">{{ product.type }}</p>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(248,250,251,0.5);margin:0 0 1.5rem;">{{ product.type }}</p>
         {%- endif -%}
 
         <!-- Price -->
         <div style="display:flex;align-items:baseline;gap:0.75rem;margin-bottom:1.5rem;">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2rem;color:#0D0D0D;" id="apn-price">{{ first_variant.price | money }}</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2rem;color:#F8FAFB;" id="apn-price">{{ first_variant.price | money }}</span>
           {%- if first_variant.compare_at_price > first_variant.price -%}
-            <span style="font-size:1.125rem;color:#6B7280;text-decoration:line-through;">{{ first_variant.compare_at_price | money }}</span>
+            <span style="font-size:1.125rem;color:rgba(248,250,251,0.4);text-decoration:line-through;">{{ first_variant.compare_at_price | money }}</span>
             <span style="background:#06A5C5;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:0.1em;padding:0.2rem 0.6rem;border-radius:100px;">Save {{ first_variant.compare_at_price | minus: first_variant.price | money }}</span>
           {%- endif -%}
         </div>
@@ -80,7 +80,7 @@
         {%- if product.variants.size > 1 -%}
           {%- for option in product.options_with_values -%}
             <div style="margin-bottom:1.25rem;">
-              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.625rem;">{{ option.name }}</div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;color:#F8FAFB;margin-bottom:0.625rem;">{{ option.name }}</div>
               <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
                 {%- for value in option.values -%}
                   <button
@@ -88,7 +88,7 @@
                     class="apn-variant-btn"
                     data-option-name="{{ option.name | escape }}"
                     data-option-value="{{ value | escape }}"
-                    style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1.25rem;border-radius:4px;border:1.5px solid {% if forloop.first %}#0D0D0D{% else %}#E2E8F0{% endif %};background:{% if forloop.first %}#0D0D0D{% else %}#fff{% endif %};color:{% if forloop.first %}#fff{% else %}#6B7280{% endif %};cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;"
+                    style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.5rem 1.25rem;border-radius:4px;border:1.5px solid {% if forloop.first %}#F8FAFB{% else %}rgba(255,255,255,0.15){% endif %};background:{% if forloop.first %}#F8FAFB{% else %}#1a1a1a{% endif %};color:{% if forloop.first %}#0D0D0D{% else %}rgba(248,250,251,0.55){% endif %};cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;"
                     {% if forloop.first %}data-selected="true"{% endif %}
                   >{{ value }}</button>
                 {%- endfor -%}
@@ -99,7 +99,7 @@
 
         <!-- Description -->
         {%- if product.description != blank -%}
-          <div style="font-size:0.9375rem;line-height:1.75;color:#6B7280;margin-bottom:1.5rem;border-top:1px solid #E2E8F0;padding-top:1.25rem;">
+          <div style="font-size:0.9375rem;line-height:1.75;color:rgba(248,250,251,0.6);margin-bottom:1.5rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;">
             {{ product.description }}
           </div>
         {%- endif -%}
@@ -108,15 +108,15 @@
         {%- if product.metafields.custom.serving_size != blank or product.metafields.custom.servings != blank -%}
           <div style="display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
             {%- if product.metafields.custom.servings != blank -%}
-              <div style="flex:1;min-width:120px;background:#F8FAFB;border:1px solid #E2E8F0;border-radius:6px;padding:0.875rem;text-align:center;">
-                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;color:#0D0D0D;line-height:1;">{{ product.metafields.custom.servings }}</div>
-                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B7280;margin-top:0.2rem;">Servings</div>
+              <div style="flex:1;min-width:120px;background:#131313;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.875rem;text-align:center;">
+                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;color:#F8FAFB;line-height:1;">{{ product.metafields.custom.servings }}</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(248,250,251,0.5);margin-top:0.2rem;">Servings</div>
               </div>
             {%- endif -%}
             {%- if product.metafields.custom.serving_size != blank -%}
-              <div style="flex:1;min-width:120px;background:#F8FAFB;border:1px solid #E2E8F0;border-radius:6px;padding:0.875rem;text-align:center;">
-                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;color:#0D0D0D;line-height:1;">{{ product.metafields.custom.serving_size }}</div>
-                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:#6B7280;margin-top:0.2rem;">Per Serving</div>
+              <div style="flex:1;min-width:120px;background:#131313;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.875rem;text-align:center;">
+                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;color:#F8FAFB;line-height:1;">{{ product.metafields.custom.serving_size }}</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(248,250,251,0.5);margin-top:0.2rem;">Per Serving</div>
               </div>
             {%- endif -%}
           </div>
@@ -138,12 +138,12 @@
         </div>
 
         <!-- Trust strip -->
-        <div style="display:flex;gap:1.25rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #E2E8F0;flex-wrap:wrap;">
+        <div style="display:flex;gap:1.25rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap;">
           {%- assign trust_items = 'Free shipping over $75,30-day guarantee,Third-party tested' | split: ',' -%}
           {%- for item in trust_items -%}
             <div style="display:flex;align-items:center;gap:0.375rem;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#06A5C5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
-              <span style="font-family:'Barlow',sans-serif;font-size:0.8125rem;color:#6B7280;">{{ item }}</span>
+              <span style="font-family:'Barlow',sans-serif;font-size:0.8125rem;color:rgba(248,250,251,0.6);">{{ item }}</span>
             </div>
           {%- endfor -%}
         </div>
@@ -167,9 +167,9 @@
         var siblings = document.querySelectorAll('[data-option-name="' + optionName + '"]');
         siblings.forEach(function(b) {
           var active = b.dataset.optionValue === value;
-          b.style.background = active ? '#0D0D0D' : '#fff';
-          b.style.color = active ? '#fff' : '#6B7280';
-          b.style.borderColor = active ? '#0D0D0D' : '#E2E8F0';
+          b.style.background = active ? '#F8FAFB' : '#1a1a1a';
+          b.style.color = active ? '#0D0D0D' : 'rgba(248,250,251,0.55)';
+          b.style.borderColor = active ? '#F8FAFB' : 'rgba(255,255,255,0.15)';
           b.dataset.selected = active ? 'true' : 'false';
         });
         this.findMatchingVariant();
@@ -186,6 +186,11 @@
         if (match) {
           document.getElementById('apn-variant-id').value = match.id;
           document.getElementById('apn-price').textContent = '$' + (match.price / 100).toFixed(2);
+          // Update main image if variant has featured_image
+          if (match.featured_image && match.featured_image.src) {
+            var imgEl = document.getElementById('active-img');
+            if (imgEl) imgEl.src = match.featured_image.src;
+          }
           var btn = document.getElementById('apn-add-to-cart');
           if (btn) {
             btn.disabled = !match.available;

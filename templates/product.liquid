@@ -190,7 +190,7 @@
             {% for variant in product.variants %}
               <button
                 class="flavor-btn {% if forloop.first %}active{% endif %}"
-                onclick="selectVariant({{ variant.id }}, '{{ variant.title }}', {{ variant.price }}, this)">
+                onclick="selectVariant({{ variant.id }}, '{{ variant.title | escape }}', {{ variant.price }}, this, '{% if variant.featured_image %}{{ variant.featured_image | image_url: width: 800 }}{% endif %}')">
                 {{ variant.title }}
               </button>
             {% endfor %}
@@ -732,7 +732,7 @@
   };
 
   // ─── VARIANT SELECTOR ────────────────────────────────────────────
-  window.selectVariant = function(variantId, variantTitle, variantPriceCents, btn) {
+  window.selectVariant = function(variantId, variantTitle, variantPriceCents, btn, imgSrc) {
     document.querySelectorAll('.flavor-btn').forEach(function(b) { b.classList.remove('active'); });
     if (btn) btn.classList.add('active');
     document.getElementById('selected-variant-id').value = variantId;
@@ -743,6 +743,14 @@
     if (priceDisplay) priceDisplay.textContent = formatted;
     var cartBtn = document.getElementById('add-to-cart-btn');
     if (cartBtn) cartBtn.textContent = 'Add to Cart \u2014 ' + formatted;
+    // Update main product image if variant has a featured image
+    if (imgSrc) {
+      var mainImg = document.getElementById('main-img');
+      if (mainImg) {
+        mainImg.style.opacity = '0';
+        setTimeout(function() { mainImg.src = imgSrc; mainImg.style.opacity = '1'; }, 150);
+      }
+    }
   };
 
   // ─── CART BADGE INIT ─────────────────────────────────────────────
