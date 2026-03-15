@@ -45,11 +45,7 @@
     .impact-stat-grid { grid-template-columns: 1fr !important; }
     .impact-card { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; }
 
-    /* Ingredient wheel: scale to fit viewport */
-    #wheel-wrap {
-      width: min(90vw, 480px) !important;
-      height: min(90vw, 480px) !important;
-    }
+
 
     /* How to use: single column */
     .how-to-steps-grid { grid-template-columns: 1fr !important; }
@@ -114,6 +110,26 @@
 </style>
 
 <script>
+/* ── Ingredient wheel: scale to viewport on mobile ── */
+(function() {
+  function scaleWheel() {
+    var wrap = document.getElementById('wheel-wrap');
+    if (!wrap) return;
+    if (window.innerWidth > 900) {
+      wrap.style.transform = '';
+      wrap.style.marginBottom = '';
+      return;
+    }
+    var available = Math.min(window.innerWidth * 0.9, 480);
+    var scale = available / 660;
+    wrap.style.transformOrigin = 'top center';
+    wrap.style.transform = 'scale(' + scale + ')';
+    wrap.style.marginBottom = Math.round(-660 * (1 - scale)) + 'px';
+  }
+  scaleWheel();
+  window.addEventListener('resize', scaleWheel);
+})();
+
 /* ── Touch swipe for product main image ── */
 (function() {
   var mainImg = document.getElementById('main-img');
