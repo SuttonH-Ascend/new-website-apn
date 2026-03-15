@@ -438,10 +438,10 @@
       <div style="position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0.5;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
 
       <!-- 3-col layout -->
-      <div style="position:absolute;inset:0;z-index:3;display:grid;grid-template-columns:280px 1fr 280px;height:100%;padding:0 3rem;">
+      <div class="pillar-grid" style="position:absolute;inset:0;z-index:3;display:grid;grid-template-columns:280px 1fr 280px;height:100%;padding:0 3rem;">
 
         <!-- LEFT column: all 4 core values, one highlighted per slide -->
-        <div style="display:flex;flex-direction:column;justify-content:center;gap:2.25rem;padding-top:64px;">
+        <div class="p-col-left" style="display:flex;flex-direction:column;justify-content:center;gap:2.25rem;padding-top:64px;">
           <div class="p-left-item" data-idx="0">
             <div class="p-item-label">Core Value 01</div>
             <div class="p-item-title">GROUNDED<br/>IN PURPOSE</div>
@@ -461,7 +461,7 @@
         </div>
 
         <!-- CENTER: large word + teal bar + bottom CTA -->
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding-top:64px;">
+        <div class="p-col-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding-top:64px;">
           <div style="position:relative;text-align:center;height:clamp(5rem,12vw,10rem);">
             <span class="p-center-word" data-idx="0" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(0);opacity:1;">FAITH</span>
             <span class="p-center-word" data-idx="1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(110%);opacity:0;">FAMILY</span>
@@ -471,16 +471,8 @@
           <!-- Teal accent bar under word -->
           <div style="width:3rem;height:3px;background:linear-gradient(90deg,#06A5C5,#048FAB);border-radius:2px;margin-top:1.5rem;"></div>
 
-          <!-- Mobile slide label (hidden on desktop via CSS) -->
-          <div id="pillar-mobile-label" style="margin-top:1rem;text-align:center;min-height:2.5rem;">
-            <div class="p-mobile-label" data-idx="0" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:2px;">Core Value 01</div>
-            <div class="p-mobile-label" data-idx="1" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:2px;display:none;">Core Value 02</div>
-            <div class="p-mobile-label" data-idx="2" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:2px;display:none;">Core Value 03</div>
-            <div class="p-mobile-label" data-idx="3" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:#06A5C5;margin-bottom:2px;display:none;">Core Value 04</div>
-          </div>
-
           <!-- Bottom CTA -->
-          <div style="position:absolute;bottom:3rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:1.25rem;">
+          <div class="p-hero-cta" style="position:absolute;bottom:3rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:1.25rem;">
             <a href="/pages/about-us" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
               LEARN MORE ABOUT US
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -497,7 +489,7 @@
         </div>
 
         <!-- RIGHT column: all 4 right values, one highlighted per slide -->
-        <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:2.25rem;padding-top:64px;text-align:right;">
+        <div class="p-col-right" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:2.25rem;padding-top:64px;text-align:right;">
           <div class="p-right-item" data-idx="0">
             <div class="p-item-label">Philippians 4:13</div>
             <div class="p-item-title">I CAN DO<br/>ALL THINGS</div>
@@ -568,12 +560,6 @@
   .p-left-item.active .p-item-title,
   .p-right-item.active .p-item-title {
     color: #fff;
-  }
-
-  /* Mobile label - hidden on desktop */
-  #pillar-mobile-label { display: none; }
-  @media (max-width: 900px) {
-    #pillar-mobile-label { display: block; }
   }
 
   /* Active indicator bullet */
@@ -1029,34 +1015,67 @@
     #footer-grid { grid-template-columns: 1fr 1fr !important; }
     .hero-right { display: none; }
 
-    /* ── Hero banner: hide side columns, show only center ── */
-    #hero-pillars [style*="grid-template-columns:280px 1fr 280px"] {
-      grid-template-columns: 1fr !important;
+    /* ── Hero banner: square image, text top + bottom ── */
+
+    /* Square the stage: height = viewport width (capped at 85% viewport height) */
+    #pillars-stage { height: min(100vw, 85svh) !important; }
+
+    /* Switch from 3-col grid to vertical flex stack */
+    .pillar-grid {
+      display: flex !important;
+      flex-direction: column !important;
       padding: 0 1.25rem !important;
+      gap: 0 !important;
     }
-    /* Hide left and right side columns */
-    #hero-pillars [style*="grid-template-columns:280px 1fr 280px"] > div:first-child,
-    #hero-pillars [style*="grid-template-columns:280px 1fr 280px"] > div:last-child {
-      display: none !important;
+
+    /* Left col → TOP: left-aligned, only active item, natural height */
+    .p-col-left {
+      justify-content: flex-start !important;
+      padding-top: 72px !important;
+      gap: 0 !important;
+      flex: 0 0 auto !important;
     }
-    /* Center column: full width, better vertical rhythm */
-    #hero-pillars [style*="grid-template-columns:280px 1fr 280px"] > div:nth-child(2) {
-      padding: 0 !important;
-      align-items: center !important;
+    .p-left-item:not(.active) { display: none !important; }
+
+    /* Center → MIDDLE: fills remaining space, word stays centered */
+    .p-col-center {
+      flex: 1 !important;
+      padding-top: 0 !important;
+      justify-content: center !important;
     }
-    /* Scale the big word down for phone */
-    .p-center-word { font-size: clamp(4rem, 18vw, 7rem) !important; }
-    /* Bottom CTA closer in */
-    #hero-pillars [style*="bottom:3rem"] { bottom: 2rem !important; }
+    /* Scale word down for mobile */
+    .p-center-word { font-size: clamp(3rem, 15vw, 5.5rem) !important; }
+
+    /* CTA: not absolute on mobile, sits at very bottom of center */
+    .p-hero-cta {
+      position: static !important;
+      margin-top: auto !important;
+      padding-bottom: 0.75rem !important;
+    }
+
+    /* Right col → BOTTOM: right-aligned, only active item */
+    .p-col-right {
+      justify-content: flex-end !important;
+      align-items: flex-end !important;
+      text-align: right !important;
+      padding-top: 0 !important;
+      padding-bottom: 1rem !important;
+      gap: 0 !important;
+      flex: 0 0 auto !important;
+    }
+    .p-right-item:not(.active) { display: none !important; }
+
     /* Shorten scroll travel on mobile */
     #pillars-track { height: 350vh !important; }
   }
   @media (max-width: 600px) {
     #footer-grid { grid-template-columns: 1fr !important; }
     #stats-grid { grid-template-columns: 1fr 1fr !important; }
-
-    /* Show a single current slide label below the word on very small screens */
-    .p-center-word { font-size: clamp(3.5rem, 20vw, 6rem) !important; }
+    /* Slightly smaller word on very small screens */
+    .p-center-word { font-size: clamp(2.5rem, 14vw, 4.5rem) !important; }
+    /* Tighter side text on small phones */
+    .p-item-title { font-size: 0.875rem !important; }
+    .p-item-label { font-size: 0.6rem !important; }
   }
   .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
 
@@ -1174,11 +1193,6 @@
       // progress
       if (fillEl) fillEl.style.width = ((to / (TOTAL - 1)) * 100) + '%';
       if (currEl) currEl.textContent = String(to + 1).padStart(2, '0');
-
-      // mobile label sync
-      document.querySelectorAll('.p-mobile-label').forEach(function(el) {
-        el.style.display = parseInt(el.dataset.idx) === to ? 'block' : 'none';
-      });
 
       current = to;
       setTimeout(() => { isAnimating = false; }, D * 1000 + 120);
