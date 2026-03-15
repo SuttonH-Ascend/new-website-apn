@@ -34,6 +34,11 @@
 
   <!-- APN Global Stylesheet -->
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { background: #0a0a0a; color: #F8FAFB; font-family: 'Barlow', system-ui, sans-serif; }
+  </style>
 </head>
 
 <body class="apn-body">
@@ -47,14 +52,14 @@
   <!-- ── Global cart drawer (opened by APN.addToCart on any page) ────── -->
   <div id="apn-cart-overlay" onclick="if(typeof APN!=='undefined')APN.closeCart()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:998;backdrop-filter:blur(2px);"></div>
 
-  <aside id="apn-cart-drawer" aria-label="Shopping cart" style="position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:#fff;z-index:999;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,0.25);">
+  <aside id="apn-cart-drawer" aria-label="Shopping cart" style="position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:#131313;z-index:999;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,0.6);border-left:1px solid rgba(255,255,255,0.07);">
 
     <!-- Header -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid #E2E8F0;flex-shrink:0;">
-      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:#0D0D0D;margin:0;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:#F8FAFB;margin:0;">
         Cart <span id="apn-drawer-count" style="color:#06A5C5;font-weight:700;"></span>
       </h2>
-      <button onclick="if(typeof APN!=='undefined')APN.closeCart()" aria-label="Close cart" style="background:none;border:none;cursor:pointer;padding:0.375rem;color:#0D0D0D;line-height:1;border-radius:4px;transition:background 0.15s;">
+      <button onclick="if(typeof APN!=='undefined')APN.closeCart()" aria-label="Close cart" style="background:none;border:none;cursor:pointer;padding:0.375rem;color:#F8FAFB;line-height:1;border-radius:4px;transition:background 0.15s;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
@@ -63,10 +68,10 @@
     <div id="apn-cart-items" style="flex:1;overflow-y:auto;padding:1.5rem;"></div>
 
     <!-- Footer -->
-    <div style="padding:1.25rem 1.5rem;border-top:1px solid #E2E8F0;flex-shrink:0;">
+    <div style="padding:1.25rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-        <span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:0.9375rem;color:#0D0D0D;">Subtotal</span>
-        <span id="apn-cart-subtotal" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.125rem;color:#0D0D0D;"></span>
+        <span style="font-family:'Barlow',sans-serif;font-weight:600;font-size:0.9375rem;color:#F8FAFB;">Subtotal</span>
+        <span id="apn-cart-subtotal" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.125rem;color:#F8FAFB;"></span>
       </div>
       <a href="/cart" style="display:flex;align-items:center;justify-content:center;width:100%;background:linear-gradient(135deg,#06A5C5,#048FAB);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;padding:1rem;border-radius:4px;text-decoration:none;box-shadow:0 4px 16px rgba(6,165,197,0.35);transition:opacity 0.18s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
         Checkout →
@@ -114,18 +119,18 @@
             return;
           }
           drawerItems.innerHTML = cart.items.map(function(item){
-            return '<div style="display:flex;gap:1rem;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #E2E8F0;">'
-              + (item.image ? '<img src="'+item.image+'" alt="'+item.product_title.replace(/"/g,'&quot;')+'" style="width:72px;height:72px;object-fit:contain;border:1px solid #E2E8F0;border-radius:6px;flex-shrink:0;"/>' : '')
+            return '<div style="display:flex;gap:1rem;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.07);">'
+              + (item.image ? '<img src="'+item.image+'" alt="'+item.product_title.replace(/"/g,'&quot;')+'" style="width:72px;height:72px;object-fit:contain;background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);border-radius:6px;flex-shrink:0;"/>' : '')
               + '<div style="flex:1;min-width:0;">'
-                + '<p style="font-family:\'Barlow\',sans-serif;font-weight:600;font-size:0.875rem;color:#0D0D0D;margin:0 0 0.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+item.product_title+'</p>'
-                + (item.variant_title && item.variant_title!=='Default Title' ? '<p style="font-size:0.8125rem;color:#6B7280;margin:0 0 0.5rem;">'+item.variant_title+'</p>' : '')
+                + '<p style="font-family:\'Barlow\',sans-serif;font-weight:600;font-size:0.875rem;color:#F8FAFB;margin:0 0 0.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+item.product_title+'</p>'
+                + (item.variant_title && item.variant_title!=='Default Title' ? '<p style="font-size:0.8125rem;color:#9ca3af;margin:0 0 0.5rem;">'+item.variant_title+'</p>' : '')
                 + '<div style="display:flex;align-items:center;justify-content:space-between;">'
                   + '<div style="display:flex;align-items:center;gap:0.5rem;">'
-                    + '<button onclick="APN._qty(\''+item.key+'\','+(item.quantity-1)+')" style="width:26px;height:26px;border:1px solid #E2E8F0;background:#fff;border-radius:4px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:#0D0D0D;" aria-label="Decrease">−</button>'
-                    + '<span style="font-size:0.875rem;font-weight:600;min-width:20px;text-align:center;">'+item.quantity+'</span>'
-                    + '<button onclick="APN._qty(\''+item.key+'\','+(item.quantity+1)+')" style="width:26px;height:26px;border:1px solid #E2E8F0;background:#fff;border-radius:4px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:#0D0D0D;" aria-label="Increase">+</button>'
+                    + '<button onclick="APN._qty(\''+item.key+'\','+(item.quantity-1)+')" style="width:26px;height:26px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);border-radius:4px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:#F8FAFB;" aria-label="Decrease">−</button>'
+                    + '<span style="font-size:0.875rem;font-weight:600;min-width:20px;text-align:center;color:#F8FAFB;">'+item.quantity+'</span>'
+                    + '<button onclick="APN._qty(\''+item.key+'\','+(item.quantity+1)+')" style="width:26px;height:26px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.06);border-radius:4px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:#F8FAFB;" aria-label="Increase">+</button>'
                   + '</div>'
-                  + '<span style="font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:0.9375rem;color:#0D0D0D;">'+APN._money(item.final_line_price)+'</span>'
+                  + '<span style="font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:0.9375rem;color:#F8FAFB;">'+APN._money(item.final_line_price)+'</span>'
                 + '</div>'
               + '</div>'
             + '</div>';

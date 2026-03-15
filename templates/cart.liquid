@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart | Ascend Performance Nutrition</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -436,10 +426,6 @@
       .cart-product-img { width: 72px; height: 72px; }
     }
   </style>
-</head>
-<body>
-
-{% render 'nav' %}
 
 <main>
   <div class="cart-wrap">
@@ -622,8 +608,6 @@
   </div>
 </main>
 
-{% render 'footer' %}
-
 <script>
   function adjustQty(btn, delta) {
     var control = btn.closest('.qty-control');
@@ -645,6 +629,3 @@
     });
   })();
 </script>
-
-</body>
-</html>
