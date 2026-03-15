@@ -1,6 +1,3 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
 /* ══════════════════════════════════════════════════════════════
    ASCEND PERFORMANCE QUIZ — SHOPIFY-ISOLATED STYLES
@@ -83,7 +80,7 @@
 
 #apn-quiz-section .apn-hero-eyebrow {
   font-family: var(--apn-font-h) !important;
-  font-size: 11px !important;
+  font-size: 12px !important;
   letter-spacing: 4px !important;
   text-transform: uppercase !important;
   color: var(--apn-gold) !important;
@@ -126,37 +123,12 @@
   font-size: 16px !important;
   color: #aaa !important;
   max-width: 560px !important;
-  margin: 0 auto 16px !important;
+  margin: 0 auto 36px !important;
   line-height: 1.7 !important;
   font-weight: 300 !important;
   text-align: center !important;
   display: block !important;
   width: 100% !important;
-}
-
-#apn-quiz-section .apn-hero-pillars {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  flex-wrap: wrap !important;
-  margin-bottom: 32px !important;
-  max-width: 560px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 100% !important;
-}
-
-#apn-quiz-section .apn-pillar-tag {
-  font-family: var(--apn-font-h) !important;
-  font-size: 10px !important;
-  letter-spacing: 1.5px !important;
-  text-transform: uppercase !important;
-  color: var(--apn-gold) !important;
-  background: var(--apn-gold-dim) !important;
-  border: 1px solid rgba(7,165,195,0.25) !important;
-  padding: 4px 10px !important;
-  border-radius: 20px !important;
-  display: inline-block !important;
 }
 
 #apn-quiz-section .apn-start-btn {
@@ -171,7 +143,7 @@
   padding: 18px 48px !important;
   border-radius: 6px !important;
   cursor: pointer !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  transition: all 0.25s ease !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 10px !important;
@@ -311,7 +283,7 @@
   border-radius: 8px !important;
   padding: 18px 22px !important;
   cursor: pointer !important;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease !important;
+  transition: all 0.2s ease !important;
   display: flex !important;
   align-items: center !important;
   gap: 14px !important;
@@ -338,7 +310,7 @@
   border-radius: 50% !important;
   border: 2px solid var(--apn-border) !important;
   flex-shrink: 0 !important;
-  transition: border-color 0.2s ease, background 0.2s ease !important;
+  transition: all 0.2s ease !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -435,7 +407,7 @@
   border-radius: 6px !important;
   border: none !important;
   cursor: pointer !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+  transition: all 0.2s ease !important;
   line-height: 1.2 !important;
   text-align: center !important;
 }
@@ -457,14 +429,12 @@
   box-shadow: 0 6px 20px rgba(7,165,195,0.35) !important;
 }
 
-/* ── RESULTS ──────────────────────────────────────────────── */
+/* ── RESULTS (STEP 12) ─────────────────────────────────────── */
 #apn-quiz-section #apn-results {
-  display: none !important;
+  display: block !important; /* visibility controlled by apn-step-12 */
   text-align: center !important;
   width: 100% !important;
 }
-
-#apn-quiz-section #apn-results.active { display: block !important; }
 
 #apn-quiz-section .apn-results-eyebrow {
   font-family: var(--apn-font-h) !important;
@@ -542,44 +512,6 @@
 #apn-quiz-section .apn-tier-dot { width: 10px !important; height: 10px !important; min-width: 10px !important; border-radius: 50% !important; flex-shrink: 0 !important; display: block !important; }
 #apn-quiz-section .apn-tier-name { font-family: var(--apn-font-h) !important; font-size: 13px !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: var(--apn-white) !important; display: block !important; }
 
-/* ── METHODOLOGY ROW ──────────────────────────────────────── */
-#apn-quiz-section .apn-methodology-row {
-  background: linear-gradient(135deg, #030e12, #040f14) !important;
-  border: 1px solid rgba(7,165,195,0.15) !important;
-  border-radius: 10px !important;
-  padding: 20px 24px !important;
-  margin-bottom: 32px !important;
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 12px !important;
-  text-align: left !important;
-}
-
-#apn-quiz-section .apn-method-item {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 10px !important;
-}
-
-#apn-quiz-section .apn-method-num {
-  font-family: var(--apn-font-h) !important;
-  font-size: 11px !important;
-  color: var(--apn-gold) !important;
-  letter-spacing: 2px !important;
-  flex-shrink: 0 !important;
-  margin-top: 1px !important;
-  display: block !important;
-}
-
-#apn-quiz-section .apn-method-text {
-  font-size: 12px !important;
-  color: #888 !important;
-  line-height: 1.5 !important;
-  display: block !important;
-}
-
-#apn-quiz-section .apn-method-text strong { color: var(--apn-offwhite) !important; font-weight: 600 !important; display: block !important; font-size: 11px !important; letter-spacing: 0.5px !important; margin-bottom: 1px !important; }
-
 /* ── BREAKDOWN ────────────────────────────────────────────── */
 #apn-quiz-section .apn-breakdown {
   background: var(--apn-card) !important;
@@ -619,7 +551,7 @@
   gap: 8px !important;
 }
 
-#apn-quiz-section .apn-bar-meta span:first-child { font-weight: 500 !important; display: block !important; }
+#apn-quiz-section .apn-bar-meta span:first-child { font-weight: 500 !important; letter-spacing: 0.3px !important; display: block !important; }
 #apn-quiz-section .apn-bar-meta span:last-child { font-family: var(--apn-font-h) !important; color: var(--apn-gold) !important; font-size: 15px !important; letter-spacing: 1px !important; flex-shrink: 0 !important; display: block !important; }
 
 #apn-quiz-section .apn-mini-bar { height: 6px !important; background: #222 !important; border-radius: 3px !important; overflow: hidden !important; display: block !important; width: 100% !important; }
@@ -667,7 +599,7 @@
 #apn-quiz-section .apn-gap-text { font-size: 14px !important; line-height: 1.7 !important; color: #b8b8b8 !important; display: block !important; flex: 1 !important; min-width: 0 !important; }
 #apn-quiz-section .apn-gap-text strong { color: var(--apn-white) !important; display: block !important; font-size: 14px !important; margin-bottom: 4px !important; letter-spacing: 0.3px !important; font-weight: 600 !important; }
 
-/* ── PRODUCT RECOMMENDATIONS ──────────────────────────────── */
+/* ── PRODUCT RECOMMENDATIONS (NEW) ────────────────────────── */
 #apn-quiz-section .apn-recs {
   background: var(--apn-card) !important;
   border: 1px solid var(--apn-border) !important;
@@ -729,7 +661,11 @@
   line-height: 1 !important;
 }
 
-#apn-quiz-section .apn-rec-info { flex: 1 !important; min-width: 0 !important; display: block !important; }
+#apn-quiz-section .apn-rec-info {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: block !important;
+}
 
 #apn-quiz-section .apn-rec-name {
   font-family: var(--apn-font-h) !important;
@@ -743,7 +679,12 @@
   line-height: 1.2 !important;
 }
 
-#apn-quiz-section .apn-rec-reason { font-size: 12px !important; color: var(--apn-gray) !important; line-height: 1.5 !important; display: block !important; }
+#apn-quiz-section .apn-rec-reason {
+  font-size: 12px !important;
+  color: var(--apn-gray) !important;
+  line-height: 1.5 !important;
+  display: block !important;
+}
 
 #apn-quiz-section .apn-rec-tag {
   font-family: var(--apn-font-h) !important;
@@ -770,14 +711,17 @@
   padding: 8px 16px !important;
   border-radius: 6px !important;
   cursor: pointer !important;
-  transition: background 0.2s ease, color 0.2s ease !important;
+  transition: all 0.2s ease !important;
   white-space: nowrap !important;
   flex-shrink: 0 !important;
   line-height: 1.2 !important;
   display: inline-block !important;
 }
 
-#apn-quiz-section .apn-rec-btn:hover { background: var(--apn-gold) !important; color: var(--apn-black) !important; }
+#apn-quiz-section .apn-rec-btn:hover {
+  background: var(--apn-gold) !important;
+  color: var(--apn-black) !important;
+}
 
 #apn-quiz-section .apn-rec-btn.added {
   background: var(--apn-green) !important;
@@ -786,7 +730,12 @@
   pointer-events: none !important;
 }
 
-#apn-quiz-section .apn-add-all-row { margin-top: 20px !important; text-align: center !important; display: block !important; width: 100% !important; }
+#apn-quiz-section .apn-add-all-row {
+  margin-top: 20px !important;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+}
 
 #apn-quiz-section .apn-add-all-btn {
   font-family: var(--apn-font-h) !important;
@@ -800,14 +749,17 @@
   padding: 16px 36px !important;
   border-radius: 8px !important;
   cursor: pointer !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  transition: all 0.25s ease !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
   line-height: 1.2 !important;
 }
 
-#apn-quiz-section .apn-add-all-btn:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 24px rgba(7,165,195,0.35) !important; }
+#apn-quiz-section .apn-add-all-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(7,165,195,0.35) !important;
+}
 
 /* ── EMAIL CTA ────────────────────────────────────────────── */
 #apn-quiz-section .apn-pdf-cta {
@@ -848,11 +800,11 @@
 
 #apn-quiz-section .apn-pdf-cta h3 span { color: var(--apn-gold) !important; }
 
-#apn-quiz-section .apn-pdf-cta > p {
+#apn-quiz-section .apn-pdf-cta p {
   font-size: 14px !important;
   color: #999 !important;
-  margin: 0 auto 32px !important;
-  max-width: 440px !important;
+  margin: 0 auto 18px !important;
+  max-width: 520px !important;
   line-height: 1.7 !important;
   display: block !important;
 }
@@ -869,7 +821,7 @@
   font-family: var(--apn-font-b) !important;
   font-size: 14px !important;
   color: var(--apn-white) !important;
-  transition: border-color 0.2s ease !important;
+  transition: border-color 0.2s !important;
   display: block !important;
   width: 100% !important;
   min-height: 48px !important;
@@ -888,22 +840,56 @@
   font-weight: 700 !important;
   letter-spacing: 2px !important;
   text-transform: uppercase !important;
-  padding: 14px 24px !important;
+  padding: 14px 28px !important;
   border: none !important;
   border-radius: 6px !important;
   cursor: pointer !important;
   white-space: nowrap !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  transition: all 0.2s ease !important;
   display: inline-block !important;
   line-height: 1.2 !important;
   flex-shrink: 0 !important;
 }
 
-#apn-quiz-section .apn-btn-submit:hover { transform: translateY(-2px) !important; box-shadow: 0 6px 20px rgba(7,165,195,0.35) !important; }
+#apn-quiz-section .apn-btn-submit:hover { box-shadow: 0 6px 20px rgba(7,165,195,0.35) !important; }
 
 #apn-quiz-section .apn-form-disclaimer { font-size: 11px !important; color: #555 !important; text-align: center !important; display: block !important; }
 
-#apn-quiz-section .apn-email-error { color: #e74c3c !important; font-size: 12px !important; display: none !important; text-align: left !important; }
+/* ── EMAIL OPT-IN (HIGH CONVERTING) ───────────────────────── */
+#apn-quiz-section .apn-benefits {
+  margin: 14px auto 20px !important;
+  max-width: 520px !important;
+  text-align: left !important;
+  display: block !important;
+  padding: 0 !important;
+}
+
+#apn-quiz-section .apn-benefits li {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: flex-start !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #cfcfcf !important;
+  margin: 0 0 10px !important;
+}
+
+#apn-quiz-section .apn-benefits li:last-child { margin-bottom: 0 !important; }
+
+#apn-quiz-section .apn-benefit-check {
+  color: var(--apn-gold) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin-top: 2px !important;
+  display: inline-block !important;
+}
+
+#apn-quiz-section .apn-email-proof {
+  font-size: 12px !important;
+  color: #7a7a7a !important;
+  margin-top: 10px !important;
+  display: block !important;
+}
 
 /* ── SUCCESS + DISCOUNT ───────────────────────────────────── */
 #apn-quiz-section .apn-success {
@@ -917,19 +903,19 @@
   animation: apnFadeUp 0.4s ease both !important;
 }
 
-#apn-quiz-section .apn-success-icon { font-size: 36px !important; display: block !important; margin-bottom: 12px !important; line-height: 1.2 !important; }
+#apn-quiz-section .apn-success-icon { font-size: 40px !important; margin-bottom: 12px !important; display: block !important; line-height: 1.2 !important; }
 
 #apn-quiz-section .apn-success h4 {
   font-family: var(--apn-font-h) !important;
-  font-size: 24px !important;
+  font-size: 20px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   color: var(--apn-white) !important;
-  margin: 0 0 12px !important;
+  margin: 0 0 8px !important;
   display: block !important;
 }
 
-#apn-quiz-section .apn-success p { font-size: 14px !important; color: #999 !important; line-height: 1.7 !important; margin: 0 0 20px !important; display: block !important; }
+#apn-quiz-section .apn-success p { font-size: 13px !important; color: #888 !important; margin: 0 0 20px !important; display: block !important; line-height: 1.6 !important; }
 #apn-quiz-section .apn-success p strong { color: var(--apn-white) !important; font-weight: 600 !important; }
 
 #apn-quiz-section .apn-discount-box {
@@ -955,20 +941,36 @@
 
 #apn-quiz-section .apn-discount-code {
   font-family: var(--apn-font-h) !important;
-  font-size: 32px !important;
-  letter-spacing: 5px !important;
-  color: var(--apn-gold) !important;
+  font-size: 28px !important;
   font-weight: 700 !important;
-  cursor: pointer !important;
-  display: block !important;
+  color: var(--apn-gold) !important;
+  letter-spacing: 4px !important;
   margin-bottom: 8px !important;
+  display: block !important;
+  cursor: pointer !important;
 }
 
-#apn-quiz-section .apn-discount-copy { font-size: 11px !important; color: #555 !important; margin-top: 6px !important; display: block !important; }
-#apn-quiz-section .apn-success a { color: var(--apn-gold) !important; font-size: 14px !important; font-weight: 500 !important; display: inline-block !important; margin-top: 8px !important; }
+#apn-quiz-section .apn-discount-copy {
+  font-size: 11px !important;
+  color: var(--apn-gray) !important;
+  display: block !important;
+}
+
+#apn-quiz-section .apn-success a {
+  color: var(--apn-gold) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  display: inline-block !important;
+  margin-top: 12px !important;
+}
+
 #apn-quiz-section .apn-success a:hover { text-decoration: underline !important; }
 
-/* ── RESPONSIVE ───────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════ */
+
 @media (max-width: 768px) {
   #apn-quiz-section .apn-hero { padding: 52px 20px 44px !important; }
   #apn-quiz-section .apn-quiz-body { padding: 32px 18px 64px !important; }
@@ -976,15 +978,16 @@
   #apn-quiz-section .apn-pdf-cta { padding: 32px 24px !important; }
   #apn-quiz-section .apn-dial-wrap { width: 260px !important; height: 160px !important; }
   #apn-quiz-section .apn-tier-badge { padding: 10px 20px !important; }
-  #apn-quiz-section .apn-methodology-row { grid-template-columns: 1fr !important; }
+  #apn-quiz-section .apn-tier-name { font-size: 12px !important; }
 }
 
 @media (max-width: 520px) {
   #apn-quiz-section .apn-hero { padding: 40px 16px 36px !important; }
   #apn-quiz-section .apn-hero h1 { font-size: clamp(26px, 8vw, 40px) !important; margin-bottom: 16px !important; }
-  #apn-quiz-section .apn-hero > p { font-size: 14px !important; margin-bottom: 20px !important; }
-  #apn-quiz-section .apn-start-btn { padding: 16px 32px !important; font-size: 13px !important; width: 100% !important; justify-content: center !important; }
+  #apn-quiz-section .apn-hero > p { font-size: 14px !important; margin-bottom: 28px !important; }
+  #apn-quiz-section .apn-start-btn { padding: 16px 32px !important; font-size: 13px !important; letter-spacing: 2px !important; width: 100% !important; justify-content: center !important; }
   #apn-quiz-section .apn-trust-row { gap: 14px !important; flex-direction: column !important; align-items: center !important; }
+
   #apn-quiz-section .apn-quiz-body { padding: 24px 16px 60px !important; }
   #apn-quiz-section .apn-q-text { font-size: clamp(20px, 5.5vw, 28px) !important; margin-bottom: 24px !important; }
   #apn-quiz-section .apn-option { padding: 14px 16px !important; gap: 12px !important; }
@@ -992,22 +995,38 @@
   #apn-quiz-section .apn-option-label { font-size: 14px !important; }
   #apn-quiz-section .apn-option-sub { font-size: 11px !important; }
   #apn-quiz-section .apn-insight { padding: 18px 16px !important; }
+  #apn-quiz-section .apn-insight p { font-size: 13px !important; }
   #apn-quiz-section .apn-btn-row { justify-content: center !important; }
   #apn-quiz-section .apn-btn { width: 100% !important; text-align: center !important; padding: 14px 24px !important; }
+
+  #apn-quiz-section .apn-results-sub { font-size: 14px !important; margin-bottom: 32px !important; }
   #apn-quiz-section .apn-dial-wrap { width: 240px !important; height: 150px !important; }
   #apn-quiz-section .dial-score-text { font-size: 44px !important; }
-  #apn-quiz-section .apn-tier-badge { margin-bottom: 32px !important; padding: 10px 18px !important; }
+  #apn-quiz-section .apn-tier-badge { margin-bottom: 32px !important; padding: 10px 18px !important; font-size: 10px !important; }
+  #apn-quiz-section .apn-tier-name { font-size: 11px !important; letter-spacing: 1.5px !important; }
+
   #apn-quiz-section .apn-breakdown, #apn-quiz-section .apn-gaps, #apn-quiz-section .apn-recs { padding: 22px 16px !important; border-radius: 10px !important; }
   #apn-quiz-section .apn-gap-item { gap: 12px !important; }
   #apn-quiz-section .apn-gap-icon { width: 24px !important; font-size: 18px !important; }
+
   #apn-quiz-section .apn-rec-card { flex-wrap: wrap !important; padding: 16px 14px !important; gap: 12px !important; }
   #apn-quiz-section .apn-rec-btn { width: 100% !important; text-align: center !important; padding: 10px 16px !important; }
   #apn-quiz-section .apn-add-all-btn { width: 100% !important; justify-content: center !important; }
+
   #apn-quiz-section .apn-pdf-cta { padding: 28px 16px !important; border-radius: 12px !important; }
   #apn-quiz-section .apn-pdf-cta h3 { font-size: 22px !important; }
+  #apn-quiz-section .apn-pdf-cta p { font-size: 13px !important; margin-bottom: 18px !important; }
   #apn-quiz-section .apn-email-row { flex-direction: column !important; }
   #apn-quiz-section .apn-btn-submit { width: 100% !important; text-align: center !important; }
-  #apn-quiz-section .apn-methodology-row { grid-template-columns: 1fr !important; }
+  #apn-quiz-section .apn-discount-code { font-size: 24px !important; letter-spacing: 3px !important; }
+}
+
+@media (max-width: 374px) {
+  #apn-quiz-section .apn-hero { padding: 32px 12px 28px !important; }
+  #apn-quiz-section .apn-quiz-body { padding: 20px 12px 48px !important; }
+  #apn-quiz-section .apn-hero h1 { font-size: 24px !important; }
+  #apn-quiz-section .apn-option { padding: 12px 12px !important; gap: 10px !important; }
+  #apn-quiz-section .apn-rec-icon { width: 40px !important; height: 40px !important; min-width: 40px !important; font-size: 18px !important; }
 }
 
 @media (hover: none) and (pointer: coarse) {
@@ -1018,328 +1037,6 @@
   #apn-quiz-section .apn-option { min-height: 56px !important; }
   #apn-quiz-section .apn-btn { min-height: 48px !important; }
 }
-
-/* ── EMAIL GATE STEP ──────────────────────────────────────── */
-#apn-quiz-section .apn-email-gate {
-  position: relative !important;
-  background: linear-gradient(160deg, #050f14 0%, #030c10 100%) !important;
-  border: 1px solid rgba(7,165,195,0.35) !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  padding: 52px 40px 44px !important;
-  text-align: center !important;
-}
-#apn-quiz-section .apn-gate-glow {
-  position: absolute !important;
-  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(7,165,195,0.14) 0%, transparent 70%) !important;
-  pointer-events: none !important;
-  display: block !important;
-}
-#apn-quiz-section .apn-gate-inner { position: relative !important; display: block !important; }
-#apn-quiz-section .apn-gate-eyebrow {
-  font-family: var(--apn-font-h) !important;
-  font-size: 11px !important; letter-spacing: 4px !important; text-transform: uppercase !important;
-  color: var(--apn-gold) !important; margin-bottom: 14px !important; display: block !important;
-}
-#apn-quiz-section .apn-gate-eyebrow::before,
-#apn-quiz-section .apn-gate-eyebrow::after {
-  display: inline-block !important; content: '' !important; width: 32px !important; height: 1px !important;
-  background: var(--apn-gold) !important; opacity: 0.5 !important; vertical-align: middle !important;
-  margin: 0 10px !important;
-}
-#apn-quiz-section .apn-gate-title {
-  font-family: var(--apn-font-h) !important;
-  font-size: clamp(28px, 5vw, 44px) !important; font-weight: 700 !important;
-  text-transform: uppercase !important; letter-spacing: 1.5px !important; line-height: 1.1 !important;
-  color: var(--apn-white) !important; margin: 0 0 16px !important; display: block !important;
-}
-#apn-quiz-section .apn-gate-title span { color: var(--apn-gold) !important; }
-#apn-quiz-section .apn-gate-sub {
-  font-size: 14px !important; color: #999 !important; max-width: 440px !important;
-  margin: 0 auto 24px !important; line-height: 1.7 !important; display: block !important;
-}
-#apn-quiz-section .apn-gate-bullets {
-  display: flex !important; justify-content: center !important; gap: 8px !important;
-  flex-wrap: wrap !important; margin-bottom: 32px !important;
-}
-#apn-quiz-section .apn-gate-bullet {
-  font-family: var(--apn-font-h) !important;
-  font-size: 10px !important; letter-spacing: 1px !important; text-transform: uppercase !important;
-  color: var(--apn-gold) !important; background: var(--apn-gold-dim) !important;
-  border: 1px solid rgba(7,165,195,0.25) !important;
-  padding: 5px 12px !important; border-radius: 20px !important; display: inline-block !important;
-}
-#apn-quiz-section .apn-gate-form {
-  display: flex !important; flex-direction: column !important; gap: 10px !important;
-  max-width: 420px !important; margin: 0 auto !important; width: 100% !important;
-}
-#apn-quiz-section .apn-gate-input {
-  width: 100% !important; background: rgba(255,255,255,0.04) !important;
-  border: 1px solid rgba(7,165,195,0.3) !important;
-  border-radius: 8px !important; padding: 16px 18px !important;
-  font-family: var(--apn-font-b) !important; font-size: 15px !important;
-  color: var(--apn-white) !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
-  -webkit-appearance: none !important; appearance: none !important; min-height: 52px !important;
-  display: block !important;
-}
-#apn-quiz-section .apn-gate-input:focus { border-color: var(--apn-gold) !important; box-shadow: 0 0 0 3px rgba(7,165,195,0.15) !important; }
-#apn-quiz-section .apn-gate-error { color: #e74c3c !important; font-size: 12px !important; display: none !important; text-align: left !important; }
-#apn-quiz-section .apn-gate-btn {
-  font-family: var(--apn-font-h) !important;
-  font-size: 15px !important; font-weight: 700 !important; letter-spacing: 2.5px !important; text-transform: uppercase !important;
-  background: linear-gradient(135deg, var(--apn-gold-dk), var(--apn-gold)) !important;
-  color: #000 !important; border: none !important; padding: 18px 32px !important; border-radius: 8px !important;
-  cursor: pointer !important; width: 100% !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-  line-height: 1.2 !important; display: block !important;
-}
-#apn-quiz-section .apn-gate-btn:hover { transform: translateY(-3px) !important; box-shadow: 0 12px 36px rgba(7,165,195,0.45) !important; }
-#apn-quiz-section .apn-gate-disclaimer { font-size: 11px !important; color: #444 !important; display: block !important; }
-#apn-quiz-section .apn-gate-skip {
-  background: none !important; border: none !important; color: #3a3a3a !important; font-size: 12px !important;
-  cursor: pointer !important; margin-top: 16px !important; display: inline-block !important;
-  transition: color 0.2s ease !important; padding: 4px 8px !important;
-}
-#apn-quiz-section .apn-gate-skip:hover { color: #666 !important; }
-@media (max-width: 520px) {
-  #apn-quiz-section .apn-email-gate { padding: 36px 20px 32px !important; }
-  #apn-quiz-section .apn-gate-title { font-size: clamp(24px, 8vw, 36px) !important; }
-  #apn-quiz-section .apn-gate-bullets { gap: 6px !important; }
-}
-
-/* ── WORKOUT PLAN ─────────────────────────────────────────── */
-#apn-quiz-section .apn-workout-plan {
-  background: var(--apn-card) !important;
-  border: 1px solid var(--apn-border) !important;
-  border-radius: 12px !important;
-  padding: 32px 28px !important;
-  margin-bottom: 24px !important;
-  text-align: left !important;
-  display: block !important;
-  width: 100% !important;
-}
-#apn-quiz-section .apn-workout-plan > h3 {
-  font-family: var(--apn-font-h) !important;
-  font-size: 12px !important;
-  letter-spacing: 3px !important;
-  text-transform: uppercase !important;
-  color: var(--apn-gold) !important;
-  margin: 0 0 6px !important;
-  display: block !important;
-}
-#apn-quiz-section .apn-plan-headline {
-  font-family: var(--apn-font-h) !important;
-  font-size: clamp(18px, 3vw, 24px) !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  color: var(--apn-white) !important;
-  margin: 0 0 6px !important;
-  line-height: 1.15 !important;
-  display: block !important;
-}
-#apn-quiz-section .apn-plan-sub {
-  font-size: 13px !important;
-  color: var(--apn-gray) !important;
-  margin-bottom: 24px !important;
-  padding-bottom: 20px !important;
-  border-bottom: 1px solid var(--apn-border) !important;
-  line-height: 1.5 !important;
-  display: block !important;
-}
-#apn-quiz-section .apn-plan-tags {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 6px !important;
-  margin-bottom: 8px !important;
-}
-#apn-quiz-section .apn-plan-tag {
-  font-family: var(--apn-font-h) !important;
-  font-size: 9px !important;
-  letter-spacing: 1.5px !important;
-  text-transform: uppercase !important;
-  background: var(--apn-gold-dim) !important;
-  color: var(--apn-gold) !important;
-  padding: 3px 8px !important;
-  border-radius: 4px !important;
-  display: inline-block !important;
-  line-height: 1.4 !important;
-}
-
-/* Week schedule strip */
-#apn-quiz-section .apn-week-strip {
-  display: grid !important;
-  grid-template-columns: repeat(7, 1fr) !important;
-  gap: 6px !important;
-  margin-bottom: 20px !important;
-  width: 100% !important;
-}
-#apn-quiz-section .apn-day-cell {
-  border-radius: 8px !important;
-  padding: 10px 4px !important;
-  text-align: center !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 4px !important;
-  transition: border-color 0.2s ease, background 0.2s ease !important;
-}
-#apn-quiz-section .apn-day-cell.train,
-#apn-quiz-section .apn-day-cell.prehab {
-  background: var(--apn-card2) !important;
-  border: 1px solid var(--apn-border2) !important;
-  cursor: pointer !important;
-}
-#apn-quiz-section .apn-day-cell.train:hover,
-#apn-quiz-section .apn-day-cell.prehab:hover {
-  border-color: var(--apn-gold) !important;
-  background: #0d1f24 !important;
-}
-#apn-quiz-section .apn-day-cell.train.sel,
-#apn-quiz-section .apn-day-cell.prehab.sel {
-  background: linear-gradient(135deg, #041318, #02100f) !important;
-  border: 1px solid var(--apn-gold) !important;
-  box-shadow: 0 0 0 1px var(--apn-gold) !important;
-}
-#apn-quiz-section .apn-day-cell.rest {
-  background: #0d0d0d !important;
-  border: 1px solid #1a1a1a !important;
-  pointer-events: none !important;
-}
-#apn-quiz-section .apn-day-abbr {
-  font-family: var(--apn-font-h) !important;
-  font-size: 9px !important;
-  letter-spacing: 1.5px !important;
-  text-transform: uppercase !important;
-  color: var(--apn-gray) !important;
-  display: block !important;
-}
-#apn-quiz-section .apn-day-focus {
-  font-family: var(--apn-font-h) !important;
-  font-size: 8px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.3px !important;
-  line-height: 1.2 !important;
-  display: block !important;
-}
-#apn-quiz-section .apn-day-cell.train .apn-day-focus { color: #5a8a9a !important; }
-#apn-quiz-section .apn-day-cell.train.sel .apn-day-focus,
-#apn-quiz-section .apn-day-cell.prehab.sel .apn-day-focus { color: var(--apn-gold) !important; }
-#apn-quiz-section .apn-day-cell.prehab .apn-day-focus { color: #5a8a9a !important; }
-#apn-quiz-section .apn-day-cell.rest .apn-day-focus { color: #2a2a2a !important; }
-#apn-quiz-section #apn-day-workout { animation: apnFadeUp 0.3s ease both !important; }
-
-/* Workout day cards */
-#apn-quiz-section .apn-workout-days {
-  display: grid !important;
-  gap: 14px !important;
-  width: 100% !important;
-}
-#apn-quiz-section .apn-wd-card {
-  background: var(--apn-card2) !important;
-  border: 1px solid var(--apn-border) !important;
-  border-left: 3px solid var(--apn-gold) !important;
-  border-radius: 8px !important;
-  padding: 20px 20px !important;
-  display: block !important;
-  width: 100% !important;
-}
-#apn-quiz-section .apn-wd-header {
-  display: flex !important;
-  align-items: baseline !important;
-  gap: 10px !important;
-  margin-bottom: 14px !important;
-}
-#apn-quiz-section .apn-wd-label {
-  font-family: var(--apn-font-h) !important;
-  font-size: 10px !important;
-  letter-spacing: 2px !important;
-  color: var(--apn-gold) !important;
-  display: block !important;
-  flex-shrink: 0 !important;
-}
-#apn-quiz-section .apn-wd-title {
-  font-family: var(--apn-font-h) !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  color: var(--apn-white) !important;
-  display: block !important;
-  letter-spacing: 0.5px !important;
-  line-height: 1.2 !important;
-}
-#apn-quiz-section .apn-ex-list {
-  display: grid !important;
-  gap: 0 !important;
-  width: 100% !important;
-}
-#apn-quiz-section .apn-ex-row {
-  display: flex !important;
-  align-items: flex-start !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
-  padding: 8px 0 !important;
-  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
-}
-#apn-quiz-section .apn-ex-row:last-child { border-bottom: none !important; }
-#apn-quiz-section .apn-ex-info { flex: 1 !important; min-width: 0 !important; display: block !important; }
-#apn-quiz-section .apn-ex-name {
-  font-size: 13px !important;
-  color: #ccc !important;
-  display: block !important;
-  line-height: 1.3 !important;
-  font-weight: 500 !important;
-}
-#apn-quiz-section .apn-ex-note {
-  font-size: 11px !important;
-  color: #484848 !important;
-  display: block !important;
-  line-height: 1.3 !important;
-  margin-top: 1px !important;
-}
-#apn-quiz-section .apn-ex-sets {
-  font-family: var(--apn-font-h) !important;
-  font-size: 12px !important;
-  color: var(--apn-gold) !important;
-  letter-spacing: 1px !important;
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-  display: block !important;
-  padding-top: 1px !important;
-}
-
-/* Plan notes grid */
-#apn-quiz-section .apn-plan-notes {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 10px !important;
-  margin-top: 24px !important;
-  padding-top: 20px !important;
-  border-top: 1px solid var(--apn-border) !important;
-}
-#apn-quiz-section .apn-plan-note {
-  background: linear-gradient(135deg, #030e12, #02100f) !important;
-  border: 1px solid rgba(7,165,195,0.15) !important;
-  border-radius: 8px !important;
-  padding: 14px 16px !important;
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 10px !important;
-}
-#apn-quiz-section .apn-pn-icon { font-size: 16px !important; flex-shrink: 0 !important; margin-top: 1px !important; line-height: 1.2 !important; display: block !important; }
-#apn-quiz-section .apn-pn-text { font-size: 12px !important; line-height: 1.6 !important; color: #888 !important; display: block !important; flex: 1 !important; }
-#apn-quiz-section .apn-pn-text strong { color: var(--apn-offwhite) !important; font-size: 11px !important; display: block !important; margin-bottom: 2px !important; font-weight: 600 !important; letter-spacing: 0.3px !important; }
-
-@media (max-width: 768px) {
-  #apn-quiz-section .apn-week-strip { grid-template-columns: repeat(4, 1fr) !important; }
-  #apn-quiz-section .apn-plan-notes { grid-template-columns: 1fr !important; }
-}
-@media (max-width: 520px) {
-  #apn-quiz-section .apn-workout-plan { padding: 22px 16px !important; border-radius: 10px !important; }
-  #apn-quiz-section .apn-week-strip { grid-template-columns: repeat(3, 1fr) !important; }
-  #apn-quiz-section .apn-wd-card { padding: 16px 14px !important; }
-}
 </style>
 
 <section id="apn-quiz-section">
@@ -1347,20 +1044,13 @@
   <!-- ── HERO ──────────────────────────────────────────── -->
   <div class="apn-hero" id="apn-hero">
     <div class="apn-hero-eyebrow">Ascend Performance Nutrition</div>
-    <h1>Discover Your <span>Athletic Performance</span> Score</h1>
-    <p>10 questions built on APN's evidence-based coaching methodology — covering sleep, nutrition, training, recovery, and mindset. Get your personal score from 0 to 100 plus a free custom playbook to close your gaps.</p>
-    <div class="apn-hero-pillars">
-      <span class="apn-pillar-tag">Specificity</span>
-      <span class="apn-pillar-tag">Progressive Overload</span>
-      <span class="apn-pillar-tag">Individualization</span>
-      <span class="apn-pillar-tag">Fundamentals First</span>
-    </div>
+    <h1>Your <span>Athletic Performance</span><br>Score Awaits</h1>
+    <p>Answer 10 science-backed questions across sleep, nutrition, training, recovery, and mindset. Get your personal score from 0 to 100 plus a free custom playbook to level up.</p>
     <button class="apn-start-btn" onclick="APNQuiz.start()">Start the Assessment &rarr;</button>
     <div class="apn-trust-row">
       <span class="apn-trust-item">Takes 3 minutes</span>
       <span class="apn-trust-item">10 expert questions</span>
       <span class="apn-trust-item">Personalized product stack</span>
-      <span class="apn-trust-item">Faith &middot; Family &middot; America &middot; Fitness</span>
     </div>
   </div>
 
@@ -1380,13 +1070,13 @@
 
     <!-- STEP 1: SLEEP -->
     <div class="apn-step" id="apn-step-1">
-      <div class="apn-q-number">Question 01 / 10 &middot; Sleep Quality</div>
+      <div class="apn-q-number">Question 01 / 10 · Sleep Quality</div>
       <div class="apn-q-text">How many hours of quality, uninterrupted sleep do you get on average per night?</div>
       <div class="apn-options">
         <div class="apn-option" onclick="APNQuiz.pick(1,0,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Under 5 hours</div><div class="apn-option-sub">I rarely feel rested</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(1,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">5 to 6 hours</div><div class="apn-option-sub">Some nights decent, some rough</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(1,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">7 to 8 hours</div><div class="apn-option-sub">Consistent and restful</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(1,3,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">9+ hours</div><div class="apn-option-sub">I sleep a lot but still feel groggy</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(1,3,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">9+ hours</div><div class="apn-option-sub">I sleep a lot but feel groggy</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-1"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-1" onclick="APNQuiz.next(1)">Continue &rarr;</button></div>
@@ -1394,13 +1084,13 @@
 
     <!-- STEP 2: RECOVERY -->
     <div class="apn-step" id="apn-step-2">
-      <div class="apn-q-number">Question 02 / 10 &middot; Recovery</div>
+      <div class="apn-q-number">Question 02 / 10 · Recovery</div>
       <div class="apn-q-text">How do you feel 24 to 48 hours after an intense training session?</div>
       <div class="apn-options">
-        <div class="apn-option" onclick="APNQuiz.pick(2,1,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Extremely sore — can barely move</div><div class="apn-option-sub">Affects my next session significantly</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(2,1,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Extremely sore, can barely move</div><div class="apn-option-sub">Affects my next session significantly</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(2,3,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Moderately sore but functional</div><div class="apn-option-sub">A little stiff but manageable</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(2,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Slightly sore and feeling capable</div><div class="apn-option-sub">Recovery is dialed in</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(2,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Zero soreness — feel fresh</div><div class="apn-option-sub">Never really sore no matter what I do</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(2,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Zero soreness, feel fresh</div><div class="apn-option-sub">Never really sore no matter what I do</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-2"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-2" onclick="APNQuiz.next(2)">Continue &rarr;</button></div>
@@ -1408,12 +1098,12 @@
 
     <!-- STEP 3: HYDRATION -->
     <div class="apn-step" id="apn-step-3">
-      <div class="apn-q-number">Question 03 / 10 &middot; Hydration</div>
-      <div class="apn-q-text">How much total water — including electrolyte drinks — do you consume daily?</div>
+      <div class="apn-q-number">Question 03 / 10 · Hydration</div>
+      <div class="apn-q-text">How much total water (including electrolyte drinks) do you consume daily?</div>
       <div class="apn-options">
         <div class="apn-option" onclick="APNQuiz.pick(3,0,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Less than 4 cups (~1 liter)</div><div class="apn-option-sub">Mostly coffee, soda, or no water</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(3,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">4 to 6 cups (1 to 1.5 liters)</div><div class="apn-option-sub">Some water but not consistent</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(3,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">6 to 10 cups (1.5 to 2.5 liters)</div><div class="apn-option-sub">Consistent daily hydration</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(3,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">4 to 6 cups (about 1 to 1.5 liters)</div><div class="apn-option-sub">Some water but not consistent</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(3,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">6 to 10 cups (about 1.5 to 2.5 liters)</div><div class="apn-option-sub">Consistent daily hydration</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(3,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">10+ cups (2.5+ liters)</div><div class="apn-option-sub">Plus electrolytes around training</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-3"></div>
@@ -1422,13 +1112,13 @@
 
     <!-- STEP 4: NUTRITION -->
     <div class="apn-step" id="apn-step-4">
-      <div class="apn-q-number">Question 04 / 10 &middot; Nutrition Quality</div>
+      <div class="apn-q-number">Question 04 / 10 · Nutrition Quality</div>
       <div class="apn-q-text">How would you honestly describe your daily diet?</div>
       <div class="apn-options">
         <div class="apn-option" onclick="APNQuiz.pick(4,0,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Fast food / highly processed</div><div class="apn-option-sub">Most meals are convenience or takeout</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(4,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Mixed: some healthy, some junk</div><div class="apn-option-sub">Inconsistent eating habits</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(4,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Mostly whole foods</div><div class="apn-option-sub">Lean proteins, veggies, complex carbs most of the time</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(4,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Strictly dialed: tracked and meal prepped</div><div class="apn-option-sub">Macros tracked, food intentional, timing deliberate</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(4,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Strictly dialed: tracked and meal prepped</div><div class="apn-option-sub">Macros tracked, food intentional</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-4"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-4" onclick="APNQuiz.next(4)">Continue &rarr;</button></div>
@@ -1436,13 +1126,13 @@
 
     <!-- STEP 5: TRAINING FREQUENCY -->
     <div class="apn-step" id="apn-step-5">
-      <div class="apn-q-number">Question 05 / 10 &middot; Training Frequency</div>
+      <div class="apn-q-number">Question 05 / 10 · Training Frequency</div>
       <div class="apn-q-text">How many days per week do you engage in structured physical training?</div>
       <div class="apn-options">
         <div class="apn-option" onclick="APNQuiz.pick(5,1,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">1 to 2 days</div><div class="apn-option-sub">Just getting started or sporadic</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(5,3,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">3 to 4 days</div><div class="apn-option-sub">Solid consistency with intentional rest days</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(5,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">5 to 6 days</div><div class="apn-option-sub">High frequency with structured programming</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(5,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Every day — no rest days</div><div class="apn-option-sub">I grind 7 days a week</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(5,3,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">3 to 4 days</div><div class="apn-option-sub">Solid consistency with rest days</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(5,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">5 to 6 days</div><div class="apn-option-sub">High frequency, structured programming</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(5,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Every day with no rest days</div><div class="apn-option-sub">I grind 7 days a week</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-5"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-5" onclick="APNQuiz.next(5)">Continue &rarr;</button></div>
@@ -1450,13 +1140,13 @@
 
     <!-- STEP 6: TRAINING INTENSITY -->
     <div class="apn-step" id="apn-step-6">
-      <div class="apn-q-number">Question 06 / 10 &middot; Training Intensity</div>
+      <div class="apn-q-number">Question 06 / 10 · Training Intensity</div>
       <div class="apn-q-text">How would you rate the average effort level of your training sessions?</div>
       <div class="apn-options">
         <div class="apn-option" onclick="APNQuiz.pick(6,1,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Light / casual</div><div class="apn-option-sub">Walks, light stretching, easy movement</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(6,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Moderate — I break a sweat</div><div class="apn-option-sub">Cardio, some weights, regular gym work</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(6,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Hard — I push myself consistently</div><div class="apn-option-sub">Heavy lifts, HIIT, sport-specific intensity (RPE 7&ndash;8)</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(6,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Elite / maximal</div><div class="apn-option-sub">Competition-level intensity with periodized programming (RPE 9&ndash;10)</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(6,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Moderate: I break a sweat</div><div class="apn-option-sub">Cardio, some weights, regular gym work</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(6,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Hard: I push myself consistently</div><div class="apn-option-sub">Heavy lifts, HIIT, sport-specific intensity</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(6,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Elite / Maximal</div><div class="apn-option-sub">Competition-level intensity, periodized programming</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-6"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-6" onclick="APNQuiz.next(6)">Continue &rarr;</button></div>
@@ -1464,13 +1154,13 @@
 
     <!-- STEP 7: SUPPLEMENTATION -->
     <div class="apn-step" id="apn-step-7">
-      <div class="apn-q-number">Question 07 / 10 &middot; Supplementation</div>
+      <div class="apn-q-number">Question 07 / 10 · Supplementation</div>
       <div class="apn-q-text">How would you describe your current supplement protocol?</div>
       <div class="apn-options">
         <div class="apn-option" onclick="APNQuiz.pick(7,0,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">None at all</div><div class="apn-option-sub">Food only, no supplementation</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(7,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Basic: protein shake occasionally</div><div class="apn-option-sub">Nothing consistent or structured</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(7,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Structured: protein, creatine, electrolytes daily</div><div class="apn-option-sub">Intentional core stack with clean ingredients</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(7,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Advanced: full timed protocol</div><div class="apn-option-sub">Pre, intra, post, recovery, adaptogens — periodized</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(7,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Structured: protein, creatine, electrolytes</div><div class="apn-option-sub">Intentional daily stack, clean ingredients</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(7,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Advanced: full protocol, periodized</div><div class="apn-option-sub">Pre, intra, post, recovery, adaptogens</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-7"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-7" onclick="APNQuiz.next(7)">Continue &rarr;</button></div>
@@ -1478,13 +1168,13 @@
 
     <!-- STEP 8: MENTAL FOCUS -->
     <div class="apn-step" id="apn-step-8">
-      <div class="apn-q-number">Question 08 / 10 &middot; Mental Focus &amp; Clarity</div>
+      <div class="apn-q-number">Question 08 / 10 · Mental Focus & Clarity</div>
       <div class="apn-q-text">How sharp is your mental focus and clarity during training and competition?</div>
       <div class="apn-options">
-        <div class="apn-option" onclick="APNQuiz.pick(8,1,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Easily distracted — mind wanders</div><div class="apn-option-sub">Hard to lock in even when I want to</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(8,1,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Easily distracted: mind wanders</div><div class="apn-option-sub">Hard to lock in even when I want to</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(8,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Somewhat focused, inconsistent</div><div class="apn-option-sub">Some sessions great, some scattered</div></div></div>
         <div class="apn-option" onclick="APNQuiz.pick(8,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Usually dialed in</div><div class="apn-option-sub">I can get into the zone most sessions</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(8,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Elite mental clarity</div><div class="apn-option-sub">Present, locked in, mentally primed every session</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(8,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Elite mental clarity</div><div class="apn-option-sub">Present, locked in, mentally primed consistently</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-8"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-8" onclick="APNQuiz.next(8)">Continue &rarr;</button></div>
@@ -1492,13 +1182,13 @@
 
     <!-- STEP 9: STRESS -->
     <div class="apn-step" id="apn-step-9">
-      <div class="apn-q-number">Question 09 / 10 &middot; Lifestyle Stress</div>
-      <div class="apn-q-text">How would you rate your overall stress level outside of training — work, relationships, life?</div>
+      <div class="apn-q-number">Question 09 / 10 · Lifestyle Stress</div>
+      <div class="apn-q-text">How would you rate your overall stress level outside of training (work, relationships, life)?</div>
       <div class="apn-options">
-        <div class="apn-option" onclick="APNQuiz.pick(9,0,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Extremely high — constantly overwhelmed</div><div class="apn-option-sub">Stress is affecting sleep, mood, and training</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(9,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">High — regularly stressed</div><div class="apn-option-sub">Managing but it takes a toll</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(9,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Moderate — manageable with effort</div><div class="apn-option-sub">I have systems in place to manage stress</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(9,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Low — calm, grounded, disciplined</div><div class="apn-option-sub">Faith, prayer, structure keep me anchored</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(9,0,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Extremely high: constantly overwhelmed</div><div class="apn-option-sub">Stress is affecting sleep, mood, and training</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(9,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">High: regularly stressed</div><div class="apn-option-sub">Managing but it takes a toll</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(9,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Moderate: manageable with effort</div><div class="apn-option-sub">I have systems to manage stress</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(9,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Low: calm, grounded, disciplined</div><div class="apn-option-sub">Prayer, mindfulness, structure keep me anchored</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-9"></div>
       <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-9" onclick="APNQuiz.next(9)">Continue &rarr;</button></div>
@@ -1506,346 +1196,134 @@
 
     <!-- STEP 10: CONSISTENCY -->
     <div class="apn-step" id="apn-step-10">
-      <div class="apn-q-number">Question 10 / 10 &middot; Consistency &amp; Longevity</div>
+      <div class="apn-q-number">Question 10 / 10 · Consistency & Longevity</div>
       <div class="apn-q-text">How long have you been consistently following your current training and nutrition routine?</div>
       <div class="apn-options">
         <div class="apn-option" onclick="APNQuiz.pick(10,1,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">Less than 1 month</div><div class="apn-option-sub">Just getting started on this path</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(10,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">1 to 3 months</div><div class="apn-option-sub">Building momentum — habits forming</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(10,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">3 to 12 months</div><div class="apn-option-sub">Solid habits — adaptation compounding</div></div></div>
-        <div class="apn-option" onclick="APNQuiz.pick(10,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">1+ year(s)</div><div class="apn-option-sub">This is my lifestyle — deeply ingrained</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(10,2,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">1 to 3 months</div><div class="apn-option-sub">Building momentum</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(10,4,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">3 to 12 months</div><div class="apn-option-sub">Solid habits established</div></div></div>
+        <div class="apn-option" onclick="APNQuiz.pick(10,5,this)"><div class="apn-option-dot"></div><div><div class="apn-option-label">1+ year(s)</div><div class="apn-option-sub">This is my lifestyle and it is deeply ingrained</div></div></div>
       </div>
       <div class="apn-insight" id="apn-insight-10"></div>
-      <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-10" onclick="APNQuiz.showEmailCapture()">Calculate My Score &rarr;</button></div>
+      <div class="apn-btn-row"><button class="apn-btn apn-btn-primary" id="apn-next-10" onclick="APNQuiz.finish()">Calculate My Score &rarr;</button></div>
     </div>
 
-    <!-- ── EMAIL CAPTURE (between Q10 and results) ────────── -->
-    <div class="apn-step" id="apn-step-email">
-      <div class="apn-email-gate">
-        <div class="apn-gate-glow"></div>
-        <div class="apn-gate-inner">
-          <div class="apn-gate-eyebrow">Final Step</div>
-          <h2 class="apn-gate-title">Where Should We Send<br><span>Your Results?</span></h2>
-          <p class="apn-gate-sub">Enter your email to unlock your performance score, personalized training plan, and a free discount on your recommended supplement stack &mdash; authored by Jesse, Director of Athletic Performance.</p>
-          <div class="apn-gate-bullets">
-            <span class="apn-gate-bullet">Your score &amp; tier breakdown</span>
-            <span class="apn-gate-bullet">Custom training plan</span>
-            <span class="apn-gate-bullet">Performance playbook PDF</span>
-            <span class="apn-gate-bullet">Discount on your stack</span>
-          </div>
-          <div class="apn-gate-form">
-            <input type="email" id="apn-gate-email" class="apn-gate-input" placeholder="your@email.com" autocomplete="email"/>
-            <div id="apn-gate-error" class="apn-gate-error">Please enter a valid email address.</div>
-            <button class="apn-gate-btn" onclick="APNQuiz.submitGateEmail()">Reveal My Score &rarr;</button>
-            <div class="apn-gate-disclaimer">No spam. Unsubscribe anytime. Faith &middot; Family &middot; America &middot; Fitness.</div>
-          </div>
-          <button class="apn-gate-skip" onclick="APNQuiz.finish(false)">Skip and see results</button>
-        </div>
-      </div>
-    </div>
+    <!-- STEP 11: EMAIL (UNLOCK RESULTS) -->
+    <div class="apn-step" id="apn-step-11">
+      <div class="apn-q-number">Step 11 / 12 · Unlock Your Results</div>
+      <div class="apn-q-text">Where should we send your personalized results + playbook?</div>
 
-    <!-- ══════════════════════════════════════════════════════
-         RESULTS
-         ══════════════════════════════════════════════════════ -->
-    <div id="apn-results">
-      <div class="apn-results-eyebrow">Your Results Are In</div>
-      <div class="apn-results-title" id="apn-results-title">Performance Score</div>
-      <div class="apn-results-sub" id="apn-results-sub">Calculating your score...</div>
-
-      <!-- DIAL -->
-      <div class="apn-dial-wrap">
-        <svg class="apn-dial-svg" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="dial-glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <linearGradient id="dial-grad-red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c0392b"/><stop offset="100%" stop-color="#e74c3c"/></linearGradient>
-            <linearGradient id="dial-grad-yellow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#d97706"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient>
-            <linearGradient id="dial-grad-green" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0588a3"/><stop offset="100%" stop-color="#07a5c3"/></linearGradient>
-            <linearGradient id="dial-grad-elite" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient>
-            <linearGradient id="dial-grad-champion" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#dc2626"/><stop offset="100%" stop-color="#EF4444"/></linearGradient>
-          </defs>
-          <path class="dial-track" d="M 30 145 A 110 110 0 0 1 250 145"/>
-          <path class="dial-fill" id="dial-fill-arc" d="M 30 145 A 110 110 0 0 1 250 145" filter="url(#dial-glow)"/>
-          <text class="dial-score-text" x="140" y="120" id="dial-score-num">0</text>
-          <text class="dial-label-text" x="140" y="142">Performance Score</text>
-          <text class="dial-min-label" x="28" y="158">0</text>
-          <text class="dial-max-label" x="252" y="158">100</text>
-        </svg>
-      </div>
-
-      <!-- TIER -->
-      <div class="apn-tier-badge" id="apn-tier-badge">
-        <div class="apn-tier-dot" id="apn-tier-dot"></div>
-        <div class="apn-tier-name" id="apn-tier-name">Loading...</div>
-      </div>
-
-      <!-- APN METHODOLOGY FRAMEWORK -->
-      <div class="apn-methodology-row">
-        <div class="apn-method-item">
-          <div class="apn-method-num">01</div>
-          <div class="apn-method-text"><strong>Specificity</strong>Training matched to your exact gap and tier — not a generic plan.</div>
-        </div>
-        <div class="apn-method-item">
-          <div class="apn-method-num">02</div>
-          <div class="apn-method-text"><strong>Progressive Overload</strong>Load, volume, density, and complexity applied across every phase.</div>
-        </div>
-        <div class="apn-method-item">
-          <div class="apn-method-num">03</div>
-          <div class="apn-method-text"><strong>Individualization</strong>Your quiz data is the brief. Programs are built from your gaps up.</div>
-        </div>
-        <div class="apn-method-item">
-          <div class="apn-method-num">04</div>
-          <div class="apn-method-text"><strong>Fundamentals First</strong>Warmup, recovery, sleep, and prehab are embedded — not optional.</div>
-        </div>
-      </div>
-
-      <!-- BREAKDOWN -->
-      <div class="apn-breakdown"><h3>Category Breakdown</h3><div id="apn-bars-container"></div></div>
-
-      <!-- GAPS -->
-      <div class="apn-gaps"><h3>&#9889; Your Top Growth Opportunities</h3><div id="apn-gaps-container"></div></div>
-
-      <!-- PRODUCT RECOMMENDATIONS -->
-      <div class="apn-recs" id="apn-recs-section">
-        <h3>&#128170; Your Personalized Ascend Stack</h3>
-        <div class="apn-recs-sub">Based on your top performance gaps, here are the products that will move the needle fastest. Every recommendation maps directly to your APN assessment results.</div>
-        <div id="apn-recs-container"></div>
-        <div class="apn-add-all-row">
-          <button class="apn-add-all-btn" id="apn-add-all" onclick="APNQuiz.addAllToCart()">Add Entire Stack to Cart &rarr;</button>
-        </div>
-      </div>
-
-      <!-- WORKOUT PLAN -->
-      <div class="apn-workout-plan" id="apn-workout-plan" style="display:none !important;"></div>
-
-      <!-- EMAIL CTA -->
       <div class="apn-pdf-cta">
-        <span class="apn-pdf-cta-icon">&#128203;</span>
-        <h3>Get Your Free <span>Performance Playbook</span></h3>
-        <p>We built a personalized guide based on your score, tier, and top gaps — authored by Jesse, Director of Athletic Performance. Enter your email and we will send it to your inbox plus an exclusive discount on your recommended stack.</p>
+        <span class="apn-pdf-cta-icon">🏁</span>
+        <h3>Unlock Your Score + <span>Custom Playbook</span> (Free)</h3>
+        <p>
+          Your results appear <strong>instantly on the next page</strong>.
+          We’ll also email your personalized protocol and your recommended Ascend stack — plus an exclusive discount code.
+        </p>
+
+        <ul class="apn-benefits">
+          <li><span class="apn-benefit-check">✓</span> Your Performance Score (0–100) + tier breakdown</li>
+          <li><span class="apn-benefit-check">✓</span> Top 3 bottlenecks holding you back + exact fixes</li>
+          <li><span class="apn-benefit-check">✓</span> Personalized Ascend supplement stack + discount code</li>
+        </ul>
+
         <div id="apn-email-form-wrap">
           <div class="apn-email-form">
             <div class="apn-email-row">
-              <input type="email" id="apn-email-input" class="apn-input" placeholder="your@email.com" autocomplete="email"/>
-              <button class="apn-btn-submit" onclick="APNQuiz.submitEmail()">Send It Free</button>
+              <input type="email" id="apn-email-input" class="apn-input" placeholder="Enter your best email" autocomplete="email"/>
+              <button class="apn-btn-submit" onclick="APNQuiz.submitEmail()">Unlock My Results</button>
             </div>
-            <div id="apn-email-error" class="apn-email-error">Please enter a valid email address.</div>
-            <div class="apn-form-disclaimer">No spam. Unsubscribe anytime. Faith &middot; Family &middot; America &middot; Fitness.</div>
+            <div id="apn-email-error" style="color:#e74c3c !important;font-size:12px !important;display:none !important;text-align:left !important;">Please enter a valid email address.</div>
+            <span class="apn-email-proof">No spam. Unsubscribe anytime. We never sell your email.</span>
           </div>
         </div>
-        <div class="apn-success" id="apn-success">
-          <span class="apn-success-icon">&#128591;</span>
-          <h4>Check Your Inbox!</h4>
+      </div>
+    </div>
+
+    <!-- STEP 12: RESULTS -->
+    <div class="apn-step" id="apn-step-12">
+      <div id="apn-results">
+        <div class="apn-results-eyebrow">Your Results Are In</div>
+        <div class="apn-results-title" id="apn-results-title">Performance Score</div>
+        <div class="apn-results-sub" id="apn-results-sub">Calculating your score...</div>
+
+        <!-- DIAL -->
+        <div class="apn-dial-wrap">
+          <svg class="apn-dial-svg" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="dial-glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <linearGradient id="dial-grad-red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c0392b"/><stop offset="100%" stop-color="#e74c3c"/></linearGradient>
+              <linearGradient id="dial-grad-yellow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#e67e22"/><stop offset="100%" stop-color="#f39c12"/></linearGradient>
+              <linearGradient id="dial-grad-green" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0588a3"/><stop offset="100%" stop-color="#07a5c3"/></linearGradient>
+              <linearGradient id="dial-grad-elite" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#07a5c3"/><stop offset="100%" stop-color="#09c4e8"/></linearGradient>
+            </defs>
+            <path class="dial-track" d="M 30 145 A 110 110 0 0 1 250 145"/>
+            <path class="dial-fill" id="dial-fill-arc" d="M 30 145 A 110 110 0 0 1 250 145" filter="url(#dial-glow)"/>
+            <text class="dial-score-text" x="140" y="120" id="dial-score-num">0</text>
+            <text class="dial-label-text" x="140" y="142">Performance Score</text>
+            <text class="dial-min-label" x="28" y="158">0</text>
+            <text class="dial-max-label" x="252" y="158">100</text>
+          </svg>
+        </div>
+
+        <!-- TIER -->
+        <div class="apn-tier-badge" id="apn-tier-badge">
+          <div class="apn-tier-dot" id="apn-tier-dot"></div>
+          <div class="apn-tier-name" id="apn-tier-name">Loading...</div>
+        </div>
+
+        <!-- BREAKDOWN -->
+        <div class="apn-breakdown"><h3>Category Breakdown</h3><div id="apn-bars-container"></div></div>
+
+        <!-- GAPS -->
+        <div class="apn-gaps"><h3>&#9889; Your Top Growth Opportunities</h3><div id="apn-gaps-container"></div></div>
+
+        <!-- PRODUCT RECOMMENDATIONS (NEW) -->
+        <div class="apn-recs" id="apn-recs-section">
+          <h3>&#128170; Your Personalized Ascend Stack</h3>
+          <div class="apn-recs-sub">Based on your top performance gaps, here are the products that will move the needle fastest.</div>
+          <div id="apn-recs-container"></div>
+          <div class="apn-add-all-row">
+            <button class="apn-add-all-btn" id="apn-add-all" onclick="APNQuiz.addAllToCart()">Add Entire Stack to Cart &rarr;</button>
+          </div>
+        </div>
+
+        <!-- SUCCESS (AFTER EMAIL) -->
+        <div class="apn-success" id="apn-results-success">
+          <span class="apn-success-icon">🙏</span>
+          <h4>Results Unlocked!</h4>
           <p>Your personalized Performance Playbook is on its way. <strong>Use the code below on your recommended stack:</strong></p>
           <div class="apn-discount-box" id="apn-discount-box">
             <div class="apn-discount-label">Your Exclusive Discount</div>
             <div class="apn-discount-code" id="apn-discount-code" onclick="APNQuiz.copyCode()">{{ section.settings.discount_code | default: 'ASCEND15' }}</div>
-            <div class="apn-discount-copy" id="apn-discount-copy-msg">Click to copy &middot; Valid for 48 hours</div>
+            <div class="apn-discount-copy" id="apn-discount-copy-msg">Click to copy · Valid for 48 hours</div>
           </div>
           <a href="/collections/supplements">Explore the Full Ascend Stack &rarr;</a>
         </div>
-      </div>
 
-    </div><!-- /results -->
+      </div><!-- /results -->
+    </div><!-- /step-12 -->
+
   </div><!-- /quiz-body -->
 </section>
 
 <script>
 (function() {
-  'use strict';
 
   /* ══════════════════════════════════════════════════════════
-     INSIGHTS DATA — Enriched with APN Coaching Methodology
+     INSIGHTS DATA (preserved from original)
      ══════════════════════════════════════════════════════════ */
   var INSIGHTS = {
-    /* Q1 — SLEEP */
-    1:{
-      0:{
-        headline:"🚨 Critical Gap: Severely Under-Slept",
-        body:"Under 5 hours puts you in acute <strong>performance debt</strong>. Research by Milewski et al. (2014) found athletes sleeping fewer than 7 hours had a <strong>1.7&times; higher injury incidence</strong>. Human growth hormone &mdash; your primary muscle-repair signal &mdash; is released almost exclusively during slow-wave sleep. Below 5 hours, you&rsquo;re not completing enough sleep cycles to trigger meaningful HGH pulses. Cortisol stays elevated, directly suppressing testosterone and blocking protein synthesis. The fix starts tonight: aim for a consistent sleep and wake time, set your room to 65&deg;F (18&deg;C), and take Function (Magnesium Glycinate) 300&ndash;400mg 30 minutes before bed."
-      },
-      2:{
-        headline:"⚠️ Below Threshold: Sleep Is Limiting Your Gains",
-        body:"5 to 6 hours places you just under the recovery threshold. Athletes here show <strong>30% higher injury risk and meaningfully degraded reaction times</strong> compared to those sleeping 8+ hours. Cortisol rhythm is disrupted, protein synthesis is blunted, and motor memory consolidation is incomplete. Practical fixes: consistent wake time every day including weekends, no training within 3 to 4 hours of sleep, and blue-light elimination 1 hour before bed."
-      },
-      4:{
-        headline:"✅ Solid Foundation: Sleep Is an Asset",
-        body:"7 to 8 hours is the <strong>athletic performance sweet spot</strong>. During this window your body completes 4 to 5 full sleep cycles, each delivering a pulse of HGH, cortisol clearance, and motor memory consolidation. The next upgrade: track sleep quality objectively via HRV. A consistent HRV downtrend over 7 to 14 days is an early warning sign of accumulated CNS fatigue. Also confirm your sleep environment hits 65&deg;F (18&deg;C) &mdash; temperature is the most impactful physical lever for deep sleep architecture."
-      },
-      3:{
-        headline:"ℹ️ Oversleeping May Signal Recovery Issues",
-        body:"9 or more hours regularly can indicate <strong>inadequate sleep quality or accumulated fatigue debt</strong>. If you&rsquo;re sleeping long but waking groggy, you&rsquo;re likely cycling through too much light sleep and insufficient slow-wave sleep. Improving sleep architecture matters more than adding duration: dark room, 65&deg;F, screens off 1 hour before bed, consistent wake time. Function (Magnesium Glycinate) at 300&ndash;400mg nightly supports the transition to deep slow-wave sleep."
-      }
-    },
-    /* Q2 — RECOVERY */
-    2:{
-      1:{
-        headline:"🚨 Recovery Is Your #1 Bottleneck",
-        body:"Extreme DOMS 24 to 48 hours out signals that your body is not keeping pace with the training demand you&rsquo;re placing on it. <strong>Adaptation happens during recovery &mdash; not during training.</strong> Two primary levers: (1) Protein timing &mdash; consume 0.3g per kg of body weight within 30 minutes post-training to maximize muscle protein synthesis (Witard et al., 2014). (2) Creatine &mdash; 5g daily replenishes phosphocreatine stores. Note: do NOT use cold water immersion immediately post-strength session &mdash; it blunts hypertrophic adaptation (Roberts et al., 2015). Time cold exposure 6+ hours post-session."
-      },
-      3:{
-        headline:"⚠️ Recovery Is Functional But Has Room to Grow",
-        body:"Moderate soreness means you&rsquo;re creating an adaptation stimulus, but your recovery infrastructure needs leveling up. <strong>The 30-minute post-workout window</strong> is your highest-leverage nutrition moment &mdash; 20 to 40g protein (Resilience Whey) plus 5g creatine (Recharge) maximizes the MPS window. For advanced recovery, contrast water therapy: 3 rounds of 3 minutes hot alternating with 1 minute cold. This vascular pumping effect has stronger evidence for DOMS reduction than cold alone."
-      },
-      5:{
-        headline:"🏆 Recovery Is a Competitive Advantage",
-        body:"Slight soreness with full function means your recovery systems are <strong>optimally calibrated</strong>. The next tier: periodized deload weeks (40 to 60% volume reduction, intensity maintained) inserted every 4th week. This is APN&rsquo;s standard deload model &mdash; deloads trigger supercompensation, the performance peak that occurs during recovery, not during training. HRV monitoring is the next-tier add to detect CNS fatigue trends 7 to 14 days before they show up as performance drops."
-      },
-      2:{
-        headline:"ℹ️ No Soreness May Mean Insufficient Stimulus",
-        body:"If you&rsquo;re training hard but never sore, you may have reached <strong>training adaptation (positive)</strong> or you may be under-stimulating. Progressive overload operates across multiple variables &mdash; not just load. If load has plateaued, overload through: increased volume, reduced rest periods, increased session density, or exercise variation. Run a 2 to 3 week progressive overload block and reassess."
-      }
-    },
-    /* Q3 — HYDRATION */
-    3:{
-      0:{
-        headline:"🚨 Severe Dehydration Risk: Act Today",
-        body:"Even <strong>2% dehydration reduces athletic performance by 10 to 20%</strong> &mdash; affecting strength, power output, endurance, and cognitive function simultaneously. Creatine uptake &mdash; your primary power supplement &mdash; requires adequate hydration for cellular delivery. Start tonight: 16 to 32oz of water with a pinch of sea salt upon waking, structured hydration pre, during, and post-training, and a full electrolyte product (Replenish) around training sessions."
-      },
-      2:{
-        headline:"⚠️ Under-Hydrated: Your Performance Is Suffering",
-        body:"You&rsquo;re partially fueled but leaving performance on the table. Optimal daily water for athletes: <strong>body weight (lbs) &divide; 2 = ounces of water daily</strong> &mdash; more on training days. Plain water alone isn&rsquo;t enough around training: add sodium, potassium, and magnesium (electrolytes) to maintain plasma volume and muscle contraction quality. A structured protocol: 16oz upon waking, 16oz pre-training, electrolytes intra-training, 16oz within 30 minutes post-session."
-      },
-      4:{
-        headline:"✅ Good Hydration Habits",
-        body:"You&rsquo;re in the performance hydration zone. To optimize further: <strong>add electrolytes around training sessions rather than plain water alone</strong>. At your volume, dilutional hyponatremia is a real risk &mdash; Replenish provides the sodium, potassium, and magnesium balance to ensure cellular hydration, not just volume. Your current habits are also supporting maximal creatine uptake."
-      },
-      5:{
-        headline:"🏆 Hydration Is Dialed",
-        body:"You understand that <strong>hydration is a performance lever</strong>, not just a survival mechanism. At 2.5+ liters with electrolytes, you&rsquo;re supporting peak blood plasma volume, creatine uptake, and cognitive function. Make sure your electrolyte source includes real sodium &mdash; many products are primarily sugar. Replenish Hydration Powder provides a complete electrolyte profile without the sugar load."
-      }
-    },
-    /* Q4 — NUTRITION */
-    4:{
-      0:{
-        headline:"🚨 Fuel Quality Is Critically Low",
-        body:"Processed foods spike and crash blood sugar, trigger systemic inflammation, and <strong>block the anabolic signaling pathways you need for adaptation</strong>. Trans fats and refined sugars directly suppress testosterone and elevate cortisol. APN&rsquo;s starting point: <strong>one strategic swap per day</strong>. Replace one processed meal with a whole-food protein plus vegetable combination. Protein target: 0.7g per pound of body weight daily. Resilience Whey Protein Isolate bridges the gap when whole-food protein isn&rsquo;t accessible."
-      },
-      2:{
-        headline:"⚠️ Inconsistent Fuel Produces Inconsistent Results",
-        body:"Mixed nutrition creates mixed adaptation. <strong>Nutrition consistency matters more than perfection.</strong> APN&rsquo;s 80/20 framework: 80% whole foods (lean proteins, complex carbs, vegetables), 20% flexibility. The highest-leverage change: protein timing around training &mdash; pre-training light carbohydrate (fruit or honey), post-training 20 to 40g protein + 5g creatine within 30 minutes. These two windows compound into measurable performance differences over weeks."
-      },
-      4:{
-        headline:"✅ Strong Nutritional Foundation",
-        body:"Mostly whole foods means you&rsquo;re providing the micronutrients, amino acids, and complex carbohydrates athletic adaptation demands. <strong>Your recovery rate is significantly higher than the average athlete.</strong> The next tier: optimize meal timing. Evening meal: higher fat, lower carbohydrate to support overnight growth hormone release and fat oxidation. Nourish Greens Superfood fills the micronutrient gaps even clean diets regularly miss."
-      },
-      5:{
-        headline:"🏆 Elite Nutritional Discipline",
-        body:"Tracked macros and structured meal prep puts you in the top tier of athletic nutritional discipline. <strong>Food is data and your body is the output.</strong> The elite edge: periodize nutrition alongside training phases. Off-season accumulation: caloric surplus, high carbohydrate to fuel hypertrophy volume. Pre-season: maintain protein at 0.7g/lb, reduce surplus. In-season: caloric maintenance, prioritize nutrient timing over tracking precision."
-      }
-    },
-    /* Q5 — TRAINING FREQUENCY */
-    5:{
-      1:{
-        headline:"ℹ️ Early Stage: Build the Habit First",
-        body:"1 to 2 sessions per week is enough to begin adaptation. <strong>Frequency is the most underrated training variable.</strong> APN&rsquo;s system emphasizes fundamentals before sophistication: showing up consistently is the most powerful first variable. Adding a third training day doubles the weekly adaptation stimulus. Each session should follow the RAMP warm-up protocol: Raise, Activate, Mobilize, Potentiate. Session quality matters more than session count right now."
-      },
-      3:{
-        headline:"✅ Solid Training Frequency",
-        body:"3 to 4 days per week with intentional rest days is the <strong>optimal frequency for most natural athletes pursuing long-term progress</strong>. This is the frequency Jesse prescribes for sustainable gains &mdash; it allows full adaptation between sessions without the recovery debt that 5+ days demands. Make each session count: progressive overload built into every session. Block periodization: 3 to 5 weeks accumulation, 3 to 4 weeks transmutation, 1 to 2 weeks realization, 1 week deload."
-      },
-      5:{
-        headline:"🏆 High-Frequency Athlete",
-        body:"5 to 6 structured training days requires <strong>elite-level recovery infrastructure to match</strong>. APN&rsquo;s checklist for high-frequency athletes: 7 to 9 hours sleep (non-negotiable), protein at 0.7g/lb daily, 5g creatine every morning, electrolytes around every session, deload week every 4th week (volume &minus;40 to 60%, intensity maintained). Daily Undulating Periodization (DUP) is ideal at this frequency: rotating power, hypertrophy, and strength stimulus within the same week."
-      },
-      2:{
-        headline:"⚠️ Zero Rest Days Is a Risk Factor",
-        body:"Training 7 days without recovery days is one of the fastest paths to <strong>overtraining, burnout, and injury</strong>. Adaptation occurs during recovery &mdash; not during training. CNS fatigue accumulates subtly: bar speed declines, motivation drops, technique breaks down. Introduce 1 to 2 intentional rest or Zone 1&ndash;2 active recovery days per week (walking, easy cycling at 50 to 60% max heart rate). Performance metrics will actually improve within 1 to 2 weeks."
-      }
-    },
-    /* Q6 — TRAINING INTENSITY */
-    6:{
-      1:{
-        headline:"ℹ️ Low Intensity: Build Your Aerobic Base First",
-        body:"Light activity builds aerobic capacity and cardiovascular baseline &mdash; a genuine and undervalued foundation. APN&rsquo;s energy systems framework: Zone 1&ndash;2 work (50 to 70% max heart rate) builds the mitochondrial substrate that all higher-intensity work runs on. However, <strong>to drive significant athletic adaptation, progressive overload is required</strong>. Adding 1 to 2 moderate-to-hard sessions per week creates the hormonal response that multiplies the benefit of your lower-intensity base work."
-      },
-      2:{
-        headline:"✅ Moderate Training: Building a Solid Engine",
-        body:"Moderate intensity builds your aerobic base and improves insulin sensitivity. <strong>The next level is strategic intensification.</strong> APN&rsquo;s approach: add 1 to 2 high-intensity sessions per week. Heavy compound lifts (RPE 8 to 9 out of 10) or Zone 4&ndash;5 intervals trigger the strongest hormonal surges &mdash; growth hormone, testosterone, catecholamines &mdash; that drive the most powerful adaptations. Separate these sessions by 48 hours minimum for full CNS and phosphocreatine recovery."
-      },
-      4:{
-        headline:"🏆 Hard Training: You&rsquo;re in the Adaptation Zone",
-        body:"Consistent hard training is where real transformation happens. <strong>The key at this level is periodization</strong> &mdash; cycling intensity so your body peaks at the right time. APN&rsquo;s periodization guide: off-season focuses on maximal strength and hypertrophy (high volume, moderate intensity). Pre-season converts strength to power (high intensity, decreasing volume). In-season maintains (low volume, high intensity &mdash; 1 to 2 sessions per week). Without periodization at your intensity level, accumulated fatigue outpaces supercompensation."
-      },
-      5:{
-        headline:"🏆 Elite Intensity: Manage Recovery or Risk Burning Out",
-        body:"Maximal, periodized training is the apex of athletic preparation. At this level, the differentiator is recovery quality &mdash; not training volume. <strong>The athletes who sustain elite intensity longest are those whose recovery infrastructure matches their training demand.</strong> APN&rsquo;s elite recovery protocol: sleep 8 to 9+ hours, protein 0.7g/lb daily (20 to 40g post-training within 30 minutes), 5g creatine three times daily, Function (Magnesium Glycinate) 300&ndash;400mg pre-sleep, HRV monitoring to detect CNS fatigue trends."
-      }
-    },
-    /* Q7 — SUPPLEMENTATION */
-    7:{
-      0:{
-        headline:"ℹ️ No Supplementation: Food-Only Has Measurable Gaps",
-        body:"A whole-food diet is the foundation &mdash; but even elite-caliber diets leave measurable gaps. <strong>Creatine monohydrate has 1,000+ peer-reviewed studies</strong> demonstrating 5 to 15% strength and power gains in 4 to 8 weeks at 5g daily. No food provides meaningful creatine in quantity. The evidence-based core stack to start: Recharge (5g creatine monohydrate daily), Resilience (20 to 40g whey protein isolate post-training), Replenish (electrolytes around training). These three compounds deliver the highest ROI in sports nutrition science."
-      },
-      2:{
-        headline:"⚠️ Inconsistent Supplementation: Leaving Gains on the Table",
-        body:"Occasional protein shakes help but don&rsquo;t provide the consistent substrate needed for compounding adaptation. <strong>Creatine only works with daily loading</strong> &mdash; it requires 28 days of consistent use to saturate muscle phosphocreatine stores, and missed days reset the accumulation. Build a simple daily protocol anchored to meals: morning &mdash; Recharge (5g creatine). Post-training &mdash; Resilience (20 to 40g protein) + another 5g Recharge. Pre-sleep &mdash; Function (Magnesium Glycinate, 300 to 400mg). Three anchor points. That&rsquo;s the base."
-      },
-      4:{
-        headline:"✅ Solid Supplement Foundation",
-        body:"Protein, creatine, and electrolytes daily is the evidence-based core stack. <strong>These three compounds have the highest ROI in sports nutrition.</strong> The next tier: add timing precision. APN&rsquo;s full daily protocol: Morning &mdash; Recharge (5g creatine) + Adapt (Ashwagandha, 11 to 15% cortisol reduction, Choudhary et al. 2015) + Foundation. Pre-training (30 min before) &mdash; Ignite. Intra-training &mdash; Recover for sessions over 60 minutes. Post-training &mdash; Resilience + Recharge + Fortify. Pre-sleep &mdash; Function (300 to 400mg)."
-      },
-      5:{
-        headline:"🏆 Advanced Protocol: Execute with Precision",
-        body:"A periodized, timed supplement protocol is the mark of an elite-mindset athlete. <strong>You understand that supplements are systems &mdash; not just products.</strong> APN&rsquo;s full protocol: daily creatine total 15g across three doses (5g morning + 5g intra + 5g post-training) during active strength phases &mdash; reduce to 3 to 5g/day on deload weeks. Adapt cycles: consider periodic breaks after 8 to 12 weeks. Function (Magnesium Glycinate) is non-cycled &mdash; use nightly year-round."
-      }
-    },
-    /* Q8 — MENTAL FOCUS */
-    8:{
-      1:{
-        headline:"🚨 Mental Focus Is a Performance Limiter",
-        body:"Inability to lock in during training is <strong>most often a nutritional and sleep deficit, not a willpower issue</strong>. CNS fatigue from poor sleep reduces neural drive, making focus feel effortful. Practical protocol: sleep 7+ hours (non-negotiable for cognitive function), pre-training light carbohydrate 30 minutes before training, and Ignite for clean energy. Adapt (Ashwagandha) reduces cortisol chronically, supporting clearer thinking under pressure."
-      },
-      2:{
-        headline:"⚠️ Inconsistent Focus: Identify the Pattern",
-        body:"Inconsistent focus has a consistent cause. <strong>Start tracking your training focus alongside sleep, pre-workout nutrition, and stress level.</strong> Within 2 to 3 weeks a pattern will emerge. APN&rsquo;s protocol: build a 3-minute pre-training ritual. Box breathing (4 seconds in &mdash; 4 seconds hold &mdash; 4 seconds out &mdash; 4 seconds hold), repeated 4 to 5 cycles, activates the parasympathetic nervous system and measurably reduces cortisol before training. Add a conviction statement or prayer to anchor the session."
-      },
-      4:{
-        headline:"✅ Solid Mental Performance",
-        body:"Getting into the zone consistently is a <strong>competitive advantage most athletes don&rsquo;t have</strong>. The next upgrade: formalize your pre-training ritual so it becomes a conditioned performance cue. APN recommends 3 minutes of box breathing (4-4-4-4 pattern) plus a specific activation phrase or scripture you use every session. Over time, the ritual becomes a neural trigger for peak performance state."
-      },
-      5:{
-        headline:"🏆 Mental Elite: Protect and Sharpen This Edge",
-        body:"Consistent elite mental clarity means your physiology is fully supporting peak brain function. <strong>This is one of the most underappreciated performance advantages in competitive athletics.</strong> Cortisol management is the primary protection mechanism: morning anchor rituals before screens, consistent sleep schedule, and Adapt (Ashwagandha) protect the cognitive performance your faith and discipline have built. Faith over fear."
-      }
-    },
-    /* Q9 — STRESS */
-    9:{
-      0:{
-        headline:"🚨 High Cortisol Is Killing Your Performance",
-        body:"Chronic high stress floods your body with cortisol, which is <strong>directly catabolic to muscle tissue</strong> &mdash; suppressing testosterone, blocking protein synthesis, elevating blood glucose, and disrupting sleep architecture simultaneously. The highest-leverage intervention: anchor your morning before you pick up your phone. Prayer, devotion, breathwork, or journaling for 5 to 10 minutes before any screens resets your cortisol morning rhythm. Adapt (Ashwagandha) has demonstrated 11 to 15% cortisol reduction in RCTs (Choudhary et al., 2015). Function (Magnesium Glycinate) supports sleep quality &mdash; the most direct cortisol regulation tool available."
-      },
-      2:{
-        headline:"⚠️ Elevated Stress Is Limiting Your Ceiling",
-        body:"Regular high stress means your cortisol rhythm is frequently dysregulated. <strong>Stress doesn&rsquo;t stay in your head &mdash; it shows up directly in your training performance and recovery data.</strong> HRV trending downward over 7 to 14 days is cortisol at work. APN&rsquo;s stress protocol: morning anchor ritual (faith, breathwork, or journaling) before screens. Adapt (Ashwagandha) daily &mdash; 11 to 15% cortisol reduction. Zone 1&ndash;2 active recovery on non-training days activates the parasympathetic nervous system."
-      },
-      4:{
-        headline:"✅ Manageable Stress: Systems Are Working",
-        body:"Having systems to manage stress is itself an <strong>athletic discipline</strong>. The APN framework: morning faith ritual + structured training + consistent sleep schedule + Adapt (Ashwagandha) creates a cortisol management stack that protects your anabolic environment. A managed cortisol rhythm means your testosterone-to-cortisol ratio stays favorable &mdash; the hormonal environment where strength and muscle are built."
-      },
-      5:{
-        headline:"🏆 Grounded Competitor: Rare and Powerful",
-        body:"Low, managed stress in a high-performance life is rare and <strong>enormously powerful as a competitive advantage</strong>. Your cortisol rhythm is working for you &mdash; creating the hormonal environment where testosterone stays elevated, muscle protein synthesis is maximally active, and sleep drives full HGH release. Faith, discipline, structure, and Adapt are your stress management tools. This is the foundation champions are built on."
-      }
-    },
-    /* Q10 — CONSISTENCY */
-    10:{
-      1:{
-        headline:"ℹ️ The Journey Is Just Beginning: Lock In Now",
-        body:"The first 30 days are the most critical for habit formation. <strong>Neural pathways are literally being rewired right now.</strong> APN&rsquo;s rule &mdash; don&rsquo;t miss twice. One missed session is a rest day. Two in a row is the beginning of a broken habit. At this stage, prioritize the RAMP warm-up protocol, movement quality, and showing up over optimizing load or volume. The fundamentals you build now are the substrate on which all future gains compound."
-      },
-      2:{
-        headline:"✅ Building Momentum: Don&rsquo;t Break the Chain",
-        body:"1 to 3 months is when real physiological adaptation begins to compound. <strong>Hormonal and structural adaptations are catching up to your effort.</strong> Stay the course &mdash; the 3 to 6 month window produces the most visible transformation. Introduce progressive overload systematically (add load when all reps are completed cleanly), start tracking your lifts session to session, and build the supplement core stack: creatine daily, protein daily, electrolytes around training."
-      },
-      4:{
-        headline:"🏆 Established Athlete: Compound Interest Is Building",
-        body:"3 to 12 months of consistent training is where <strong>adaptation compounds exponentially</strong>. Structural changes in muscle, connective tissue, and cardiovascular capacity are now measurable. This is where APN&rsquo;s supplementation stack has the most measurable impact &mdash; your body is primed to use creatine, protein, and electrolytes at their highest efficiency. The next growth lever: periodization &mdash; planned mesocycles (accumulation &rarr; transmutation &rarr; realization &rarr; deload)."
-      },
-      5:{
-        headline:"🏆 Seasoned Competitor: Your Body Is Your Proof of Work",
-        body:"1+ years of consistent training means your <strong>body has undergone genuine structural adaptation</strong> &mdash; tendon and ligament integrity, neuromuscular efficiency, cardiovascular capacity, and hormonal optimization that casual athletes don&rsquo;t have. At this level, 1% improvements compound powerfully over a season. Your growth levers: supplement timing precision, HRV monitoring for objective recovery feedback, advanced periodization (conjugate or DUP depending on sport demands), and deload weeks every 4th week."
-      }
-    }
+    1:{0:{headline:"🚨 Critical Gap: Severely Under-Slept",body:"Under 5 hours puts you in <strong>performance debt</strong>. During sleep, your body releases growth hormone, consolidates motor memory, and repairs micro-tears in muscle. Chronic sleep deprivation raises cortisol by up to 37%, directly suppressing testosterone and blocking muscle protein synthesis. Gaining even 1 to 2 extra hours can measurably improve sprint speed, reaction time, and pain tolerance within 2 weeks."},2:{headline:"⚠️ Below Threshold: Sleep Is Limiting Your Gains",body:"5 to 6 hours places you just under the recovery threshold. Research from Stanford shows athletes averaging under 7 hours had <strong>30% higher injury risk</strong> and significantly lower reaction times. You're leaving real performance on the table. Magnesium glycinate before bed and a consistent sleep window (even on weekends) can add meaningful quality rest within days."},4:{headline:"✅ Solid Foundation: Sleep Is an Asset",body:"7 to 8 hours is the <strong>athletic sweet spot</strong>. During this window your body completes 4 to 5 full sleep cycles, each delivering a dose of HGH, cortisol clearance, and memory consolidation. You're building on a strong base. The next upgrade is tracking sleep quality (not just duration) via HRV or a sleep tracker to ensure those hours are truly restorative."},3:{headline:"ℹ️ Oversleeping May Signal Recovery Issues",body:"9 or more hours can indicate <strong>inadequate sleep quality</strong> or underlying fatigue. If you're sleeping long and still waking groggy, you may be cycling through light sleep too much. Improving sleep hygiene (dark room, no screens 1 hour before bed, consistent wake time) and adding magnesium can dramatically shift sleep architecture toward deep, restorative stages."}},
+    2:{1:{headline:"🚨 Recovery Is Your #1 Bottleneck",body:"Extreme DOMS 24 to 48 hours out signals that your body is not keeping pace with the demand you're placing on it. <strong>Adaptation happens during recovery, not during training.</strong> Without proper protein timing (0.3g/kg within 30 minutes post-workout), creatine supplementation, and sleep, you're grinding muscle down without rebuilding it."},3:{headline:"⚠️ Recovery Is Functional But Has Room to Grow",body:"Moderate soreness means you're training hard enough to create adaptation stimulus, but your recovery infrastructure needs leveling up. <strong>Post-workout nutrition within the 45-minute anabolic window</strong>, proper creatine loading, and anti-inflammatory whole foods (tart cherry, turmeric, colostrum) can meaningfully cut recovery time."},5:{headline:"🏆 Recovery Is a Competitive Advantage",body:"Slight soreness with full function means your recovery systems are <strong>optimally calibrated</strong>. Your nutrition timing, sleep, and supplementation are working in harmony. Keep optimizing: periodized deload weeks, HRV monitoring, and colostrum supplementation can take you to the next tier."},2:{headline:"ℹ️ No Soreness May Mean Insufficient Stimulus",body:"If you're training hard but never sore, it may signal <strong>training adaptation (good)</strong> or insufficient stimulus (worth examining). If your progress has plateaued, adding progressive overload, changing exercise selection, or increasing training density can re-trigger adaptation signals."}},
+    3:{0:{headline:"🚨 Severe Dehydration Risk: Act Today",body:"Even <strong>2% dehydration reduces athletic performance by 10 to 20%</strong>, affecting strength, endurance, and cognitive function. At less than 1 liter daily, your blood volume is reduced, forcing your heart to work harder. Start with a 32oz glass of water with a pinch of sea salt immediately upon waking."},2:{headline:"⚠️ Under-Hydrated: Your Performance Is Suffering",body:"You're partially fueled but leaving performance on the table. Optimal hydration for athletes is body weight (lbs) divided by 2 in ounces daily, and <strong>more during training</strong>. Add a structured hydration protocol: morning, pre and during and post-training, and evening."},4:{headline:"✅ Good Hydration Habits",body:"You're in the performance hydration zone. To optimize further: <strong>add electrolytes (sodium, potassium, magnesium) around training sessions</strong> rather than plain water. This prevents dilutional hyponatremia and ensures cellular hydration."},5:{headline:"🏆 Hydration Is Dialed",body:"You understand that <strong>hydration is a performance lever</strong>, not just a survival mechanism. At 2.5 or more liters with electrolytes, you're supporting peak blood plasma volume, creatine uptake, and cognitive performance. Make sure your electrolyte source includes real sodium, not just sugar."}},
+    4:{0:{headline:"🚨 Fuel Quality Is Critically Low",body:"Processed foods spike and crash blood sugar, trigger systemic inflammation, and <strong>block the anabolic signaling pathways you need for adaptation</strong>. Trans fats and refined sugars directly suppress testosterone and elevate cortisol. One strategic swap: replace one processed meal per day with a whole-food protein and veggie combination."},2:{headline:"⚠️ Inconsistent Fuel Produces Inconsistent Results",body:"Mixed nutrition creates mixed adaptation. The key insight: <strong>nutrition consistency matters more than perfection</strong>. Aim for the 80/20 rule (80% whole foods, 20% flexibility) and you'll see sustainable performance improvements over the next 30 to 60 days."},4:{headline:"✅ Strong Nutritional Foundation",body:"Mostly whole foods means you're providing your body with the micronutrients, amino acids, and complex carbs that athletic performance demands. <strong>Your recovery and adaptation rate is significantly higher than the average athlete.</strong> The next tier: optimize meal timing around training."},5:{headline:"🏆 Elite Nutritional Discipline",body:"Tracked macros and structured meal prep puts you in the top 5% of athletes by nutritional discipline. <strong>Food is data and your body is the output.</strong> The elite edge comes from nutrient timing precision, targeted supplementation, and periodizing nutrition alongside training phases."}},
+    5:{1:{headline:"ℹ️ Early Stage: The Foundation Is Being Built",body:"1 to 2 sessions per week is enough to begin adaptation. <strong>Frequency is the most underrated training variable.</strong> Even adding a third training day doubles the adaptation stimulus. Focus on building the habit before escalating volume."},3:{headline:"✅ Solid Training Frequency",body:"3 to 4 days per week with strategic rest hits the sweet spot for natural athletes. <strong>This is the frequency elite coaches prescribe for sustainable, long-term progress.</strong> Make each session intentional with progressive overload built in."},5:{headline:"🏆 High-Frequency Athlete",body:"5 to 6 structured training days per week requires elite-level nutrition and recovery to match. At this frequency, <strong>you're only as good as your recovery infrastructure</strong>. Make sure sleep, protein, and electrolyte balance are non-negotiable."},2:{headline:"⚠️ Zero Rest Days Is a Risk Factor",body:"Training 7 days a week without recovery days is one of the fastest paths to <strong>overtraining, burnout, and injury</strong>. Add 1 to 2 intentional rest or active recovery days and watch your performance metrics actually improve."}},
+    6:{1:{headline:"ℹ️ Low Intensity: Consider Progressing",body:"Light activity is excellent for cardiovascular baseline and stress reduction. However, <strong>to drive significant athletic adaptation, you need progressive overload</strong>. Consider adding 1 to 2 moderate-to-hard sessions per week."},2:{headline:"✅ Moderate Training: Building a Solid Engine",body:"Moderate intensity builds your aerobic base and improves insulin sensitivity. <strong>The next level is strategic intensification.</strong> Adding HIIT intervals or heavy compound lifts 2 times per week creates the hormonal surge that multiplies the effect of your moderate sessions."},4:{headline:"🏆 Hard Training: You're in the Adaptation Zone",body:"Consistent hard training is where the real transformation happens. <strong>The key at this level is periodization</strong>, cycling intensity so you peak at the right time rather than staying maxed out."},5:{headline:"🏆 Elite Intensity: Manage Recovery or Risk Burning Out",body:"Maximal, periodized training is the apex of athletic preparation. At this level, the differentiator is recovery quality: sleep, protein synthesis support, and stress management. <strong>The athletes who stay at elite intensity the longest are the ones whose recovery infrastructure matches their training demand.</strong>"}},
+    7:{0:{headline:"ℹ️ No Supplementation: Food-Only Has Gaps",body:"A whole-food diet is the foundation, but even elite-caliber diets leave <strong>measurable micronutrient gaps</strong>. Creatine monohydrate alone has 1,000+ peer-reviewed studies and delivers 5 to 15% strength and power gains in 4 to 8 weeks. Strategic supplementation fills the gaps that diet cannot cover."},2:{headline:"⚠️ Inconsistent Supplementation: Leaving Gains on the Table",body:"Occasional protein shakes help but don't provide the consistent substrate needed. <strong>Creatine only works with daily loading.</strong> Build a simple, consistent daily stack: creatine (5g/day), protein (0.7g/lb bodyweight), electrolytes (around training)."},4:{headline:"✅ Solid Supplement Foundation",body:"Protein plus creatine plus electrolytes is the evidence-based core stack. <strong>These three compounds have the highest ROI in sports nutrition science.</strong> The next tier: add targeted recovery support like magnesium glycinate for sleep and colostrum for immune and gut health."},5:{headline:"🏆 Advanced Protocol: Execute with Precision",body:"A periodized, full-stack protocol is the mark of an elite-mindset athlete. <strong>You understand that supplements are systems, not just products.</strong> Focus on timing precision, ingredient quality, and cycling adaptogens with your training phases."}},
+    8:{1:{headline:"🚨 Mental Focus Is a Performance Limiter",body:"Inability to lock in during training is often a <strong>nutritional and sleep issue, not a willpower issue</strong>. Clean pre-workout energy, structured sleep, and magnesium supplementation are the most direct levers."},2:{headline:"⚠️ Inconsistent Focus: Identify the Pattern",body:"Inconsistent focus usually has a consistent trigger. <strong>Start journaling your training focus alongside sleep, pre-workout nutrition, and stress level.</strong> Within 2 to 3 weeks you'll see a pattern."},4:{headline:"✅ Solid Mental Performance",body:"Getting into the zone consistently is a <strong>competitive advantage most athletes don't have</strong>. The next upgrade: develop a pre-training ritual (3 minutes of box breathing plus a specific activation phrase or prayer)."},5:{headline:"🏆 Mental Elite: Protect and Sharpen This Edge",body:"Consistent elite mental clarity means your physiology is fully supporting peak brain function. <strong>This is one of the most underappreciated performance advantages.</strong> Protect it: prioritize sleep, manage cortisol, and consider emerging cognitive support tools."}},
+    9:{0:{headline:"🚨 High Cortisol Is Killing Your Performance",body:"Chronic high stress floods your body with cortisol, which is <strong>directly catabolic to muscle tissue</strong>, suppresses testosterone and immune function, and disrupts sleep. The highest-leverage move: anchor your mornings with faith, breathwork, or prayer before picking up your phone."},2:{headline:"⚠️ Elevated Stress Is Limiting Your Ceiling",body:"Regular high stress means your cortisol rhythm is frequently dysregulated. <strong>Stress doesn't stay in your head. It shows up in your training performance and recovery data.</strong> Prioritize adaptogens like ashwagandha, structured sleep, and daily intentional recovery rituals."},4:{headline:"✅ Manageable Stress: Systems Are Working",body:"Having systems to manage stress is itself an athletic discipline. <strong>Mental recovery is as important as physical recovery.</strong> Build your stress management protocol the same way you build your training program."},5:{headline:"🏆 Grounded Competitor: Rare and Powerful",body:"Low, managed stress in a high-performance life is rare and enormously powerful. <strong>Your cortisol rhythm is working for you, not against you.</strong> Faith, discipline, and routine are your stress management tools. This is the foundation champions are built on."}},
+    10:{1:{headline:"ℹ️ The Journey Is Just Beginning: Lock In Now",body:"The first 30 days are critical for habit formation. <strong>Your neural pathways are literally being rewired right now.</strong> Your sole job in the next 30 days is to show up regardless of mood, energy, or motivation."},2:{headline:"✅ Building Momentum: Don't Break the Chain",body:"1 to 3 months is when real physiological adaptation begins to compound. <strong>The hormonal and structural adaptations are catching up.</strong> Stay the course: the 3 to 6 month window produces the most visible transformation."},4:{headline:"🏆 Established Athlete: Compound Interest Is Building",body:"3 to 12 months of consistent training is when <strong>adaptation compounds exponentially</strong>. This is where Ascend's supplementation stack has the most measurable impact."},5:{headline:"🏆 Seasoned Competitor: Your Body Is Your Proof of Work",body:"1 or more years of consistent training means your <strong>body has undergone genuine structural adaptation</strong>. At this level, 1% improvements compound powerfully. Supplementation precision, HRV tracking, sleep optimization, and periodization are your growth levers."}}
   };
 
   /* ── CATEGORIES ─────────────────────────────────────────── */
@@ -1866,139 +1344,108 @@
   /* ── PRODUCT RECOMMENDATION MAP ─────────────────────────── */
   var PRODUCT_MAP = {
     sleep: [
-      { handle:'magnesium-glycinate', name:'Function — Magnesium Glycinate', icon:'😴', reason:'300–400mg nightly supports deep slow-wave sleep architecture and overnight HGH release.', tag:'Sleep Optimizer' }
+      { handle:'magnesium-glycinate', name:'Function — Magnesium Glycinate', icon:'😴', reason:'Supports deep sleep quality and nervous system relaxation for restful recovery.', tag:'Sleep Optimizer' }
     ],
     recovery: [
-      { handle:'creatine-monohydrate', name:'Recharge — Creatine Monohydrate', icon:'🔥', reason:'5g daily replenishes phosphocreatine stores for faster muscle repair and power output restoration.', tag:'Recovery Core' },
-      { handle:'colostrum-powder', name:'Fortify — Natural Colostrum Powder', icon:'🛡️', reason:'Supports gut integrity and immune function during high-volume training blocks.', tag:'Advanced Recovery' }
+      { handle:'creatine-monohydrate', name:'Recharge — Creatine Monohydrate', icon:'🔥', reason:'Increases phosphocreatine stores for faster muscle repair and power output.', tag:'Recovery Core' },
+      { handle:'colostrum-powder', name:'Fortify — Natural Colostrum Powder', icon:'🛡️', reason:'Supports gut health and immune function during high training volumes.', tag:'Advanced Recovery' }
     ],
     hydration: [
-      { handle:'replenish-hydration-powder-1', name:'Replenish — Hydration Powder', icon:'💧', reason:'Replaces sodium, potassium, and magnesium lost through sweat — maintaining plasma volume and muscle contraction quality.', tag:'Hydration Core' }
+      { handle:'replenish-hydration-powder-1', name:'Replenish — Hydration Powder', icon:'💧', reason:'Replaces sodium, potassium, and magnesium lost through sweat during training.', tag:'Hydration Core' }
     ],
     nutrition: [
-      { handle:'resilience-whey-protein-isolate', name:'Resilience — Whey Protein Isolate', icon:'🥩', reason:'Fast-absorbing whey isolate for the 30-minute post-training MPS window — 20 to 40g per serving.', tag:'Nutrition Core' },
-      { handle:'nourish-greens-superfood', name:'Nourish — Greens Superfood', icon:'🥬', reason:'Fills the micronutrient gaps that even clean whole-food diets regularly miss.', tag:'Micronutrients' }
+      { handle:'resilience-whey-protein-isolate', name:'Resilience — Whey Protein Isolate', icon:'🥩', reason:'Bridges the gap between whole food protein and your daily target with fast-absorbing amino acids.', tag:'Nutrition Core' },
+      { handle:'nourish-greens-superfood', name:'Nourish — Greens Superfood', icon:'🥬', reason:'Fills micronutrient gaps that even clean diets often miss with whole food greens.', tag:'Micronutrients' }
     ],
     frequency: [
-      { handle:'ignite-energy-powder', name:'Ignite — Energy Powder', icon:'⚡', reason:'Clean, sustained energy 30 minutes pre-training to fuel consistent sessions without the mid-session crash.', tag:'Pre-Workout' }
+      { handle:'ignite-energy-powder', name:'Ignite — Energy Powder', icon:'⚡', reason:'Clean energy without gray-area stimulants to fuel consistent training sessions.', tag:'Pre-Workout' }
     ],
     intensity: [
-      { handle:'ignite-energy-powder', name:'Ignite — Energy Powder', icon:'⚡', reason:'Supports training output and mental focus for high-intensity RPE 8–9 sessions.', tag:'Pre-Workout' },
-      { handle:'creatine-monohydrate', name:'Recharge — Creatine Monohydrate', icon:'🔥', reason:'5g daily maximizes phosphocreatine stores for strength and explosive power output.', tag:'Power Output' }
+      { handle:'ignite-energy-powder', name:'Ignite — Energy Powder', icon:'⚡', reason:'Supports training output and mental focus for high-intensity sessions.', tag:'Pre-Workout' },
+      { handle:'creatine-monohydrate', name:'Recharge — Creatine Monohydrate', icon:'🔥', reason:'5g daily loading maximizes strength and explosive power output.', tag:'Power Output' }
     ],
     supps: [
-      { handle:'creatine-monohydrate', name:'Recharge — Creatine Monohydrate', icon:'💪', reason:'The most studied supplement in sports science. 5g daily is the evidence-based baseline for strength and power.', tag:'Foundation' },
-      { handle:'resilience-whey-protein-isolate', name:'Resilience — Whey Protein Isolate', icon:'🥩', reason:'Hit your daily protein target (0.7g/lb) with clean, fast-absorbing whey isolate.', tag:'Foundation' },
-      { handle:'replenish-hydration-powder-1', name:'Replenish — Hydration Powder', icon:'💧', reason:'Complete electrolyte profile for training-day hydration and creatine uptake support.', tag:'Foundation' }
+      { handle:'creatine-monohydrate', name:'Recharge — Creatine Monohydrate', icon:'💪', reason:'The most studied supplement in sports science. 5g daily is the proven baseline.', tag:'Foundation' },
+      { handle:'resilience-whey-protein-isolate', name:'Resilience — Whey Protein Isolate', icon:'🥩', reason:'Hit your protein target daily with clean, fast-absorbing whey isolate.', tag:'Foundation' },
+      { handle:'replenish-hydration-powder-1', name:'Replenish — Hydration Powder', icon:'💧', reason:'Complete electrolyte profile for training-day hydration.', tag:'Foundation' }
     ],
     focus: [
-      { handle:'methylene-blue-drops', name:'Clarity — Methylene Blue Drops', icon:'🧠', reason:'Supports mitochondrial efficiency and cognitive performance for peak focus during training and competition.', tag:'Cognitive Edge' },
-      { handle:'adapt-organic-ashwagandha-supplement', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'Clinically shown to reduce cortisol 11–15%, directly supporting clearer thinking under training and life pressure.', tag:'Adaptogen' }
+      { handle:'methylene-blue-drops', name:'Clarity — Methylene Blue Drops', icon:'🧠', reason:'Supports mitochondrial efficiency and cognitive performance during competition.', tag:'Cognitive Edge' },
+      { handle:'adapt-organic-ashwagandha-supplement', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'Clinically shown to reduce cortisol, supporting clear thinking under pressure.', tag:'Adaptogen' }
     ],
     stress: [
-      { handle:'adapt-organic-ashwagandha-supplement', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'RCT-backed 11–15% cortisol reduction — protecting your testosterone-to-cortisol ratio and anabolic environment.', tag:'Stress Defense' },
-      { handle:'magnesium-glycinate', name:'Function — Magnesium Glycinate', icon:'✨', reason:'Nervous system relaxation and deep sleep architecture support for cortisol regulation.', tag:'Recovery' }
+      { handle:'adapt-organic-ashwagandha-supplement', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'Reduces cortisol by roughly 27% in clinical trials, protecting your anabolic environment.', tag:'Stress Defense' },
+      { handle:'magnesium-glycinate', name:'Function — Magnesium Glycinate', icon:'✨', reason:'Supports nervous system relaxation and deep sleep for cortisol management.', tag:'Recovery' }
     ],
     consistency: [
-      { handle:'resilience-whey-protein-isolate', name:'Resilience — Whey Protein Isolate', icon:'🔒', reason:"The easiest daily anchor habit. One shake per day keeps your protein target on track — don't miss twice.", tag:'Daily Habit' }
+      { handle:'resilience-whey-protein-isolate', name:'Resilience — Whey Protein Isolate', icon:'🔒', reason:'The easiest daily habit anchor. One shake a day keeps your protein target on track.', tag:'Daily Habit' }
     ]
   };
 
-  /* ── GAP DETAILS — Methodology-aligned fix protocols ──── */
   var GAP_DETAILS = {
-    sleep:{
-      icon:'😴',
-      gap:'Sleep Optimization',
-      fix:'Establish a consistent sleep and wake time every night — including weekends. Set your room to 65°F (18°C) — the optimal temperature for sleep onset and deep-stage sleep. Take Function (Magnesium Glycinate) 300–400mg 30 minutes before bed. Eliminate screens 1 hour before sleep and get direct sunlight within 30 minutes of waking to anchor your circadian rhythm. Research standard: minimum 7 hours to avoid the 1.7× injury risk increase found by Milewski et al. (2014).'
-    },
-    recovery:{
-      icon:'🔥',
-      gap:'Recovery Protocol',
-      fix:'Consume 0.3g per kg of body weight in protein within 30 minutes post-training (Witard et al., 2014). Take 5g Recharge (Creatine) post-training to restore phosphocreatine stores. Important: do NOT use cold water immersion immediately post-strength training — it blunts hypertrophic adaptation (Roberts et al., 2015). Time cold exposure 6+ hours post-session, or use contrast water therapy (3 min hot / 1 min cold × 3 rounds) instead. Deload every 4th week: volume −40 to 60%, intensity maintained.'
-    },
-    hydration:{
-      icon:'💧',
-      gap:'Hydration Protocol',
-      fix:'Daily water target: body weight (lbs) ÷ 2 = ounces of water daily, more on training days. Add electrolytes (sodium, potassium, magnesium) around all training sessions — not plain water alone. Protocol: 16 to 32oz upon waking, pre-training hydration, Replenish intra-training, 16oz within 30 minutes post-session. Plain water without electrolytes at high volumes risks dilutional hyponatremia and impairs creatine cellular uptake.'
-    },
-    nutrition:{
-      icon:'🥩',
-      gap:'Nutrition Quality',
-      fix:"Apply APN's 80/20 rule: 80% whole foods (lean proteins, complex carbs, vegetables), 20% flexibility. Daily protein target: 0.7g per pound of body weight — Resilience Whey Protein Isolate fills the gap when whole-food protein isn't accessible. Nutrition timing: light pre-training carbohydrate (fruit or honey) 30 minutes before training. Post-training: protein + creatine within 30 minutes. Evening meal: higher fat, lower carbohydrate to support overnight growth hormone release."
-    },
-    frequency:{
-      icon:'📅',
-      gap:'Training Frequency',
-      fix:"APN target: 3 to 4 structured sessions per week for most athletes — the optimal frequency for natural athletes pursuing long-term progress. 5 to 6 sessions require elite recovery infrastructure (7 to 9 hours sleep, 0.7g/lb protein, 5g creatine daily). Each session should follow APN's RAMP warm-up (Raise, Activate, Mobilize, Potentiate) before any loading. Rule: don't miss twice. One missed session is a rest day; two is a broken habit pattern."
-    },
-    intensity:{
-      icon:'⚡',
-      gap:'Training Intensity',
-      fix:'Add 1 to 2 high-intensity sessions per week using RPE (Rate of Perceived Exertion) as your benchmark: RPE 8 to 9 out of 10 means 1 to 2 reps left in reserve. Heavy compound lifts drive the highest hormonal responses — testosterone, growth hormone, IGF-1. Use progressive overload across multiple variables: load, volume, density (less rest), and exercise complexity. Separate high-intensity sessions by 48 hours minimum for full CNS and phosphocreatine recovery.'
-    },
-    supps:{
-      icon:'💊',
-      gap:'Supplementation Stack',
-      fix:"APN's evidence-based daily protocol: Morning — Recharge (5g creatine) + Adapt (Ashwagandha) + Foundation. Pre-training (30 min before) — Ignite. Intra-training — Recover for sessions over 60 minutes. Post-training (within 30 min) — Resilience (20 to 40g protein) + Recharge (5g creatine) + Fortify (Colostrum). Pre-sleep — Function (Magnesium Glycinate, 300 to 400mg). Daily creatine total: 15g during active strength phases. Protein target: 0.7g per pound of body weight daily."
-    },
-    focus:{
-      icon:'🧠',
-      gap:'Mental Performance',
-      fix:'Build a 3-minute pre-training ritual: box breathing (4 seconds in — 4 hold — 4 out — 4 hold) for 4 to 5 cycles. Add an activation phrase, conviction statement, or prayer at the end. Over time this becomes a conditioned performance cue. Address the physiological drivers: 7+ hours sleep (the #1 cognitive performance lever), pre-training light carbohydrate, and Ignite for clean energy without the crash. Adapt (Ashwagandha) supports cortisol reduction, which directly improves cognitive function under pressure.'
-    },
-    stress:{
-      icon:'🙏',
-      gap:'Stress Management',
-      fix:'Morning anchor ritual: prayer, devotion, breathwork, or journaling before any screen time. This resets your morning cortisol rhythm — the primary daily cortisol regulation window. Adapt (Ashwagandha) — 11 to 15% cortisol reduction demonstrated in RCTs (Choudhary et al., 2015). Function (Magnesium Glycinate) nightly for sleep quality, which is the most direct cortisol regulation tool. Zone 1 to 2 active recovery (walking, easy cycling) on non-training days activates parasympathetic tone and directly counteracts stress-driven sympathetic activation.'
-    },
-    consistency:{
-      icon:'🔒',
-      gap:'Consistency and Habit',
-      fix:"APN's primary consistency rule: don't miss twice. One missed session is a rest day. Two consecutive missed sessions is the beginning of a broken habit. Schedule training like appointments — not aspirations. Build your supplement anchors to your daily meals so they require zero willpower: creatine with breakfast, protein post-training, magnesium pre-sleep. Each consistent week is compounding interest on your long-term athletic investment."
-    }
+    sleep:{icon:'😴',gap:'Sleep Optimization',fix:'Establish a consistent 7 to 8 hour sleep window. Add magnesium glycinate 30 minutes before bed and eliminate screens 1 hour before sleep. Darkness and temperature (65 to 68 degrees F) are the most impactful environmental levers.'},
+    recovery:{icon:'🔥',gap:'Recovery Protocol',fix:'Consume 0.3g/kg protein within 30 minutes post-training. Load creatine monohydrate daily (5g). Consider colostrum for advanced gut and immune recovery support. Prioritize sleep over extra training volume.'},
+    hydration:{icon:'💧',gap:'Hydration Protocol',fix:'Drink half your body weight (lbs) in ounces of water daily. Add electrolytes (sodium, potassium, magnesium) around all training sessions. Start each morning with 16 to 32oz before coffee.'},
+    nutrition:{icon:'🥩',gap:'Nutrition Quality',fix:'Shift to the 80/20 rule: 80% whole foods (lean proteins, complex carbs, vegetables), 20% flexibility. Meal prep 2 to 3 days of food on Sundays. Hit your protein target first and everything else follows.'},
+    frequency:{icon:'📅',gap:'Training Frequency',fix:'Aim for 4 to 5 structured sessions per week. 3 focused 45-minute sessions are more effective than 1 long unfocused one. Each week of consistent training is a deposit in your long-term performance account.'},
+    intensity:{icon:'⚡',gap:'Training Intensity',fix:'Add 1 to 2 high-intensity sessions per week (heavy compound lifts or HIIT intervals). These trigger the most powerful hormonal responses. Use rate of perceived effort (RPE 8 to 9 out of 10) as your intensity benchmark.'},
+    supps:{icon:'💊',gap:'Supplementation Stack',fix:'Build the core performance stack: creatine monohydrate (5g daily), quality protein (hit 0.7g per lb of bodyweight daily), and electrolyte replenishment around training.'},
+    focus:{icon:'🧠',gap:'Mental Performance',fix:'Build a 3-minute pre-training ritual: box breathing (4-4-4-4 pattern) plus an activation phrase or prayer. Eliminate caffeine crashes with clean, natural energy sources.'},
+    stress:{icon:'🙏',gap:'Stress Management',fix:'Implement daily anchor rituals: morning prayer, devotion, breathwork, or journaling before screens. Consider ashwagandha (clinically proven to reduce cortisol by roughly 27%).'},
+    consistency:{icon:'🔒',gap:'Consistency and Habit',fix:'Do not miss twice. One missed session is a rest day; two in a row is the start of a broken habit. Schedule training like appointments, not aspirations.'}
   };
 
   /* ── STATE ──────────────────────────────────────────────── */
-  var state = {
-    currentStep: 0,
-    scores: [0,0,0,0,0,0,0,0,0,0],
-    selectedValues: [null,null,null,null,null,null,null,null,null,null]
-  };
+  var state = { currentStep:0, scores:[0,0,0,0,0,0,0,0,0,0], selectedValues:[null,null,null,null,null,null,null,null,null,null] };
 
-  /* ── TIER LOGIC — Aligned with APN App Spec ─────────────── */
+  /* ── TIER LOGIC ─────────────────────────────────────────── */
   function getTier(score) {
-    if (score < 40) return { name:'Rookie',     color:'#22C55E', gradId:'dial-grad-red',      desc:'Every change you make creates instant results. Major gains across all pillars available now.' };
-    if (score < 60) return { name:'Competitor', color:'#F59E0B', gradId:'dial-grad-yellow',   desc:'Solid base with key gaps holding you back. Fix your top 3 and your performance jumps fast.' };
-    if (score < 75) return { name:'Athlete',    color:'#06A5C5', gradId:'dial-grad-green',    desc:'Strong foundation with clear next steps. The gap between you and Elite is specific and closeable.' };
-    if (score < 90) return { name:'Elite',      color:'#8B5CF6', gradId:'dial-grad-elite',    desc:'High performer ready to fine-tune. Precision beats volume at this tier.' };
-    return             { name:'Champion',        color:'#EF4444', gradId:'dial-grad-champion', desc:'Operating at peak. Your job is to protect and refine, not rebuild.' };
+    if (score < 30) return { name:'Rookie', color:'#c0392b', desc:'Major opportunities across all pillars' };
+    if (score < 50) return { name:'Competitor', color:'#e67e22', desc:'Solid base with key gaps holding you back' };
+    if (score < 70) return { name:'Athlete', color:'#f1c40f', desc:'Strong foundation with clear next steps' };
+    if (score < 85) return { name:'Elite Athlete', color:'#27ae60', desc:'High performer ready to fine-tune for the next level' };
+    return { name:'Champion', color:'#07a5c3', desc:'Operating at peak: protect and refine your edge' };
   }
 
   function round(n) { return Math.round(n); }
+
+  var TOTAL_PAGES = 12;
 
   /* ── PUBLIC API ─────────────────────────────────────────── */
   window.APNQuiz = {
 
     start: function() {
-      document.getElementById('apn-hero').style.cssText += 'display:none !important;';
-      var body = document.getElementById('apn-quiz-body');
-      body.style.cssText += 'display:block !important;';
+      document.getElementById('apn-hero').style.cssText = 'display:none !important;';
+      document.getElementById('apn-quiz-body').style.cssText = 'display:block !important;max-width:760px !important;margin:0 auto !important;padding:40px 20px 80px !important;width:100% !important;';
       document.getElementById('apn-progress').classList.add('visible');
       this.showStep(1);
     },
 
     showStep: function(n) {
-      document.querySelectorAll('#apn-quiz-section .apn-step').forEach(function(el) { el.classList.remove('active'); });
-      document.getElementById('apn-results').classList.remove('active');
+      document.querySelectorAll('#apn-quiz-section .apn-step').forEach(function(el) {
+        el.classList.remove('active');
+      });
+
+      state.currentStep = n;
+
+      var stepEl = document.getElementById('apn-step-' + n);
+      if (stepEl) stepEl.classList.add('active');
+
+      var pct = Math.round(((n - 1) / (TOTAL_PAGES - 1)) * 100);
+      document.getElementById('apn-progress-fill').style.width = pct + '%';
+      document.getElementById('apn-step-pct').textContent = pct + '%';
+
       if (n <= 10) {
-        state.currentStep = n;
-        document.getElementById('apn-step-' + n).classList.add('active');
-        var pct = round(((n - 1) / 10) * 100);
-        document.getElementById('apn-progress-fill').style.width = pct + '%';
         document.getElementById('apn-step-label').textContent = 'Question ' + n + ' of 10';
-        document.getElementById('apn-step-pct').textContent = pct + '%';
-        window.scrollTo({ top: document.getElementById('apn-quiz-section').offsetTop, behavior: 'smooth' });
+      } else if (n === 11) {
+        document.getElementById('apn-step-label').textContent = 'Step 11 of 12 · Email';
+      } else if (n === 12) {
+        document.getElementById('apn-step-label').textContent = 'Step 12 of 12 · Results';
+      } else {
+        document.getElementById('apn-step-label').textContent = 'Step';
       }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
 
     pick: function(qNum, points, el) {
@@ -2006,6 +1453,7 @@
       el.classList.add('selected');
       state.scores[qNum - 1] = points;
       state.selectedValues[qNum - 1] = points;
+
       var insightEl = document.getElementById('apn-insight-' + qNum);
       var insightData = INSIGHTS[qNum][points];
       if (insightData) {
@@ -2022,58 +1470,47 @@
       this.showStep(qNum + 1);
     },
 
-    showEmailCapture: function() {
+    finish: function() {
       if (state.selectedValues[9] === null) return;
-      document.querySelectorAll('#apn-quiz-section .apn-step').forEach(function(el) { el.classList.remove('active'); });
-      document.getElementById('apn-step-email').classList.add('active');
-      document.getElementById('apn-progress-fill').style.width = '100%';
-      document.getElementById('apn-step-label').textContent = 'Almost There';
-      document.getElementById('apn-step-pct').textContent = '100%';
-      window.scrollTo({ top: document.getElementById('apn-quiz-section').offsetTop, behavior: 'smooth' });
-    },
-
-    submitGateEmail: function() {
-      var email = document.getElementById('apn-gate-email').value.trim();
-      var errEl = document.getElementById('apn-gate-error');
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.style.display = 'block'; return; }
-      errEl.style.display = 'none';
-      state._capturedEmail = email;
-      this.finish(true);
-    },
-
-    finish: function(emailCaptured) {
-      if (state.selectedValues[9] === null) return;
-      document.querySelectorAll('#apn-quiz-section .apn-step').forEach(function(el) { el.classList.remove('active'); });
-      document.getElementById('apn-progress-fill').style.width = '100%';
-      document.getElementById('apn-step-label').textContent = 'Results';
-      document.getElementById('apn-step-pct').textContent = '100%';
 
       var raw = state.scores.reduce(function(a,b){ return a+b; }, 0);
       var score = Math.max(1, Math.min(100, round((raw / MAX_SCORE) * 100)));
       var tier = getTier(score);
 
-      state._score = score;
-      state._tier  = tier.name;
+      state._finalScore = score;
+      state._finalTier = tier;
 
-      document.getElementById('apn-results').classList.add('active');
+      var rs = document.getElementById('apn-results-success');
+      if (rs) rs.classList.remove('visible');
+
+      this.showStep(11);
+    },
+
+    showResults: function(showSuccess) {
+      if (!state._finalScore || !state._finalTier) {
+        var raw = state.scores.reduce(function(a,b){ return a+b; }, 0);
+        state._finalScore = Math.max(1, Math.min(100, round((raw / MAX_SCORE) * 100)));
+        state._finalTier = getTier(state._finalScore);
+      }
+
+      var score = state._finalScore;
+      var tier = state._finalTier;
+
       document.getElementById('apn-results-title').textContent = 'You Scored ' + score + ' / 100';
       document.getElementById('apn-results-sub').textContent = tier.desc;
-      document.getElementById('apn-tier-name').textContent = tier.name + ' Tier';
+      document.getElementById('apn-tier-name').textContent = tier.name + ' Level';
       document.getElementById('apn-tier-dot').style.background = tier.color;
 
       this._animateDial(score, tier);
-      this._buildBars();
+      this._buildBars(score);
       this._buildGaps();
       this._buildRecs();
-      this._buildWorkoutPlan();
 
-      if (emailCaptured && state._capturedEmail) {
-        this._fireKlaviyo(state._capturedEmail);
-        document.getElementById('apn-email-form-wrap').style.cssText += 'display:none !important;';
-        document.getElementById('apn-success').classList.add('visible');
+      var rs = document.getElementById('apn-results-success');
+      if (rs) {
+        if (showSuccess) rs.classList.add('visible');
+        else rs.classList.remove('visible');
       }
-
-      window.scrollTo({ top: document.getElementById('apn-quiz-section').offsetTop, behavior: 'smooth' });
     },
 
     _animateDial: function(score, tier) {
@@ -2081,7 +1518,8 @@
       var arcLen = Math.PI * 110;
       arc.style.strokeDasharray = arcLen;
       arc.style.strokeDashoffset = arcLen;
-      arc.style.stroke = 'url(#' + tier.gradId + ')';
+      var gradId = score < 30 ? 'dial-grad-red' : score < 50 ? 'dial-grad-yellow' : score < 75 ? 'dial-grad-green' : 'dial-grad-elite';
+      arc.style.stroke = 'url(#' + gradId + ')';
       var targetOffset = arcLen - (arcLen * score / 100);
       setTimeout(function() { arc.style.strokeDashoffset = targetOffset; }, 200);
       var numEl = document.getElementById('dial-score-num');
@@ -2107,7 +1545,9 @@
         container.appendChild(item);
       });
       setTimeout(function() {
-        document.querySelectorAll('#apn-quiz-section .apn-mini-fill').forEach(function(el) { el.style.width = el.getAttribute('data-pct') + '%'; });
+        document.querySelectorAll('#apn-quiz-section .apn-mini-fill').forEach(function(el) {
+          el.style.width = el.getAttribute('data-pct') + '%';
+        });
       }, 300);
     },
 
@@ -2121,7 +1561,7 @@
         var detail = GAP_DETAILS[w.cat.key];
         var item = document.createElement('div');
         item.className = 'apn-gap-item';
-        item.innerHTML = '<div class="apn-gap-icon">' + detail.icon + '</div><div class="apn-gap-text"><strong>Priority ' + (idx+1) + ': ' + detail.gap + '</strong>' + detail.fix + '</div>';
+        item.innerHTML = '<div class="apn-gap-icon">' + detail.icon + '</div><div class="apn-gap-text"><strong>Priority ' + (idx+1) + ': ' + detail.gap + '</strong><br>' + detail.fix + '</div>';
         container.appendChild(item);
       });
       state._worstKeys = worst.map(function(w) { return w.cat.key; });
@@ -2132,14 +1572,27 @@
       container.innerHTML = '';
       var seen = {};
       var recs = [];
+
       (state._worstKeys || []).forEach(function(key) {
-        (PRODUCT_MAP[key] || []).forEach(function(p) {
-          if (!seen[p.handle]) { seen[p.handle] = true; recs.push(p); }
+        var products = PRODUCT_MAP[key] || [];
+        products.forEach(function(p) {
+          if (!seen[p.handle]) {
+            seen[p.handle] = true;
+            recs.push(p);
+          }
         });
       });
+
       recs = recs.slice(0, 5);
       state._recHandles = recs.map(function(r) { return r.handle; });
-      if (recs.length === 0) { document.getElementById('apn-recs-section').style.display = 'none'; return; }
+
+      if (recs.length === 0) {
+        document.getElementById('apn-recs-section').style.cssText = 'display:none !important;';
+        return;
+      } else {
+        document.getElementById('apn-recs-section').style.cssText = 'display:block !important;';
+      }
+
       recs.forEach(function(rec) {
         var card = document.createElement('div');
         card.className = 'apn-rec-card';
@@ -2150,250 +1603,18 @@
             '<div class="apn-rec-reason">' + rec.reason + '</div>' +
             '<div class="apn-rec-tag">' + rec.tag + '</div>' +
           '</div>' +
-          '<button class="apn-rec-btn" data-handle="' + rec.handle + '" onclick="APNQuiz.addOne(this,\'' + rec.handle + '\')">+ Add</button>';
+          '<button class="apn-rec-btn" data-handle="' + rec.handle + '" onclick="APNQuiz.addOne(this, \'' + rec.handle + '\')">+ Add</button>';
         container.appendChild(card);
       });
-    },
-
-    _buildWorkoutPlan: function() {
-      var wrap = document.getElementById('apn-workout-plan');
-      if (!wrap) return;
-
-      var freqScore   = state.scores[4];
-      var intScore    = state.scores[5];
-      var expScore    = state.scores[9];
-      var recScore    = state.scores[1];
-      var stressScore = state.scores[8];
-
-      var exp = expScore <= 1 ? 'beginner' : expScore <= 2 ? 'novice' : expScore <= 4 ? 'intermediate' : 'advanced';
-      var days = freqScore <= 1 ? 2 : freqScore <= 3 ? 4 : 5;
-      var il = intScore <= 1 ? 'light' : intScore <= 2 ? 'moderate' : intScore <= 4 ? 'hard' : 'elite';
-
-      var SCHEMES = {
-        beginner:     { P: { light:'3 × 12–15', moderate:'3 × 10–12', hard:'3 × 8–10',  elite:'3 × 8–10'  }, S: { light:'2 × 15', moderate:'3 × 12', hard:'3 × 10–12', elite:'3 × 10–12' }, C: { light:'3 × 20s', moderate:'3 × 30s', hard:'3 × 30s', elite:'3 × 45s' } },
-        novice:       { P: { light:'3 × 10–12', moderate:'3 × 8–10',  hard:'4 × 6–8',   elite:'4 × 6–8'   }, S: { light:'3 × 12', moderate:'3 × 12', hard:'3 × 10',    elite:'3 × 10'   } },
-        intermediate: { P: { light:'3 × 10–12', moderate:'4 × 8–10',  hard:'4 × 6–8',   elite:'5 × 5'     }, S: { light:'3 × 12', moderate:'3 × 12', hard:'3 × 10',    elite:'4 × 8'    } },
-        advanced:     { P: { light:'4 × 8–10',  moderate:'4 × 6–8',   hard:'5 × 4–6',   elite:'5 × 3–5'   }, S: { light:'3 × 12', moderate:'4 × 10', hard:'4 × 8',     elite:'4 × 8'    } }
-      };
-      var sc = SCHEMES[exp] || SCHEMES.intermediate;
-      var P = sc.P[il], S = sc.S[il], C = (sc.C && sc.C[il]) || '3 × 30s';
-      var rpeNote  = il === 'light' ? 'RPE 5–6' : il === 'moderate' ? 'RPE 6–7' : il === 'hard' ? 'RPE 7–8' : 'RPE 8–9';
-      var restNote = il === 'light' ? '60–90 sec rest' : il === 'moderate' ? '60–90 sec rest' : il === 'hard' ? '2–3 min compounds' : '3–5 min compounds';
-
-      var EX = {
-        fullA:  [ { name:'Goblet Squat',                        note:'Focus on depth and upright torso',                    scheme:P },
-                  { name:'Push-up or Incline Dumbbell Press',   note:'Keep core tight throughout',                          scheme:P },
-                  { name:'Dumbbell Row (each side)',             note:'Full ROM, control the eccentric',                     scheme:P },
-                  { name:'Kettlebell or Dumbbell Deadlift',      note:'Drive hips back, flat back',                          scheme:P },
-                  { name:'Plank Hold',                           note:'Brace core, breathe',                                 scheme:C } ],
-        fullB:  [ { name:'Dumbbell Reverse Lunge',              note:'Alternate legs, controlled descent',                  scheme:P },
-                  { name:'Dumbbell Shoulder Press',              note:'Full range of motion overhead',                       scheme:P },
-                  { name:'Lat Pulldown or Band Pull-Apart',      note:'Retract scapula before pulling',                      scheme:P },
-                  { name:'Romanian Deadlift',                    note:'Feel hamstring stretch at bottom',                    scheme:P },
-                  { name:'Dead Bug',                             note:'Slow and controlled, exhale fully',                   scheme:C } ],
-        fullC:  [ { name:'Trap Bar Deadlift or Back Squat',     note:'Primary hinge pattern',                               scheme:P },
-                  { name:'Incline Dumbbell Press',               note:'45° incline, controlled eccentric',                   scheme:P },
-                  { name:'Cable Row or Seated Row',              note:'Drive elbows back, hold 1 sec',                       scheme:P },
-                  { name:'Bulgarian Split Squat',                note:'Each leg, glute emphasis',                            scheme:S },
-                  { name:'Hollow Body Hold',                     note:'Lower back pressed to floor',                         scheme:C } ],
-        upperA: [ { name:'Barbell Bench Press',                 note:'Primary horizontal push',                             scheme:P },
-                  { name:'Barbell Row',                          note:'Control the eccentric, flat back',                    scheme:P },
-                  { name:'Overhead Press',                       note:'Full lockout at top',                                 scheme:S },
-                  { name:'Pull-ups',                             note:'Dead hang to full contraction',                       scheme:S },
-                  { name:'Dumbbell Curl',                        note:'No swinging, supinate at top',                        scheme:S },
-                  { name:'Tricep Pushdown',                      note:'Elbows pinned to sides',                              scheme:S } ],
-        upperB: [ { name:'Incline Barbell Press',               note:'30–45° incline, elbows at 45°',                       scheme:P },
-                  { name:'Pendlay Row or Cable Row',             note:'Full hip hinge each rep',                             scheme:P },
-                  { name:'Dumbbell Shoulder Press',              note:'Neutral grip option for shoulder health',              scheme:S },
-                  { name:'Lat Pulldown',                         note:'Chest-to-bar, full stretch at top',                   scheme:S },
-                  { name:'Face Pulls',                           note:'Shoulder health, rotator cuff',                       scheme:'3 × 15–20' },
-                  { name:'Hammer Curl',                          note:'Brachialis and brachioradialis',                      scheme:S } ],
-        lowerA: [ { name:'Back Squat',                          note:'Primary compound, full depth',                        scheme:P },
-                  { name:'Romanian Deadlift',                    note:'Hip hinge, not lower back flex',                      scheme:S },
-                  { name:'Leg Press',                            note:'Full ROM, controlled descent',                        scheme:S },
-                  { name:'Walking Lunge',                        note:'Each leg, upright torso',                             scheme:S },
-                  { name:'Leg Curl',                             note:'Full ROM, eccentric control',                         scheme:S } ],
-        lowerB: [ { name:'Deadlift (Conventional or Sumo)',     note:'Primary hip hinge pattern',                           scheme:P },
-                  { name:'Bulgarian Split Squat',                note:'Each leg, rear foot elevated',                        scheme:S },
-                  { name:'Hack Squat or Leg Press',              note:'High foot position = more glute',                     scheme:S },
-                  { name:'Nordic Curl or Leg Curl',              note:'Eccentric emphasis',                                  scheme:S },
-                  { name:'Standing Calf Raise',                  note:'4-second eccentric, full stretch',                    scheme:'4 × 15–20' } ],
-        push:   [ { name:'Barbell Bench Press',                 note:'Horizontal push primary',                             scheme:P },
-                  { name:'Overhead Press',                       note:'Vertical push primary',                               scheme:P },
-                  { name:'Incline Dumbbell Press',               note:'Upper chest emphasis',                                scheme:S },
-                  { name:'Cable Lateral Raise',                  note:'Long head delts, no momentum',                       scheme:'3 × 15–20' },
-                  { name:'Tricep Overhead Extension',            note:'Long head stretch',                                   scheme:S },
-                  { name:'Cable Pushdown',                       note:'Elbows pinned, full extension',                       scheme:S } ],
-        pull:   [ { name:'Barbell Row',                         note:'Primary horizontal pull',                             scheme:P },
-                  { name:'Pull-ups (weighted if available)',     note:'Full ROM, dead hang each rep',                        scheme:P },
-                  { name:'Face Pulls',                           note:'Shoulder health, rotator cuff',                       scheme:'3 × 20–25' },
-                  { name:'Incline Dumbbell Curl',                note:'Bicep stretch under load',                            scheme:S },
-                  { name:'Hammer Curl',                          note:'Brachialis and brachioradialis',                      scheme:S } ],
-        legs:   [ { name:'Back Squat',                          note:'Primary lower body compound',                         scheme:P },
-                  { name:'Romanian Deadlift',                    note:'Hamstring and glute emphasis',                        scheme:S },
-                  { name:'Leg Press',                            note:'High volume quads and glutes',                        scheme:S },
-                  { name:'Walking Lunge',                        note:'Each leg, loaded carry optional',                     scheme:S },
-                  { name:'Leg Curl',                             note:'Full ROM, eccentric control',                         scheme:S },
-                  { name:'Standing Calf Raise',                  note:'4-second eccentric, pause at bottom',                 scheme:'4 × 15–20' } ],
-        activeRecovery: [
-                  { name:'Light Walking (20–30 min)',            note:'Zone 1, conversational pace — no HR spike',           scheme:'Easy pace' },
-                  { name:'Hip Flexor Stretch',                   note:'Hold 60 seconds each side, breathe deeply',           scheme:'2 × 60s' },
-                  { name:'Thoracic Extension',                   note:'Foam roller under mid-back, arms overhead',           scheme:'2 × 60s' },
-                  { name:'Band Pull-Apart',                      note:'Scapular retraction, shoulder health',                scheme:'2 × 20' } ],
-        prehab: [
-                  { name:'Foam Roll (Full Body)',                note:'T-spine, lats, quads, calves — 60 sec each area',     scheme:'1 × 5 min' },
-                  { name:'Band Pull-Apart',                      note:'Scapular retraction, external rotation emphasis',     scheme:'3 × 20' },
-                  { name:'Hip 90/90 Stretch',                    note:'Hold each position, breathe into the stretch',        scheme:'2 × 60s' },
-                  { name:'Dead Bug',                             note:'Slow and controlled, exhale fully each rep',           scheme:'3 × 10 each' },
-                  { name:'Glute Bridge',                         note:'Activate glutes, protect lower back',                 scheme:'3 × 15' },
-                  { name:'Light Walking (20–30 min)',            note:'Zone 1–2, keep HR below 130 bpm',                     scheme:'Easy pace' } ]
-      };
-
-      /* ── Generate split and map to fixed Mon/Tue/Thu/Fri ── */
-      var planName, planDesc, split;
-
-      if (exp === 'beginner' || exp === 'novice') {
-        if (days <= 2) {
-          planName = '2-Day Full Body'; planDesc = 'Two full-body sessions hit every major muscle group twice per week — the highest-ROI structure for your current training age.';
-          split = [ { title:'Full Body — Session A', exKey:'fullA' }, { title:'Full Body — Session B', exKey:'fullB' } ];
-        } else if (days <= 4) {
-          planName = '3-Day Full Body'; planDesc = 'Three full-body sessions per week maximizes your adaptation frequency. Each session attacks the same movement patterns from a different angle.';
-          split = [ { title:'Full Body — Session A', exKey:'fullA' }, { title:'Full Body — Session B', exKey:'fullB' }, { title:'Full Body — Session C', exKey:'fullC' } ];
-        } else {
-          planName = '4-Day Upper / Lower'; planDesc = 'Upper/Lower gives you 4 training days while allowing 48-hour recovery between each muscle group.';
-          split = [ { title:'Upper Body A', exKey:'upperA' }, { title:'Lower Body A', exKey:'lowerA' }, { title:'Upper Body B', exKey:'upperB' }, { title:'Lower Body B', exKey:'lowerB' } ];
-        }
-      } else if (exp === 'intermediate') {
-        if (days <= 3) {
-          planName = '3-Day Push / Pull / Legs'; planDesc = 'PPL is the gold standard 3-day split for intermediate athletes — maximum volume per muscle group with full recovery between sessions.';
-          split = [ { title:'Push — Chest, Shoulders, Triceps', exKey:'push' }, { title:'Pull — Back and Biceps', exKey:'pull' }, { title:'Legs — Quads, Hamstrings, Glutes', exKey:'legs' } ];
-        } else {
-          planName = '4-Day Upper / Lower'; planDesc = 'Upper/Lower 4-day gives each muscle group two high-quality sessions per week with A/B variation cycling strength and hypertrophy rep ranges.';
-          split = [ { title:'Upper Body A — Strength', exKey:'upperA' }, { title:'Lower Body A — Strength', exKey:'lowerA' }, { title:'Upper Body B — Volume', exKey:'upperB' }, { title:'Lower Body B — Volume', exKey:'lowerB' } ];
-        }
-      } else {
-        if (days <= 3) {
-          planName = '3-Day Strength Block'; planDesc = 'Three heavy sessions focused on compound movements produce maximum stimulus with full CNS recovery at your experience level.';
-          split = [ { title:'Upper Body — Strength Focus', exKey:'upperA' }, { title:'Lower Body — Strength Focus', exKey:'lowerA' }, { title:'Full Body — Power Focus', exKey:'fullC' } ];
-        } else {
-          planName = '4-Day Advanced Upper / Lower'; planDesc = 'Advanced Upper/Lower with A/B variation supports DUP (Daily Undulating Periodization) — cycling strength and hypertrophy within the same week.';
-          split = [ { title:'Upper A — Heavy Strength', exKey:'upperA' }, { title:'Lower A — Heavy Strength', exKey:'lowerA' }, { title:'Upper B — Hypertrophy Volume', exKey:'upperB' }, { title:'Lower B — Hypertrophy Volume', exKey:'lowerB' } ];
-        }
-      }
-
-      /* Map split days to Mon, Tue, Thu, Fri — fill extras with active recovery */
-      var DAY_KEYS = ['mon', 'tue', 'thu', 'fri'];
-      var weekPlan = {};
-      DAY_KEYS.forEach(function(k, i) {
-        weekPlan[k] = split[i] ? split[i] : { title:'Active Recovery', exKey:'activeRecovery' };
-      });
-      weekPlan['sat'] = { title:'Light Movement & Prehab', exKey:'prehab' };
-
-      state._weekPlan = weekPlan;
-      state._exPool   = EX;
-
-      /* ── Build calendar ─────────────────────────────────── */
-      var DAYS_CONFIG = [
-        { key:'mon', abbr:'Mon', type:'train'  },
-        { key:'tue', abbr:'Tue', type:'train'  },
-        { key:'wed', abbr:'Wed', type:'rest'   },
-        { key:'thu', abbr:'Thu', type:'train'  },
-        { key:'fri', abbr:'Fri', type:'train'  },
-        { key:'sat', abbr:'Sat', type:'prehab' },
-        { key:'sun', abbr:'Sun', type:'rest'   }
-      ];
-      var calHTML = DAYS_CONFIG.map(function(d) {
-        var isClickable = d.type !== 'rest';
-        var focus = isClickable ? (weekPlan[d.key] ? weekPlan[d.key].title.split('—')[0].trim() : 'Rest') : 'Rest';
-        var cls = 'apn-day-cell ' + d.type;
-        var click = isClickable ? ' onclick="APNQuiz.selectDay(\'' + d.key + '\')"' : '';
-        return '<div class="' + cls + '" id="apn-day-' + d.key + '"' + click + '>' +
-          '<span class="apn-day-abbr">' + d.abbr + '</span>' +
-          '<span class="apn-day-focus">' + (isClickable ? focus : 'Rest') + '</span>' +
-        '</div>';
-      }).join('');
-
-      var tags = [rpeNote, restNote, 'Deload Week 4', 'RAMP Warmup', exp.charAt(0).toUpperCase() + exp.slice(1)];
-      var tagHTML = tags.map(function(t) { return '<span class="apn-plan-tag">' + t + '</span>'; }).join('');
-
-      var deloadText = stressScore <= 2
-        ? 'Your stress score suggests a deload every 3rd week — reduce volume 40% while maintaining intensity.'
-        : 'Deload every 4th week: cut volume 40–60%, maintain intensity, and let supercompensation peak.';
-      var recoveryText = recScore <= 1
-        ? 'Your recovery is a limiting factor. Prioritize 0.3g/kg protein post-training (Resilience) + 5g creatine (Recharge). No CWI immediately post-session.'
-        : 'Maintain 48-hour recovery between sessions targeting the same muscle groups. Saturday prehab is non-negotiable at your volume.';
-
-      wrap.innerHTML =
-        '<h3>&#128170; Your Custom Training Plan</h3>' +
-        '<div class="apn-plan-headline">' + planName + '</div>' +
-        '<div class="apn-plan-tags">' + tagHTML + '</div>' +
-        '<div class="apn-plan-sub">' + planDesc + '</div>' +
-        '<div class="apn-week-strip">' + calHTML + '</div>' +
-        '<div id="apn-day-workout"></div>' +
-        '<div class="apn-plan-notes">' +
-          '<div class="apn-plan-note"><span class="apn-pn-icon">&#128293;</span><div class="apn-pn-text"><strong>RAMP Warm-Up (Every Session)</strong>Raise: 3 min light cardio. Activate: glutes, core, scapulae. Mobilize: dynamic stretching. Potentiate: ramp to working weight across 3 sets.</div></div>' +
-          '<div class="apn-plan-note"><span class="apn-pn-icon">&#128197;</span><div class="apn-pn-text"><strong>Deload Protocol</strong>' + deloadText + '</div></div>' +
-          '<div class="apn-plan-note"><span class="apn-pn-icon">&#9889;</span><div class="apn-pn-text"><strong>Progressive Overload</strong>Add load only when all reps are completed cleanly. Track every session. Overload via: less rest, more sets, or harder variation.</div></div>' +
-          '<div class="apn-plan-note"><span class="apn-pn-icon">&#128300;</span><div class="apn-pn-text"><strong>Recovery Protocol</strong>' + recoveryText + '</div></div>' +
-        '</div>';
-
-      // Show Monday by default (use setTimeout so DOM is ready)
-      var self = this;
-      setTimeout(function() { self.selectDay('mon'); }, 50);
-
-      wrap.style.cssText = wrap.style.cssText.replace('display:none !important;', 'display:block !important;');
-    },
-
-    selectDay: function(dayKey) {
-      /* Update selected state */
-      var allCells = document.querySelectorAll('#apn-quiz-section .apn-day-cell');
-      allCells.forEach(function(el) { el.classList.remove('sel'); });
-      var dayEl = document.getElementById('apn-day-' + dayKey);
-      if (dayEl) dayEl.classList.add('sel');
-
-      var container = document.getElementById('apn-day-workout');
-      if (!container) return;
-
-      var plan = state._weekPlan && state._weekPlan[dayKey];
-      var EX   = state._exPool;
-      if (!plan || !EX || !EX[plan.exKey]) {
-        container.innerHTML = '';
-        return;
-      }
-
-      var exercises = EX[plan.exKey];
-      var exHTML = exercises.map(function(ex) {
-        return '<div class="apn-ex-row">' +
-          '<div class="apn-ex-info">' +
-            '<span class="apn-ex-name">' + ex.name + '</span>' +
-            (ex.note ? '<span class="apn-ex-note">' + ex.note + '</span>' : '') +
-          '</div>' +
-          '<span class="apn-ex-sets">' + ex.scheme + '</span>' +
-        '</div>';
-      }).join('');
-
-      var dayAbbr = { mon:'Monday', tue:'Tuesday', thu:'Thursday', fri:'Friday', sat:'Saturday' };
-      container.innerHTML =
-        '<div class="apn-wd-card" style="margin-top:16px;">' +
-          '<div class="apn-wd-header">' +
-            '<span class="apn-wd-label">' + (dayAbbr[dayKey] || dayKey) + '</span>' +
-            '<span class="apn-wd-title">' + plan.title + '</span>' +
-          '</div>' +
-          '<div class="apn-ex-list">' + exHTML + '</div>' +
-        '</div>';
-
-      /* Re-trigger fade animation */
-      container.style.animation = 'none';
-      container.offsetHeight; /* reflow */
-      container.style.animation = 'apnFadeUp 0.3s ease both';
     },
 
     addOne: function(btn, handle) {
       btn.textContent = 'Adding...';
       btn.style.pointerEvents = 'none';
+
       fetch('/products/' + handle + '.js')
-        .then(function(r) { return r.json(); })
-        .then(function(product) {
+        .then(function(r){ return r.json(); })
+        .then(function(product){
           var variantId = product.variants[0].id;
           return fetch('/cart/add.js', {
             method: 'POST',
@@ -2401,8 +1622,14 @@
             body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
           });
         })
-        .then(function() { btn.textContent = '✓ Added'; btn.classList.add('added'); })
-        .catch(function() { btn.textContent = '✓ Added'; btn.classList.add('added'); });
+        .then(function(){
+          btn.textContent = '✓ Added';
+          btn.classList.add('added');
+        })
+        .catch(function(){
+          btn.textContent = '✓ Added';
+          btn.classList.add('added');
+        });
     },
 
     addAllToCart: function() {
@@ -2410,122 +1637,273 @@
       btn.textContent = 'Adding...';
       btn.style.pointerEvents = 'none';
       var handles = state._recHandles || [];
-      if (!handles.length) return;
+      if (handles.length === 0) return;
+
       var promises = handles.map(function(h) {
-        return fetch('/products/' + h + '.js').then(function(r) { return r.json(); }).then(function(p) { return p.variants[0].id; }).catch(function() { return null; });
+        return fetch('/products/' + h + '.js')
+          .then(function(r) { return r.json(); })
+          .then(function(p) { return p.variants[0].id; })
+          .catch(function() { return null; });
       });
+
       Promise.all(promises).then(function(ids) {
         var items = ids.filter(Boolean).map(function(id) { return { id: id, quantity: 1 }; });
-        if (!items.length) { btn.textContent = 'Added ✓'; return; }
-        return fetch('/cart/add.js', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ items:items }) });
-      }).then(function() {
+        if (items.length === 0) { btn.textContent = 'Added ✓'; return; }
+        return fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: items })
+        });
+      })
+      .then(function() {
         btn.textContent = '✓ Stack Added to Cart!';
         btn.style.background = '#27ae60';
-        document.querySelectorAll('#apn-quiz-section .apn-rec-btn').forEach(function(b) { b.textContent = '✓ Added'; b.classList.add('added'); });
-      }).catch(function() { btn.textContent = '✓ Stack Added!'; btn.style.background = '#27ae60'; });
-    },
-
-    _fireKlaviyo: function(email) {
-      var klaviyoKey  = '{{ section.settings.klaviyo_public_key }}';
-      var klaviyoList = '{{ section.settings.klaviyo_list_id }}';
-      if (!klaviyoKey || !klaviyoList) return;
-      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + klaviyoKey, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'revision': '2024-02-15' },
-        body: JSON.stringify({
-          data: {
-            type: 'subscription',
-            attributes: {
-              profile: {
-                data: {
-                  type: 'profile',
-                  attributes: {
-                    email: email,
-                    properties: {
-                      apn_quiz_score: state._score,
-                      apn_quiz_tier:  state._tier,
-                      apn_top_gaps:   (state._worstKeys || []).join(', ')
-                    }
-                  }
-                }
-              },
-              list: { data: { type: 'list', id: klaviyoList } }
-            }
-          }
-        })
-      }).catch(function() {});
-      fetch('https://a.klaviyo.com/client/events/?company_id=' + klaviyoKey, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'revision': '2024-02-15' },
-        body: JSON.stringify({
-          data: {
-            type: 'event',
-            attributes: {
-              metric:     { data: { type: 'metric', attributes: { name: 'APN Quiz Completed' } } },
-              profile:    { data: { type: 'profile', attributes: { email: email } } },
-              properties: { score: state._score, tier: state._tier, top_gaps: (state._worstKeys || []).join(', ') }
-            }
-          }
-        })
-      }).catch(function() {});
+        btn.style.borderColor = '#27ae60';
+        document.querySelectorAll('#apn-quiz-section .apn-rec-btn').forEach(function(b) {
+          b.textContent = '✓ Added';
+          b.classList.add('added');
+        });
+      })
+      .catch(function() {
+        btn.textContent = '✓ Stack Added!';
+        btn.style.background = '#27ae60';
+      });
     },
 
     submitEmail: function() {
       var email = document.getElementById('apn-email-input').value.trim();
       var errEl = document.getElementById('apn-email-error');
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.style.display = 'block'; return; }
-      errEl.style.display = 'none';
-      this._fireKlaviyo(email);
-      this._showSuccess();
-    },
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errEl.style.cssText = 'display:block !important;color:#e74c3c !important;font-size:12px !important;text-align:left !important;';
+        return;
+      }
+      errEl.style.cssText = 'display:none !important;';
 
-    _showSuccess: function() {
-      document.getElementById('apn-email-form-wrap').style.cssText += 'display:none !important;';
-      document.getElementById('apn-success').classList.add('visible');
+      var raw = state.scores.reduce(function(a,b){ return a+b; }, 0);
+      var score = Math.max(1, Math.min(100, round((raw / MAX_SCORE) * 100)));
+      var tier = getTier(score);
+
+      /* ── CATEGORY-LEVEL ANALYTICS ────────────────────────── */
+      var catPcts = {};
+      var catTiers = {};
+      var catRanked = [];
+
+      CATEGORIES.forEach(function(cat, i) {
+        var pct = round((state.scores[i] / cat.max) * 100);
+        catPcts[cat.key] = pct;
+
+        var label;
+        if (pct <= 25) label = 'critical';
+        else if (pct <= 50) label = 'needs_work';
+        else if (pct <= 75) label = 'solid';
+        else label = 'elite';
+        catTiers[cat.key] = label;
+
+        catRanked.push({ key: cat.key, pct: pct, label: label, raw: state.scores[i], max: cat.max });
+      });
+
+      catRanked.sort(function(a, b) { return a.pct - b.pct; });
+
+      var gap1 = catRanked[0] ? catRanked[0].key : '';
+      var gap2 = catRanked[1] ? catRanked[1].key : '';
+      var gap3 = catRanked[2] ? catRanked[2].key : '';
+
+      var catBest = catRanked.slice().sort(function(a, b) { return b.pct - a.pct; });
+      var strength1 = catBest[0] ? catBest[0].key : '';
+      var strength2 = catBest[1] ? catBest[1].key : '';
+
+      var scoreBand;
+      if (score < 30) scoreBand = 'low';
+      else if (score < 50) scoreBand = 'mid_low';
+      else if (score < 70) scoreBand = 'mid';
+      else if (score < 85) scoreBand = 'mid_high';
+      else scoreBand = 'high';
+
+      var criticalCount = catRanked.filter(function(c) { return c.label === 'critical'; }).length;
+      var eliteCount = catRanked.filter(function(c) { return c.label === 'elite'; }).length;
+
+      var archetypeMap = {
+        sleep: 'Under-Recovered',
+        recovery: 'Overtrained',
+        hydration: 'Dehydrated Performer',
+        nutrition: 'Under-Fueled',
+        frequency: 'Inconsistent',
+        intensity: 'Under-Stimulated',
+        supps: 'Unsupplemented',
+        focus: 'Scattered',
+        stress: 'Cortisol-Driven',
+        consistency: 'Early Stage'
+      };
+      var archetype = tier.name + ' — ' + (archetypeMap[gap1] || 'General');
+
+      var klaviyoKey = '{{ section.settings.klaviyo_public_key }}';
+      var listId = '{{ section.settings.klaviyo_list_id }}';
+
+      var properties = {
+        performance_score: score,
+        performance_tier: tier.name,
+        score_band: scoreBand,
+        profile_archetype: archetype,
+        critical_gap_count: criticalCount,
+        elite_area_count: eliteCount,
+
+        quiz_sleep: state.scores[0],
+        quiz_recovery: state.scores[1],
+        quiz_hydration: state.scores[2],
+        quiz_nutrition: state.scores[3],
+        quiz_frequency: state.scores[4],
+        quiz_intensity: state.scores[5],
+        quiz_supps: state.scores[6],
+        quiz_focus: state.scores[7],
+        quiz_stress: state.scores[8],
+        quiz_consistency: state.scores[9],
+
+        pct_sleep: catPcts.sleep,
+        pct_recovery: catPcts.recovery,
+        pct_hydration: catPcts.hydration,
+        pct_nutrition: catPcts.nutrition,
+        pct_frequency: catPcts.frequency,
+        pct_intensity: catPcts.intensity,
+        pct_supps: catPcts.supps,
+        pct_focus: catPcts.focus,
+        pct_stress: catPcts.stress,
+        pct_consistency: catPcts.consistency,
+
+        tier_sleep: catTiers.sleep,
+        tier_recovery: catTiers.recovery,
+        tier_hydration: catTiers.hydration,
+        tier_nutrition: catTiers.nutrition,
+        tier_frequency: catTiers.frequency,
+        tier_intensity: catTiers.intensity,
+        tier_supps: catTiers.supps,
+        tier_focus: catTiers.focus,
+        tier_stress: catTiers.stress,
+        tier_consistency: catTiers.consistency,
+
+        gap_1: gap1,
+        gap_2: gap2,
+        gap_3: gap3,
+        strength_1: strength1,
+        strength_2: strength2,
+
+        top_gaps: [gap1, gap2, gap3].join(', '),
+        recommended_products: (state._recHandles || []).join(', '),
+        source: 'Performance Quiz - Ascend',
+        quiz_completed_at: new Date().toISOString()
+      };
+
+      if (klaviyoKey && listId) {
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + klaviyoKey, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2023-12-15' },
+          body: JSON.stringify({
+            data: {
+              type: 'subscription',
+              attributes: {
+                profile: { data: { type: 'profile', attributes: { email: email, properties: properties } } }
+              },
+              relationships: { list: { data: { type: 'list', id: listId } } }
+            }
+          })
+        }).catch(function(err) { console.warn('Klaviyo subscribe error:', err); });
+
+        fetch('https://a.klaviyo.com/client/events/?company_id=' + klaviyoKey, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2023-12-15' },
+          body: JSON.stringify({
+            data: {
+              type: 'event',
+              attributes: {
+                metric: { data: { type: 'metric', attributes: { name: 'Performance Quiz Completed' } } },
+                profile: { data: { type: 'profile', attributes: { email: email } } },
+                properties: {
+                  score: score,
+                  tier: tier.name,
+                  score_band: scoreBand,
+                  archetype: archetype,
+                  gap_1: gap1,
+                  gap_1_pct: catPcts[gap1],
+                  gap_2: gap2,
+                  gap_2_pct: catPcts[gap2],
+                  gap_3: gap3,
+                  gap_3_pct: catPcts[gap3],
+                  strength_1: strength1,
+                  strength_1_pct: catPcts[strength1],
+                  critical_count: criticalCount,
+                  elite_count: eliteCount,
+                  recommended_products: (state._recHandles || []).join(', '),
+                  pct_sleep: catPcts.sleep,
+                  pct_recovery: catPcts.recovery,
+                  pct_hydration: catPcts.hydration,
+                  pct_nutrition: catPcts.nutrition,
+                  pct_frequency: catPcts.frequency,
+                  pct_intensity: catPcts.intensity,
+                  pct_supps: catPcts.supps,
+                  pct_focus: catPcts.focus,
+                  pct_stress: catPcts.stress,
+                  pct_consistency: catPcts.consistency
+                }
+              }
+            }
+          })
+        }).catch(function(err) { console.warn('Klaviyo event error:', err); });
+      }
+
+      // Go to page 12 (Results) after email submit
+      this.showStep(12);
+      this.showResults(true);
     },
 
     copyCode: function() {
-      var code = document.getElementById('apn-discount-code').textContent;
-      if (navigator.clipboard) { navigator.clipboard.writeText(code); }
-      var copyMsg = document.querySelector('#apn-quiz-section .apn-discount-copy');
-      if (copyMsg) copyMsg.textContent = 'Copied! ✓';
+      var code = document.getElementById('apn-discount-code').textContent.trim();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(function() {
+          document.getElementById('apn-discount-copy-msg').textContent = '✓ Copied to clipboard!';
+          setTimeout(function() { document.getElementById('apn-discount-copy-msg').textContent = 'Click to copy · Valid for 48 hours'; }, 2500);
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        document.getElementById('apn-discount-copy-msg').textContent = '✓ Copied to clipboard!';
+        setTimeout(function() { document.getElementById('apn-discount-copy-msg').textContent = 'Click to copy · Valid for 48 hours'; }, 2500);
+      }
     }
-
   };
 
 })();
 </script>
 
-{% schema %}
 {
-  "name": "APN Performance Quiz",
-  "tag": "section",
-  "class": "apn-quiz-wrapper",
+  "name": "Performance Quiz",
   "settings": [
     {
       "type": "text",
       "id": "klaviyo_public_key",
       "label": "Klaviyo Public API Key",
-      "info": "Found in Klaviyo → Account → Settings → API Keys"
+      "info": "Found in Klaviyo → Settings → API Keys → Public API Key"
     },
     {
       "type": "text",
       "id": "klaviyo_list_id",
       "label": "Klaviyo List ID",
-      "info": "The ID of the Klaviyo list to subscribe quiz leads to"
+      "info": "Found in Klaviyo → Lists & Segments → click your list → Settings"
     },
     {
       "type": "text",
       "id": "discount_code",
       "label": "Discount Code",
       "default": "ASCEND15",
-      "info": "Discount code displayed after email opt-in"
+      "info": "Discount code revealed after email submission. Create this code in Shopify → Discounts first."
     }
   ],
   "presets": [
     {
-      "name": "APN Performance Quiz"
+      "name": "Performance Quiz",
+      "category": "Custom"
     }
   ]
 }
-{% endschema %}
