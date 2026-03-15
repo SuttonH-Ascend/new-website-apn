@@ -1,35 +1,31 @@
 <nav id="main-nav" class="apn-nav" role="navigation" aria-label="Main navigation">
-  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
 
     <!-- Logo -->
     <a href="{{ routes.root_url }}" aria-label="{{ shop.name }} home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
       {%- if section.settings.logo != blank -%}
-        <img src="{{ section.settings.logo | image_url: height: 80 }}" alt="{{ shop.name }}" style="height:40px;width:auto;" />
+        <img src="{{ section.settings.logo | image_url: height: 96 }}" alt="{{ shop.name }}" style="height:48px;width:auto;" />
       {%- else -%}
-        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="{{ shop.name }}" style="height:40px;width:auto;" />
+        <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="{{ shop.name }}" style="height:48px;width:auto;" />
       {%- endif -%}
-      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
-        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
-        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      <div style="display:flex;flex-direction:column;line-height:1;gap:2px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
       </div>
     </a>
 
     <!-- Desktop nav links -->
-    <div class="apn-desktop-only" style="display:flex;align-items:center;gap:2rem;">
-      {%- for link in linklists[section.settings.menu].links -%}
-        <a href="{{ link.url }}" class="apn-nav-link{% if link.active %} active{% endif %}">{{ link.title }}</a>
-      {%- else -%}
-        <a href="{{ routes.root_url }}" class="apn-nav-link">Home</a>
-        <a href="{{ routes.collections_url }}/all" class="apn-nav-link">Shop</a>
-        <a href="/pages/about" class="apn-nav-link">About</a>
-        <a href="/pages/quiz" class="apn-nav-link">Quiz</a>
-      {%- endfor -%}
+    <div class="apn-desktop-only" style="display:flex;align-items:center;gap:2.5rem;flex:1;justify-content:center;">
+      <a href="{{ routes.collections_url }}/all" class="apn-nav-link">Shop Now</a>
+      <a href="/pages/framework" class="apn-nav-link">Ascend Framework</a>
+      <a href="/pages/about" class="apn-nav-link">About Us</a>
+      <a href="/blogs/news" class="apn-nav-link">Resources</a>
     </div>
 
     <!-- Desktop right actions -->
     <div class="apn-desktop-only" style="display:flex;align-items:center;gap:1rem;flex-shrink:0;">
       <!-- Cart button -->
-      <button onclick="APN.openCart()" aria-label="Open cart" style="position:relative;background:none;border:none;cursor:pointer;padding:0.375rem;color:rgba(255,255,255,0.8);line-height:1;transition:color 0.18s ease;">
+      <button onclick="APN.openCart()" aria-label="Open cart" style="position:relative;background:none;border:none;cursor:pointer;padding:0.375rem;color:rgba(255,255,255,0.8);line-height:1;transition:color 0.18s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -56,16 +52,16 @@
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
 
-  {%- for link in linklists[section.settings.menu].links -%}
-    <a href="{{ link.url }}" class="apn-mobile-link" onclick="APN.closeMenu()">{{ link.title }}</a>
-  {%- else -%}
-    <a href="{{ routes.root_url }}" class="apn-mobile-link" onclick="APN.closeMenu()">Home</a>
-    <a href="{{ routes.collections_url }}/all" class="apn-mobile-link" onclick="APN.closeMenu()">Shop</a>
-    <a href="/pages/about" class="apn-mobile-link" onclick="APN.closeMenu()">About</a>
-    <a href="/pages/quiz" class="apn-mobile-link" onclick="APN.closeMenu()">Quiz</a>
-  {%- endfor -%}
+  <a href="{{ routes.collections_url }}/all" class="apn-mobile-link" onclick="APN.closeMenu()">Shop Now</a>
+  <a href="/pages/framework" class="apn-mobile-link" onclick="APN.closeMenu()">Ascend Framework</a>
+  <a href="/pages/about" class="apn-mobile-link" onclick="APN.closeMenu()">About Us</a>
+  <a href="/blogs/news" class="apn-mobile-link" onclick="APN.closeMenu()">Resources</a>
 
-  <div style="margin-top:1.5rem;">
+  <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
+    <button onclick="APN.openCart();APN.closeMenu();" class="apn-btn apn-btn-outline-light" style="width:100%;justify-content:center;gap:0.5rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      View Cart
+    </button>
     <a href="/pages/quiz" class="apn-btn apn-btn-primary" style="width:100%;justify-content:center;" onclick="APN.closeMenu()">Take the Quiz</a>
   </div>
 </div>

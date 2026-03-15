@@ -29,10 +29,10 @@
       <div style="position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0.5;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27300%27 height=%27300%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.72%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix type=%27saturate%27 values=%270%27/%3E%3C/filter%3E%3Crect width=%27300%27 height=%27300%27 filter=%27url(%23n)%27 opacity=%270.08%27/%3E%3C/svg%3E');" aria-hidden="true"></div>
 
       <!-- 3-col layout -->
-      <div style="position:absolute;inset:0;z-index:3;display:grid;grid-template-columns:280px 1fr 280px;height:100%;padding:0 3rem;">
+      <div id="pillars-grid" style="position:absolute;inset:0;z-index:3;display:grid;grid-template-columns:280px 1fr 280px;height:100%;padding:0 3rem;">
 
         <!-- LEFT column: all 4 core values, one highlighted per slide -->
-        <div style="display:flex;flex-direction:column;justify-content:center;gap:2.25rem;padding-top:64px;">
+        <div id="pillars-left" style="display:flex;flex-direction:column;justify-content:center;gap:2.25rem;padding-top:64px;">
           <div class="p-left-item" data-idx="0">
             <div class="p-item-label">Core Value 01</div>
             <div class="p-item-title">GROUNDED<br/>IN PURPOSE</div>
@@ -52,7 +52,7 @@
         </div>
 
         <!-- CENTER: large word + teal bar + bottom CTA -->
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding-top:64px;">
+        <div id="pillars-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding-top:64px;">
           <div style="position:relative;text-align:center;height:clamp(5rem,12vw,10rem);">
             <span class="p-center-word" data-idx="0" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(0);opacity:1;">FAITH</span>
             <span class="p-center-word" data-idx="1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:translateY(110%);opacity:0;">FAMILY</span>
@@ -80,7 +80,7 @@
         </div>
 
         <!-- RIGHT column: all 4 right values, one highlighted per slide -->
-        <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:2.25rem;padding-top:64px;text-align:right;">
+        <div id="pillars-right" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:2.25rem;padding-top:64px;text-align:right;">
           <div class="p-right-item" data-idx="0">
             <div class="p-item-label">Philippians 4:13</div>
             <div class="p-item-title">I CAN DO<br/>ALL THINGS</div>
@@ -323,6 +323,9 @@
 <!-- ═══════════════════════════════════════════
      FAITH & PERFORMANCE STACK
 ═══════════════════════════════════════════ -->
+{%- assign _resilience    = all_products['resilience'] -%}
+{%- assign _replenish_plus = all_products['replenish-plus'] -%}
+{%- assign _fortify       = all_products['fortify'] -%}
 <section id="stack" style="padding:6rem 0;background:#fff;" aria-label="The Faith and Performance Stack">
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
 
@@ -342,7 +345,7 @@
       <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
         <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
-          <img src="{{ 'product1.png' | asset_url }}" alt="Resilience Whey Protein Isolate" style="height:220px;width:auto;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 24px rgba(6,165,197,0.2));" />
+          <img src="{{ 'resilience-one.png' | asset_url }}" alt="Resilience Whey Protein Isolate" style="height:220px;width:auto;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 24px rgba(6,165,197,0.2));" />
           <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 1: Rebuild</div>
         </div>
         <div style="padding:1.5rem;">
@@ -353,7 +356,7 @@
             <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$59.99</span>
             <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
           </div>
-          <button class="btn-add-cart" style="border-radius:6px;" aria-label="Add Resilience to cart">
+          <button class="btn-add-cart btn-add-cart-teal" onclick="APN.addToCart({{ _resilience.variants.first.id | default: 0 }},1,this)" aria-label="Add Resilience to cart">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             Add to Cart
           </button>
@@ -375,7 +378,7 @@
             <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$44.99</span>
             <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
           </div>
-          <button class="btn-add-cart" style="border-radius:6px;" aria-label="Add Replenish Plus to cart">
+          <button class="btn-add-cart btn-add-cart-teal" onclick="APN.addToCart({{ _replenish_plus.variants.first.id | default: 0 }},1,this)" aria-label="Add Replenish Plus to cart">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             Add to Cart
           </button>
@@ -386,7 +389,7 @@
       <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
         <div style="background:linear-gradient(135deg,#e8f5f9,#d0eef7);height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(6,165,197,0.12),transparent 60%);"></div>
-          <img src="https://placehold.co/300x300/d0eef7/048FAB?text=Fortify" alt="Fortify Colostrum" style="height:200px;width:auto;object-fit:contain;position:relative;z-index:1;" />
+          <img src="{{ 'fortify-one.png' | asset_url }}" alt="Fortify Colostrum" style="height:220px;width:auto;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 8px 24px rgba(6,165,197,0.2));" />
           <div style="position:absolute;top:1rem;left:1rem;background:#0D0D0D;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.6rem;border-radius:3px;">Step 3: Fortify</div>
         </div>
         <div style="padding:1.5rem;">
@@ -397,7 +400,7 @@
             <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#0D0D0D;">$39.99</span>
             <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
           </div>
-          <button class="btn-add-cart" style="border-radius:6px;" aria-label="Add Fortify to cart">
+          <button class="btn-add-cart btn-add-cart-teal" onclick="APN.addToCart({{ _fortify.variants.first.id | default: 0 }},1,this)" aria-label="Add Fortify to cart">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             Add to Cart
           </button>
