@@ -1065,8 +1065,11 @@
     }
     .p-right-item:not(.active) { display: none !important; }
 
-    /* Match track height to stage so no dead scroll space below banner */
-    #pillars-track { height: min(100vw, 85svh) !important; }
+    /* Slightly taller image + track matches stage */
+    #pillars-stage { height: min(115vw, 88svh) !important; }
+    #pillars-track { height: min(115vw, 88svh) !important; }
+    /* Less padding on Faith-Driven Performance section */
+    #mission { padding-top: 2rem !important; }
   }
   @media (max-width: 600px) {
     #footer-grid { grid-template-columns: 1fr !important; }
