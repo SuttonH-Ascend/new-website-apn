@@ -122,12 +122,34 @@
           </div>
         {%- endif -%}
 
+        <!-- Loop Subscriptions: one-time vs subscribe toggle -->
+        {%- if product.selling_plan_groups.size > 0 -%}
+        <div style="margin-bottom:1.5rem;">
+          <div style="display:flex;gap:0.5rem;margin-bottom:0.875rem;">
+            <button type="button" id="apn-onetime-btn" onclick="APNSetPurchaseType('onetime')" style="flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.625rem;border-radius:5px;border:1.5px solid #F8FAFB;background:#F8FAFB;color:#0D0D0D;cursor:pointer;transition:all 0.18s ease;">One-Time Purchase</button>
+            <button type="button" id="apn-sub-btn" onclick="APNSetPurchaseType('subscribe')" style="flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.625rem;border-radius:5px;border:1.5px solid rgba(255,255,255,0.15);background:#1a1a1a;color:rgba(248,250,251,0.55);cursor:pointer;transition:all 0.18s ease;">Subscribe &amp; Save</button>
+          </div>
+          <div id="apn-selling-plans-wrap" style="display:none;background:#131313;border:1px solid rgba(6,165,197,0.25);border-radius:6px;padding:1rem;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.625rem;">Delivery Frequency</div>
+            <select id="apn-selling-plan-select" onchange="document.getElementById('apn-selling-plan').value=this.value" style="width:100%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.12);border-radius:5px;color:#F8FAFB;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;padding:0.5rem 0.75rem;outline:none;cursor:pointer;">
+              {%- for group in product.selling_plan_groups -%}
+                {%- for plan in group.selling_plans -%}
+                  <option value="{{ plan.id }}">{{ plan.name }}</option>
+                {%- endfor -%}
+              {%- endfor -%}
+            </select>
+            <div style="font-size:0.8125rem;color:rgba(248,250,251,0.4);margin-top:0.625rem;line-height:1.5;">Cancel or skip anytime. Free to manage online.</div>
+          </div>
+        </div>
+        {%- endif -%}
+
         <!-- Add to cart -->
         <div style="display:flex;flex-direction:column;gap:0.75rem;">
-          <input type="hidden" id="apn-variant-id" value="{{ first_variant.id }}" />
+          <input type="hidden" id="apn-variant-id" name="id" value="{{ first_variant.id }}" />
+          <input type="hidden" id="apn-selling-plan" name="selling_plan" value="" />
           <button
             id="apn-add-to-cart"
-            onclick="APN.addToCart(document.getElementById('apn-variant-id').value, 1, this)"
+            onclick="APNAddToCartWithPlan(document.getElementById('apn-variant-id').value, 1, this)"
             class="apn-btn apn-btn-primary"
             style="width:100%;justify-content:center;font-size:1rem;padding:1.125rem;"
             {%- unless first_variant.available -%}disabled style="opacity:0.5;cursor:not-allowed;"{%- endunless -%}
@@ -199,5 +221,45 @@
         }
       }
     };
+    function APNSetPurchaseType(type) {
+      var wrap = document.getElementById('apn-selling-plans-wrap');
+      var planInput = document.getElementById('apn-selling-plan');
+      var onetimeBtn = document.getElementById('apn-onetime-btn');
+      var subBtn = document.getElementById('apn-sub-btn');
+      var sel = document.getElementById('apn-selling-plan-select');
+      if (type === 'subscribe') {
+        if (wrap) wrap.style.display = 'block';
+        if (planInput && sel) planInput.value = sel.value;
+        if (subBtn) { subBtn.style.background='#F8FAFB'; subBtn.style.color='#0D0D0D'; subBtn.style.borderColor='#F8FAFB'; }
+        if (onetimeBtn) { onetimeBtn.style.background='#1a1a1a'; onetimeBtn.style.color='rgba(248,250,251,0.55)'; onetimeBtn.style.borderColor='rgba(255,255,255,0.15)'; }
+      } else {
+        if (wrap) wrap.style.display = 'none';
+        if (planInput) planInput.value = '';
+        if (onetimeBtn) { onetimeBtn.style.background='#F8FAFB'; onetimeBtn.style.color='#0D0D0D'; onetimeBtn.style.borderColor='#F8FAFB'; }
+        if (subBtn) { subBtn.style.background='#1a1a1a'; subBtn.style.color='rgba(248,250,251,0.55)'; subBtn.style.borderColor='rgba(255,255,255,0.15)'; }
+      }
+    }
+    function APNAddToCartWithPlan(variantId, qty, btn) {
+      var planInput = document.getElementById('apn-selling-plan');
+      var planId = planInput ? planInput.value : '';
+      if (planId) {
+        var orig = btn.innerHTML;
+        btn.textContent = 'Adding...';
+        btn.disabled = true;
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({items:[{id:parseInt(variantId),quantity:qty,selling_plan:parseInt(planId)}]})
+        })
+        .then(function(r){return r.json();})
+        .then(function(){
+          btn.textContent = 'Added to Cart!';
+          setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;},1500);
+        })
+        .catch(function(){btn.innerHTML=orig;btn.disabled=false;});
+      } else {
+        APN.addToCart(variantId, qty, btn);
+      }
+    }
   </script>
 </section>
