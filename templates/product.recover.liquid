@@ -54,8 +54,8 @@
 
 <!-- PRODUCT HERO -->
 <section style="max-width:1200px;margin:0 auto;padding:1.5rem 1.5rem 5rem;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
-    <div style="position:sticky;top:84px;">
+  <div class="product-hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+    <div class="product-sticky-img" style="position:sticky;top:84px;">
       <div id="product-image-data"
         data-main="{{ product.featured_image | image_url: width: 800 }}"
         data-img0="{{ product.images[0] | image_url: width: 800 }}"
@@ -64,7 +64,7 @@
       <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
         <img id="main-img" src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" style="width:90%;height:90%;object-fit:contain;" onerror="this.src='https://placehold.co/600x600/0a1a22/06A5C5?text={{ product.title | url_encode }}'">
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:1rem;">
+      <div class="thumb-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-top:1rem;">
         <div class="thumb active" onclick="setImg(this,document.getElementById('product-image-data').dataset.img0)">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ product.images[0] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
@@ -114,7 +114,7 @@
         <div class="benefit-item"><div class="benefit-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#06A5C5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><span style="font-weight:600;color:#F8FAFB;">1,000mg Sodium as Sea Salt</span><span style="color:#6b7280;font-size:0.875rem;">: high-dose sodium to replace sweat losses during hard training sessions</span></div></div>
         <div class="benefit-item"><div class="benefit-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#06A5C5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><span style="font-weight:600;color:#F8FAFB;">Stevia-Sweetened</span><span style="color:#6b7280;font-size:0.875rem;">: no sugar, no artificial sweeteners, no artificial dyes or synthetic additives</span></div></div>
       </div>
-      <button class="btn-cta" id="add-to-cart-btn" onclick="addToCart()">Add to Cart: $39.99</button>
+      <button class="btn-cta btn-atc-main" id="add-to-cart-btn" onclick="addToCart()">Add to Cart: $39.99</button>
       <p style="text-align:center;font-size:0.8rem;color:#6b7280;margin-top:0.75rem;">Free shipping on orders over $50</p>
       <button onclick="document.getElementById('sf-modal').style.display='flex'" style="display:block;width:100%;margin-top:1rem;background:transparent;border:1px solid rgba(255,255,255,0.12);color:#9ca3af;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.65rem 1rem;border-radius:8px;cursor:pointer;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='rgba(6,165,197,0.4)';this.style.color='#06A5C5'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='#9ca3af'">View Supplement Facts</button>
 
@@ -306,3 +306,4 @@
     }).then(() => { window.location = '/cart'; });
   }
 </script>
+{% render 'product-mobile' %}
