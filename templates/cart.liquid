@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | Ascend Performance Nutrition</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', system-ui, sans-serif;
+      background: #0D0D0D;
+      color: #f0ede8;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .footer-bg { background: #080808; border-top: 1px solid rgba(255,255,255,0.07); }
+    .footer-link { font-size: 0.875rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.18s ease; }
+    .footer-link:hover { color: #06A5C5; }
+
+    /* Cart page layout */
+    .cart-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 7rem 1.5rem 5rem;
+    }
+
+    .cart-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #f0ede8;
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-subheading {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 3rem;
+    }
+
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .cart-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Cart items table */
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cart-table thead tr {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cart-table thead th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      padding: 0 0 1rem 0;
+      text-align: left;
+    }
+
+    .cart-table thead th:last-child { text-align: right; }
+    .cart-table thead th.th-qty { text-align: center; }
+
+    .cart-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cart-table tbody td {
+      padding: 1.5rem 0;
+      vertical-align: middle;
+    }
+
+    .cart-table tbody td:last-child { text-align: right; }
+    .cart-table tbody td.td-qty { text-align: center; }
+
+    /* Product cell */
+    .cart-product-cell {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .cart-product-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+
+    .cart-product-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: #f0ede8;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.25rem;
+      transition: color 0.18s ease;
+    }
+    .cart-product-name:hover { color: #06A5C5; }
+
+    .cart-product-variant {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* Price cells */
+    .cart-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .cart-line-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.0625rem;
+      letter-spacing: 0.03em;
+      color: #f0ede8;
+    }
+
+    /* Quantity controls */
+    .qty-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      background: rgba(255,255,255,0.04);
+      border: none;
+      color: rgba(255,255,255,0.7);
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      font-size: 1.125rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .qty-btn:hover { background: rgba(6,165,197,0.15); color: #06A5C5; }
+    .qty-btn:active { background: rgba(6,165,197,0.25); }
+    .qty-btn:focus-visible { outline: 2px solid #06A5C5; outline-offset: -2px; }
+
+    .qty-input {
+      background: transparent;
+      border: none;
+      border-left: 1px solid rgba(255,255,255,0.1);
+      border-right: 1px solid rgba(255,255,255,0.1);
+      color: #f0ede8;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      width: 44px;
+      height: 34px;
+      text-align: center;
+      outline: none;
+    }
+    .qty-input::-webkit-inner-spin-button,
+    .qty-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+    /* Remove link */
+    .cart-remove {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      display: block;
+      margin-top: 0.5rem;
+      transition: color 0.15s ease;
+    }
+    .cart-remove:hover { color: #EF4444; }
+
+    /* Order summary panel */
+    .cart-summary {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 2rem;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .cart-summary-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.875rem;
+    }
+
+    .summary-label {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .summary-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .summary-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 1.25rem 0;
+    }
+
+    .summary-total-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .summary-total-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      color: #f0ede8;
+    }
+
+    .summary-note {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 0.625rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .btn-checkout {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(135deg, #06A5C5 0%, #0487a3 100%);
+      border: none;
+      border-radius: 6px;
+      padding: 0.9375rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(6,165,197,0.35);
+      transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-checkout:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 28px rgba(6,165,197,0.5);
+    }
+    .btn-checkout:active { transform: translateY(0); opacity: 1; }
+    .btn-checkout:focus-visible { outline: 2px solid #06A5C5; outline-offset: 3px; }
+
+    .link-continue {
+      display: block;
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: color 0.18s ease;
+    }
+    .link-continue:hover { color: #06A5C5; }
+
+    /* Empty cart */
+    .cart-empty {
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+
+    .cart-empty-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+    }
+
+    .cart-empty-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #f0ede8;
+      margin-bottom: 0.75rem;
+    }
+
+    .cart-empty-desc {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-shop {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(135deg, #06A5C5 0%, #0487a3 100%);
+      padding: 0.875rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(6,165,197,0.3);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .btn-shop:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-shop:active { transform: translateY(0); opacity: 1; }
+
+    /* Teal accent line above cart heading */
+    .cart-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #06A5C5;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.875rem;
+    }
+    .cart-eyebrow-line {
+      height: 1px;
+      width: 32px;
+      background: #06A5C5;
+      opacity: 0.55;
+    }
+
+    @media (max-width: 600px) {
+      .cart-table thead { display: none; }
+      .cart-table tbody tr { display: block; padding: 1.25rem 0; }
+      .cart-table tbody td { display: block; padding: 0.35rem 0; text-align: left !important; }
+      .cart-table tbody td::before {
+        content: attr(data-label);
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.3);
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+      .cart-table tbody td.td-product::before { content: none; }
+      .qty-control { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+{% render 'nav' %}
+
+<main>
+  <div class="cart-wrap">
+
+    {% if cart.item_count == 0 %}
+
+      <!-- Empty cart state -->
+      <div class="cart-empty">
+        <div class="cart-empty-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+        </div>
+        <h1 class="cart-empty-title">Your cart is empty</h1>
+        <p class="cart-empty-desc">Looks like you have not added anything yet. Browse our supplements and find the right stack for your goals.</p>
+        <a href="/collections/all" class="btn-shop">
+          Shop All Products
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8 3 12 7 8 11"/>
+          </svg>
+        </a>
+      </div>
+
+    {% else %}
+
+      <div class="cart-eyebrow">
+        <span class="cart-eyebrow-line"></span>
+        Your Order
+      </div>
+      <h1 class="cart-heading">Cart</h1>
+      <p class="cart-subheading">{{ cart.item_count }} {% if cart.item_count == 1 %}item{% else %}items{% endif %} in your cart</p>
+
+      <div class="cart-layout">
+
+        <!-- Items column -->
+        <div>
+          <form action="/cart" method="post" id="cart-form">
+            <input type="hidden" name="checkout" value="1" />
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th style="width:50%;">Product</th>
+                  <th>Price</th>
+                  <th class="th-qty">Qty</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in cart.items %}
+                <tr>
+                  <td class="td-product" data-label="Product">
+                    <div class="cart-product-cell">
+                      {% if item.image %}
+                      <img src="{{ item.image | img_url: '160x160', crop: 'center' }}" alt="{{ item.title | escape }}" class="cart-product-img" />
+                      {% else %}
+                      <div class="cart-product-img" style="display:flex;align-items:center;justify-content:center;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" aria-hidden="true">
+                          <rect x="3" y="3" width="18" height="18" rx="3"/>
+                        </svg>
+                      </div>
+                      {% endif %}
+                      <div>
+                        <a href="{{ item.url }}" class="cart-product-name">{{ item.product.title }}</a>
+                        {% unless item.variant.title == 'Default Title' %}
+                        <span class="cart-product-variant">{{ item.variant.title }}</span>
+                        {% endunless %}
+                        <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart-remove">Remove</a>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Price">
+                    <span class="cart-price">{{ item.price | money }}</span>
+                  </td>
+                  <td class="td-qty" data-label="Qty">
+                    <div class="qty-control">
+                      <button type="button" class="qty-btn" aria-label="Decrease quantity" onclick="adjustQty(this, -1)">-</button>
+                      <input
+                        type="number"
+                        class="qty-input"
+                        name="updates[]"
+                        value="{{ item.quantity }}"
+                        min="0"
+                        max="99"
+                        aria-label="Quantity for {{ item.product.title | escape }}"
+                        data-index="{{ forloop.index0 }}"
+                      />
+                      <button type="button" class="qty-btn" aria-label="Increase quantity" onclick="adjustQty(this, 1)">+</button>
+                    </div>
+                  </td>
+                  <td data-label="Total">
+                    <span class="cart-line-price">{{ item.line_price | money }}</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+            <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+              <button
+                type="submit"
+                name="update"
+                style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8125rem;letter-spacing:0.12em;text-transform:uppercase;background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);padding:0.625rem 1.25rem;border-radius:5px;cursor:pointer;transition:border-color 0.18s ease,color 0.18s ease;"
+                onmouseover="this.style.borderColor='rgba(255,255,255,0.35)';this.style.color='rgba(255,255,255,0.75)';"
+                onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='rgba(255,255,255,0.45)';"
+              >Update Cart</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Summary panel -->
+        <div class="cart-summary">
+          <div class="cart-summary-title">Order Summary</div>
+
+          <div class="summary-row">
+            <span class="summary-label">Subtotal</span>
+            <span class="summary-value">{{ cart.total_price | money }}</span>
+          </div>
+
+          <div class="summary-row">
+            <span class="summary-label">Shipping</span>
+            <span class="summary-value" style="color:rgba(255,255,255,0.4);font-style:italic;">Calculated at checkout</span>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-row" style="align-items:flex-end;">
+            <span class="summary-total-label">Total</span>
+            <span class="summary-total-value">{{ cart.total_price | money }}</span>
+          </div>
+
+          <p class="summary-note">Taxes and shipping calculated at checkout. Secure payment processed by Shopify.</p>
+
+          <a href="/checkout" class="btn-checkout">
+            Proceed to Checkout
+          </a>
+
+          <a href="/collections/all" class="link-continue">Continue Shopping</a>
+        </div>
+
+      </div>
+
+    {% endif %}
+
+  </div>
+</main>
+
+{% render 'footer' %}
+
+<script>
+  function adjustQty(btn, delta) {
+    var control = btn.closest('.qty-control');
+    var input = control.querySelector('.qty-input');
+    var val = parseInt(input.value, 10) || 0;
+    var next = Math.max(0, Math.min(99, val + delta));
+    input.value = next;
+  }
+
+  /* Live line-price update on qty input change */
+  (function() {
+    var inputs = document.querySelectorAll('.qty-input');
+    inputs.forEach(function(inp) {
+      inp.addEventListener('change', function() {
+        var val = parseInt(this.value, 10);
+        if (isNaN(val) || val < 0) this.value = 0;
+        if (val > 99) this.value = 99;
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

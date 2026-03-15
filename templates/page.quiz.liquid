@@ -1968,10 +1968,10 @@
   /* ── TIER LOGIC — Aligned with APN App Spec ─────────────── */
   function getTier(score) {
     if (score < 40) return { name:'Rookie',     color:'#22C55E', gradId:'dial-grad-red',      desc:'Every change you make creates instant results. Major gains across all pillars available now.' };
-    if (score < 60) return { name:'Athlete',    color:'#06A5C5', gradId:'dial-grad-green',    desc:'Solid base with key gaps holding you back. Fix your top 3 and your performance jumps fast.' };
-    if (score < 75) return { name:'Competitor', color:'#F59E0B', gradId:'dial-grad-yellow',   desc:'Strong foundation with clear next steps. The gap between you and Competitor is specific and closeable.' };
+    if (score < 60) return { name:'Competitor', color:'#F59E0B', gradId:'dial-grad-yellow',   desc:'Solid base with key gaps holding you back. Fix your top 3 and your performance jumps fast.' };
+    if (score < 75) return { name:'Athlete',    color:'#06A5C5', gradId:'dial-grad-green',    desc:'Strong foundation with clear next steps. The gap between you and Elite is specific and closeable.' };
     if (score < 90) return { name:'Elite',      color:'#8B5CF6', gradId:'dial-grad-elite',    desc:'High performer ready to fine-tune. Precision beats volume at this tier.' };
-    return             { name:'Champion',        color:'#EF4444', gradId:'dial-grad-champion', desc:'Operating at peak. Your job is to protect and refine — not rebuild.' };
+    return             { name:'Champion',        color:'#EF4444', gradId:'dial-grad-champion', desc:'Operating at peak. Your job is to protect and refine, not rebuild.' };
   }
 
   function round(n) { return Math.round(n); }
