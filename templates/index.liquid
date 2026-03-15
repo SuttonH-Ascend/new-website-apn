@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════ -->
 <section id="hero-pillars" aria-label="Ascend Performance Nutrition — Our Pillars">
   <div id="pillars-track" style="height:500vh;position:relative;">
-    <div id="pillars-stage" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#000;">
+    <div id="pillars-stage" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#000;position:relative;">
 
       <!-- Backgrounds -->
       <div style="position:absolute;inset:0;z-index:1;" aria-hidden="true">
@@ -36,18 +36,22 @@
           <div class="p-left-item" data-idx="0">
             <div class="p-item-label">Core Value 01</div>
             <div class="p-item-title">GROUNDED<br/>IN PURPOSE</div>
+            <div class="p-item-mobile-label">Core Value 1: Grounded in Purpose</div>
           </div>
           <div class="p-left-item" data-idx="1">
             <div class="p-item-label">Core Value 02</div>
             <div class="p-item-title">BUILT FOR<br/>EVERY GEN</div>
+            <div class="p-item-mobile-label">Core Value 02: Built for Every Gen</div>
           </div>
           <div class="p-left-item" data-idx="2">
             <div class="p-item-label">Core Value 03</div>
             <div class="p-item-title">MADE IN<br/>THE USA</div>
+            <div class="p-item-mobile-label">Core Value 3: Made in America</div>
           </div>
           <div class="p-left-item" data-idx="3">
             <div class="p-item-label">Core Value 04</div>
             <div class="p-item-title">EQUIP<br/>EMPOWER<br/>ELEVATE</div>
+            <div class="p-item-mobile-label">Core Value 4: Equip and Power, Elevate</div>
           </div>
         </div>
 
@@ -77,26 +81,30 @@
             <div class="p-right-item" data-idx="0" style="text-align:right;">
               <div class="p-item-label">Philippians 4:13</div>
               <div class="p-item-title">I CAN DO<br/>ALL THINGS</div>
+              <div class="p-item-mobile-bottom">Philippians 4:13: I can do all things</div>
             </div>
             <div class="p-right-item" data-idx="1" style="text-align:right;">
               <div class="p-item-label">Stronger Together</div>
               <div class="p-item-title">TRAIN<br/>AS ONE</div>
+              <div class="p-item-mobile-bottom">Stronger Together, Train as One</div>
             </div>
             <div class="p-right-item" data-idx="2" style="text-align:right;">
               <div class="p-item-label">Proudly American</div>
               <div class="p-item-title">HARD<br/>WORK</div>
+              <div class="p-item-mobile-bottom">Proudly American</div>
             </div>
             <div class="p-right-item" data-idx="3" style="text-align:right;">
               <div class="p-item-label">Ascend Performance</div>
               <div class="p-item-title">CLEAN<br/>CLINICALLY<br/>DOSED</div>
+              <div class="p-item-mobile-bottom">Ascend Performance Clean, Clinically Dosed</div>
             </div>
           </div>
-          <!-- Learn More CTA -->
-          <a href="/pages/about-us" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
-            LEARN MORE ABOUT US
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
         </div>
+        <!-- Learn More CTA - desktop: absolute center-bottom of stage -->
+        <a href="/pages/about-us" id="learn-more-cta" style="position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:10;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:0.6rem;transition:color 0.2s ease;white-space:nowrap;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+          LEARN MORE ABOUT US
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
 
       </div>
     </div>
@@ -150,6 +158,10 @@
   .p-left-item { position: relative; transition: opacity 0.4s ease; }
   .p-right-item { position: relative; transition: opacity 0.4s ease; }
 
+  /* Mobile label/bottom text — hidden on desktop, shown on mobile */
+  .p-item-mobile-label { display: none; }
+  .p-item-mobile-bottom { display: none; }
+
   /* Mobile: flex-column, only active items visible, images centered */
   @media (max-width: 768px) {
     #pillars-grid {
@@ -157,7 +169,7 @@
       flex-direction: column !important;
       align-items: center !important;
       justify-content: space-between !important;
-      padding: 80px 1.5rem 2.5rem !important;
+      padding: 80px 1.5rem 5rem !important;
     }
     #pillars-left {
       flex-direction: row !important;
@@ -181,7 +193,35 @@
       gap: 0 !important;
     }
     .p-item-title { font-size: 0.875rem !important; }
+    /* Center crusader image on mobile */
     .pillar-bg img { object-position: center center !important; }
+    /* Show mobile-specific text, hide desktop-specific */
+    .p-item-label { display: none !important; }
+    .p-item-title { display: none !important; }
+    .p-item-mobile-label {
+      display: block !important;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #06A5C5;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .p-item-mobile-bottom {
+      display: block !important;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+    }
+    /* Learn More CTA - centered at bottom on mobile */
+    #learn-more-cta {
+      bottom: 2rem !important;
+    }
   }
 </style>
 
@@ -448,7 +488,7 @@
 
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;">
 
-      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/build-muscle-and-strength" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
         <div style="height:140px;background:linear-gradient(135deg,#0D0D0D,#1a2a30);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5h11M6.5 17.5h11M12 2v20"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
@@ -459,7 +499,7 @@
         </div>
       </a>
 
-      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/hydration-and-recovery" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
         <div style="height:140px;background:linear-gradient(135deg,#0a1a22,#0f2a35);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
         </div>
@@ -470,7 +510,7 @@
         </div>
       </a>
 
-      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/energy-and-focus" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
         <div style="height:140px;background:linear-gradient(135deg,#0D0D0D,#1a1a0a);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
@@ -481,13 +521,13 @@
         </div>
       </a>
 
-      <a href="#" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
+      <a href="https://ascendperformancenutrition.com/collections/overall-wellness" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid #E2E8F0;background:#fff;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#E2E8F0'">
         <div style="height:140px;background:linear-gradient(135deg,#0a1a1a,#071515);display:flex;align-items:center;justify-content:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06A5C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
         <div style="padding:1.25rem;">
           <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;color:#0D0D0D;margin-bottom:0.4rem;">Overall Wellness</h3>
-          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Long-game health support — gut, joints, immune, and longevity.</p>
+          <p style="font-size:0.8125rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem;">Long-game health support - gut, joints, immune, and longevity.</p>
           <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#06A5C5;">Shop Stack →</span>
         </div>
       </a>
