@@ -94,7 +94,41 @@
   @media(max-width:600px){#footer-grid{grid-template-columns:1fr!important;}}
 </style>
 
-
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="{{ routes.root_url }}" aria-label="Ascend Performance Nutrition home" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend Performance Nutrition logo" style="height:40px;width:auto;"/>
+      <div style="display:flex;flex-direction:column;line-height:1;gap:1px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.9);">PERFORMANCE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
+      <a href="{{ routes.collections_url }}/all" class="nav-link" style="color:#f0ede8;">Shop</a>
+      <a href="{{ routes.root_url }}#framework" class="nav-link">Framework</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/quiz" class="nav-link">Quiz</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0;" class="hidden-mobile">
+      <a href="/cart" aria-label="Cart" style="position:relative;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)';" onmouseout="this.style.color='rgba(255,255,255,0.55)';">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cart-badge" style="{% if cart.item_count > 0 %}display:flex;{% else %}display:none;{% endif %}position:absolute;top:-7px;right:-9px;background:#06A5C5;color:#fff;font-size:0.5rem;font-weight:700;width:15px;height:15px;border-radius:50%;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:0;line-height:1;">{{ cart.item_count }}</span>
+      </a>
+      <a href="/quiz" class="btn-nav">Take the Quiz</a>
+    </div>
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);padding:0.4rem;" class="show-mobile" onclick="toggleMenu()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="{{ routes.collections_url }}/all" class="mobile-nav-link" onclick="closeMenu()">Shop</a>
+  <a href="{{ routes.root_url }}#framework" class="mobile-nav-link" onclick="closeMenu()">Framework</a>
+  <a href="/about" class="mobile-nav-link" onclick="closeMenu()">About</a>
+  <a href="/quiz" class="mobile-nav-link" onclick="closeMenu()">Quiz</a>
+  <div style="margin-top:1rem;"><a href="/quiz" class="btn-nav" style="display:block;text-align:center;padding:0.75rem 1.25rem;">Take the Quiz</a></div>
+</div>
 
 <!-- HERO STRIP -->
 <section style="padding-top:64px;background:linear-gradient(160deg,#0a0a0a 0%,#07131a 60%,#0a0a0a 100%);position:relative;overflow:hidden;">
@@ -159,13 +193,13 @@
     // PROTEIN
     {id:'resilience-choc', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Chocolate',
      category:'protein', price:54.99, badge:'Bestseller', badgeColor:'#06A5C5',
-     img:'{{ "resilience-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png',
      tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
      flavors:['Chocolate','Vanilla'],
      detailUrl:'/products/resilience'},
     {id:'resilience-van', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Vanilla',
      category:'protein', price:54.99,
-     img:'{{ "resilience-vanilla-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_van_one.png',
      tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
      flavors:['Chocolate','Vanilla'],
      detailUrl:'/products/resilience'},
@@ -173,86 +207,86 @@
     // HYDRATION
     {id:'replenish-pm', name:'Replenish', sub:'Hydration Powder', flavor:'Peach Mango',
      category:'hydration', price:34.99, badge:'Top Seller', badgeColor:'#22C55E',
-     img:'{{ "replenish-pm-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PM_1.png',
      tagline:'Complete electrolyte replenishment for peak training output.',
      flavors:['Peach Mango','Lemonade','Passion Fruit','JG','Lychee'],
      detailUrl:'/products/replenish'},
     {id:'replenish-plus', name:'Replenish Plus', sub:'Advanced Hydration', flavor:'',
      category:'hydration', price:39.99,
-     img:'{{ "replenish-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png',
      tagline:'Enhanced formula with added recovery and performance support.',
      detailUrl:'/products/replenish-plus'},
 
     // ENERGY
     {id:'ignite-gb', name:'Ignite', sub:'Energy Powder', flavor:'Guava Berry',
      category:'energy', price:44.99, badge:'New Flavor', badgeColor:'#F59E0B',
-     img:'{{ "ignite-gb-one.jpeg" | asset_url }}',
+     img:'/brand_assets/Labels/Ignite%20Guava%20Berry/Ignite%20GB1.jpeg',
      tagline:'Clean energy and mental focus without gray-area stimulants.',
      flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu'],
      detailUrl:'/products/ignite'},
     {id:'ignite-mc', name:'Ignite', sub:'Energy Powder', flavor:'Melon Creamsicle',
      category:'energy', price:44.99,
-     img:'{{ "ignite-mc-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Ignite_MC1.png',
      tagline:'Clean energy and mental focus without gray-area stimulants.',
      flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu'],
      detailUrl:'/products/ignite'},
     {id:'ignite-cc', name:'Ignite', sub:'Energy Powder', flavor:'Cotton Candy',
      category:'energy', price:44.99,
-     img:'{{ "ignite-cc-one.jpeg" | asset_url }}',
+     img:'/brand_assets/Labels/ignite%20cotton%20candy/Ignite%20CC1.jpeg',
      tagline:'Clean energy and mental focus without gray-area stimulants.',
      flavors:['Guava Berry','Melon Creamsicle','Cotton Candy','Yuzu'],
      detailUrl:'/products/ignite'},
     {id:'freedom-fuel', name:'Freedom Fuel', sub:'Performance Blend', flavor:'',
      category:'energy', price:39.99, badge:'New', badgeColor:'#EF4444',
-     img:'{{ "replenish-jg-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Freedom%20Fuel/Freedom%20field%20one.jpeg',
      tagline:'American-made performance fuel. No compromises, no apologies.'},
 
     // RECOVERY
     {id:'recharge', name:'Recharge', sub:'Creatine Monohydrate', flavor:'',
      category:'recovery', price:39.99, badge:'Essential', badgeColor:'#8B5CF6',
-     img:'{{ "recharge-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Recharge_one.png',
      tagline:'Pure creatine monohydrate. 1,000+ studies. The proven performance edge.',
      detailUrl:'/products/recharge'},
     {id:'fortify', name:'Fortify', sub:'Natural Colostrum Powder', flavor:'',
      category:'recovery', price:49.99,
-     img:'{{ "fortify-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Fortify_One.png',
      tagline:'Gut health and immune support for athletes training at high volume.',
      detailUrl:'/products/fortify'},
 
     // WELLNESS
     {id:'adapt', name:'Adapt', sub:'Organic Ashwagandha', flavor:'',
      category:'wellness', price:29.99,
-     img:'{{ "adapt-one.jpeg" | asset_url }}',
+     img:'/brand_assets/Labels/adapt/Adopt%20one.jpeg',
      tagline:'Clinically studied cortisol reduction. Compete under pressure.',
      detailUrl:'/products/adapt'},
     {id:'clarity', name:'Clarity', sub:'Methylene Blue Drops', flavor:'',
      category:'wellness', price:34.99,
-     img:'{{ "clarity-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Clarity_.png',
      tagline:'Mitochondrial efficiency and elite cognitive performance support.',
      detailUrl:'/products/clarity'},
     {id:'nourish', name:'Nourish', sub:'Greens Superfood', flavor:'',
      category:'wellness', price:39.99,
-     img:'{{ "nourish-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Nourish_one.png',
      tagline:'Dense micronutrient coverage from whole food greens and superfoods.',
      detailUrl:'/products/nourish'},
     {id:'function', name:'Function', sub:'Magnesium Glycinate', flavor:'',
      category:'wellness', price:24.99,
-     img:'{{ "function-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Function_one.png',
      tagline:'Deep sleep architecture and nervous system recovery support.',
      detailUrl:'/products/function'},
     {id:'balance', name:'Balance', sub:'Hormone Support Formula', flavor:'',
      category:'wellness', price:29.99,
-     img:'{{ "balance-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Balance_one.png',
      tagline:'Natural hormone balance for consistent energy and performance.',
      detailUrl:'/products/balance'},
     {id:'foundation', name:'Foundation', sub:'Daily Multivitamin', flavor:'',
      category:'wellness', price:34.99,
-     img:'{{ "foundation-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Foundation_one.png',
      tagline:'Complete micronutrient foundation built for high-output athletes.',
      detailUrl:'/products/foundation'},
     {id:'omega3', name:'Omega-3', sub:'Ultra-Pure Fish Oil', flavor:'',
      category:'wellness', price:24.99,
-     img:'{{ "omega3-one.png" | asset_url }}',
+     img:'/brand_assets/Labels/Transparent%20Product%20Photos/Omega_3-1.png',
      tagline:'High-potency omega-3 for inflammation support and joint recovery.',
      detailUrl:'/products/omega3'}
   ];

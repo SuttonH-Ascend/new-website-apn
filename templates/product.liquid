@@ -91,7 +91,30 @@
   #cart-badge.visible { display: flex; }
 </style>
 
-
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;">
+    <a href="{{ routes.root_url }}" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="Ascend" style="height:40px;width:auto;">
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;color:#9ca3af;text-transform:uppercase;">Performance</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;color:#9ca3af;text-transform:uppercase;">Nutrition</span>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:2rem;">
+      <a href="{{ routes.collections_url }}/all" class="nav-link">Shop</a>
+      <a href="{{ routes.root_url }}#framework" class="nav-link">Framework</a>
+      <a href="{{ routes.root_url }}pages/about" class="nav-link">About</a>
+      <a href="{{ routes.root_url }}pages/quiz" class="nav-link">Quiz</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="{{ routes.collections_url }}/all" class="btn-nav" style="position:relative;">
+        Shop All
+        <span id="cart-badge">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</nav>
 
 <!-- ═══════════════════ BREADCRUMB ═══════════════════ -->
 <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;" class="breadcrumb">
@@ -501,9 +524,9 @@
   // ─── RELATED PRODUCTS ────────────────────────────────────────────
   // Hardcoded defaults; theme.js recommendations API handles dynamic loading
   var RELATED = [
-    { name: 'Resilience', sub: 'Whey Protein Isolate', price: '$54.99', img: '{{ "resilience-vanilla-one.png" | asset_url }}', href: '/products/resilience', tag: 'Protein' },
-    { name: 'Replenish Plus', sub: 'Advanced Electrolytes', price: '$29.99', img: '{{ "replenish-plus-one.jpeg" | asset_url }}', href: '/products/replenish-plus', tag: 'Hydration' },
-    { name: 'Fortify', sub: 'Multivitamin Complex', price: '$34.99', img: '{{ "fortify-one.png" | asset_url }}', href: '/products/fortify', tag: 'Wellness' }
+    { name: 'Resilience', sub: 'Whey Protein Isolate', price: '$54.99', img: '/brand_assets/Labels/Resilience%20Vanilla/Resilience%20van%20one.jpeg', href: '/products/resilience', tag: 'Protein' },
+    { name: 'Replenish Plus', sub: 'Advanced Electrolytes', price: '$29.99', img: '/brand_assets/Labels/Replenish%20Plus/Replenish%20%2B1.jpeg', href: '/products/replenish-plus', tag: 'Hydration' },
+    { name: 'Fortify', sub: 'Multivitamin Complex', price: '$34.99', img: '/brand_assets/Labels/Fortify/Fortify%20One.jpeg', href: '/products/fortify', tag: 'Wellness' }
   ];
 
   // ─── RENDER IMPACT STATS ─────────────────────────────────────────
