@@ -73,29 +73,29 @@
     <div style="position:sticky;top:84px;">
       <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
         <img id="main-img"
-          src="/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png"
+          src="{{ 'resilience-one.png' | asset_url }}"
           alt="Resilience Whey Protein Isolate"
           style="width:90%;height:90%;object-fit:contain;">
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1rem;">
-        <div class="thumb active" onclick="setImg(this, '/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png')">
+        <div class="thumb active" onclick="setImg(this, '{{ 'resilience-one.png' | asset_url }}')">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="{{ 'resilience-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
-        <div class="thumb" onclick="setImg(this, '/brand_assets/Labels/resilience%20chocolate/Resilience%202.jpeg')">
+        <div class="thumb" onclick="setImg(this, '{{ 'resilience-one.png' | asset_url }}')">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="/brand_assets/Labels/resilience%20chocolate/Resilience%202.jpeg" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="{{ 'resilience-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
-        <div class="thumb" onclick="setImg(this, '/brand_assets/Labels/resilience%20chocolate/Resilience%203.jpeg')">
+        <div class="thumb" onclick="setImg(this, '{{ 'resilience-one.png' | asset_url }}')">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="/brand_assets/Labels/resilience%20chocolate/Resilience%203.jpeg" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="{{ 'resilience-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
-        <div class="thumb" onclick="setImg(this, '/brand_assets/Labels/resilience%20chocolate/Resilience%20Supplement%20Facts.png')">
+        <div class="thumb" onclick="setImg(this, '{{ 'resilience-one.png' | asset_url }}')">
           <div style="background:#fff;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="/brand_assets/Labels/resilience%20chocolate/Resilience%20Supplement%20Facts.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
       </div>
@@ -123,8 +123,8 @@
       <div style="margin-bottom:1.5rem;">
         <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6b7280;margin-bottom:0.65rem;">Flavor: <span id="flavor-label" style="color:#F8FAFB;">Chocolate</span></p>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <button class="flavor-btn active" onclick="selectFlavor('Chocolate', '/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png', 'resilience-choc', this)">Chocolate</button>
-          <button class="flavor-btn" onclick="selectFlavor('Vanilla', '/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_van_one.png', 'resilience-van', this)">Vanilla</button>
+          <button class="flavor-btn active" onclick="selectFlavor('Chocolate', '{{ 'resilience-one.png' | asset_url }}', 'resilience-choc', this)">Chocolate</button>
+          <button class="flavor-btn" onclick="selectFlavor('Vanilla', '{{ 'resilience-one.png' | asset_url }}', 'resilience-van', this)">Vanilla</button>
         </div>
       </div>
 
@@ -184,7 +184,7 @@
   <div style="background:#131313;border:1px solid rgba(255,255,255,0.1);border-radius:20px;width:100%;max-width:480px;overflow:hidden;position:relative;">
     <button onclick="document.getElementById('sf-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.08);border:none;color:#9ca3af;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;line-height:1;">&#x2715;</button>
     <div style="padding:1.5rem 2rem;">
-      <img src="/brand_assets/Labels/resilience%20chocolate/Resilience%20Supplement%20Facts.png" alt="Supplement Facts" style="width:100%;border-radius:8px;" onerror="this.style.display='none';document.getElementById('sf-fallback').style.display='block'">
+      <img src="https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts" alt="Supplement Facts" style="width:100%;border-radius:8px;" onerror="this.style.display='none';document.getElementById('sf-fallback').style.display='block'">
       <div id="sf-fallback" style="display:none;">
         <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Supplement Facts</div>
         <div id="sf-serving-info" style="font-size:0.85rem;color:#9ca3af;">Serving Size: 1 Scoop (25g) | Servings: 28</div>
@@ -241,7 +241,7 @@
         </svg>
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;width:260px;height:260px;display:flex;align-items:center;justify-content:center;">
           <div style="position:absolute;width:220px;height:220px;border-radius:50%;border:2px solid rgba(6,165,197,0.4);box-shadow:0 0 0 10px rgba(6,165,197,0.05),0 0 50px rgba(6,165,197,0.2),0 0 90px rgba(6,165,197,0.08);"></div>
-          <img id="wheel-product-img" src="/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png" alt="Resilience" style="position:relative;z-index:2;width:250px;height:250px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(6,165,197,0.25));">
+          <img id="wheel-product-img" src="{{ 'resilience-one.png' | asset_url }}" alt="Resilience" style="position:relative;z-index:2;width:250px;height:250px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(6,165,197,0.25));">
           <div style="position:absolute;width:234px;height:234px;border-radius:50%;border:1px solid rgba(6,165,197,0.18);animation:wping 2.8s ease-out infinite;"></div>
           <div style="position:absolute;width:234px;height:234px;border-radius:50%;border:1px solid rgba(6,165,197,0.12);animation:wping 2.8s ease-out 1.4s infinite;"></div>
         </div>
@@ -385,11 +385,11 @@
 <script>
   var currentCartId = 'resilience-choc';
   var currentFlavor = 'Chocolate';
-  var currentImg = '/brand_assets/Labels/Transparent%20Product%20Photos/Resilience_One.png';
+  var currentImg = '{{ 'resilience-one.png' | asset_url }}';
 
   var flavorData = {
-    'Chocolate': { protein: '18g', calories: '90', servingSize: '1 Scoop (25g)', sodium: '50mg', sfImg: '/brand_assets/Labels/resilience%20chocolate/Resilience%20Supplement%20Facts.png' },
-    'Vanilla':   { protein: '19g', calories: '90', servingSize: '1 Scoop (24.4g)', sodium: '55mg', sfImg: '/brand_assets/Labels/Resilience%20Vanilla/Resilience%20Van%20Supplement%20Facts.png' }
+    'Chocolate': { protein: '18g', calories: '90', servingSize: '1 Scoop (25g)', sodium: '50mg', sfImg: 'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts' },
+    'Vanilla':   { protein: '19g', calories: '90', servingSize: '1 Scoop (24.4g)', sodium: '55mg', sfImg: 'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts' }
   };
 
   function selectFlavor(flavor, img, cartId, btn) {

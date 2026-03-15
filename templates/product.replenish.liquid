@@ -60,20 +60,20 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
     <div style="position:sticky;top:84px;">
       <div style="background:#131313;border-radius:20px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 60px rgba(0,0,0,0.6);">
-        <img id="main-img" src="/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png" alt="Replenish Hydration Powder" style="width:90%;height:90%;object-fit:contain;">
+        <img id="main-img" src="{{ 'replenish-one.png' | asset_url }}" alt="Replenish Hydration Powder" style="width:90%;height:90%;object-fit:contain;">
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1rem;">
-        <div class="thumb active" onclick="setImg(this,'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png')">
-          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+        <div class="thumb active" onclick="setImg(this,'{{ 'replenish-one.png' | asset_url }}')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ 'replenish-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
-        <div class="thumb" onclick="setImg(this,'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PM_1.png')">
-          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PM_1.png" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+        <div class="thumb" onclick="setImg(this,'{{ 'replenish-one.png' | asset_url }}')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ 'replenish-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
-        <div class="thumb" onclick="setImg(this,'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PF1.png')">
-          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PF1.png" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+        <div class="thumb" onclick="setImg(this,'{{ 'replenish-one.png' | asset_url }}')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ 'replenish-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
-        <div class="thumb" onclick="setImg(this,'/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_LEM_1.png')">
-          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_LEM_1.png" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+        <div class="thumb" onclick="setImg(this,'{{ 'replenish-one.png' | asset_url }}')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ 'replenish-one.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
       </div>
     </div>
@@ -96,10 +96,10 @@
       <div style="margin-bottom:1.5rem;">
         <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6b7280;margin-bottom:0.65rem;">Flavor: <span id="flavor-label" style="color:#F8FAFB;">Lychee</span></p>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <button class="flavor-btn active" onclick="selectFlavor('Lychee','/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png','replenish-lychee',this)">Lychee</button>
-          <button class="flavor-btn" onclick="selectFlavor('Peach Mango','/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PM_1.png','replenish-pm',this)">Peach Mango</button>
-          <button class="flavor-btn" onclick="selectFlavor('Passion Fruit','/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_PF1.png','replenish-pf',this)">Passion Fruit</button>
-          <button class="flavor-btn" onclick="selectFlavor('Lemonade','/brand_assets/Labels/Transparent%20Product%20Photos/Replenish_LEM_1.png','replenish-lem',this)">Lemonade</button>
+          <button class="flavor-btn active" onclick="selectFlavor('Lychee','{{ 'replenish-one.png' | asset_url }}','replenish-lychee',this)">Lychee</button>
+          <button class="flavor-btn" onclick="selectFlavor('Peach Mango','{{ 'replenish-one.png' | asset_url }}','replenish-pm',this)">Peach Mango</button>
+          <button class="flavor-btn" onclick="selectFlavor('Passion Fruit','{{ 'replenish-one.png' | asset_url }}','replenish-pf',this)">Passion Fruit</button>
+          <button class="flavor-btn" onclick="selectFlavor('Lemonade','{{ 'replenish-one.png' | asset_url }}','replenish-lem',this)">Lemonade</button>
         </div>
       </div>
 
@@ -193,7 +193,7 @@
         </svg>
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;width:260px;height:260px;display:flex;align-items:center;justify-content:center;">
           <div style="position:absolute;width:220px;height:220px;border-radius:50%;border:2px solid rgba(6,165,197,0.4);box-shadow:0 0 0 10px rgba(6,165,197,0.05),0 0 50px rgba(6,165,197,0.2),0 0 90px rgba(6,165,197,0.08);"></div>
-          <img id="wheel-product-img" src="/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png" alt="Replenish" style="position:relative;z-index:2;width:250px;height:250px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(6,165,197,0.25));">
+          <img id="wheel-product-img" src="{{ 'replenish-one.png' | asset_url }}" alt="Replenish" style="position:relative;z-index:2;width:250px;height:250px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(6,165,197,0.25));">
           <div style="position:absolute;width:234px;height:234px;border-radius:50%;border:1px solid rgba(6,165,197,0.18);animation:wping 2.8s ease-out infinite;"></div>
           <div style="position:absolute;width:234px;height:234px;border-radius:50%;border:1px solid rgba(6,165,197,0.12);animation:wping 2.8s ease-out 1.4s infinite;"></div>
         </div>
@@ -298,7 +298,7 @@
 {% render 'footer' %}
 
 <script>
-  var currentCartId='replenish-lychee', currentFlavor='Lychee', currentImg='/brand_assets/Labels/Transparent%20Product%20Photos/Replenish__1.png';
+  var currentCartId='replenish-lychee', currentFlavor='Lychee', currentImg='{{ 'replenish-one.png' | asset_url }}';
   function selectFlavor(flavor,img,cartId,btn){document.querySelectorAll('.flavor-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');currentFlavor=flavor;currentCartId=cartId;currentImg=img;document.getElementById('flavor-label').textContent=flavor;var mainImg=document.getElementById('main-img');mainImg.style.opacity='0';setTimeout(function(){mainImg.src=img;mainImg.style.opacity='1';},150);var wheelImg=document.getElementById('wheel-product-img');if(wheelImg)wheelImg.src=img;}
   function setImg(thumb,src){document.querySelectorAll('.thumb').forEach(function(t){t.classList.remove('active');});thumb.classList.add('active');var mainImg=document.getElementById('main-img');mainImg.style.opacity='0';setTimeout(function(){mainImg.src=src;mainImg.style.opacity='1';},150);}
   var FAQS=[
