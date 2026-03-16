@@ -13,8 +13,8 @@ body.apn-body {
   font-family: 'Barlow', system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: #333333;
-  background: #F8FAFB;
+  color: #F8FAFB;
+  background: #0a0a0a;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -148,8 +148,8 @@ button { font-family: inherit; }
 
 /* ── PRODUCT CARD ─────────────────────────────────────────── */
 .apn-product-card {
-  background: #fff;
-  border: 1px solid var(--apn-border);
+  background: #131313;
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
