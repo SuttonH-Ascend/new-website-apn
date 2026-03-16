@@ -53,6 +53,31 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window,document,"clarity","script","v9tqcwb652");
   </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8E53SP741"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F8E53SP741', {
+      page_title: {{ page_title | json }},
+      page_location: window.location.href
+    });
+    gtag('config', 'AW-17918778091');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '876546821553793');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876546821553793&ev=PageView&noscript=1"/></noscript>
 </head>
 
 <body class="apn-body">
@@ -167,6 +192,10 @@
         APN._refreshCart();
         APN.openCart();
         if(btn){ btn.disabled=false; var orig=btn.dataset.orig||'Add to Cart'; btn.dataset.orig=orig; btn.textContent='Added!'; setTimeout(function(){btn.textContent=orig;},2000); }
+        // GA4 add_to_cart event
+        if(window.gtag) gtag('event','add_to_cart',{currency:'USD',value:(data.price/100),items:[{item_id:data.variant_id,item_name:data.product_title,price:(data.price/100),quantity:qty}]});
+        // Meta AddToCart event
+        if(window.fbq) fbq('track','AddToCart',{content_ids:[data.variant_id],content_name:data.product_title,value:(data.price/100),currency:'USD'});
       })
       .catch(function(err){
         console.error('Cart error:',err);
@@ -210,6 +239,23 @@
     /* init badge on load */
     document.addEventListener('DOMContentLoaded', function(){ APN._refreshCart(); });
   </script>
+
+  {%- if first_time_accessed and order -%}
+  <!-- Purchase tracking - fires once on order confirmation -->
+  <script>
+    if(window.gtag) gtag('event','purchase',{
+      transaction_id: '{{ order.order_number }}',
+      value: {{ order.total_price | money_without_currency }},
+      currency: '{{ order.currency }}',
+      items: [{% for line in order.line_items %}{item_id:'{{ line.variant_id }}',item_name:{{ line.title | json }},price:{{ line.price | money_without_currency }},quantity:{{ line.quantity }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+    });
+    if(window.fbq) fbq('track','Purchase',{
+      value: {{ order.total_price | money_without_currency }},
+      currency: '{{ order.currency }}',
+      content_ids: [{% for line in order.line_items %}'{{ line.variant_id }}'{% unless forloop.last %},{% endunless %}{% endfor %}]
+    });
+  </script>
+  {%- endif -%}
 
 </body>
 </html>
