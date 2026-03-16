@@ -170,10 +170,12 @@
         </div>
       </div>
 
+      
+      {% render 'loop-widget', product: product %}
       <button class="btn-cta btn-atc-main" id="add-to-cart-btn" onclick="fetch('/cart/add.js', {
        method: 'POST',
        headers: {'Content-Type': 'application/json'},
-       body: JSON.stringify({id: '{{ product.variants.first.id }}', quantity: 1})
+       body: JSON.stringify(Object.assign({id: '{{ product.variants.first.id }}', quantity: 1}, window._lwPlan ? {selling_plan: window._lwPlan} : {}))
      }).then(() => { window.location = '/cart'; });">
         Add to Cart: $54.99
       </button>

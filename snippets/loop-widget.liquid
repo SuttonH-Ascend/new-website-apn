@@ -1,0 +1,39 @@
+{%- if product.selling_plan_groups.size > 0 -%}
+<div id="lw-wrap" style="margin-bottom:1.25rem;">
+  <div style="display:flex;gap:0.5rem;margin-bottom:0.875rem;">
+    <button type="button" id="lw-onetime" onclick="lwSetType('onetime')" style="flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem;border-radius:5px;border:1.5px solid #F8FAFB;background:#F8FAFB;color:#0D0D0D;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;">One-Time Purchase</button>
+    <button type="button" id="lw-subscribe" onclick="lwSetType('subscribe')" style="flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem;border-radius:5px;border:1.5px solid rgba(255,255,255,0.15);background:#1a1a1a;color:rgba(248,250,251,0.55);cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;">Subscribe &amp; Save</button>
+  </div>
+  <div id="lw-plans" style="display:none;background:#131313;border:1px solid rgba(6,165,197,0.25);border-radius:6px;padding:1rem;margin-bottom:0.875rem;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.625rem;">Delivery Frequency</div>
+    <select id="lw-plan-select" onchange="window._lwPlan=this.value" style="width:100%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.12);border-radius:5px;color:#F8FAFB;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;padding:0.5rem 0.75rem;outline:none;cursor:pointer;">
+      {%- for group in product.selling_plan_groups -%}
+        {%- for plan in group.selling_plans -%}
+          <option value="{{ plan.id }}">{{ plan.name }}</option>
+        {%- endfor -%}
+      {%- endfor -%}
+    </select>
+    <div style="font-size:0.8125rem;color:rgba(248,250,251,0.4);margin-top:0.625rem;line-height:1.5;">Cancel or skip anytime. Free to manage online.</div>
+  </div>
+</div>
+<script>
+  window._lwPlan = null;
+  function lwSetType(type) {
+    var ot = document.getElementById('lw-onetime');
+    var sb = document.getElementById('lw-subscribe');
+    var pl = document.getElementById('lw-plans');
+    var sel = document.getElementById('lw-plan-select');
+    if (type === 'subscribe') {
+      ot.style.background = '#1a1a1a'; ot.style.color = 'rgba(248,250,251,0.55)'; ot.style.borderColor = 'rgba(255,255,255,0.15)';
+      sb.style.background = '#06A5C5'; sb.style.color = '#fff'; sb.style.borderColor = '#06A5C5';
+      pl.style.display = 'block';
+      window._lwPlan = sel ? sel.value : null;
+    } else {
+      ot.style.background = '#F8FAFB'; ot.style.color = '#0D0D0D'; ot.style.borderColor = '#F8FAFB';
+      sb.style.background = '#1a1a1a'; sb.style.color = 'rgba(248,250,251,0.55)'; sb.style.borderColor = 'rgba(255,255,255,0.15)';
+      pl.style.display = 'none';
+      window._lwPlan = null;
+    }
+  }
+</script>
+{%- endif -%}

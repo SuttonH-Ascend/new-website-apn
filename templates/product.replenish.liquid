@@ -126,6 +126,8 @@
         <div class="benefit-item"><div class="benefit-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#06A5C5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><span style="font-weight:600;color:#F8FAFB;">Electrolyte Replenishment</span><span style="color:#6b7280;font-size:0.875rem;">: sodium, potassium, magnesium, and calcium to support fluid balance and muscle function</span></div></div>
         <div class="benefit-item"><div class="benefit-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#06A5C5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><span style="font-weight:600;color:#F8FAFB;">Light and Easy</span><span style="color:#6b7280;font-size:0.875rem;">: 5.4g scoop, 10 calories, dissolves quickly in water without a heavy taste</span></div></div>
       </div>
+      
+      {% render 'loop-widget', product: product %}
       <button class="btn-cta btn-atc-main" id="add-to-cart-btn" onclick="addToCart()">Add to Cart: $39.99</button>
       <p style="text-align:center;font-size:0.8rem;color:#6b7280;margin-top:0.75rem;">Free shipping on orders over $50</p>
       <p style="text-align:center;font-size:0.8rem;color:#6b7280;margin-top:0.75rem;">Want electrolytes plus vitamin C and B vitamins? <a href="/products/replenishplus" style="color:#06A5C5;text-decoration:none;font-weight:600;">See Recover</a></p>
