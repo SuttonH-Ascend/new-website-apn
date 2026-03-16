@@ -79,8 +79,8 @@
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ product.images[2] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
         {% endif %}
-        <div class="thumb" onclick="setImg(this,'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts')">
-          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
+        <div class="thumb" onclick="setImg(this,'{{ 'sf-replenish-jg.png' | asset_url }}')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ 'sf-replenish-jg.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
       </div>
     </div>
@@ -311,7 +311,13 @@
   var currentCartId='replenish-lychee', currentFlavor='Lychee';
   var _imgData=document.getElementById('product-image-data');
   var currentImg=_imgData ? _imgData.dataset.main : '';
-  function selectFlavor(flavor,img,cartId,btn){document.querySelectorAll('.flavor-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');currentFlavor=flavor;currentCartId=cartId;currentImg=img;document.getElementById('flavor-label').textContent=flavor;var mainImg=document.getElementById('main-img');mainImg.style.opacity='0';setTimeout(function(){mainImg.src=img;mainImg.style.opacity='1';},150);var wheelImg=document.getElementById('wheel-product-img');if(wheelImg)wheelImg.src=img;}
+  var replenishSFImgs = {
+    'Lychee': '{{ 'sf-replenish-jg.png' | asset_url }}',
+    'Peach Mango': '{{ 'sf-replenish-pm.png' | asset_url }}',
+    'Passion Fruit': '{{ 'sf-replenish-pf.png' | asset_url }}',
+    'Lemonade': '{{ 'sf-replenish-lem.png' | asset_url }}'
+  };
+  function selectFlavor(flavor,img,cartId,btn){document.querySelectorAll('.flavor-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');currentFlavor=flavor;currentCartId=cartId;currentImg=img;document.getElementById('flavor-label').textContent=flavor;var mainImg=document.getElementById('main-img');mainImg.style.opacity='0';setTimeout(function(){mainImg.src=img;mainImg.style.opacity='1';},150);var wheelImg=document.getElementById('wheel-product-img');if(wheelImg)wheelImg.src=img;var sfModalImg=document.querySelector('#sf-modal img');if(sfModalImg && replenishSFImgs[flavor]) sfModalImg.src=replenishSFImgs[flavor];}
   function setImg(thumb,src){document.querySelectorAll('.thumb').forEach(function(t){t.classList.remove('active');});thumb.classList.add('active');var mainImg=document.getElementById('main-img');mainImg.style.opacity='0';setTimeout(function(){mainImg.src=src;mainImg.style.opacity='1';},150);}
   var FAQS=[
     {q:'What is in Replenish?',a:'Replenish combines a full B-vitamin complex (B1, B2, B3, B6, Folate, B12, Pantothenic Acid) with four electrolytes: sodium, potassium, magnesium, and calcium. Each B-vitamin is at 33% daily value per serving. It is sweetened with Sucralose and uses natural flavors and colors.'},

@@ -104,9 +104,9 @@
           </div>
         </div>
         {% endif %}
-        <div class="thumb" onclick="setImg(this, 'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts')">
+        <div class="thumb" onclick="setImg(this, '{{ 'sf-resilience-choc.png' | asset_url }}')">
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;">
-            <img src="https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts" alt="" style="width:100%;height:100%;object-fit:contain;">
+            <img src="{{ 'sf-resilience-choc.png' | asset_url }}" alt="" style="width:100%;height:100%;object-fit:contain;">
           </div>
         </div>
       </div>
@@ -197,7 +197,7 @@
   <div style="background:#131313;border:1px solid rgba(255,255,255,0.1);border-radius:20px;width:100%;max-width:480px;overflow:hidden;position:relative;">
     <button onclick="document.getElementById('sf-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.08);border:none;color:#9ca3af;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;line-height:1;">&#x2715;</button>
     <div style="padding:1.5rem 2rem;">
-      <img src="https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts" alt="Supplement Facts" style="width:100%;border-radius:8px;" onerror="this.style.display='none';document.getElementById('sf-fallback').style.display='block'">
+      <img src="{{ 'sf-resilience-choc.png' | asset_url }}" alt="Supplement Facts" style="width:100%;border-radius:8px;" onerror="this.style.display='none';document.getElementById('sf-fallback').style.display='block'">
       <div id="sf-fallback" style="display:none;">
         <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Supplement Facts</div>
         <div id="sf-serving-info" style="font-size:0.85rem;color:#9ca3af;">Serving Size: 1 Scoop (25g) | Servings: 28</div>
@@ -403,8 +403,8 @@
   var currentImg = '{{ 'resilience-one.png' | asset_url }}';
 
   var flavorData = {
-    'Chocolate': { protein: '18g', calories: '90', servingSize: '1 Scoop (25g)', sodium: '50mg', sfImg: 'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts' },
-    'Vanilla':   { protein: '19g', calories: '90', servingSize: '1 Scoop (24.4g)', sodium: '55mg', sfImg: 'https://placehold.co/400x600/131313/ffffff?text=Supplement+Facts' }
+    'Chocolate': { protein: '18g', calories: '90', servingSize: '1 Scoop (25g)', sodium: '50mg', sfImg: '{{ 'sf-resilience-choc.png' | asset_url }}' },
+    'Vanilla':   { protein: '19g', calories: '90', servingSize: '1 Scoop (24.4g)', sodium: '55mg', sfImg: '{{ 'sf-resilience-van.png' | asset_url }}' }
   };
 
   function selectFlavor(flavor, img, cartId, btn) {

@@ -70,8 +70,8 @@
           <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ product.images[1] | image_url: width: 300 }}" alt="" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
         {% endif %}
-        <div class="thumb" onclick="document.getElementById('sf-modal').style.display='flex'">
-          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#9ca3af;text-align:center;">Supp Facts</div>
+        <div class="thumb" onclick="setImg(this,'{{ 'sf-replenish-plus.png' | asset_url }}')">
+          <div style="background:#131313;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0.5rem;"><img src="{{ 'sf-replenish-plus.png' | asset_url }}" alt="Supplement Facts" style="width:100%;height:100%;object-fit:contain;"></div>
         </div>
       </div>
     </div>
@@ -128,16 +128,7 @@
   <div style="background:#131313;border:1px solid rgba(255,255,255,0.1);border-radius:20px;width:100%;max-width:480px;overflow:hidden;position:relative;">
     <button onclick="document.getElementById('sf-modal').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,0.08);border:none;color:#9ca3af;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;line-height:1;">&#x2715;</button>
     <div style="padding:1.5rem 2rem;">
-      <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Supplement Facts</div>
-      <div style="font-size:0.85rem;color:#9ca3af;">Serving Size: 1 Scoop (10g) | Servings Per Container: 30</div>
-      <div style="margin-top:1rem;border-top:2px solid rgba(255,255,255,0.15);padding-top:0.75rem;">
-        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#F8FAFB;font-weight:700;">Calories</span><span style="color:#9ca3af;">22 kcal</span></div>
-        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#F8FAFB;font-weight:700;">Magnesium (as Magnesium Malate)</span><span style="color:#9ca3af;">66mg</span></div>
-        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#F8FAFB;font-weight:700;">Sodium (as Sea Salt)</span><span style="color:#9ca3af;">1,000mg</span></div>
-        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#F8FAFB;font-weight:700;">Potassium (as Potassium Chloride)</span><span style="color:#9ca3af;">200mg</span></div>
-        <div style="display:flex;justify-content:space-between;padding:0.5rem 0;"><span style="color:#F8FAFB;font-weight:700;">Creatine (as Creatine Monohydrate)</span><span style="color:#9ca3af;">5,000mg</span></div>
-      </div>
-      <p style="font-size:0.75rem;color:#6b7280;margin-top:0.75rem;">Other Ingredients: Natural Flavors, Stevia Extract (Leaf), Silicon Dioxide.</p>
+      <img src="{{ 'sf-replenish-plus.png' | asset_url }}" alt="Supplement Facts" style="width:100%;border-radius:8px;" onerror="this.style.display='none'">
     </div>
   </div>
 </div>
