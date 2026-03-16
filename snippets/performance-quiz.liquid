@@ -2496,36 +2496,3 @@
 })();
 </script>
 
-{% schema %}
-{
-  "name": "APN Performance Quiz",
-  "tag": "section",
-  "class": "apn-quiz-wrapper",
-  "settings": [
-    {
-      "type": "text",
-      "id": "klaviyo_public_key",
-      "label": "Klaviyo Public API Key",
-      "info": "Found in Klaviyo → Account → Settings → API Keys"
-    },
-    {
-      "type": "text",
-      "id": "klaviyo_list_id",
-      "label": "Klaviyo List ID",
-      "info": "The ID of the Klaviyo list to subscribe quiz leads to"
-    },
-    {
-      "type": "text",
-      "id": "discount_code",
-      "label": "Discount Code",
-      "default": "ASCEND15",
-      "info": "Discount code displayed after email opt-in"
-    }
-  ],
-  "presets": [
-    {
-      "name": "APN Performance Quiz"
-    }
-  ]
-}
-{% endschema %}
