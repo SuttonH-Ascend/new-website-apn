@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="{{ 'dashboard.css' | asset_url }}" />
+
+{% if customer %}
+
+  <!-- Seed customer data for dashboard.js -->
+  <script>
+    window.APN_CUSTOMER = {
+      email:       {{ customer.email | json }},
+      firstName:   {{ customer.first_name | json }},
+      lastName:    {{ customer.last_name | json }},
+      ordersCount: {{ customer.orders_count }},
+      totalSpent:  {{ customer.total_spent }},
+      points:      {{ customer.metafields.apn.loyalty_points | default: 0 }}
+    };
+  </script>
+
+  <div id="apn-dashboard">
+
+    <!-- ── Hero bar ──────────────────────────────────────────── -->
+    <div class="apn-dash-hero">
+      <div class="apn-dash-hero-bg"></div>
+      <div class="apn-dash-container">
+        <div class="apn-dash-hero-inner">
+          <div>
+            <p class="apn-dash-hero-greeting">Welcome back,</p>
+            <h1 class="apn-dash-hero-name">{{ customer.first_name }}</h1>
+          </div>
+          <div class="apn-dash-hero-right">
+            <div id="apn-tier-badge" class="apn-tier-badge apn-tier-badge--loading">
+              <span id="apn-tier-label">Loading...</span>
+            </div>
+            <a href="{{ routes.account_logout_url }}" class="apn-dash-logout">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              Sign Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Tab navigation ────────────────────────────────────── -->
+    {% render 'dashboard-nav' %}
+
+    <!-- ── Tab panels ────────────────────────────────────────── -->
+    <div class="apn-dash-container apn-dash-panels">
+
+      <div id="apn-tab-performance" role="tabpanel" aria-labelledby="apn-tabbtn-performance" class="apn-dash-panel active">
+        {% section 'dashboard-performance' %}
+      </div>
+
+      <div id="apn-tab-masterclass" role="tabpanel" aria-labelledby="apn-tabbtn-masterclass" class="apn-dash-panel" hidden>
+        {% section 'dashboard-masterclass' %}
+      </div>
+
+      <div id="apn-tab-orders" role="tabpanel" aria-labelledby="apn-tabbtn-orders" class="apn-dash-panel" hidden>
+        {% section 'dashboard-orders' %}
+      </div>
+
+      <div id="apn-tab-loyalty" role="tabpanel" aria-labelledby="apn-tabbtn-loyalty" class="apn-dash-panel" hidden>
+        {% section 'dashboard-loyalty' %}
+      </div>
+
+      <div id="apn-tab-community" role="tabpanel" aria-labelledby="apn-tabbtn-community" class="apn-dash-panel" hidden>
+        {% section 'dashboard-community' %}
+      </div>
+
+    </div>
+
+  </div>
+
+{% else %}
+  <script>window.location.href = '{{ routes.account_login_url }}';</script>
+{% endif %}
+
+<script src="{{ 'dashboard.js' | asset_url }}" defer></script>

@@ -1,0 +1,23 @@
+{%- comment -%}
+  Renders a single category performance bar.
+  Usage: {% render 'dashboard-category-bar', key: 'sleep', label: 'Sleep', tier: 'solid', pct: 70 %}
+{%- endcomment -%}
+
+<div class="apn-cat-row">
+  <span class="apn-cat-name">{{ label }}</span>
+  <div class="apn-cat-bar-track">
+    <div
+      class="apn-cat-bar-fill apn-cat-bar-fill--{{ tier }}"
+      style="width:{{ pct }}%"
+    ></div>
+  </div>
+  <span class="apn-cat-tier apn-cat-tier--{{ tier }}">
+    {%- case tier -%}
+      {%- when 'critical' -%}Critical
+      {%- when 'needs_work' -%}Needs Work
+      {%- when 'solid' -%}Solid
+      {%- when 'elite' -%}Elite
+      {%- else -%}{{ tier | capitalize }}
+    {%- endcase -%}
+  </span>
+</div>

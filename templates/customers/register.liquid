@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="{{ 'dashboard.css' | asset_url }}" />
+
+<div class="apn-auth-page">
+  <div class="apn-auth-bg-glow"></div>
+
+  <div class="apn-auth-card">
+
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="apn-auth-logo">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="{{ shop.name }}" />
+      <div class="apn-auth-logo-text">
+        <span>PERFORMANCE</span>
+        <span style="color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+
+    <h1 class="apn-auth-heading">Join Ascend</h1>
+    <p class="apn-auth-sub">Create your account to unlock your personalized dashboard</p>
+
+    {%- if form.errors -%}
+      <div class="apn-auth-error">
+        {%- for error in form.errors -%}
+          <p>{{ form.errors.messages[error] }}</p>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {% form 'create_customer', id: 'apn-register-form' %}
+      <div class="apn-auth-field-row">
+        <div class="apn-auth-field">
+          <label for="FirstName">First Name</label>
+          <input
+            type="text"
+            id="FirstName"
+            name="customer[first_name]"
+            autocomplete="given-name"
+            placeholder="Alex"
+          />
+        </div>
+        <div class="apn-auth-field">
+          <label for="LastName">Last Name</label>
+          <input
+            type="text"
+            id="LastName"
+            name="customer[last_name]"
+            autocomplete="family-name"
+            placeholder="Johnson"
+          />
+        </div>
+      </div>
+
+      <div class="apn-auth-field">
+        <label for="Email">Email</label>
+        <input
+          type="email"
+          id="Email"
+          name="customer[email]"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          placeholder="your@email.com"
+          required
+        />
+      </div>
+
+      <div class="apn-auth-field">
+        <label for="CreatePassword">Password</label>
+        <input
+          type="password"
+          id="CreatePassword"
+          name="customer[password]"
+          autocomplete="new-password"
+          placeholder="At least 8 characters"
+          required
+        />
+      </div>
+
+      <button type="submit" class="apn-auth-btn">
+        Create Account
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    {% endform %}
+
+    <p class="apn-auth-switch">
+      Already have an account? <a href="{{ routes.account_login_url }}">Sign in</a>
+    </p>
+
+  </div>
+</div>

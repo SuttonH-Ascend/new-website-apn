@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="{{ 'dashboard.css' | asset_url }}" />
+
+<div class="apn-auth-page">
+  <div class="apn-auth-bg-glow"></div>
+
+  <div class="apn-auth-card">
+
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="apn-auth-logo">
+      <img src="{{ 'ascend real 1_2 trans.png' | asset_url }}" alt="{{ shop.name }}" />
+      <div class="apn-auth-logo-text">
+        <span>PERFORMANCE</span>
+        <span style="color:#06A5C5;">NUTRITION</span>
+      </div>
+    </a>
+
+    <h1 class="apn-auth-heading">Welcome Back</h1>
+    <p class="apn-auth-sub">Sign in to access your performance dashboard</p>
+
+    {%- if form.errors -%}
+      <div class="apn-auth-error">
+        {%- for error in form.errors -%}
+          <p>{{ form.errors.messages[error] }}</p>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {% form 'customer_login', id: 'apn-login-form' %}
+      <div class="apn-auth-field">
+        <label for="CustomerEmail">Email</label>
+        <input
+          type="email"
+          id="CustomerEmail"
+          name="customer[email]"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          placeholder="your@email.com"
+          required
+        />
+      </div>
+
+      <div class="apn-auth-field">
+        <label for="CustomerPassword" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>Password</span>
+          <a href="{{ routes.account_url }}/recover" class="apn-auth-forgot">Forgot password?</a>
+        </label>
+        <input
+          type="password"
+          id="CustomerPassword"
+          name="customer[password]"
+          autocomplete="current-password"
+          placeholder="••••••••"
+          required
+        />
+      </div>
+
+      <button type="submit" class="apn-auth-btn">
+        Sign In
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    {% endform %}
+
+    <p class="apn-auth-switch">
+      New to Ascend? <a href="{{ routes.account_register_url }}">Create account</a>
+    </p>
+
+  </div>
+</div>

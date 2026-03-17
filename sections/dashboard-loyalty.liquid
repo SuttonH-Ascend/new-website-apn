@@ -1,0 +1,116 @@
+<div class="apn-dash-section">
+  <div class="apn-dash-section-header">
+    <h2 class="apn-dash-section-title">Ascend Rewards</h2>
+    <p class="apn-dash-section-sub">Earn points with every purchase and unlock exclusive rewards</p>
+  </div>
+
+  <!-- Points balance hero -->
+  <div class="apn-loyalty-hero">
+    <p class="apn-loyalty-pts-label">Your Current Balance</p>
+    <div class="apn-loyalty-points" id="apn-loyalty-pts">
+      {{ customer.metafields.apn.loyalty_points | default: 0 }}
+    </div>
+    <p class="apn-loyalty-pts-label">ASCEND POINTS</p>
+
+    <!-- Tier progress bar -->
+    <div class="apn-loyalty-tier-track" style="margin-top: 1.5rem;">
+      <div
+        class="apn-loyalty-tier-fill"
+        id="apn-loyalty-fill"
+        style="width: 0%;"
+      ></div>
+    </div>
+    <div class="apn-loyalty-tier-labels">
+      <span>Bronze</span>
+      <span id="apn-loyalty-next" style="font-weight:600;color:var(--dash-teal);"></span>
+      <span>Gold</span>
+    </div>
+  </div>
+
+  <!-- Tier breakdown -->
+  <div class="apn-dash-card" style="margin-bottom: 1.5rem;">
+    <p class="apn-perf-info-label" style="margin-bottom: 1rem;">Reward Tiers</p>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+
+      <div style="text-align: center; padding: 1rem; border-radius: 8px; background: var(--dash-surface-2); border: 1px solid var(--dash-border);">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.0625rem;color:#cd7f32;margin-bottom:0.25rem;">BRONZE</div>
+        <div style="font-size:0.8125rem;color:var(--dash-text-muted);margin-bottom:0.75rem;">0 - 499 pts</div>
+        <ul style="font-size:0.8125rem;color:var(--dash-text-muted);list-style:none;padding:0;margin:0;text-align:left;display:flex;flex-direction:column;gap:0.375rem;">
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#cd7f32;">&#10003;</span> 5% off every order</li>
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#cd7f32;">&#10003;</span> Early access to new products</li>
+        </ul>
+      </div>
+
+      <div style="text-align: center; padding: 1rem; border-radius: 8px; background: var(--dash-surface-2); border: 1px solid rgba(160,160,160,0.3);">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.0625rem;color:#c0c0c0;margin-bottom:0.25rem;">SILVER</div>
+        <div style="font-size:0.8125rem;color:var(--dash-text-muted);margin-bottom:0.75rem;">500 - 1,499 pts</div>
+        <ul style="font-size:0.8125rem;color:var(--dash-text-muted);list-style:none;padding:0;margin:0;text-align:left;display:flex;flex-direction:column;gap:0.375rem;">
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#c0c0c0;">&#10003;</span> 10% off every order</li>
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#c0c0c0;">&#10003;</span> Free shipping over $50</li>
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#c0c0c0;">&#10003;</span> Birthday bonus points</li>
+        </ul>
+      </div>
+
+      <div style="text-align: center; padding: 1rem; border-radius: 8px; background: var(--dash-surface-2); border: 1px solid rgba(212,175,55,0.3);">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.0625rem;color:#d4af37;margin-bottom:0.25rem;">GOLD</div>
+        <div style="font-size:0.8125rem;color:var(--dash-text-muted);margin-bottom:0.75rem;">1,500+ pts</div>
+        <ul style="font-size:0.8125rem;color:var(--dash-text-muted);list-style:none;padding:0;margin:0;text-align:left;display:flex;flex-direction:column;gap:0.375rem;">
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#d4af37;">&#10003;</span> 15% off every order</li>
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#d4af37;">&#10003;</span> Free shipping always</li>
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#d4af37;">&#10003;</span> VIP community access</li>
+          <li style="display:flex;align-items:center;gap:0.375rem;"><span style="color:#d4af37;">&#10003;</span> Exclusive product drops</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- How to earn -->
+  <div class="apn-dash-section-header" style="margin-top: 2rem;">
+    <h3 class="apn-dash-section-title" style="font-size: 1.25rem;">How to Earn Points</h3>
+  </div>
+
+  <div class="apn-loyalty-cards">
+
+    <div class="apn-loyalty-earn-card">
+      <div class="apn-loyalty-earn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </div>
+      <div class="apn-loyalty-earn-pts">10 pts / $1</div>
+      <div class="apn-loyalty-earn-desc">Every dollar you spend earns 10 Ascend Points toward your next reward</div>
+    </div>
+
+    <div class="apn-loyalty-earn-card">
+      <div class="apn-loyalty-earn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="apn-loyalty-earn-pts">250 pts</div>
+      <div class="apn-loyalty-earn-desc">Complete the Ascend Performance Quiz to earn a one-time bonus</div>
+    </div>
+
+    <div class="apn-loyalty-earn-card">
+      <div class="apn-loyalty-earn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="apn-loyalty-earn-pts">100 pts</div>
+      <div class="apn-loyalty-earn-desc">Refer a friend who makes their first purchase and both of you earn points</div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="{{ routes.collections_url }}/all" class="apn-btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Earn More Points - Shop Now
+    </a>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Dashboard - Loyalty",
+  "settings": []
+}
+{% endschema %}

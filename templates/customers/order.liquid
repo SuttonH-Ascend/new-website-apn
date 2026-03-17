@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="{{ 'dashboard.css' | asset_url }}" />
+
+<div class="apn-dash-container" style="padding-top: 2rem; padding-bottom: 4rem;">
+
+  <!-- Back link -->
+  <a href="{{ routes.account_url }}" class="apn-order-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to Dashboard
+  </a>
+
+  <!-- Order header -->
+  <div class="apn-order-detail-header">
+    <div>
+      <h1 class="apn-dash-hero-name" style="font-size: 1.75rem;">Order {{ order.name }}</h1>
+      <p class="apn-dash-section-sub">Placed on {{ order.created_at | date: '%B %d, %Y at %I:%M %p' }}</p>
+    </div>
+    <span class="apn-order-status apn-order-status--{{ order.fulfillment_status | default: 'unfulfilled' }}" style="font-size: 0.875rem; padding: 0.5rem 1rem;">
+      {%- case order.fulfillment_status -%}
+        {%- when 'fulfilled' -%}Delivered
+        {%- when 'partial' -%}Partially Shipped
+        {%- when 'shipped' -%}Shipped
+        {%- else -%}Processing
+      {%- endcase -%}
+    </span>
+  </div>
+
+  <div class="apn-order-detail-grid">
+
+    <!-- Line items -->
+    <div class="apn-order-detail-card">
+      <h2 class="apn-order-detail-card-title">Items</h2>
+      <div class="apn-order-items apn-order-items--detail">
+        {% for item in order.line_items %}
+          <div class="apn-order-item">
+            {%- if item.product.featured_image -%}
+              <img
+                src="{{ item.product.featured_image | image_url: width: 96 }}"
+                alt="{{ item.title | escape }}"
+                class="apn-order-item-img"
+                loading="lazy"
+              />
+            {%- else -%}
+              <div class="apn-order-item-img apn-order-item-img--placeholder">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+            {%- endif -%}
+            <div class="apn-order-item-info">
+              <p class="apn-order-item-name">{{ item.title }}</p>
+              {%- if item.variant_title and item.variant_title != 'Default Title' -%}
+                <p class="apn-order-item-variant">{{ item.variant_title }}</p>
+              {%- endif -%}
+              <p class="apn-order-item-qty">Qty: {{ item.quantity }}</p>
+            </div>
+            <span class="apn-order-item-price">{{ item.final_line_price | money }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Summary + shipping -->
+    <div>
+
+      <!-- Price breakdown -->
+      <div class="apn-order-detail-card" style="margin-bottom: 1rem;">
+        <h2 class="apn-order-detail-card-title">Summary</h2>
+        <div class="apn-order-summary">
+          <div class="apn-order-summary-row">
+            <span>Subtotal</span>
+            <span>{{ order.subtotal_price | money }}</span>
+          </div>
+          {% for discount in order.discounts %}
+            <div class="apn-order-summary-row apn-order-summary-row--discount">
+              <span>{{ discount.code }}</span>
+              <span>-{{ discount.savings | money }}</span>
+            </div>
+          {% endfor %}
+          {% for shipping in order.shipping_methods %}
+            <div class="apn-order-summary-row">
+              <span>Shipping ({{ shipping.title }})</span>
+              <span>{{ shipping.price | money }}</span>
+            </div>
+          {% endfor %}
+          <div class="apn-order-summary-row apn-order-summary-row--total">
+            <span>Total</span>
+            <span>{{ order.total_price | money }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shipping address -->
+      {% if order.shipping_address %}
+        <div class="apn-order-detail-card">
+          <h2 class="apn-order-detail-card-title">Ship To</h2>
+          <address class="apn-order-address">
+            {{ order.shipping_address.name }}<br/>
+            {{ order.shipping_address.address1 }}<br/>
+            {% if order.shipping_address.address2 != blank %}
+              {{ order.shipping_address.address2 }}<br/>
+            {% endif %}
+            {{ order.shipping_address.city }}, {{ order.shipping_address.province_code }} {{ order.shipping_address.zip }}<br/>
+            {{ order.shipping_address.country }}
+          </address>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <!-- Track order link -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="{{ order.customer_url }}" class="apn-btn-primary" target="_blank" rel="noopener">
+      Track This Order
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+
+</div>

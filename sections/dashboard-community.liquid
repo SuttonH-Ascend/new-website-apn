@@ -1,0 +1,124 @@
+<div class="apn-dash-section" style="max-width: 900px;">
+  <div class="apn-dash-section-header">
+    <h2 class="apn-dash-section-title">Ascend Community</h2>
+    <p class="apn-dash-section-sub">Connect with athletes who train like you do</p>
+  </div>
+
+  <!-- Hero -->
+  <div class="apn-community-hero">
+    <div class="apn-community-badge">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Coming Soon
+    </div>
+    <h2 class="apn-community-title">Your Performance Tribe</h2>
+    <p class="apn-community-desc">
+      We are building a community where every member has performance data behind them.
+      Share wins, post PRs, get accountability, and connect with athletes at your level.
+      Not a generic fitness feed - a results-driven community built on your quiz data.
+    </p>
+
+    <!-- Preview cards -->
+    <div class="apn-community-preview-cards">
+      <div class="apn-community-preview-card">
+        <div class="apn-community-preview-icon">&#127942;</div>
+        <div class="apn-community-preview-title">Achievement Feed</div>
+        <div class="apn-community-preview-desc">Post PRs, tier upgrades, and milestone moments. React to other athletes' wins.</div>
+      </div>
+      <div class="apn-community-preview-card">
+        <div class="apn-community-preview-icon">&#128202;</div>
+        <div class="apn-community-preview-title">Leaderboards</div>
+        <div class="apn-community-preview-desc">See where you rank in your performance tier. Compete with athletes at your level.</div>
+      </div>
+      <div class="apn-community-preview-card">
+        <div class="apn-community-preview-icon">&#128172;</div>
+        <div class="apn-community-preview-title">Accountability Groups</div>
+        <div class="apn-community-preview-desc">Small pods matched by tier and training goals. Check in daily and keep each other honest.</div>
+      </div>
+    </div>
+
+    <!-- Waitlist form -->
+    <div style="max-width: 440px; margin: 0 auto;">
+      <p style="font-size: 0.875rem; color: var(--dash-text-muted); margin-bottom: 1rem;">
+        Get early access when we launch - members are notified first.
+      </p>
+
+      {%- form 'customer', id: 'apn-community-waitlist' -%}
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <input
+            type="email"
+            name="contact[email]"
+            value="{{ customer.email }}"
+            placeholder="{{ customer.email }}"
+            readonly
+            style="
+              flex: 1;
+              background: var(--dash-surface-2);
+              border: 1px solid var(--dash-border-2);
+              border-radius: 6px;
+              padding: 0.75rem 1rem;
+              font-family: 'Barlow', sans-serif;
+              font-size: 0.875rem;
+              color: var(--dash-text-muted);
+              outline: none;
+              min-width: 0;
+            "
+          />
+          <input type="hidden" name="contact[tags]" value="community-waitlist" />
+          <button type="submit" class="apn-btn-primary" style="padding: 0.75rem 1.25rem; white-space: nowrap;">
+            Join Waitlist
+          </button>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--dash-text-dim); margin-top: 0.5rem; text-align: left;">
+          Your account email is pre-filled. We will notify you at this address.
+        </p>
+      {%- endform -%}
+    </div>
+
+  </div>
+
+  <!-- What's being built -->
+  <div class="apn-dash-card">
+    <p class="apn-perf-info-label" style="margin-bottom: 1rem;">What We Are Building</p>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+
+      <div style="display: flex; gap: 1rem; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; background: var(--dash-teal-dim); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--dash-teal); flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <p style="font-weight: 600; font-size: 0.9375rem; color: var(--dash-text); margin: 0 0 0.25rem;">Tier-Matched Groups</p>
+          <p style="font-size: 0.8125rem; color: var(--dash-text-muted); margin: 0; line-height: 1.6;">Athletes grouped by their performance tier (Rookie, Athlete, Competitor, Elite, Champion) so conversations are always relevant to where you actually are.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; background: var(--dash-teal-dim); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--dash-teal); flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <p style="font-weight: 600; font-size: 0.9375rem; color: var(--dash-text); margin: 0 0 0.25rem;">Gap-Specific Channels</p>
+          <p style="font-size: 0.8125rem; color: var(--dash-text-muted); margin: 0; line-height: 1.6;">Dedicated channels for each performance area (sleep, recovery, nutrition, etc.) where athletes working on the same gaps can share what is working.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; background: var(--dash-teal-dim); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--dash-teal); flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <p style="font-weight: 600; font-size: 0.9375rem; color: var(--dash-text); margin: 0 0 0.25rem;">Performance Challenges</p>
+          <p style="font-size: 0.8125rem; color: var(--dash-text-muted); margin: 0; line-height: 1.6;">Monthly challenges tied to your specific gaps - 30-day sleep consistency, hydration streaks, training frequency targets - with community accountability and rewards points for completion.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Dashboard - Community",
+  "settings": []
+}
+{% endschema %}
