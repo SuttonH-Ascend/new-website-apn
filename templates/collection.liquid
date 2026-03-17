@@ -156,7 +156,7 @@
   // ── PRODUCTS — prices pulled live from Shopify via all_products ──────
   {%- assign _p_resilience     = all_products['resilience'] -%}
   {%- assign _p_replenish      = all_products['replenish'] -%}
-  {%- assign _p_replenish_plus = all_products['replenish-plus'] -%}
+  {%- assign _p_replenish_plus = all_products['replenishplus'] -%}
   {%- assign _p_recharge       = all_products['recharge'] -%}
   {%- assign _p_fortify        = all_products['fortify'] -%}
   {%- assign _p_adapt          = all_products['adapt'] -%}
@@ -187,7 +187,7 @@
      category:'hydration', price:{{ _p_replenish_plus.price | divided_by: 100.0 }},
      img:'{{ "replenish-one.png" | asset_url }}',
      tagline:'Enhanced formula with added recovery and performance support.',
-     detailUrl:'/products/replenish-plus'},
+     detailUrl:'/products/replenishplus'},
 
     // RECOVERY
     {id:'recharge', name:'Recharge', sub:'Creatine Monohydrate', flavor:'',

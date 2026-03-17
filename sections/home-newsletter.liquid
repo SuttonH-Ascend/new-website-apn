@@ -5,12 +5,11 @@
     <h2 class="apn-display" style="font-size:clamp(1.75rem,4vw,2.5rem);color:#fff;margin:0 0 0.875rem;">{{ section.settings.heading | default: 'Get Performance Tips & Exclusive Offers' }}</h2>
     <p style="color:rgba(255,255,255,0.8);line-height:1.7;margin:0 0 2rem;">{{ section.settings.subheading | default: 'Join the Ascend community. No spam  -  just training insights, new product drops, and deals for athletes who mean business.' }}</p>
 
-    {%- form 'customer', id: 'apn-newsletter-form' -%}
-      <input type="hidden" name="contact[tags]" value="newsletter" />
-      <div style="display:flex;gap:0.75rem;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+    <form id="apn-newsletter-form" onsubmit="apnNewsletterSubmit(event)" style="max-width:480px;margin:0 auto;">
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
         <input
+          id="apn-nl-email"
           type="email"
-          name="contact[email]"
           placeholder="{{ section.settings.placeholder | default: 'Your email address' }}"
           required
           aria-label="Email address"
@@ -18,22 +17,63 @@
           onfocus="this.style.borderColor='rgba(255,255,255,0.8)'"
           onblur="this.style.borderColor='rgba(255,255,255,0.3)'"
         />
-        <button type="submit" class="apn-btn" style="background:#0D0D0D;color:#fff;padding:0.875rem 1.5rem;font-size:0.875rem;white-space:nowrap;transition:background 0.18s ease;" onmouseover="this.style.background='#1a1a1a'" onmouseout="this.style.background='#0D0D0D'">
+        <button id="apn-nl-btn" type="submit" class="apn-btn" style="background:#0D0D0D;color:#fff;padding:0.875rem 1.5rem;font-size:0.875rem;white-space:nowrap;transition:background 0.18s ease;" onmouseover="this.style.background='#1a1a1a'" onmouseout="this.style.background='#0D0D0D'">
           {{ section.settings.btn_label | default: 'Subscribe' }}
         </button>
       </div>
-
-      {%- if form.posted_successfully? -%}
-        <p style="color:#fff;font-weight:600;margin-top:1rem;">Thanks for subscribing! We'll be in touch.</p>
-      {%- endif -%}
-      {%- if form.errors -%}
-        <p style="color:rgba(255,255,255,0.8);margin-top:0.75rem;font-size:0.875rem;">{{ form.errors | default_errors }}</p>
-      {%- endif -%}
-    {%- endform -%}
+      <p id="apn-nl-msg" style="display:none;color:#fff;font-weight:600;margin-top:1rem;"></p>
+    </form>
 
     <p style="font-size:0.8125rem;color:rgba(255,255,255,0.55);margin-top:1rem;">{{ section.settings.disclaimer | default: 'Unsubscribe anytime. We respect your inbox.' }}</p>
   </div>
 </section>
+
+<script>
+function apnNewsletterSubmit(e) {
+  e.preventDefault();
+  var input = document.getElementById('apn-nl-email');
+  var btn   = document.getElementById('apn-nl-btn');
+  var msg   = document.getElementById('apn-nl-msg');
+  var email = input.value.trim();
+  if (!email || !email.includes('@')) {
+    input.style.borderColor = 'rgba(239,68,68,0.8)';
+    return;
+  }
+  var orig = btn.textContent;
+  btn.textContent = 'Subscribing...';
+  btn.disabled = true;
+  input.disabled = true;
+  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=R5eNpH', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
+    body: JSON.stringify({ data: { type: 'subscription', attributes: {
+      list_id: 'RSeqfi',
+      custom_source: 'Homepage Newsletter Section',
+      profiles: { data: [{ type: 'profile', attributes: { email: email } }] }
+    }}})
+  }).then(function() {
+    btn.textContent = "You're In!";
+    btn.style.background = '#0D3D0D';
+    input.value = '';
+    msg.textContent = "Thanks for subscribing! Check your inbox.";
+    msg.style.display = 'block';
+    setTimeout(function() {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.disabled = false;
+      input.disabled = false;
+      msg.style.display = 'none';
+    }, 5000);
+  }).catch(function() {
+    btn.textContent = orig;
+    btn.disabled = false;
+    input.disabled = false;
+    msg.textContent = 'Something went wrong. Please try again.';
+    msg.style.display = 'block';
+    msg.style.color = 'rgba(255,200,200,0.9)';
+  });
+}
+</script>
 
 {% schema %}
 {

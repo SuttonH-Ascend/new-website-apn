@@ -470,7 +470,7 @@
           <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#F8FAFB;margin-bottom:0.25rem;">Fortify</h3>
           <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;line-height:1.6;">Natural Colostrum - The recovery edge most athletes don't know about. Strengthen your gut, your immune system, and your comeback.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
-            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#F8FAFB;">$39.99</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#F8FAFB;">$34.99</span>
             <div style="color:#F59E0B;font-size:0.875rem;">★★★★★</div>
           </div>
           <button class="btn-add-cart btn-add-cart-teal" onclick="APN.addToCart({{ _fortify.variants.first.id | default: 0 }},1,this)" aria-label="Add Fortify to cart">
@@ -849,7 +849,7 @@
     });
   }
 
-  // ── Newsletter submit ──
+  // ── Newsletter submit — syncs to Klaviyo ──
   function handleNewsletterSubmit(e) {
     e.preventDefault();
     const input = document.getElementById('email-input');
@@ -858,12 +858,36 @@
       input.style.borderColor = '#EF4444';
       return;
     }
-    btn.textContent = 'You\'re In!';
-    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
-    input.value = '';
-    input.placeholder = 'Welcome to the Locker Room!';
-    input.disabled = true;
+    const email = input.value.trim();
+    const orig = btn.textContent;
+    btn.textContent = 'Subscribing...';
     btn.disabled = true;
+    input.disabled = true;
+    fetch('https://a.klaviyo.com/client/subscriptions/?company_id=R5eNpH', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
+      body: JSON.stringify({ data: { type: 'subscription', attributes: {
+        list_id: 'RSeqfi',
+        custom_source: 'Homepage Newsletter',
+        profiles: { data: [{ type: 'profile', attributes: { email: email } }] }
+      }}})
+    }).then(function() {
+      btn.textContent = "You're In!";
+      btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+      input.value = '';
+      input.placeholder = 'Welcome to the Locker Room!';
+      setTimeout(function() {
+        btn.textContent = orig;
+        btn.style.background = '';
+        btn.disabled = false;
+        input.disabled = false;
+        input.placeholder = 'Your email address';
+      }, 4000);
+    }).catch(function() {
+      btn.textContent = orig;
+      btn.disabled = false;
+      input.disabled = false;
+    });
   }
 </script>
 
