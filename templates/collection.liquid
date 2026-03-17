@@ -153,24 +153,11 @@
 <script>
 (function(){
 
-  // ── PRODUCTS — prices pulled live from Shopify via all_products ──────
-  {%- assign _p_resilience     = all_products['resilience'] -%}
-  {%- assign _p_replenish      = all_products['replenish'] -%}
-  {%- assign _p_replenish_plus = all_products['replenishplus'] -%}
-  {%- assign _p_recharge       = all_products['recharge'] -%}
-  {%- assign _p_fortify        = all_products['fortify'] -%}
-  {%- assign _p_adapt          = all_products['adapt'] -%}
-  {%- assign _p_clarity        = all_products['clarity'] -%}
-  {%- assign _p_nourish        = all_products['nourish'] -%}
-  {%- assign _p_function       = all_products['function'] -%}
-  {%- assign _p_balance        = all_products['balance'] -%}
-  {%- assign _p_foundation     = all_products['foundation'] -%}
-  {%- assign _p_omega3         = all_products['omega-3'] -%}
-
+  // ── PRODUCTS ─────────────────────────────────────────────────────────
   var PRODUCTS = [
     // PROTEIN
     {id:'resilience-choc', name:'Resilience', sub:'Whey Protein Isolate', flavor:'Chocolate',
-     category:'protein', price:{{ _p_resilience.price | divided_by: 100.0 }}, badge:'Bestseller', badgeColor:'#06A5C5',
+     category:'protein', price:59.99, badge:'Bestseller', badgeColor:'#06A5C5',
      img:'{{ "resilience-one.png" | asset_url }}',
      tagline:'Fast-absorbing whey isolate with zero fillers and zero compromise.',
      flavors:['Chocolate','Vanilla'],
@@ -178,62 +165,62 @@
 
     // HYDRATION
     {id:'replenish-pm', name:'Replenish', sub:'Hydration Powder', flavor:'Peach Mango',
-     category:'hydration', price:{{ _p_replenish.price | divided_by: 100.0 }}, badge:'Top Seller', badgeColor:'#22C55E',
+     category:'hydration', price:39.99, badge:'Top Seller', badgeColor:'#22C55E',
      img:'{{ "replenish-pm-one.png" | asset_url }}',
      tagline:'Complete electrolyte replenishment for peak training output.',
      flavors:['Peach Mango','Lemonade','Passion Fruit','JG','Lychee'],
      detailUrl:'/products/replenish'},
     {id:'replenish-plus', name:'Replenish Plus', sub:'Advanced Hydration', flavor:'',
-     category:'hydration', price:{{ _p_replenish_plus.price | divided_by: 100.0 }},
+     category:'hydration', price:44.99,
      img:'{{ "replenish-one.png" | asset_url }}',
      tagline:'Enhanced formula with added recovery and performance support.',
      detailUrl:'/products/replenishplus'},
 
     // RECOVERY
     {id:'recharge', name:'Recharge', sub:'Creatine Monohydrate', flavor:'',
-     category:'recovery', price:{{ _p_recharge.price | divided_by: 100.0 }}, badge:'Essential', badgeColor:'#8B5CF6',
+     category:'recovery', price:39.99, badge:'Essential', badgeColor:'#8B5CF6',
      img:'{{ "recharge-one.png" | asset_url }}',
      tagline:'Pure creatine monohydrate. 1,000+ studies. The proven performance edge.',
      detailUrl:'/products/recharge'},
     {id:'fortify', name:'Fortify', sub:'Natural Colostrum Powder', flavor:'',
-     category:'recovery', price:{{ _p_fortify.price | divided_by: 100.0 }},
+     category:'recovery', price:34.99,
      img:'{{ "fortify-one.png" | asset_url }}',
      tagline:'Gut health and immune support for athletes training at high volume.',
      detailUrl:'/products/fortify'},
 
     // WELLNESS
     {id:'adapt', name:'Adapt', sub:'Organic Ashwagandha', flavor:'',
-     category:'wellness', price:{{ _p_adapt.price | divided_by: 100.0 }},
+     category:'wellness', price:14.99,
      img:'{{ "adapt-one.jpeg" | asset_url }}',
      tagline:'Clinically studied cortisol reduction. Compete under pressure.',
      detailUrl:'/products/adapt'},
     {id:'clarity', name:'Clarity', sub:'Methylene Blue Drops', flavor:'',
-     category:'wellness', price:{{ _p_clarity.price | divided_by: 100.0 }},
+     category:'wellness', price:29.99,
      img:'{{ "clarity-one.png" | asset_url }}',
      tagline:'Mitochondrial efficiency and elite cognitive performance support.',
      detailUrl:'/products/clarity'},
     {id:'nourish', name:'Nourish', sub:'Greens Superfood', flavor:'',
-     category:'wellness', price:{{ _p_nourish.price | divided_by: 100.0 }},
+     category:'wellness', price:34.99,
      img:'{{ "nourish-one.png" | asset_url }}',
      tagline:'Dense micronutrient coverage from whole food greens and superfoods.',
      detailUrl:'/products/nourish'},
     {id:'function', name:'Function', sub:'Magnesium Glycinate', flavor:'',
-     category:'wellness', price:{{ _p_function.price | divided_by: 100.0 }},
+     category:'wellness', price:19.99,
      img:'{{ "function-one.png" | asset_url }}',
      tagline:'Deep sleep architecture and nervous system recovery support.',
      detailUrl:'/products/function'},
     {id:'balance', name:'Balance', sub:'Hormone Support Formula', flavor:'',
-     category:'wellness', price:{{ _p_balance.price | divided_by: 100.0 }},
+     category:'wellness', price:19.99,
      img:'{{ "balance-one.png" | asset_url }}',
      tagline:'Natural hormone balance for consistent energy and performance.',
      detailUrl:'/products/balance'},
     {id:'foundation', name:'Foundation', sub:'D3 + K2 Capsule', flavor:'',
-     category:'wellness', price:{{ _p_foundation.price | divided_by: 100.0 }},
+     category:'wellness', price:19.99,
      img:'{{ "foundation-one.png" | asset_url }}',
      tagline:'Complete micronutrient foundation built for high-output athletes.',
      detailUrl:'/products/foundation'},
     {id:'omega3', name:'Omega-3', sub:'Ultra-Pure Fish Oil', flavor:'',
-     category:'wellness', price:{{ _p_omega3.price | divided_by: 100.0 }},
+     category:'wellness', price:24.99,
      img:'{{ "omega3-one.png" | asset_url }}',
      tagline:'High-potency omega-3 for inflammation support and joint recovery.',
      detailUrl:'/products/omega3'}
