@@ -21,8 +21,8 @@
   --apn-dimgray: #555;
   --apn-red:     #c0392b;
   --apn-green:   #27ae60;
-  --apn-font-h:  'Oswald', sans-serif;
-  --apn-font-b:  'Inter', sans-serif;
+  --apn-font-h:  'Barlow Condensed', sans-serif;
+  --apn-font-b:  'Barlow', sans-serif;
 }
 
 /* ── HARD RESET ───────────────────────────────────────────── */
@@ -61,118 +61,251 @@
 #apn-quiz-section .apn-hero {
   display: block !important;
   width: 100% !important;
-  background: linear-gradient(160deg, #0a0a0a 0%, #081318 50%, #0a0a0a 100%) !important;
-  border-bottom: 1px solid var(--apn-border) !important;
-  padding: 72px 20px 60px !important;
-  text-align: center !important;
   position: relative !important;
   overflow: hidden !important;
+  min-height: 100vh !important;
+  background: #06090A !important;
 }
 
-#apn-quiz-section .apn-hero::before {
-  content: '' !important;
+/* Background image */
+#apn-quiz-section .apn-hero-bg {
   position: absolute !important;
-  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(7,165,195,0.12) 0%, transparent 70%) !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 20% !important;
+  display: block !important;
+}
+
+/* Dark overlays */
+#apn-quiz-section .apn-hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(to right, rgba(6,9,10,0.97) 0%, rgba(6,9,10,0.82) 50%, rgba(6,9,10,0.55) 100%),
+    linear-gradient(to top, rgba(6,9,10,0.8) 0%, transparent 60%) !important;
+  display: block !important;
+}
+
+#apn-quiz-section .apn-hero-glow {
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(ellipse 55% 70% at 15% 50%, rgba(6,165,197,0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(4,143,171,0.06) 0%, transparent 60%) !important;
   pointer-events: none !important;
+  display: block !important;
+}
+
+/* Two-column inner */
+#apn-quiz-section .apn-hero-inner {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1.05fr !important;
+  align-items: center !important;
+  min-height: 100vh !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+  padding: 6rem 2rem 4rem !important;
+  gap: 5rem !important;
+}
+
+/* Left: score preview */
+#apn-quiz-section .apn-hero-preview {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#apn-quiz-section .apn-preview-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+}
+
+#apn-quiz-section .apn-score-teaser {
+  width: 300px !important;
+  height: 185px !important;
+  position: relative !important;
+  display: block !important;
+}
+
+#apn-quiz-section .apn-teaser-svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  filter: drop-shadow(0 0 32px rgba(6,165,197,0.22)) !important;
+  overflow: visible !important;
+}
+
+#apn-quiz-section .apn-tier-pills {
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+
+#apn-quiz-section .apn-tier-pip {
+  font-family: var(--apn-font-h) !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 4px 10px !important;
+  border-radius: 40px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  display: inline-block !important;
+}
+
+/* Right: headline + CTA */
+#apn-quiz-section .apn-hero-cta {
   display: block !important;
 }
 
 #apn-quiz-section .apn-hero-eyebrow {
   font-family: var(--apn-font-h) !important;
-  font-size: 12px !important;
-  letter-spacing: 4px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
   color: var(--apn-gold) !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 1.25rem !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
   gap: 10px !important;
   width: 100% !important;
 }
 
-#apn-quiz-section .apn-hero-eyebrow::before,
-#apn-quiz-section .apn-hero-eyebrow::after {
+#apn-quiz-section .apn-hero-eyebrow::before {
   content: '' !important;
   height: 1px !important;
-  width: 40px !important;
+  width: 22px !important;
   background: var(--apn-gold) !important;
-  opacity: 0.6 !important;
   display: block !important;
   flex-shrink: 0 !important;
 }
 
 #apn-quiz-section .apn-hero h1 {
-  font-family: var(--apn-font-h) !important;
-  font-size: clamp(32px, 6vw, 64px) !important;
+  font-family: Georgia, serif !important;
+  font-size: clamp(2.5rem, 4vw, 3.75rem) !important;
   font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  line-height: 1.05 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.08 !important;
   color: var(--apn-white) !important;
-  margin: 0 0 20px !important;
-  text-align: center !important;
+  margin: 0 0 1.125rem !important;
+  text-align: left !important;
   display: block !important;
   width: 100% !important;
 }
 
 #apn-quiz-section .apn-hero h1 span { color: var(--apn-gold) !important; }
 
-#apn-quiz-section .apn-hero > p {
-  font-size: 16px !important;
-  color: #aaa !important;
-  max-width: 560px !important;
-  margin: 0 auto 36px !important;
+#apn-quiz-section .apn-hero-sub {
+  font-size: 1rem !important;
+  color: rgba(240,237,232,0.55) !important;
+  max-width: 440px !important;
+  margin: 0 0 2rem !important;
   line-height: 1.7 !important;
-  font-weight: 300 !important;
-  text-align: center !important;
   display: block !important;
   width: 100% !important;
+  text-align: left !important;
 }
 
+/* Stat row */
+#apn-quiz-section .apn-hero-stats {
+  display: flex !important;
+  gap: 0.875rem !important;
+  margin-bottom: 2rem !important;
+  flex-wrap: wrap !important;
+}
+
+#apn-quiz-section .apn-hstat {
+  background: rgba(6,165,197,0.07) !important;
+  border: 1px solid rgba(6,165,197,0.18) !important;
+  border-radius: 8px !important;
+  padding: 0.625rem 0.875rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+#apn-quiz-section .apn-hstat-val {
+  font-family: var(--apn-font-h) !important;
+  font-size: 1.375rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--apn-gold) !important;
+  line-height: 1 !important;
+  display: block !important;
+}
+
+#apn-quiz-section .apn-hstat-lbl {
+  font-size: 0.625rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: rgba(240,237,232,0.38) !important;
+  display: block !important;
+}
+
+/* CTA button */
 #apn-quiz-section .apn-start-btn {
   font-family: var(--apn-font-h) !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  letter-spacing: 2.5px !important;
+  font-size: 0.875rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
-  background: linear-gradient(135deg, var(--apn-gold-dk), var(--apn-gold)) !important;
-  color: var(--apn-black) !important;
+  background: linear-gradient(135deg, #048FAB 0%, #06A5C5 60%, #07B8DC 100%) !important;
+  color: #fff !important;
   border: none !important;
-  padding: 18px 48px !important;
+  padding: 1.125rem 2.5rem !important;
   border-radius: 6px !important;
   cursor: pointer !important;
-  transition: all 0.25s ease !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 0.625rem !important;
   line-height: 1.2 !important;
+  box-shadow: 0 6px 24px rgba(6,165,197,0.4), 0 1px 3px rgba(0,0,0,0.4) !important;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#apn-quiz-section .apn-start-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%) !important;
+  pointer-events: none !important;
+  display: block !important;
 }
 
 #apn-quiz-section .apn-start-btn:hover {
   transform: translateY(-3px) !important;
-  box-shadow: 0 10px 30px rgba(7,165,195,0.4) !important;
+  box-shadow: 0 12px 32px rgba(6,165,197,0.5), 0 2px 6px rgba(0,0,0,0.4) !important;
 }
+
+#apn-quiz-section .apn-start-btn:active { transform: translateY(0) !important; }
 
 #apn-quiz-section .apn-trust-row {
   display: flex !important;
-  justify-content: center !important;
-  gap: 24px !important;
+  gap: 1.25rem !important;
   flex-wrap: wrap !important;
-  margin-top: 20px !important;
-  font-size: 12px !important;
-  color: #666 !important;
+  margin-top: 1.125rem !important;
+  font-size: 0.6875rem !important;
+  color: rgba(240,237,232,0.35) !important;
   width: 100% !important;
 }
 
 #apn-quiz-section .apn-trust-item {
   display: flex !important;
   align-items: center !important;
-  gap: 6px !important;
+  gap: 5px !important;
 }
 
-#apn-quiz-section .apn-trust-item::before { content: '✓' !important; color: var(--apn-gold) !important; display: inline !important; }
+#apn-quiz-section .apn-trust-item::before { content: '✓' !important; color: var(--apn-gold) !important; display: inline !important; font-size: 10px !important; }
 
 /* ── PROGRESS BAR ─────────────────────────────────────────── */
 #apn-quiz-section .apn-progress-wrap {
@@ -971,8 +1104,18 @@
    RESPONSIVE
    ══════════════════════════════════════════════════════════════ */
 
+@media (max-width: 900px) {
+  #apn-quiz-section .apn-hero-inner { grid-template-columns: 1fr !important; min-height: auto !important; padding: 5rem 1.5rem 3.5rem !important; gap: 2.5rem !important; text-align: center !important; }
+  #apn-quiz-section .apn-hero-eyebrow { justify-content: center !important; }
+  #apn-quiz-section .apn-hero h1 { text-align: center !important; }
+  #apn-quiz-section .apn-hero-sub { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+  #apn-quiz-section .apn-hero-stats { justify-content: center !important; }
+  #apn-quiz-section .apn-start-btn { width: 100% !important; justify-content: center !important; }
+  #apn-quiz-section .apn-trust-row { justify-content: center !important; }
+  #apn-quiz-section .apn-score-teaser { width: 260px !important; height: 160px !important; }
+}
+
 @media (max-width: 768px) {
-  #apn-quiz-section .apn-hero { padding: 52px 20px 44px !important; }
   #apn-quiz-section .apn-quiz-body { padding: 32px 18px 64px !important; }
   #apn-quiz-section .apn-breakdown, #apn-quiz-section .apn-gaps, #apn-quiz-section .apn-recs { padding: 26px 22px !important; }
   #apn-quiz-section .apn-pdf-cta { padding: 32px 24px !important; }
@@ -982,11 +1125,12 @@
 }
 
 @media (max-width: 520px) {
-  #apn-quiz-section .apn-hero { padding: 40px 16px 36px !important; }
-  #apn-quiz-section .apn-hero h1 { font-size: clamp(26px, 8vw, 40px) !important; margin-bottom: 16px !important; }
-  #apn-quiz-section .apn-hero > p { font-size: 14px !important; margin-bottom: 28px !important; }
-  #apn-quiz-section .apn-start-btn { padding: 16px 32px !important; font-size: 13px !important; letter-spacing: 2px !important; width: 100% !important; justify-content: center !important; }
-  #apn-quiz-section .apn-trust-row { gap: 14px !important; flex-direction: column !important; align-items: center !important; }
+  #apn-quiz-section .apn-hero-inner { padding: 4rem 1.25rem 3rem !important; gap: 2rem !important; }
+  #apn-quiz-section .apn-hero h1 { font-size: clamp(1.875rem, 7vw, 2.75rem) !important; }
+  #apn-quiz-section .apn-hero-sub { font-size: 0.875rem !important; }
+  #apn-quiz-section .apn-score-teaser { width: 220px !important; height: 136px !important; }
+  #apn-quiz-section .apn-start-btn { padding: 1rem 1.5rem !important; font-size: 0.8125rem !important; width: 100% !important; justify-content: center !important; }
+  #apn-quiz-section .apn-trust-row { gap: 0.75rem !important; flex-wrap: wrap !important; justify-content: center !important; }
 
   #apn-quiz-section .apn-quiz-body { padding: 24px 16px 60px !important; }
   #apn-quiz-section .apn-q-text { font-size: clamp(20px, 5.5vw, 28px) !important; margin-bottom: 24px !important; }
@@ -1043,14 +1187,84 @@
 
   <!-- ── HERO ──────────────────────────────────────────── -->
   <div class="apn-hero" id="apn-hero">
-    <div class="apn-hero-eyebrow">Ascend Performance Nutrition</div>
-    <h1>Your <span>Athletic Performance</span><br>Score Awaits</h1>
-    <p>Answer 10 science-backed questions across sleep, nutrition, training, recovery, and mindset. Get your personal score from 0 to 100 plus a free custom playbook to level up.</p>
-    <button class="apn-start-btn" onclick="APNQuiz.start()">Start the Assessment &rarr;</button>
-    <div class="apn-trust-row">
-      <span class="apn-trust-item">Takes 3 minutes</span>
-      <span class="apn-trust-item">10 expert questions</span>
-      <span class="apn-trust-item">Personalized product stack</span>
+    <img class="apn-hero-bg" src="{{ 'fitness.webp' | asset_url }}" alt="" aria-hidden="true" />
+    <div class="apn-hero-overlay" aria-hidden="true"></div>
+    <div class="apn-hero-glow" aria-hidden="true"></div>
+
+    <div class="apn-hero-inner">
+
+      <!-- Left: Score Preview Dial -->
+      <div class="apn-hero-preview">
+        <div class="apn-preview-wrap">
+          <div class="apn-score-teaser">
+            <svg class="apn-teaser-svg" viewBox="0 0 280 165" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="tsr-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#048FAB"/>
+                  <stop offset="100%" stop-color="#07B8DC"/>
+                </linearGradient>
+                <filter id="tsr-glow">
+                  <feGaussianBlur stdDeviation="5" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <!-- Track -->
+              <path fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16" stroke-linecap="round" d="M 30 145 A 110 110 0 0 1 250 145"/>
+              <!-- ~65% filled arc (teaser) -->
+              <path fill="none" stroke="url(#tsr-grad)" stroke-width="16" stroke-linecap="round"
+                    stroke-dasharray="345" stroke-dashoffset="121"
+                    filter="url(#tsr-glow)"
+                    d="M 30 145 A 110 110 0 0 1 250 145"/>
+              <!-- Question mark -->
+              <text x="140" y="122" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="800" font-size="60" fill="#F8FAFB" letter-spacing="-2">?</text>
+              <text x="140" y="144" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="9" letter-spacing="3" fill="rgba(248,250,251,0.28)">YOUR SCORE</text>
+              <text x="28" y="158" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="9" fill="rgba(248,250,251,0.2)">0</text>
+              <text x="252" y="158" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-size="9" fill="rgba(248,250,251,0.2)">100</text>
+            </svg>
+          </div>
+          <div class="apn-tier-pills" aria-hidden="true">
+            <span class="apn-tier-pip" style="color:rgba(192,57,43,0.55);border-color:rgba(192,57,43,0.22);">Rookie</span>
+            <span class="apn-tier-pip" style="color:rgba(230,126,34,0.6);border-color:rgba(230,126,34,0.22);">Athlete</span>
+            <span class="apn-tier-pip" style="color:rgba(241,196,15,0.65);border-color:rgba(241,196,15,0.22);">Competitor</span>
+            <span class="apn-tier-pip" style="color:rgba(39,174,96,0.65);border-color:rgba(39,174,96,0.22);">Elite</span>
+            <span class="apn-tier-pip" style="color:rgba(6,165,197,0.75);border-color:rgba(6,165,197,0.3);">Champion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Headline + CTA -->
+      <div class="apn-hero-cta">
+        <div class="apn-hero-eyebrow">Performance Assessment</div>
+        <h1>What's Your<br><span>Athletic Score?</span></h1>
+        <p class="apn-hero-sub">10 science-backed questions on sleep, nutrition, recovery, and mindset. Your personal performance score from 0 to 100 - free.</p>
+
+        <div class="apn-hero-stats">
+          <div class="apn-hstat">
+            <div class="apn-hstat-val">24K+</div>
+            <div class="apn-hstat-lbl">Athletes Scored</div>
+          </div>
+          <div class="apn-hstat">
+            <div class="apn-hstat-val">10</div>
+            <div class="apn-hstat-lbl">Questions</div>
+          </div>
+          <div class="apn-hstat">
+            <div class="apn-hstat-val">Free</div>
+            <div class="apn-hstat-lbl">No Cost</div>
+          </div>
+        </div>
+
+        <button class="apn-start-btn" onclick="APNQuiz.start()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Start the Assessment
+        </button>
+
+        <div class="apn-trust-row">
+          <span class="apn-trust-item">Takes 3 minutes</span>
+          <span class="apn-trust-item">Personalized stack</span>
+          <span class="apn-trust-item">Free discount code</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
