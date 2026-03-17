@@ -14,6 +14,11 @@
 
   <link rel="canonical" href="{{ canonical_url }}" />
 
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" />
+    <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180, height: 180 }}" />
+  {%- endif -%}
+
   {{ content_for_header }}
 
   <!-- Tailwind CSS (loaded in <head> so classes apply before paint) -->

@@ -253,7 +253,7 @@
        headers: {'Content-Type': 'application/json'},
        body: JSON.stringify(Object.assign({id: '{{ product.variants.first.id }}', quantity: 1}, window._lwPlan ? {selling_plan: window._lwPlan} : {}))
      }).then(() => { window.location = '/cart'; });">
-        Add to Cart: $39.99
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;vertical-align:middle;margin-right:0.4em"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Add to Cart
       </button>
 
       <!-- Free Shipping Note -->

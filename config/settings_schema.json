@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "APN",
+    "theme_version": "1.0.0",
+    "theme_author": "Ascend Performance Nutrition",
+    "theme_documentation_url": "https://ascendperformancenutrition.com",
+    "theme_support_url": "https://ascendperformancenutrition.com"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32x32px. Use a square PNG or ICO file."
+      }
+    ]
+  }
+]
