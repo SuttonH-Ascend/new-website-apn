@@ -1,39 +1,107 @@
-{%- if product.selling_plan_groups.size > 0 -%}
 <div id="lw-wrap" style="margin-bottom:1.25rem;">
+
+  <!-- Purchase type toggle -->
   <div style="display:flex;gap:0.5rem;margin-bottom:0.875rem;">
-    <button type="button" id="lw-onetime" onclick="lwSetType('onetime')" style="flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem;border-radius:5px;border:1.5px solid #F8FAFB;background:#F8FAFB;color:#0D0D0D;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;">One-Time Purchase</button>
-    <button type="button" id="lw-subscribe" onclick="lwSetType('subscribe')" style="flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem;border-radius:5px;border:1.5px solid rgba(255,255,255,0.15);background:#1a1a1a;color:rgba(248,250,251,0.55);cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;">Subscribe &amp; Save</button>
+    <button type="button" id="lw-onetime" onclick="lwSetType('onetime')"
+      style="flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem;border-radius:5px;border:1.5px solid #F8FAFB;background:#F8FAFB;color:#0D0D0D;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;">
+      One-Time Purchase
+    </button>
+    <button type="button" id="lw-subscribe" onclick="lwSetType('subscribe')"
+      style="position:relative;flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem;border-radius:5px;border:1.5px solid rgba(255,255,255,0.15);background:#1a1a1a;color:rgba(248,250,251,0.55);cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;">
+      Subscribe &amp; Save
+      <span style="position:absolute;top:-9px;right:8px;background:#22C55E;color:#fff;font-size:0.55rem;font-weight:800;letter-spacing:0.12em;padding:2px 6px;border-radius:99px;text-transform:uppercase;">Save 20%</span>
+    </button>
   </div>
-  <div id="lw-plans" style="display:none;background:#131313;border:1px solid rgba(6,165,197,0.25);border-radius:6px;padding:1rem;margin-bottom:0.875rem;">
-    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:#06A5C5;margin-bottom:0.625rem;">Delivery Frequency</div>
-    <select id="lw-plan-select" onchange="window._lwPlan=this.value" style="width:100%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.12);border-radius:5px;color:#F8FAFB;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;padding:0.5rem 0.75rem;outline:none;cursor:pointer;">
-      {%- for group in product.selling_plan_groups -%}
-        {%- for plan in group.selling_plans -%}
-          <option value="{{ plan.id }}">{{ plan.name }}</option>
+
+  <!-- Subscribe panel -->
+  <div id="lw-plans" style="display:none;background:#0d1a10;border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:1rem;margin-bottom:0.875rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6875rem;letter-spacing:0.14em;text-transform:uppercase;color:#22C55E;">Delivery Frequency</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;color:#22C55E;">
+        <span id="lw-savings-label"></span>
+      </div>
+    </div>
+    {%- if product.selling_plan_groups.size > 0 -%}
+      <select id="lw-plan-select" onchange="lwPlanChanged(this.value)"
+        style="width:100%;background:#131313;border:1px solid rgba(34,197,94,0.2);border-radius:5px;color:#F8FAFB;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;padding:0.5rem 0.75rem;outline:none;cursor:pointer;">
+        {%- for group in product.selling_plan_groups -%}
+          {%- for plan in group.selling_plans -%}
+            <option value="{{ plan.id }}">{{ plan.name }}</option>
+          {%- endfor -%}
         {%- endfor -%}
-      {%- endfor -%}
-    </select>
-    <div style="font-size:0.8125rem;color:rgba(248,250,251,0.4);margin-top:0.625rem;line-height:1.5;">Cancel or skip anytime. Free to manage online.</div>
+      </select>
+    {%- else -%}
+      <select id="lw-plan-select" onchange="lwPlanChanged(this.value)"
+        style="width:100%;background:#131313;border:1px solid rgba(34,197,94,0.2);border-radius:5px;color:#F8FAFB;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;padding:0.5rem 0.75rem;outline:none;cursor:pointer;">
+        <option value="monthly">Deliver every month</option>
+        <option value="bimonthly">Deliver every 2 months</option>
+        <option value="quarterly">Deliver every 3 months</option>
+      </select>
+    {%- endif -%}
+    <div style="display:flex;align-items:center;gap:0.4rem;margin-top:0.625rem;">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v5l3 2" stroke="#22C55E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="6" r="5" stroke="#22C55E" stroke-width="1.2"/></svg>
+      <span style="font-size:0.8rem;color:rgba(248,250,251,0.45);line-height:1.5;">Cancel or skip anytime. Free to manage online.</span>
+    </div>
   </div>
+
+  <!-- Discounted price display (shown when subscribe is active) -->
+  <div id="lw-price-row" style="display:none;margin-bottom:1rem;">
+    <div style="display:flex;align-items:baseline;gap:0.75rem;">
+      <span id="lw-sub-price" style="font-family:'Barlow Condensed',sans-serif;font-size:2.25rem;font-weight:800;color:#22C55E;"></span>
+      <span id="lw-orig-price" style="font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:600;color:#6b7280;text-decoration:line-through;"></span>
+      <span style="font-size:0.8rem;font-weight:700;color:#22C55E;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.2);padding:0.2rem 0.5rem;border-radius:4px;">20% OFF</span>
+    </div>
+  </div>
+
 </div>
+
 <script>
+(function() {
   window._lwPlan = null;
-  function lwSetType(type) {
+  var _basePrice = {{ product.price | divided_by: 100.0 }};
+
+  function formatMoney(n) {
+    return '$' + n.toFixed(2);
+  }
+
+  window.lwPlanChanged = function(val) {
+    window._lwPlan = val;
+  };
+
+  window.lwSetType = function(type) {
     var ot = document.getElementById('lw-onetime');
     var sb = document.getElementById('lw-subscribe');
     var pl = document.getElementById('lw-plans');
+    var pr = document.getElementById('lw-price-row');
+    var subPrice = document.getElementById('lw-sub-price');
+    var origPrice = document.getElementById('lw-orig-price');
+    var savLabel = document.getElementById('lw-savings-label');
     var sel = document.getElementById('lw-plan-select');
+    // find the native price display to toggle
+    var nativePriceEl = document.querySelector('.product-price-display');
+
     if (type === 'subscribe') {
       ot.style.background = '#1a1a1a'; ot.style.color = 'rgba(248,250,251,0.55)'; ot.style.borderColor = 'rgba(255,255,255,0.15)';
-      sb.style.background = '#06A5C5'; sb.style.color = '#fff'; sb.style.borderColor = '#06A5C5';
+      sb.style.background = '#22C55E'; sb.style.color = '#fff'; sb.style.borderColor = '#22C55E';
       pl.style.display = 'block';
+      if (pr) {
+        var discounted = _basePrice * 0.8;
+        var saved = _basePrice - discounted;
+        if (subPrice) subPrice.textContent = formatMoney(discounted);
+        if (origPrice) origPrice.textContent = formatMoney(_basePrice);
+        if (savLabel) savLabel.textContent = 'You save ' + formatMoney(saved);
+        pr.style.display = 'block';
+      }
+      if (nativePriceEl) nativePriceEl.style.display = 'none';
       window._lwPlan = sel ? sel.value : null;
     } else {
       ot.style.background = '#F8FAFB'; ot.style.color = '#0D0D0D'; ot.style.borderColor = '#F8FAFB';
       sb.style.background = '#1a1a1a'; sb.style.color = 'rgba(248,250,251,0.55)'; sb.style.borderColor = 'rgba(255,255,255,0.15)';
       pl.style.display = 'none';
+      if (pr) pr.style.display = 'none';
+      if (nativePriceEl) nativePriceEl.style.display = '';
       window._lwPlan = null;
     }
-  }
+  };
+})();
 </script>
-{%- endif -%}
