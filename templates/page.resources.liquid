@@ -60,18 +60,27 @@
   .nl-btn:active{transform:translateY(0);}
 
   @media(max-width:900px){
-    .res-grid{grid-template-columns:1fr!important;}
-    .nl-row{flex-direction:column!important;}
+    .res-grid{grid-template-columns:1fr 1fr!important;}
+    .nl-row{flex-direction:column!important;align-items:stretch!important;}
+    .nl-input{max-width:100%!important;}
+    .nl-btn{width:100%;}
     #res-modal-header,#res-modal-body{padding-left:1.5rem!important;padding-right:1.5rem!important;}
     .feat-card-copy{padding:2rem!important;}
+    .res-hero-section{padding:6rem 1.25rem 4.5rem!important;}
+    .res-cat-section{padding:3.5rem 1.25rem!important;}
+    .res-nl-section{padding:4rem 1.25rem!important;}
   }
   @media(max-width:600px){
+    .res-grid{grid-template-columns:1fr!important;}
     #res-modal-header{padding-top:2rem!important;}
+    #res-modal-box{border-radius:10px;}
+    .res-hero-section{padding:5rem 1rem 3.5rem!important;}
+    .cat-heading{font-size:1.5rem!important;}
   }
 </style>
 
 <!-- ═══ HERO ═══ -->
-<section style="position:relative;overflow:hidden;padding:9rem 1.5rem 7rem;text-align:center;background:linear-gradient(160deg,#080808 0%,#081218 55%,#080808 100%);">
+<section class="res-hero-section" style="position:relative;overflow:hidden;padding:9rem 1.5rem 7rem;text-align:center;background:linear-gradient(160deg,#080808 0%,#081218 55%,#080808 100%);">
   <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
     <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(6,165,197,0.1) 0%,transparent 70%);"></div>
   </div>
@@ -120,7 +129,7 @@
 </section>
 
 <!-- ═══ CATEGORY 1: TRAINING GUIDES ═══ -->
-<section style="padding:5rem 1.5rem;" aria-label="Training Guides">
+<section class="res-cat-section" style="padding:5rem 1.5rem;" aria-label="Training Guides">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="margin-bottom:2.5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
       <div>
@@ -168,7 +177,7 @@
 <hr class="sec-divider"/>
 
 <!-- ═══ CATEGORY 2: NUTRITION SCIENCE ═══ -->
-<section style="padding:5rem 1.5rem;" aria-label="Nutrition Science">
+<section class="res-cat-section" style="padding:5rem 1.5rem;" aria-label="Nutrition Science">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="margin-bottom:2.5rem;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;">
@@ -214,7 +223,7 @@
 <hr class="sec-divider"/>
 
 <!-- ═══ CATEGORY 3: FAITH & PERFORMANCE ═══ -->
-<section style="padding:5rem 1.5rem;position:relative;overflow:hidden;" aria-label="Faith and Performance">
+<section class="res-cat-section" style="padding:5rem 1.5rem;position:relative;overflow:hidden;" aria-label="Faith and Performance">
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 60% at 100% 50%,rgba(6,165,197,0.04) 0%,transparent 70%);" aria-hidden="true"></div>
   <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
     <div style="margin-bottom:2.5rem;">
@@ -261,7 +270,7 @@
 <hr class="sec-divider"/>
 
 <!-- ═══ CATEGORY 4: PRODUCT EDUCATION ═══ -->
-<section style="padding:5rem 1.5rem;" aria-label="Product Education">
+<section class="res-cat-section" style="padding:5rem 1.5rem;" aria-label="Product Education">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="margin-bottom:2.5rem;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;">
@@ -307,7 +316,7 @@
 <hr class="sec-divider"/>
 
 <!-- ═══ CATEGORY 5: COMMUNITY ═══ -->
-<section style="padding:5rem 1.5rem;" aria-label="Community Stories">
+<section class="res-cat-section" style="padding:5rem 1.5rem;" aria-label="Community Stories">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="margin-bottom:2.5rem;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;">
@@ -352,7 +361,7 @@
 </section>
 
 <!-- ═══ EMAIL CAPTURE ═══ -->
-<section style="padding:6rem 1.5rem;background:linear-gradient(160deg,#081218,#040e12);position:relative;overflow:hidden;" aria-label="Newsletter signup">
+<section class="res-nl-section" style="padding:6rem 1.5rem;background:linear-gradient(160deg,#081218,#040e12);position:relative;overflow:hidden;" aria-label="Newsletter signup">
   <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(6,165,197,0.1) 0%,transparent 70%);"></div>
   </div>
@@ -811,22 +820,54 @@ window.handleRSub = function(e) {
   var input = form.querySelector('input[type="email"]');
   var btn = form.querySelector('button[type="submit"]');
   if (!input || !input.value.includes('@')) {
-    if (input) input.style.borderColor = '#EF4444';
+    if (input) { input.style.borderColor = '#EF4444'; input.focus(); }
     return;
   }
+  var email = input.value.trim();
   var orig = btn.textContent;
-  btn.textContent = "You're In!";
-  btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+  btn.textContent = 'Subscribing...';
   btn.disabled = true;
   input.disabled = true;
-  input.value = '';
-  input.placeholder = 'Welcome to the community!';
-  setTimeout(function() {
+
+  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=R5eNpH', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/vnd.api+json',
+      'revision': '2024-10-15'
+    },
+    body: JSON.stringify({
+      data: {
+        type: 'subscription',
+        attributes: {
+          list_id: 'RSeqfi',
+          custom_source: 'Resources Page',
+          profiles: {
+            data: [{
+              type: 'profile',
+              attributes: { email: email }
+            }]
+          }
+        }
+      }
+    })
+  })
+  .then(function() {
+    btn.textContent = "You're In!";
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    input.value = '';
+    input.placeholder = 'Welcome to the community!';
+    setTimeout(function() {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.disabled = false;
+      input.disabled = false;
+      input.placeholder = 'Your email address';
+    }, 4000);
+  })
+  .catch(function() {
     btn.textContent = orig;
-    btn.style.background = '';
     btn.disabled = false;
     input.disabled = false;
-    input.placeholder = 'Your email address';
-  }, 4000);
+  });
 };
 </script>
