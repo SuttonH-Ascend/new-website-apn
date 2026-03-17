@@ -1866,41 +1866,44 @@
   /* ── PRODUCT RECOMMENDATION MAP ─────────────────────────── */
   var PRODUCT_MAP = {
     sleep: [
-      { handle:'function', name:'Function — Magnesium Glycinate', icon:'😴', reason:'300–400mg nightly supports deep slow-wave sleep architecture and overnight HGH release.', tag:'Sleep Optimizer' }
+      { handle:'function', name:'Function — Magnesium Glycinate', icon:'😴', reason:'300-400mg nightly activates GABA receptors to promote deep slow-wave sleep and maximize overnight HGH release for tissue repair.', tag:'Sleep Quality' },
+      { handle:'adapt', name:'Adapt — Organic Ashwagandha', icon:'🌙', reason:'Clinically reduces cortisol 11-15% — high nighttime cortisol is the #1 suppressant of deep sleep architecture and recovery quality.', tag:'Cortisol Control' }
     ],
     recovery: [
-      { handle:'recharge', name:'Recharge — Creatine Monohydrate', icon:'🔥', reason:'5g daily replenishes phosphocreatine stores for faster muscle repair and power output restoration.', tag:'Recovery Core' },
-      { handle:'fortify', name:'Fortify — Natural Colostrum Powder', icon:'🛡️', reason:'Supports gut integrity and immune function during high-volume training blocks.', tag:'Advanced Recovery' }
+      { handle:'recharge', name:'Recharge — Creatine Monohydrate', icon:'🔥', reason:'5g daily replenishes phosphocreatine stores 40% faster between sessions — meaning you recover harder and come back stronger each training day.', tag:'Phosphocreatine Recovery' },
+      { handle:'fortify', name:'Fortify — Natural Colostrum Powder', icon:'🛡️', reason:'High training volume breaks down gut lining integrity. Colostrum restores the gut-immune barrier that your recovery rate depends on.', tag:'Gut-Immune Recovery' }
     ],
     hydration: [
-      { handle:'replenish', name:'Replenish — Hydration Powder', icon:'💧', reason:'Replaces sodium, potassium, and magnesium lost through sweat — maintaining plasma volume and muscle contraction quality.', tag:'Hydration Core' }
+      { handle:'replenish', name:'Replenish — Hydration Powder', icon:'💧', reason:'Replaces the exact sodium, potassium, and magnesium profile lost through sweat — plain water cannot restore plasma volume or prevent cramping.', tag:'Electrolyte Restoration' },
+      { handle:'replenishplus', name:'Replenish Plus — Creatine + Electrolytes', icon:'⚡', reason:'Combines full electrolyte replenishment with 5g creatine monohydrate — creatine cellular uptake requires optimal hydration to work.', tag:'Hydration + Performance' }
     ],
     nutrition: [
-      { handle:'resilience', name:'Resilience — Whey Protein Isolate', icon:'🥩', reason:'Fast-absorbing whey isolate for the 30-minute post-training MPS window — 20 to 40g per serving.', tag:'Nutrition Core' },
-      { handle:'nourish', name:'Nourish — Greens Superfood', icon:'🥬', reason:'Fills the micronutrient gaps that even clean whole-food diets regularly miss.', tag:'Micronutrients' }
+      { handle:'resilience', name:'Resilience — Whey Protein Isolate', icon:'🥩', reason:'Fast-absorbing whey isolate hits the 30-minute post-training MPS window that whole food proteins miss — 0.7g/lb daily is the evidence-based target.', tag:'Protein Synthesis' },
+      { handle:'nourish', name:'Nourish — Greens + Reds Superfood', icon:'🥬', reason:'Even clean whole-food diets regularly miss key micronutrients. Greens fill the gaps in B-vitamins, antioxidants, and alkaline minerals that fuel enzyme function.', tag:'Micronutrient Foundation' }
     ],
     frequency: [
-      { handle:'ignite', name:'Ignite — Energy Powder', icon:'⚡', reason:'Clean, sustained energy 30 minutes pre-training to fuel consistent sessions without the mid-session crash.', tag:'Pre-Workout' }
+      { handle:'ignite', name:'Ignite — Energy Powder', icon:'⚡', reason:'Removes the low-energy barrier that causes missed sessions. Clean, sustained energy from evidence-based ingredients — no gray-area stimulants, no crash.', tag:'Training Fuel' },
+      { handle:'function', name:'Function — Magnesium Glycinate', icon:'😴', reason:'Better sleep quality = more energy to show up and train. Magnesium deficiency is the hidden reason most athletes feel flat by mid-week.', tag:'Recovery Fuel' }
     ],
     intensity: [
-      { handle:'ignite', name:'Ignite — Energy Powder', icon:'⚡', reason:'Supports training output and mental focus for high-intensity RPE 8–9 sessions.', tag:'Pre-Workout' },
-      { handle:'recharge', name:'Recharge — Creatine Monohydrate', icon:'🔥', reason:'5g daily maximizes phosphocreatine stores for strength and explosive power output.', tag:'Power Output' }
+      { handle:'ignite', name:'Ignite — Energy Powder', icon:'⚡', reason:'Engineered for high-intensity output — delivers peak mental drive and physical energy 30 minutes pre-training without stimulant crash or heart rate spike.', tag:'Peak Output' },
+      { handle:'recharge', name:'Recharge — Creatine Monohydrate', icon:'💪', reason:'The most evidence-backed performance supplement in sports science. 5g daily maximizes phosphocreatine for strength, power, and rep capacity at RPE 8-10.', tag:'Strength & Power' }
     ],
     supps: [
-      { handle:'recharge', name:'Recharge — Creatine Monohydrate', icon:'💪', reason:'The most studied supplement in sports science. 5g daily is the evidence-based baseline for strength and power.', tag:'Foundation' },
-      { handle:'resilience', name:'Resilience — Whey Protein Isolate', icon:'🥩', reason:'Hit your daily protein target (0.7g/lb) with clean, fast-absorbing whey isolate.', tag:'Foundation' },
-      { handle:'replenish', name:'Replenish — Hydration Powder', icon:'💧', reason:'Complete electrolyte profile for training-day hydration and creatine uptake support.', tag:'Foundation' }
+      { handle:'foundation', name:'Foundation — Bone & Heart Support (D3+K2)', icon:'🦴', reason:'Vitamin D3 deficiency blunts testosterone, weakens bone density, and undermines every other supplement you take. K2 directs calcium to bones not arteries.', tag:'Foundational Health' },
+      { handle:'omega3', name:'Omega-3 EPA + DHA', icon:'🐟', reason:'Reduces systemic inflammation that slows adaptation, joint recovery, and cognitive performance. Most athletes are chronically deficient in EPA and DHA.', tag:'Anti-Inflammatory Base' }
     ],
     focus: [
-      { handle:'clarity', name:'Clarity — Methylene Blue Drops', icon:'🧠', reason:'Supports mitochondrial efficiency and cognitive performance for peak focus during training and competition.', tag:'Cognitive Edge' },
-      { handle:'adapt', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'Clinically shown to reduce cortisol 11–15%, directly supporting clearer thinking under training and life pressure.', tag:'Adaptogen' }
+      { handle:'clarity', name:'Clarity — Methylene Blue Drops', icon:'🧠', reason:'Supports mitochondrial electron transport chain efficiency — the direct mechanism behind sustained cognitive clarity and focus under training and competitive pressure.', tag:'Cognitive Performance' },
+      { handle:'adapt', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'RCT-backed 11-15% cortisol reduction protects the prefrontal cortex from stress-induced impairment — focus lives or dies on cortisol management.', tag:'Focus Protection' }
     ],
     stress: [
-      { handle:'adapt', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'RCT-backed 11–15% cortisol reduction — protecting your testosterone-to-cortisol ratio and anabolic environment.', tag:'Stress Defense' },
-      { handle:'function', name:'Function — Magnesium Glycinate', icon:'✨', reason:'Nervous system relaxation and deep sleep architecture support for cortisol regulation.', tag:'Recovery' }
+      { handle:'adapt', name:'Adapt — Organic Ashwagandha', icon:'🙏', reason:'The most clinically supported adaptogen for cortisol reduction. 600mg daily shown to reduce cortisol by 11-15% and improve HRV — your objective stress recovery marker.', tag:'Cortisol Reduction' },
+      { handle:'balance', name:'Balance — Platinum Turmeric', icon:'🌿', reason:'Systemic inflammation IS physical stress. Curcumin from turmeric reduces the inflammatory load that keeps cortisol elevated between sessions.', tag:'Inflammatory Stress' }
     ],
     consistency: [
-      { handle:'resilience', name:'Resilience — Whey Protein Isolate', icon:'🔒', reason:"The easiest daily anchor habit. One shake per day keeps your protein target on track — don't miss twice.", tag:'Daily Habit' }
+      { handle:'replenishplus', name:'Replenish Plus — Creatine + Electrolytes', icon:'🔑', reason:'The simplest daily stack anchor — creatine and electrolytes in one daily habit. Miss this and you miss the compound benefits that only build over 30+ consecutive days.', tag:'Daily Stack Habit' },
+      { handle:'nourish', name:'Nourish — Greens + Reds Superfood', icon:'🌱', reason:'One scoop daily is the lowest-friction nutrition habit you can build. Consistent micronutrient intake closes the gaps that inconsistent whole food eating creates.', tag:'Daily Nutrition Habit' }
     ]
   };
 
@@ -1967,11 +1970,11 @@
 
   /* ── TIER LOGIC — Aligned with APN App Spec ─────────────── */
   function getTier(score) {
-    if (score < 40) return { name:'Rookie',     color:'#22C55E', gradId:'dial-grad-red',      desc:'Every change you make creates instant results. Major gains across all pillars available now.' };
-    if (score < 60) return { name:'Athlete',    color:'#06A5C5', gradId:'dial-grad-green',    desc:'Solid base with key gaps holding you back. Fix your top 3 and your performance jumps fast.' };
-    if (score < 75) return { name:'Competitor', color:'#F59E0B', gradId:'dial-grad-yellow',   desc:'Strong foundation with clear next steps. The gap between you and Competitor is specific and closeable.' };
-    if (score < 90) return { name:'Elite',      color:'#8B5CF6', gradId:'dial-grad-elite',    desc:'High performer ready to fine-tune. Precision beats volume at this tier.' };
-    return             { name:'Champion',        color:'#EF4444', gradId:'dial-grad-champion', desc:'Operating at peak. Your job is to protect and refine — not rebuild.' };
+    if (score < 40) return { name:'Rookie',     color:'#EF4444', gradId:'dial-grad-red',      desc:'Major gains across all pillars available now. Every change you make creates instant results.' };
+    if (score < 55) return { name:'Athlete',    color:'#06A5C5', gradId:'dial-grad-green',    desc:'Solid base with key gaps holding you back. Fix your top 3 and your performance jumps fast.' };
+    if (score < 70) return { name:'Competitor', color:'#F59E0B', gradId:'dial-grad-yellow',   desc:'Strong foundation with clear next steps. The gap to Elite is specific and closeable.' };
+    if (score < 85) return { name:'Elite',      color:'#8B5CF6', gradId:'dial-grad-elite',    desc:'High performer ready to fine-tune. Precision beats volume at this tier.' };
+    return             { name:'Champion',        color:'#22C55E', gradId:'dial-grad-champion', desc:'Operating at peak. Your job is to protect and refine — not rebuild.' };
   }
 
   function round(n) { return Math.round(n); }
@@ -2488,10 +2491,10 @@
       var tierName = state._tier || '';
       var scoreBand;
       if (score < 40) scoreBand = 'Rookie (0-39)';
-      else if (score < 60) scoreBand = 'Athlete (40-59)';
-      else if (score < 75) scoreBand = 'Competitor (60-74)';
-      else if (score < 90) scoreBand = 'Elite (75-89)';
-      else scoreBand = 'Champion (90-100)';
+      else if (score < 55) scoreBand = 'Athlete (40-54)';
+      else if (score < 70) scoreBand = 'Competitor (55-69)';
+      else if (score < 85) scoreBand = 'Elite (70-84)';
+      else scoreBand = 'Champion (85-100)';
 
       var criticalCount = catRanked.filter(function(c) { return catTiers[c.key] === 'Critical'; }).length;
       var eliteCount = catRanked.filter(function(c) { return catTiers[c.key] === 'Elite'; }).length;
@@ -2583,6 +2586,24 @@
           }
         })
       }).catch(function(err) { console.warn('Klaviyo event error:', err); });
+
+      var tierListMap = { 'Rookie':'UPxEy7', 'Athlete':'WtTxsw', 'Competitor':'UN7UrW', 'Elite':'TLxQ8H', 'Champion':'TTMkEY' };
+      var tierListId = tierListMap[tierName];
+      if (tierListId) {
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + klaviyoKey, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
+          body: JSON.stringify({
+            data: {
+              type: 'subscription',
+              attributes: {
+                profile: { data: { type: 'profile', attributes: { email: email, properties: properties } } }
+              },
+              relationships: { list: { data: { type: 'list', id: tierListId } } }
+            }
+          })
+        }).catch(function(err) { console.warn('Klaviyo tier list error:', err); });
+      }
     },
 
     submitEmail: function() {
