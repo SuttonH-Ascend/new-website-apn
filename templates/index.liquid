@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════ -->
 <section id="hero-pillars" aria-label="Ascend Performance Nutrition — Our Pillars">
   <div id="pillars-track" style="height:500vh;position:relative;">
-    <div id="pillars-stage" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#000;position:relative;">
+    <div id="pillars-stage" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#000;">
 
       <!-- Backgrounds -->
       <div style="position:absolute;inset:0;z-index:1;" aria-hidden="true">
@@ -271,7 +271,7 @@
 <section style="padding:3rem 0;background:#0D0D0D;border-top:1px solid rgba(6,165,197,0.15);border-bottom:1px solid rgba(6,165,197,0.15);" aria-label="Trust badges">
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
     <p style="text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:2rem;">Trusted by athletes, coaches, and everyday warriors</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+    <div id="trust-badges-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
 
       <!-- Badge 1 -->
       <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.75rem 1.25rem;border:1px solid rgba(255,255,255,0.07);border-radius:8px;background:rgba(255,255,255,0.03);">
@@ -327,7 +327,7 @@
       </h2>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+    <div id="why-ascend-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
 
       <div style="padding:2rem;border:1px solid rgba(255,255,255,0.07);border-radius:10px;background:rgba(255,255,255,0.03);display:flex;gap:1.25rem;align-items:flex-start;">
         <div style="width:40px;height:40px;background:rgba(6,165,197,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -397,7 +397,7 @@
      FAITH & PERFORMANCE STACK
 ═══════════════════════════════════════════ -->
 {%- assign _resilience    = all_products['resilience'] -%}
-{%- assign _replenish_plus = all_products['replenish-plus'] -%}
+{%- assign _replenish_plus = all_products['replenishplus'] -%}
 {%- assign _fortify       = all_products['fortify'] -%}
 <section id="stack" style="padding:6rem 0;background:#111111;" aria-label="The Faith and Performance Stack">
   <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
@@ -412,7 +412,7 @@
       </p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
+    <div id="stack-products-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
 
       <!-- Product 1: Resilience -->
       <div class="product-card" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);background:#131313;">
@@ -505,7 +505,7 @@
       </h2>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;">
+    <div id="goals-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;">
 
       <a href="/collections/build-muscle-and-strength" style="text-decoration:none;display:block;border-radius:10px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.08);background:#131313;transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease,border-color 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,165,197,0.12)';this.style.borderColor='rgba(6,165,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,0.08)'">
         <div style="height:140px;background:linear-gradient(135deg,#0D0D0D,#1a2a30);display:flex;align-items:center;justify-content:center;">
@@ -560,7 +560,7 @@
 ═══════════════════════════════════════════ -->
 <section id="quiz" style="padding:6rem 0;position:relative;overflow:hidden;background:linear-gradient(160deg,#071012 0%,#0a1a22 60%,#071012 100%);" aria-label="Performance Quiz">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(6,165,197,0.1) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
-  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+  <div id="quiz-inner-grid" style="max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
 
     <!-- Quiz CTA -->
     <div>
@@ -679,19 +679,38 @@
      RESPONSIVE + JS
 ═══════════════════════════════════════════ -->
 <style>
-  @media (max-width: 900px) {
-    .hidden-mobile { display: none !important; }
-    .show-mobile { display: flex !important; }
-    #hero-content-grid { grid-template-columns: 1fr !important; }
-    #about-grid { grid-template-columns: 1fr !important; }
-    #footer-grid { grid-template-columns: 1fr 1fr !important; }
-    .hero-right { display: none; }
-  }
-  @media (max-width: 600px) {
-    #footer-grid { grid-template-columns: 1fr !important; }
-    #stats-grid { grid-template-columns: 1fr 1fr !important; }
-  }
   .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+  /* ── Homepage grid IDs for mobile targeting ── */
+  #trust-badges-grid     { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+  #why-ascend-grid       { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+  #stack-products-grid   { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+  #goals-grid            { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+  #quiz-inner-grid       { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+
+  @media (max-width: 900px) {
+    .hidden-mobile  { display: none !important; }
+    .show-mobile    { display: flex !important; }
+
+    #why-ascend-grid     { grid-template-columns: 1fr !important; }
+    #stack-products-grid { grid-template-columns: 1fr !important; }
+    #goals-grid          { grid-template-columns: 1fr 1fr !important; }
+    #quiz-inner-grid     { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    #trust-badges-grid   { grid-template-columns: 1fr 1fr !important; }
+
+    #why-ascend, #stack, #goals, #quiz, #mission {
+      padding-top: 3.5rem !important;
+      padding-bottom: 3.5rem !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #goals-grid        { grid-template-columns: 1fr !important; }
+    #trust-badges-grid { grid-template-columns: 1fr !important; }
+
+    #stack .product-card > div:first-child { height: 200px !important; }
+    #goals a > div:first-child             { height: 100px !important; }
+  }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -770,10 +789,8 @@
   // Nav is always visible with dark background; no additional scroll toggle needed.
 
   // ── Hero image load ──
-  const heroBg = document.getElementById('hero-bg');
-  const img = new Image();
-  img.onload = () => heroBg.classList.add('loaded');
-  img.src = '{{ 'iwo-jima.webp' | asset_url }}';
+  // preload hero background image
+  (new Image()).src = '{{ 'iwo-jima.webp' | asset_url }}';
 
   // ── Product filter ──
   function filterProducts(filter) {
