@@ -2389,85 +2389,200 @@
     },
 
     addOne: function(btn, handle) {
+      var orig = btn.textContent;
       btn.textContent = 'Adding...';
       btn.style.pointerEvents = 'none';
       fetch('/products/' + handle + '.js')
-        .then(function(r) { return r.json(); })
+        .then(function(r) { if (!r.ok) throw new Error('not found'); return r.json(); })
         .then(function(product) {
           var variantId = product.variants[0].id;
           return fetch('/cart/add.js', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
-          });
+          }).then(function(r) { return r.json(); });
         })
-        .then(function() { btn.textContent = '✓ Added'; btn.classList.add('added'); })
-        .catch(function() { btn.textContent = '✓ Added'; btn.classList.add('added'); });
+        .then(function(data) {
+          if (data && data.status && data.status >= 400) throw new Error(data.description || 'Cart error');
+          btn.textContent = '✓ Added';
+          btn.classList.add('added');
+          if (typeof APN !== 'undefined' && APN._refreshCart) APN._refreshCart();
+        })
+        .catch(function(err) {
+          console.error('addOne error:', err);
+          btn.textContent = orig;
+          btn.style.pointerEvents = '';
+        });
     },
 
     addAllToCart: function() {
       var btn = document.getElementById('apn-add-all');
+      if (!btn) return;
       btn.textContent = 'Adding...';
       btn.style.pointerEvents = 'none';
       var handles = state._recHandles || [];
-      if (!handles.length) return;
-      var promises = handles.map(function(h) {
-        return fetch('/products/' + h + '.js').then(function(r) { return r.json(); }).then(function(p) { return p.variants[0].id; }).catch(function() { return null; });
-      });
-      Promise.all(promises).then(function(ids) {
+      if (!handles.length) {
+        btn.textContent = 'Add Entire Stack to Cart \u2192';
+        btn.style.pointerEvents = '';
+        return;
+      }
+      Promise.all(handles.map(function(h) {
+        return fetch('/products/' + h + '.js')
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(p) { return p && p.variants && p.variants[0] ? p.variants[0].id : null; })
+          .catch(function() { return null; });
+      })).then(function(ids) {
         var items = ids.filter(Boolean).map(function(id) { return { id: id, quantity: 1 }; });
-        if (!items.length) { btn.textContent = 'Added ✓'; return; }
-        return fetch('/cart/add.js', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ items:items }) });
-      }).then(function() {
+        if (!items.length) {
+          btn.textContent = 'Add Entire Stack to Cart \u2192';
+          btn.style.pointerEvents = '';
+          return Promise.reject({ _empty: true });
+        }
+        return fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: items })
+        }).then(function(r) { return r.json(); });
+      }).then(function(data) {
+        if (data && data.status && data.status >= 400) throw new Error(data.description || 'Cart error');
         btn.textContent = '✓ Stack Added to Cart!';
         btn.style.background = '#27ae60';
         document.querySelectorAll('#apn-quiz-section .apn-rec-btn').forEach(function(b) { b.textContent = '✓ Added'; b.classList.add('added'); });
-      }).catch(function() { btn.textContent = '✓ Stack Added!'; btn.style.background = '#27ae60'; });
+        if (typeof APN !== 'undefined' && APN.openCart) APN.openCart();
+      }).catch(function(err) {
+        if (err && err._empty) return;
+        console.error('addAllToCart error:', err);
+        btn.textContent = 'Add Entire Stack to Cart \u2192';
+        btn.style.pointerEvents = '';
+      });
     },
 
     _fireKlaviyo: function(email) {
-      var klaviyoKey  = '{{ section.settings.klaviyo_public_key }}';
-      var klaviyoList = '{{ section.settings.klaviyo_list_id }}';
-      if (!klaviyoKey || !klaviyoList) return;
+      var klaviyoKey = 'R5eNpH';
+      var listId = 'VwiG2Z';
+
+      var catPcts = {};
+      var catTiers = {};
+      var catRanked = [];
+      CATEGORIES.forEach(function(cat, i) {
+        var pct = Math.round((state.scores[i] / cat.max) * 100);
+        catPcts[cat.key] = pct;
+        var label;
+        if (pct <= 25) label = 'Critical';
+        else if (pct <= 50) label = 'Developing';
+        else if (pct <= 75) label = 'Established';
+        else label = 'Elite';
+        catTiers[cat.key] = label;
+        catRanked.push({ key: cat.key, pct: pct });
+      });
+
+      catRanked.sort(function(a, b) { return a.pct - b.pct; });
+      var gap1 = catRanked[0] ? catRanked[0].key : '';
+      var gap2 = catRanked[1] ? catRanked[1].key : '';
+      var gap3 = catRanked[2] ? catRanked[2].key : '';
+      var catBest = catRanked.slice().sort(function(a, b) { return b.pct - a.pct; });
+      var strength1 = catBest[0] ? catBest[0].key : '';
+      var strength2 = catBest[1] ? catBest[1].key : '';
+
+      var score = state._score || 0;
+      var tierName = state._tier || '';
+      var scoreBand;
+      if (score < 40) scoreBand = 'Rookie (0-39)';
+      else if (score < 60) scoreBand = 'Athlete (40-59)';
+      else if (score < 75) scoreBand = 'Competitor (60-74)';
+      else if (score < 90) scoreBand = 'Elite (75-89)';
+      else scoreBand = 'Champion (90-100)';
+
+      var criticalCount = catRanked.filter(function(c) { return catTiers[c.key] === 'Critical'; }).length;
+      var eliteCount = catRanked.filter(function(c) { return catTiers[c.key] === 'Elite'; }).length;
+
+      var archetypeMap = {
+        sleep:'Under-Recovered', recovery:'Overtrained', hydration:'Dehydrated Performer',
+        nutrition:'Under-Fueled', frequency:'Inconsistent Trainer', intensity:'Under-Stimulated',
+        supps:'Unsupplemented', focus:'Scattered', stress:'Cortisol-Driven', consistency:'Early Stage'
+      };
+      var archetype = tierName + ' - ' + (archetypeMap[gap1] || 'General');
+
+      var properties = {
+        performance_score: score,
+        performance_tier: tierName,
+        subs_score_band: scoreBand,
+        profile_archetype: archetype,
+        critical_gap_count: criticalCount,
+        elite_area_count: eliteCount,
+
+        quiz_sleep: state.scores[0],
+        quiz_recovery: state.scores[1],
+        quiz_hydration: state.scores[2],
+        quiz_nutrition: state.scores[3],
+        quiz_frequency: state.scores[4],
+        quiz_intensity: state.scores[5],
+        quiz_supplements: state.scores[6],
+        quiz_focus: state.scores[7],
+        quiz_stress: state.scores[8],
+        quiz_consistency: state.scores[9],
+
+        pct_sleep: catPcts.sleep,
+        pct_recovery: catPcts.recovery,
+        pct_hydration: catPcts.hydration,
+        pct_nutrition: catPcts.nutrition,
+        pct_frequency: catPcts.frequency,
+        pct_intensity: catPcts.intensity,
+        pct_supplements: catPcts.supps,
+        pct_focus: catPcts.focus,
+        pct_stress: catPcts.stress,
+        pct_consistency: catPcts.consistency,
+
+        tier_sleep: catTiers.sleep,
+        tier_recovery: catTiers.recovery,
+        tier_hydration: catTiers.hydration,
+        tier_nutrition: catTiers.nutrition,
+        tier_frequency: catTiers.frequency,
+        tier_intensity: catTiers.intensity,
+        tier_supplements: catTiers.supps,
+        tier_focus: catTiers.focus,
+        tier_stress: catTiers.stress,
+        tier_consistency: catTiers.consistency,
+
+        gap_1: gap1,
+        gap_2: gap2,
+        gap_3: gap3,
+        source_strength_one: strength1,
+        strength_two: strength2,
+        top_gaps: [gap1, gap2, gap3].join(', '),
+        recommended_products: (state._recHandles || []).join(', '),
+        source: 'Performance Quiz - Ascend',
+        quiz_completed_at: new Date().toISOString()
+      };
+
       fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + klaviyoKey, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'revision': '2024-02-15' },
+        headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
         body: JSON.stringify({
           data: {
             type: 'subscription',
             attributes: {
-              profile: {
-                data: {
-                  type: 'profile',
-                  attributes: {
-                    email: email,
-                    properties: {
-                      apn_quiz_score: state._score,
-                      apn_quiz_tier:  state._tier,
-                      apn_top_gaps:   (state._worstKeys || []).join(', ')
-                    }
-                  }
-                }
-              },
-              list: { data: { type: 'list', id: klaviyoList } }
-            }
+              profile: { data: { type: 'profile', attributes: { email: email, properties: properties } } }
+            },
+            relationships: { list: { data: { type: 'list', id: listId } } }
           }
         })
-      }).catch(function() {});
+      }).catch(function(err) { console.warn('Klaviyo subscribe error:', err); });
+
       fetch('https://a.klaviyo.com/client/events/?company_id=' + klaviyoKey, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'revision': '2024-02-15' },
+        headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
         body: JSON.stringify({
           data: {
             type: 'event',
             attributes: {
-              metric:     { data: { type: 'metric', attributes: { name: 'APN Quiz Completed' } } },
-              profile:    { data: { type: 'profile', attributes: { email: email } } },
-              properties: { score: state._score, tier: state._tier, top_gaps: (state._worstKeys || []).join(', ') }
+              metric: { data: { type: 'metric', attributes: { name: 'Performance Quiz Completed' } } },
+              profile: { data: { type: 'profile', attributes: { email: email } } },
+              properties: properties
             }
           }
         })
-      }).catch(function() {});
+      }).catch(function(err) { console.warn('Klaviyo event error:', err); });
     },
 
     submitEmail: function() {
