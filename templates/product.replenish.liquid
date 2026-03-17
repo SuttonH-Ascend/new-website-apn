@@ -111,7 +111,7 @@
       </div>
 
       <div style="display:flex;align-items:baseline;gap:0.75rem;margin-bottom:1.5rem;">
-        <span style="font-family:'Barlow Condensed',sans-serif;font-size:2.25rem;font-weight:800;color:#F8FAFB;">$39.99</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:2.25rem;font-weight:800;color:#F8FAFB;">{{ product.price | money }}</span>
         <span style="font-size:0.85rem;color:#6b7280;">/ 30 servings</span>
         <span style="font-size:0.8rem;color:#22C55E;font-weight:600;">In Stock</span>
       </div>
@@ -128,7 +128,7 @@
       </div>
       
       {% render 'loop-widget', product: product %}
-      <button class="btn-cta btn-atc-main" id="add-to-cart-btn" onclick="addToCart()">Add to Cart: $39.99</button>
+      <button class="btn-cta btn-atc-main" id="add-to-cart-btn" onclick="addToCart()">Add to Cart: {{ product.price | money }}</button>
       <p style="text-align:center;font-size:0.8rem;color:#6b7280;margin-top:0.75rem;">Free shipping on orders over $50</p>
       <p style="text-align:center;font-size:0.8rem;color:#6b7280;margin-top:0.75rem;">Want electrolytes plus vitamin C and B vitamins? <a href="/products/replenishplus" style="color:#06A5C5;text-decoration:none;font-weight:600;">See Recover</a></p>
       <button onclick="document.getElementById('sf-modal').style.display='flex'" style="display:block;width:100%;margin-top:1rem;background:transparent;border:1px solid rgba(255,255,255,0.12);color:#9ca3af;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.65rem 1rem;border-radius:8px;cursor:pointer;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='rgba(6,165,197,0.4)';this.style.color='#06A5C5'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='#9ca3af'">View Supplement Facts</button>
