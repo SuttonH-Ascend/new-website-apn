@@ -161,21 +161,6 @@
 </section>
 
 <style>
-  /* Nav — transparent over hero, dark after scroll */
-  #main-nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: transparent;
-    transition: background 0.35s ease, backdrop-filter 0.35s ease;
-  }
-  #main-nav.scrolled {
-    background: rgba(13,13,13,0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
   /* Center word */
   .p-center-word {
     font-family: Georgia, serif;
@@ -746,11 +731,13 @@
     leftItems[0].classList.add('active');
     rightItems[0].classList.add('active');
 
-    // Scroll drive — CSS sticky handles pinning, no GSAP pin needed
+    // Pin + scroll drive
     ScrollTrigger.create({
       trigger: '#pillars-track',
       start: 'top top',
       end: 'bottom bottom',
+      pin: '#pillars-stage',
+      pinSpacing: true,
       onUpdate(self) {
         if (isAnimating) return;
         const target = Math.min(TOTAL - 1, Math.floor(self.progress * TOTAL));
@@ -761,7 +748,7 @@
 
   // ── Nav scroll effect — transparent over hero, dark after ──
   const nav = document.getElementById('main-nav');
-  const heroHeight = () => window.innerHeight * 4.2; // sticky releases at 4× (500vh track - 100vh stage)
+  const heroHeight = () => window.innerHeight * 4.8; // ~end of pillar track
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > heroHeight());
   }, { passive: true });
