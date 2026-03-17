@@ -3,7 +3,7 @@
 ═══════════════════════════════════════════ -->
 <section id="hero-pillars" aria-label="Ascend Performance Nutrition — Our Pillars">
   <div id="pillars-track" style="height:500vh;position:relative;">
-    <div id="pillars-stage" style="position:sticky;top:0;height:100vh;overflow:hidden;background:#000;">
+    <div id="pillars-stage" style="height:100vh;overflow:hidden;background:#000;">
 
       <!-- Backgrounds -->
       <div style="position:absolute;inset:0;z-index:1;" aria-hidden="true">
@@ -723,6 +723,7 @@
   (function() {
     const TOTAL = 4;
     let current = 0;
+    let desired = 0;
     let isAnimating = false;
 
     const bgs       = document.querySelectorAll('.pillar-bg');
@@ -737,7 +738,7 @@
       const from = current;
       const down = to > from;
       isAnimating = true;
-      const D = 0.6;
+      const D = 0.45;
 
       // backgrounds
       gsap.set(bgs[to], { opacity: 0, yPercent: down ? 5 : -5 });
@@ -747,7 +748,7 @@
       // center word slide
       gsap.to(words[from], { y: down ? '-110%' : '110%', opacity: 0, duration: D * 0.5, ease: 'power3.in' });
       gsap.set(words[to],  { y: down ? '110%' : '-110%', opacity: 0 });
-      gsap.to(words[to],   { y: '0%', opacity: 1, duration: D, delay: 0.08, ease: 'power3.out' });
+      gsap.to(words[to],   { y: '0%', opacity: 1, duration: D, delay: 0.06, ease: 'power3.out' });
 
       // side items — highlight active
       [...leftItems, ...rightItems].forEach(el => {
@@ -760,7 +761,11 @@
       if (currEl) currEl.textContent = String(to + 1).padStart(2, '0');
 
       current = to;
-      setTimeout(() => { isAnimating = false; }, D * 1000 + 120);
+      setTimeout(() => {
+        isAnimating = false;
+        // catch up if scroll moved ahead while we were animating
+        if (desired !== current) goTo(desired);
+      }, D * 1000 + 80);
     }
 
     window.pillarGoTo = goTo;
@@ -778,9 +783,9 @@
       pin: '#pillars-stage',
       pinSpacing: true,
       onUpdate(self) {
-        if (isAnimating) return;
         const target = Math.min(TOTAL - 1, Math.floor(self.progress * TOTAL));
-        if (target !== current) goTo(target);
+        desired = target;
+        if (!isAnimating && target !== current) goTo(target);
       }
     });
   })();
