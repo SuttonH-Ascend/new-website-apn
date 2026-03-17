@@ -76,6 +76,7 @@
         <li><a href="/pages/resources" class="apn-footer-link">Resources</a></li>
         <li><a href="/pages/athletes" class="apn-footer-link">Athlete Profiles</a></li>
         <li><a href="/pages/careers" class="apn-footer-link">Careers</a></li>
+        <li><button onclick="APNWholesale.open()" class="apn-footer-link" style="background:none;border:none;padding:0;cursor:pointer;text-align:left;color:#06A5C5;font-weight:600;">Wholesale &rarr;</button></li>
       </ul>
     </div>
 
@@ -104,25 +105,14 @@
 
   <!-- Animated ASCEND text hover effect (desktop only) -->
   <div class="apn-hover-text-wrap" style="position:relative;z-index:2;display:flex;height:18rem;margin-top:-9rem;margin-bottom:-5rem;overflow:hidden;">
-    <svg
-      id="apn-hover-svg"
-      width="100%"
-      height="100%"
-      viewBox="0 0 300 100"
-      xmlns="http://www.w3.org/2000/svg"
-      style="cursor:default;user-select:none;"
-      aria-hidden="true"
-    >
+    <svg id="apn-hover-svg" width="100%" height="100%" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" style="cursor:default;user-select:none;" aria-hidden="true">
       <defs>
-        <!-- Gradient revealed under cursor -->
         <linearGradient id="apn-text-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="300" y2="0">
           <stop offset="0%"   stop-color="#06A5C5" />
           <stop offset="33%"  stop-color="#048FAB" />
           <stop offset="66%"  stop-color="#06d6c7" />
           <stop offset="100%" stop-color="#0ea5e9" />
         </linearGradient>
-
-        <!-- Radial reveal mask that follows the cursor -->
         <radialGradient id="apn-reveal-mask" gradientUnits="userSpaceOnUse" r="22%" cx="50%" cy="50%">
           <stop offset="0%"   stop-color="white" />
           <stop offset="100%" stop-color="black" />
@@ -131,103 +121,25 @@
           <rect x="0" y="0" width="100%" height="100%" fill="url(#apn-reveal-mask)" />
         </mask>
       </defs>
-
-      <!-- Ghost outline - visible on hover -->
-      <text
-        id="apn-ghost-text"
-        x="50%" y="50%"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        stroke-width="0.3"
-        style="fill:transparent;stroke:rgba(255,255,255,0.12);font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transition:opacity 0.3s;"
-      >ASCEND</text>
-
-      <!-- Animated draw-in outline (teal, plays once on load) -->
-      <text
-        id="apn-draw-text"
-        x="50%" y="50%"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        stroke-width="0.3"
-        style="fill:transparent;stroke:#06A5C5;stroke-opacity:0.6;font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;stroke-dasharray:1000;stroke-dashoffset:1000;"
-      >ASCEND</text>
-
-      <!-- Gradient fill revealed by cursor mask -->
-      <text
-        x="50%" y="50%"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        stroke="url(#apn-text-gradient)"
-        stroke-width="0.3"
-        mask="url(#apn-text-mask)"
-        style="fill:transparent;font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;"
-      >ASCEND</text>
+      <text id="apn-ghost-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke-width="0.3" style="fill:transparent;stroke:rgba(255,255,255,0.12);font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transition:opacity 0.3s;">ASCEND</text>
+      <text id="apn-draw-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke-width="0.3" style="fill:transparent;stroke:#06A5C5;stroke-opacity:0.6;font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;stroke-dasharray:1000;stroke-dashoffset:1000;">ASCEND</text>
+      <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke="url(#apn-text-gradient)" stroke-width="0.3" mask="url(#apn-text-mask)" style="fill:transparent;font-family:'Barlow Condensed','Helvetica Neue',sans-serif;font-size:30px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;">ASCEND</text>
     </svg>
   </div>
 
   <!-- Mobile responsive styles -->
   <style>
-    .apn-footer-grid {
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-    }
-    @media (max-width: 900px) {
-      .apn-footer-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 2rem !important;
-      }
-    }
-    @media (max-width: 560px) {
-      .apn-footer-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-    }
-    @media (max-width: 720px) {
-      .apn-hover-text-wrap { display: none !important; }
-    }
-
-    .apn-footer-link {
-      font-family: 'Barlow', sans-serif;
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      transition: color 0.18s;
-    }
-    .apn-footer-link:hover,
-    .apn-footer-link:focus-visible {
-      color: #06A5C5;
-    }
-    .apn-footer-link:focus-visible {
-      outline: 2px solid #06A5C5;
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
-
-    .apn-social-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      transition: color 0.18s, border-color 0.18s, background 0.18s;
-    }
-    .apn-social-btn:hover,
-    .apn-social-btn:focus-visible {
-      color: #06A5C5;
-      border-color: #06A5C5;
-      background: rgba(6,165,197,0.08);
-    }
-    .apn-social-btn:focus-visible {
-      outline: 2px solid #06A5C5;
-      outline-offset: 2px;
-    }
-    .apn-social-btn:active {
-      background: rgba(6,165,197,0.18);
-    }
+    .apn-footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    @media (max-width: 900px) { .apn-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; } }
+    @media (max-width: 560px) { .apn-footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; } }
+    @media (max-width: 720px) { .apn-hover-text-wrap { display: none !important; } }
+    .apn-footer-link { font-family:'Barlow',sans-serif; font-size:0.875rem; color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.18s; }
+    .apn-footer-link:hover, .apn-footer-link:focus-visible { color:#06A5C5; }
+    .apn-footer-link:focus-visible { outline:2px solid #06A5C5; outline-offset:2px; border-radius:2px; }
+    .apn-social-btn { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:6px; border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.18s,border-color 0.18s,background 0.18s; }
+    .apn-social-btn:hover, .apn-social-btn:focus-visible { color:#06A5C5; border-color:#06A5C5; background:rgba(6,165,197,0.08); }
+    .apn-social-btn:focus-visible { outline:2px solid #06A5C5; outline-offset:2px; }
+    .apn-social-btn:active { background:rgba(6,165,197,0.18); }
   </style>
 
   <!-- Hover effect JS -->
@@ -235,43 +147,22 @@
     (function() {
       var svg = document.getElementById('apn-hover-svg');
       if (!svg) return;
-
       var ghostText = document.getElementById('apn-ghost-text');
       var drawText  = document.getElementById('apn-draw-text');
       var revealGrad = document.getElementById('apn-reveal-mask');
       var isHovered = false;
-
-      // Animate the draw-in stroke on page load
       var startTime = null;
       var drawDuration = 4000;
       function animateDraw(ts) {
         if (!startTime) startTime = ts;
         var progress = Math.min((ts - startTime) / drawDuration, 1);
-        // ease in-out
-        var eased = progress < 0.5
-          ? 2 * progress * progress
-          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        var eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
         drawText.style.strokeDashoffset = (1000 * (1 - eased)).toString();
-        if (progress < 1) {
-          requestAnimationFrame(animateDraw);
-        }
+        if (progress < 1) requestAnimationFrame(animateDraw);
       }
       requestAnimationFrame(animateDraw);
-
-      // Mouse tracking
-      svg.addEventListener('mouseenter', function() {
-        isHovered = true;
-        if (ghostText) ghostText.style.opacity = '0.7';
-      });
-
-      svg.addEventListener('mouseleave', function() {
-        isHovered = false;
-        if (ghostText) ghostText.style.opacity = '0';
-        // Reset mask to center on leave
-        revealGrad.setAttribute('cx', '50%');
-        revealGrad.setAttribute('cy', '50%');
-      });
-
+      svg.addEventListener('mouseenter', function() { isHovered = true; if (ghostText) ghostText.style.opacity = '0.7'; });
+      svg.addEventListener('mouseleave', function() { isHovered = false; if (ghostText) ghostText.style.opacity = '0'; revealGrad.setAttribute('cx', '50%'); revealGrad.setAttribute('cy', '50%'); });
       svg.addEventListener('mousemove', function(e) {
         if (!isHovered) return;
         var rect = svg.getBoundingClientRect();
@@ -283,43 +174,1292 @@
     })();
   </script>
 
+  <!-- =====================================================================
+       WHOLESALE MODAL
+       ===================================================================== -->
+
+  <style>
+    /* Overlay */
+    #apn-ws-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    #apn-ws-overlay.apn-ws-visible {
+      display: flex;
+    }
+
+    /* Modal container */
+    #apn-ws-modal {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #111111;
+      border: 1px solid rgba(6,165,197,0.2);
+      border-radius: 12px;
+      box-shadow: 0 0 0 1px rgba(6,165,197,0.06), 0 24px 80px rgba(0,0,0,0.7), 0 8px 32px rgba(6,165,197,0.08);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(6,165,197,0.3) transparent;
+    }
+    #apn-ws-modal::-webkit-scrollbar { width: 4px; }
+    #apn-ws-modal::-webkit-scrollbar-track { background: transparent; }
+    #apn-ws-modal::-webkit-scrollbar-thumb { background: rgba(6,165,197,0.3); border-radius: 4px; }
+
+    /* Header */
+    #apn-ws-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #111111;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 1.25rem 1.5rem 1rem;
+    }
+    #apn-ws-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    #apn-ws-modal-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0;
+    }
+    #apn-ws-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: none;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      flex-shrink: 0;
+    }
+    #apn-ws-close:hover { color: #fff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.06); }
+    #apn-ws-close:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; }
+    #apn-ws-close:active { background: rgba(255,255,255,0.1); }
+
+    /* Progress bar */
+    #apn-ws-progress {
+      display: flex;
+      gap: 4px;
+    }
+    .apn-ws-prog-seg {
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.3s;
+    }
+    .apn-ws-prog-seg.active {
+      background: #06A5C5;
+    }
+
+    /* Body */
+    #apn-ws-body {
+      padding: 1.75rem 1.5rem 1.5rem;
+    }
+
+    /* Step panels */
+    .apn-ws-step {
+      display: none;
+    }
+    .apn-ws-step.apn-ws-step-active {
+      display: block;
+    }
+
+    /* Step heading */
+    .apn-ws-step-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.375rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 0.375rem;
+    }
+    .apn-ws-step-sub {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0 0 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* Business type cards */
+    #apn-ws-type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 480px) {
+      #apn-ws-type-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .apn-ws-type-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .apn-ws-type-card:hover {
+      border-color: rgba(6,165,197,0.4);
+      background: rgba(6,165,197,0.05);
+    }
+    .apn-ws-type-card:active {
+      transform: scale(0.97);
+    }
+    .apn-ws-type-card.selected {
+      border-color: #06A5C5;
+      background: rgba(6,165,197,0.1);
+      box-shadow: 0 0 0 1px rgba(6,165,197,0.3), inset 0 0 20px rgba(6,165,197,0.04);
+    }
+    .apn-ws-type-card:focus-visible {
+      outline: 2px solid #06A5C5;
+      outline-offset: 2px;
+    }
+    .apn-ws-type-icon {
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .apn-ws-type-label {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.3;
+    }
+    .apn-ws-type-card.selected .apn-ws-type-label {
+      color: #06A5C5;
+    }
+
+    /* Form fields */
+    .apn-ws-field {
+      margin-bottom: 1rem;
+    }
+    .apn-ws-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.375rem;
+    }
+    .apn-ws-input,
+    .apn-ws-select,
+    .apn-ws-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      color: #fff;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9375rem;
+      padding: 0.625rem 0.875rem;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.15s, background 0.15s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .apn-ws-input::placeholder,
+    .apn-ws-textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+    .apn-ws-input:focus,
+    .apn-ws-select:focus,
+    .apn-ws-textarea:focus {
+      border-color: #06A5C5;
+      background: rgba(6,165,197,0.04);
+    }
+    .apn-ws-select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.875rem center;
+      padding-right: 2.25rem;
+    }
+    .apn-ws-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .apn-ws-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    @media (max-width: 480px) {
+      .apn-ws-field-row { grid-template-columns: 1fr; }
+    }
+
+    /* Radio cards (volume) */
+    .apn-ws-radio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.625rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 400px) {
+      .apn-ws-radio-grid { grid-template-columns: 1fr; }
+    }
+    .apn-ws-radio-card {
+      position: relative;
+    }
+    .apn-ws-radio-card input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .apn-ws-radio-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.55);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .apn-ws-radio-card input[type="radio"]:checked + .apn-ws-radio-label {
+      border-color: #06A5C5;
+      background: rgba(6,165,197,0.1);
+      color: #06A5C5;
+      box-shadow: 0 0 0 1px rgba(6,165,197,0.25);
+    }
+    .apn-ws-radio-label:hover {
+      border-color: rgba(6,165,197,0.4);
+      color: rgba(255,255,255,0.8);
+    }
+    .apn-ws-radio-card input[type="radio"]:focus-visible + .apn-ws-radio-label {
+      outline: 2px solid #06A5C5;
+      outline-offset: 2px;
+    }
+
+    /* Checkboxes (products) */
+    .apn-ws-check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 420px) {
+      .apn-ws-check-grid { grid-template-columns: 1fr; }
+    }
+    .apn-ws-check-item {
+      position: relative;
+    }
+    .apn-ws-check-item input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .apn-ws-check-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      color: rgba(255,255,255,0.5);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .apn-ws-check-label::before {
+      content: '';
+      display: flex;
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: transparent;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .apn-ws-check-item input[type="checkbox"]:checked + .apn-ws-check-label {
+      border-color: rgba(6,165,197,0.5);
+      background: rgba(6,165,197,0.07);
+      color: rgba(255,255,255,0.85);
+    }
+    .apn-ws-check-item input[type="checkbox"]:checked + .apn-ws-check-label::before {
+      background: #06A5C5;
+      border-color: #06A5C5;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%23fff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .apn-ws-check-label:hover {
+      border-color: rgba(6,165,197,0.3);
+      color: rgba(255,255,255,0.7);
+    }
+    .apn-ws-check-item input[type="checkbox"]:focus-visible + .apn-ws-check-label {
+      outline: 2px solid #06A5C5;
+      outline-offset: 2px;
+    }
+
+    /* Toggle (Yes/No) */
+    .apn-ws-toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .apn-ws-toggle-label {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .apn-ws-toggle-wrap {
+      display: flex;
+      gap: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .apn-ws-toggle-btn {
+      padding: 0.4rem 1rem;
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .apn-ws-toggle-btn:first-child {
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .apn-ws-toggle-btn.apn-ws-toggle-active {
+      background: rgba(6,165,197,0.15);
+      color: #06A5C5;
+    }
+    .apn-ws-toggle-btn:hover:not(.apn-ws-toggle-active) {
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.7);
+    }
+    .apn-ws-toggle-btn:focus-visible {
+      outline: 2px solid #06A5C5;
+      outline-offset: -2px;
+    }
+
+    /* Section label */
+    .apn-ws-section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin: 0 0 0.625rem;
+    }
+
+    /* Error message */
+    .apn-ws-error {
+      display: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8125rem;
+      color: #f87171;
+      margin-top: 0.375rem;
+    }
+    .apn-ws-error.apn-ws-error-visible {
+      display: block;
+    }
+    .apn-ws-field-error .apn-ws-input,
+    .apn-ws-field-error .apn-ws-select,
+    .apn-ws-field-error .apn-ws-textarea {
+      border-color: #f87171;
+    }
+
+    /* Divider */
+    .apn-ws-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 1.25rem 0;
+    }
+
+    /* Footer actions */
+    .apn-ws-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .apn-ws-btn-back {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.625rem 1.125rem;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .apn-ws-btn-back:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); }
+    .apn-ws-btn-back:active { background: rgba(255,255,255,0.08); }
+    .apn-ws-btn-back:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; }
+
+    .apn-ws-btn-next {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: #06A5C5;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6875rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s, transform 0.12s;
+      box-shadow: 0 4px 16px rgba(6,165,197,0.25);
+    }
+    .apn-ws-btn-next:hover { background: #07b9dd; }
+    .apn-ws-btn-next:active { transform: scale(0.97); background: #059ab9; }
+    .apn-ws-btn-next:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .apn-ws-btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* Step counter */
+    .apn-ws-step-counter {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* Success screen */
+    #apn-ws-step-5 {
+      text-align: center;
+      padding: 1rem 0 0.5rem;
+    }
+    .apn-ws-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(6,165,197,0.12);
+      border: 2px solid rgba(6,165,197,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .apn-ws-success-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 0.75rem;
+    }
+    .apn-ws-success-body {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto 1.75rem;
+    }
+    .apn-ws-tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.125rem;
+      border-radius: 999px;
+      background: rgba(6,165,197,0.1);
+      border: 1px solid rgba(6,165,197,0.3);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #06A5C5;
+      margin-bottom: 1.75rem;
+    }
+    .apn-ws-btn-close-success {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      color: rgba(255,255,255,0.6);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6875rem 2rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .apn-ws-btn-close-success:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.25); }
+    .apn-ws-btn-close-success:active { background: rgba(255,255,255,0.14); }
+    .apn-ws-btn-close-success:focus-visible { outline: 2px solid #06A5C5; outline-offset: 2px; }
+
+    /* Loading spinner on submit button */
+    .apn-ws-spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: apn-ws-spin 0.7s linear infinite;
+      display: none;
+    }
+    .apn-ws-btn-next.loading .apn-ws-spinner {
+      display: block;
+    }
+    .apn-ws-btn-next.loading .apn-ws-btn-text {
+      display: none;
+    }
+    @keyframes apn-ws-spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- Wholesale overlay -->
+  <div id="apn-ws-overlay" role="dialog" aria-modal="true" aria-labelledby="apn-ws-modal-title">
+
+    <!-- Wholesale modal -->
+    <div id="apn-ws-modal">
+
+      <!-- Header -->
+      <div id="apn-ws-header">
+        <div id="apn-ws-header-top">
+          <h2 id="apn-ws-modal-title">Wholesale Application</h2>
+          <button id="apn-ws-close" onclick="APNWholesale.close()" aria-label="Close wholesale modal">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M1 1l12 12M13 1L1 13"/>
+            </svg>
+          </button>
+        </div>
+        <!-- 5-segment progress bar -->
+        <div id="apn-ws-progress" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+          <div class="apn-ws-prog-seg" data-seg="1"></div>
+          <div class="apn-ws-prog-seg" data-seg="2"></div>
+          <div class="apn-ws-prog-seg" data-seg="3"></div>
+          <div class="apn-ws-prog-seg" data-seg="4"></div>
+          <div class="apn-ws-prog-seg" data-seg="5"></div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div id="apn-ws-body">
+
+        <!-- ============================================================
+             STEP 1 - Business Type
+             ============================================================ -->
+        <div class="apn-ws-step" id="apn-ws-step-1">
+          <p class="apn-ws-step-heading">What type of business are you?</p>
+          <p class="apn-ws-step-sub">Select the option that best describes your operation.</p>
+
+          <div id="apn-ws-type-grid">
+            <button type="button" class="apn-ws-type-card" data-type="Gym / Fitness Center" onclick="APNWholesale._selectType(this)" tabindex="0">
+              <span class="apn-ws-type-icon">🏋️</span>
+              <span class="apn-ws-type-label">Gym / Fitness Center</span>
+            </button>
+            <button type="button" class="apn-ws-type-card" data-type="Supplement / Health Store" onclick="APNWholesale._selectType(this)" tabindex="0">
+              <span class="apn-ws-type-icon">🏪</span>
+              <span class="apn-ws-type-label">Supplement / Health Store</span>
+            </button>
+            <button type="button" class="apn-ws-type-card" data-type="Online Retailer" onclick="APNWholesale._selectType(this)" tabindex="0">
+              <span class="apn-ws-type-icon">💻</span>
+              <span class="apn-ws-type-label">Online Retailer</span>
+            </button>
+            <button type="button" class="apn-ws-type-card" data-type="Healthcare / Chiro / PT" onclick="APNWholesale._selectType(this)" tabindex="0">
+              <span class="apn-ws-type-icon">🏥</span>
+              <span class="apn-ws-type-label">Healthcare / Chiro / PT</span>
+            </button>
+            <button type="button" class="apn-ws-type-card" data-type="CrossFit / Sports Facility" onclick="APNWholesale._selectType(this)" tabindex="0">
+              <span class="apn-ws-type-icon">🥊</span>
+              <span class="apn-ws-type-label">CrossFit / Sports Facility</span>
+            </button>
+            <button type="button" class="apn-ws-type-card" data-type="Personal Trainer / Coach" onclick="APNWholesale._selectType(this)" tabindex="0">
+              <span class="apn-ws-type-icon">🎯</span>
+              <span class="apn-ws-type-label">Personal Trainer / Coach</span>
+            </button>
+          </div>
+
+          <div id="apn-ws-type-error" class="apn-ws-error">Please select a business type to continue.</div>
+
+          <div class="apn-ws-actions">
+            <span class="apn-ws-step-counter">Step 1 of 4</span>
+            <button type="button" class="apn-ws-btn-next" onclick="APNWholesale.next()">
+              <span class="apn-ws-btn-text">Continue &rarr;</span>
+              <span class="apn-ws-spinner"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             STEP 2 - Business Details
+             ============================================================ -->
+        <div class="apn-ws-step" id="apn-ws-step-2">
+          <p class="apn-ws-step-heading">Business Details</p>
+          <p class="apn-ws-step-sub">Tell us about your business so we can tailor our wholesale program to you.</p>
+
+          <div class="apn-ws-field-row">
+            <div class="apn-ws-field" id="apn-ws-field-business-name">
+              <label class="apn-ws-label" for="apn-ws-business-name">Business Name <span style="color:#f87171;">*</span></label>
+              <input type="text" id="apn-ws-business-name" class="apn-ws-input" placeholder="Apex Fitness" autocomplete="organization" />
+              <span class="apn-ws-error" id="apn-ws-err-business-name">Business name is required.</span>
+            </div>
+            <div class="apn-ws-field" id="apn-ws-field-contact-name">
+              <label class="apn-ws-label" for="apn-ws-contact-name">Contact Name <span style="color:#f87171;">*</span></label>
+              <input type="text" id="apn-ws-contact-name" class="apn-ws-input" placeholder="Jane Smith" autocomplete="name" />
+              <span class="apn-ws-error" id="apn-ws-err-contact-name">Contact name is required.</span>
+            </div>
+          </div>
+
+          <div class="apn-ws-field-row">
+            <div class="apn-ws-field" id="apn-ws-field-email">
+              <label class="apn-ws-label" for="apn-ws-email">Email Address <span style="color:#f87171;">*</span></label>
+              <input type="email" id="apn-ws-email" class="apn-ws-input" placeholder="jane@apexfitness.com" autocomplete="email" />
+              <span class="apn-ws-error" id="apn-ws-err-email">A valid email address is required.</span>
+            </div>
+            <div class="apn-ws-field" id="apn-ws-field-phone">
+              <label class="apn-ws-label" for="apn-ws-phone">Phone Number <span style="color:#f87171;">*</span></label>
+              <input type="tel" id="apn-ws-phone" class="apn-ws-input" placeholder="(555) 000-0000" autocomplete="tel" />
+              <span class="apn-ws-error" id="apn-ws-err-phone">Phone number is required.</span>
+            </div>
+          </div>
+
+          <div class="apn-ws-field-row">
+            <div class="apn-ws-field" id="apn-ws-field-city-state">
+              <label class="apn-ws-label" for="apn-ws-city-state">City &amp; State <span style="color:#f87171;">*</span></label>
+              <input type="text" id="apn-ws-city-state" class="apn-ws-input" placeholder="Austin, TX" autocomplete="address-level2" />
+              <span class="apn-ws-error" id="apn-ws-err-city-state">City and state are required.</span>
+            </div>
+            <div class="apn-ws-field" id="apn-ws-field-website">
+              <label class="apn-ws-label" for="apn-ws-website">Website <span style="color:rgba(255,255,255,0.2);">(optional)</span></label>
+              <input type="url" id="apn-ws-website" class="apn-ws-input" placeholder="https://apexfitness.com" autocomplete="url" />
+            </div>
+          </div>
+
+          <div class="apn-ws-actions">
+            <button type="button" class="apn-ws-btn-back" onclick="APNWholesale.goTo(1)">
+              &larr; Back
+            </button>
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <span class="apn-ws-step-counter">Step 2 of 4</span>
+              <button type="button" class="apn-ws-btn-next" onclick="APNWholesale.next()">
+                <span class="apn-ws-btn-text">Continue &rarr;</span>
+                <span class="apn-ws-spinner"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             STEP 3 - Order Profile
+             ============================================================ -->
+        <div class="apn-ws-step" id="apn-ws-step-3">
+          <p class="apn-ws-step-heading">Order Profile</p>
+          <p class="apn-ws-step-sub">Help us understand your purchasing needs and product focus.</p>
+
+          <p class="apn-ws-section-label">Estimated Monthly Volume</p>
+          <div class="apn-ws-radio-grid">
+            <div class="apn-ws-radio-card">
+              <input type="radio" name="apn-ws-volume" id="apn-ws-vol-1" value="Under $500" />
+              <label class="apn-ws-radio-label" for="apn-ws-vol-1">Under $500</label>
+            </div>
+            <div class="apn-ws-radio-card">
+              <input type="radio" name="apn-ws-volume" id="apn-ws-vol-2" value="$500-$1,500" />
+              <label class="apn-ws-radio-label" for="apn-ws-vol-2">$500 - $1,500</label>
+            </div>
+            <div class="apn-ws-radio-card">
+              <input type="radio" name="apn-ws-volume" id="apn-ws-vol-3" value="$1,500-$5,000" />
+              <label class="apn-ws-radio-label" for="apn-ws-vol-3">$1,500 - $5,000</label>
+            </div>
+            <div class="apn-ws-radio-card">
+              <input type="radio" name="apn-ws-volume" id="apn-ws-vol-4" value="$5,000+" />
+              <label class="apn-ws-radio-label" for="apn-ws-vol-4">$5,000+</label>
+            </div>
+          </div>
+
+          <hr class="apn-ws-divider" />
+
+          <p class="apn-ws-section-label">Products Interested In <span style="color:#f87171;font-size:0.7rem;">* select at least one</span></p>
+          <div class="apn-ws-check-grid">
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-1" value="Resilience (Protein)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-1">Resilience (Protein)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-2" value="Replenish (Hydration)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-2">Replenish (Hydration)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-3" value="Replenish Plus (Creatine + Electrolytes)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-3">Replenish Plus</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-4" value="Recharge (Creatine)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-4">Recharge (Creatine)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-5" value="Ignite (Pre-Workout)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-5">Ignite (Pre-Workout)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-6" value="Fortify (Colostrum)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-6">Fortify (Colostrum)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-7" value="Nourish (Greens)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-7">Nourish (Greens)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-8" value="Foundation (D3+K2)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-8">Foundation (D3+K2)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-9" value="Omega-3" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-9">Omega-3</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-10" value="Adapt (Ashwagandha)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-10">Adapt (Ashwagandha)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-11" value="Clarity (Methylene Blue)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-11">Clarity (Methylene Blue)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-12" value="Function (Magnesium)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-12">Function (Magnesium)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-13" value="Balance (Turmeric)" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-13">Balance (Turmeric)</label>
+            </div>
+            <div class="apn-ws-check-item">
+              <input type="checkbox" id="apn-ws-prod-14" value="Full Product Line" />
+              <label class="apn-ws-check-label" for="apn-ws-prod-14">Full Product Line</label>
+            </div>
+          </div>
+          <span class="apn-ws-error" id="apn-ws-err-products">Please select at least one product.</span>
+
+          <hr class="apn-ws-divider" />
+
+          <div class="apn-ws-toggle-row">
+            <span class="apn-ws-toggle-label">Currently carry supplements?</span>
+            <div class="apn-ws-toggle-wrap">
+              <button type="button" class="apn-ws-toggle-btn apn-ws-toggle-active" id="apn-ws-carries-yes" onclick="APNWholesale._setCarries('yes')">Yes</button>
+              <button type="button" class="apn-ws-toggle-btn" id="apn-ws-carries-no" onclick="APNWholesale._setCarries('no')">No</button>
+            </div>
+          </div>
+
+          <div class="apn-ws-actions">
+            <button type="button" class="apn-ws-btn-back" onclick="APNWholesale.goTo(2)">
+              &larr; Back
+            </button>
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <span class="apn-ws-step-counter">Step 3 of 4</span>
+              <button type="button" class="apn-ws-btn-next" onclick="APNWholesale.next()">
+                <span class="apn-ws-btn-text">Continue &rarr;</span>
+                <span class="apn-ws-spinner"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             STEP 4 - Final Details
+             ============================================================ -->
+        <div class="apn-ws-step" id="apn-ws-step-4">
+          <p class="apn-ws-step-heading">Final Details</p>
+          <p class="apn-ws-step-sub">Just a few more questions and we'll submit your application.</p>
+
+          <div class="apn-ws-field" id="apn-ws-field-how-heard">
+            <label class="apn-ws-label" for="apn-ws-how-heard">How did you hear about APN? <span style="color:#f87171;">*</span></label>
+            <select id="apn-ws-how-heard" class="apn-ws-select">
+              <option value="" disabled selected>Select one...</option>
+              <option value="Instagram">Instagram</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Referral">Referral</option>
+              <option value="Google">Google</option>
+              <option value="Trade Show">Trade Show</option>
+              <option value="Athlete">Athlete</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="apn-ws-error" id="apn-ws-err-how-heard">Please select how you heard about us.</span>
+          </div>
+
+          <div class="apn-ws-field" id="apn-ws-field-why-apn">
+            <label class="apn-ws-label" for="apn-ws-why-apn">Why APN? <span style="color:#f87171;">*</span></label>
+            <textarea id="apn-ws-why-apn" class="apn-ws-textarea" rows="3" placeholder="Tell us why you want to carry Ascend Performance Nutrition in your business..."></textarea>
+            <span class="apn-ws-error" id="apn-ws-err-why-apn">Please share why you're interested in APN.</span>
+          </div>
+
+          <div class="apn-ws-field" id="apn-ws-field-instagram-handle">
+            <label class="apn-ws-label" for="apn-ws-instagram-handle">Instagram Handle <span style="color:rgba(255,255,255,0.2);">(optional)</span></label>
+            <input type="text" id="apn-ws-instagram-handle" class="apn-ws-input" placeholder="@apexfitness" />
+          </div>
+
+          <div id="apn-ws-submit-error" class="apn-ws-error" style="margin-bottom:0.5rem;">Something went wrong. Please try again.</div>
+
+          <div class="apn-ws-actions">
+            <button type="button" class="apn-ws-btn-back" onclick="APNWholesale.goTo(3)">
+              &larr; Back
+            </button>
+            <div style="display:flex;align-items:center;gap:1rem;">
+              <span class="apn-ws-step-counter">Step 4 of 4</span>
+              <button type="button" class="apn-ws-btn-next" id="apn-ws-submit-btn" onclick="APNWholesale.submit()">
+                <span class="apn-ws-btn-text">Submit Application</span>
+                <span class="apn-ws-spinner"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             STEP 5 - Success
+             ============================================================ -->
+        <div class="apn-ws-step" id="apn-ws-step-5">
+          <div style="text-align:center;padding:0.5rem 0 1rem;">
+            <div class="apn-ws-success-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#06A5C5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 14l7 7L24 7"/>
+              </svg>
+            </div>
+            <h3 class="apn-ws-success-heading">Application Received</h3>
+            <p class="apn-ws-success-body">Our wholesale team will contact you within 48 hours to discuss pricing, minimums, and your onboarding timeline.</p>
+            <div id="apn-ws-tier-badge" class="apn-ws-tier-badge">
+              <span id="apn-ws-tier-icon"></span>
+              <span id="apn-ws-tier-label"></span>
+            </div>
+            <br/>
+            <button type="button" class="apn-ws-btn-close-success" onclick="APNWholesale.close()">Close</button>
+          </div>
+        </div>
+
+      </div><!-- /apn-ws-body -->
+    </div><!-- /apn-ws-modal -->
+  </div><!-- /apn-ws-overlay -->
+
+  <script>
+    (function() {
+      var KLAVIYO_KEY = 'R5eNpH';
+      var KLAVIYO_LIST_ID = 'RSeqfi';
+
+      var state = {
+        currentStep: 1,
+        businessType: '',
+        carriesSupplements: 'yes'
+      };
+
+      var typeIcons = {
+        'Gym / Fitness Center': '🏋️',
+        'Supplement / Health Store': '🏪',
+        'Online Retailer': '💻',
+        'Healthcare / Chiro / PT': '🏥',
+        'CrossFit / Sports Facility': '🥊',
+        'Personal Trainer / Coach': '🎯'
+      };
+
+      function getEl(id) { return document.getElementById(id); }
+
+      function showError(id, show) {
+        var el = getEl(id);
+        if (!el) return;
+        if (show) { el.classList.add('apn-ws-error-visible'); }
+        else { el.classList.remove('apn-ws-error-visible'); }
+      }
+
+      function fieldError(fieldId, show) {
+        var field = getEl(fieldId);
+        if (!field) return;
+        if (show) { field.classList.add('apn-ws-field-error'); }
+        else { field.classList.remove('apn-ws-field-error'); }
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function updateProgress(step) {
+        var segs = document.querySelectorAll('.apn-ws-prog-seg');
+        segs.forEach(function(seg) {
+          var segNum = parseInt(seg.getAttribute('data-seg'), 10);
+          if (step >= 5) {
+            seg.classList.add('active');
+          } else {
+            if (segNum <= step) { seg.classList.add('active'); }
+            else { seg.classList.remove('active'); }
+          }
+        });
+        var pb = getEl('apn-ws-progress');
+        if (pb) pb.setAttribute('aria-valuenow', step);
+      }
+
+      function showStep(n) {
+        for (var i = 1; i <= 5; i++) {
+          var panel = getEl('apn-ws-step-' + i);
+          if (panel) {
+            if (i === n) { panel.classList.add('apn-ws-step-active'); }
+            else { panel.classList.remove('apn-ws-step-active'); }
+          }
+        }
+        state.currentStep = n;
+        updateProgress(n);
+        var modal = getEl('apn-ws-modal');
+        if (modal) modal.scrollTop = 0;
+      }
+
+      function validateStep(stepNum) {
+        if (stepNum === 1) {
+          if (!state.businessType) {
+            showError('apn-ws-type-error', true);
+            return false;
+          }
+          showError('apn-ws-type-error', false);
+          return true;
+        }
+
+        if (stepNum === 2) {
+          var valid = true;
+          var businessName = getEl('apn-ws-business-name').value.trim();
+          var contactName  = getEl('apn-ws-contact-name').value.trim();
+          var email        = getEl('apn-ws-email').value.trim();
+          var phone        = getEl('apn-ws-phone').value.trim();
+          var cityState    = getEl('apn-ws-city-state').value.trim();
+
+          if (!businessName) { showError('apn-ws-err-business-name', true); fieldError('apn-ws-field-business-name', true); valid = false; }
+          else { showError('apn-ws-err-business-name', false); fieldError('apn-ws-field-business-name', false); }
+
+          if (!contactName) { showError('apn-ws-err-contact-name', true); fieldError('apn-ws-field-contact-name', true); valid = false; }
+          else { showError('apn-ws-err-contact-name', false); fieldError('apn-ws-field-contact-name', false); }
+
+          if (!email || !isValidEmail(email)) { showError('apn-ws-err-email', true); fieldError('apn-ws-field-email', true); valid = false; }
+          else { showError('apn-ws-err-email', false); fieldError('apn-ws-field-email', false); }
+
+          if (!phone) { showError('apn-ws-err-phone', true); fieldError('apn-ws-field-phone', true); valid = false; }
+          else { showError('apn-ws-err-phone', false); fieldError('apn-ws-field-phone', false); }
+
+          if (!cityState) { showError('apn-ws-err-city-state', true); fieldError('apn-ws-field-city-state', true); valid = false; }
+          else { showError('apn-ws-err-city-state', false); fieldError('apn-ws-field-city-state', false); }
+
+          return valid;
+        }
+
+        if (stepNum === 3) {
+          var checked = document.querySelectorAll('#apn-ws-step-3 input[type="checkbox"]:checked');
+          if (checked.length === 0) {
+            showError('apn-ws-err-products', true);
+            return false;
+          }
+          showError('apn-ws-err-products', false);
+          return true;
+        }
+
+        if (stepNum === 4) {
+          var valid2 = true;
+          var howHeard = getEl('apn-ws-how-heard').value;
+          var whyApn   = getEl('apn-ws-why-apn').value.trim();
+
+          if (!howHeard) { showError('apn-ws-err-how-heard', true); fieldError('apn-ws-field-how-heard', true); valid2 = false; }
+          else { showError('apn-ws-err-how-heard', false); fieldError('apn-ws-field-how-heard', false); }
+
+          if (!whyApn) { showError('apn-ws-err-why-apn', true); fieldError('apn-ws-field-why-apn', true); valid2 = false; }
+          else { showError('apn-ws-err-why-apn', false); fieldError('apn-ws-field-why-apn', false); }
+
+          return valid2;
+        }
+
+        return true;
+      }
+
+      function getFormData() {
+        var volumeEl = document.querySelector('input[name="apn-ws-volume"]:checked');
+        var productsChecked = document.querySelectorAll('#apn-ws-step-3 input[type="checkbox"]:checked');
+        var products = [];
+        productsChecked.forEach(function(cb) { products.push(cb.value); });
+
+        var igHandleEl = getEl('apn-ws-instagram-handle');
+
+        return {
+          business_type:        state.businessType,
+          business_name:        (getEl('apn-ws-business-name') ? getEl('apn-ws-business-name').value.trim() : ''),
+          contact_name:         (getEl('apn-ws-contact-name')  ? getEl('apn-ws-contact-name').value.trim()  : ''),
+          email:                (getEl('apn-ws-email')         ? getEl('apn-ws-email').value.trim()         : ''),
+          phone:                (getEl('apn-ws-phone')         ? getEl('apn-ws-phone').value.trim()         : ''),
+          city_state:           (getEl('apn-ws-city-state')    ? getEl('apn-ws-city-state').value.trim()    : ''),
+          website:              (getEl('apn-ws-website')       ? getEl('apn-ws-website').value.trim()       : ''),
+          monthly_volume:       (volumeEl ? volumeEl.value : ''),
+          products_interested:  products,
+          carries_supplements:  state.carriesSupplements,
+          how_heard:            (getEl('apn-ws-how-heard')     ? getEl('apn-ws-how-heard').value            : ''),
+          why_apn:              (getEl('apn-ws-why-apn')       ? getEl('apn-ws-why-apn').value.trim()       : ''),
+          instagram_handle:     (igHandleEl ? igHandleEl.value.trim() : ''),
+          submitted_at:         new Date().toISOString()
+        };
+      }
+
+      function klaviyoEvent(data) {
+        return fetch('https://a.klaviyo.com/client/events/?company_id=' + KLAVIYO_KEY, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/vnd.api+json',
+            'revision': '2024-10-15'
+          },
+          body: JSON.stringify({
+            data: {
+              type: 'event',
+              attributes: {
+                metric: {
+                  data: {
+                    type: 'metric',
+                    attributes: { name: 'Wholesale Application Submitted' }
+                  }
+                },
+                properties: {
+                  business_type:       data.business_type,
+                  business_name:       data.business_name,
+                  contact_name:        data.contact_name,
+                  email:               data.email,
+                  phone:               data.phone,
+                  city_state:          data.city_state,
+                  website:             data.website,
+                  monthly_volume:      data.monthly_volume,
+                  products_interested: data.products_interested.join(', '),
+                  carries_supplements: data.carries_supplements,
+                  how_heard:           data.how_heard,
+                  why_apn:             data.why_apn,
+                  instagram_handle:    data.instagram_handle,
+                  submitted_at:        data.submitted_at
+                },
+                profile: {
+                  data: {
+                    type: 'profile',
+                    attributes: { email: data.email }
+                  }
+                }
+              }
+            }
+          })
+        });
+      }
+
+      function klaviyoSubscribe(data) {
+        var nameParts = data.contact_name.split(' ');
+        return fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/vnd.api+json',
+            'revision': '2024-10-15'
+          },
+          body: JSON.stringify({
+            data: {
+              type: 'subscription',
+              attributes: {
+                list_id: KLAVIYO_LIST_ID,
+                email: data.email,
+                custom_source: 'Wholesale Application',
+                profiles: {
+                  data: [
+                    {
+                      type: 'profile',
+                      attributes: {
+                        email:        data.email,
+                        first_name:   (nameParts[0] || ''),
+                        last_name:    (nameParts.slice(1).join(' ') || ''),
+                        phone_number: data.phone,
+                        properties: {
+                          business_type:       data.business_type,
+                          business_name:       data.business_name,
+                          contact_name:        data.contact_name,
+                          phone:               data.phone,
+                          city_state:          data.city_state,
+                          website:             data.website,
+                          monthly_volume:      data.monthly_volume,
+                          products_interested: data.products_interested.join(', '),
+                          carries_supplements: data.carries_supplements,
+                          how_heard:           data.how_heard,
+                          why_apn:             data.why_apn,
+                          instagram_handle:    data.instagram_handle,
+                          submitted_at:        data.submitted_at
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          })
+        });
+      }
+
+      window.APNWholesale = {
+        open: function() {
+          var overlay = getEl('apn-ws-overlay');
+          if (overlay) {
+            overlay.classList.add('apn-ws-visible');
+            document.body.style.overflow = 'hidden';
+            showStep(1);
+          }
+        },
+
+        close: function() {
+          var overlay = getEl('apn-ws-overlay');
+          if (overlay) {
+            overlay.classList.remove('apn-ws-visible');
+            document.body.style.overflow = '';
+          }
+        },
+
+        goTo: function(n) {
+          showStep(n);
+        },
+
+        next: function() {
+          if (!validateStep(state.currentStep)) return;
+          if (state.currentStep < 4) {
+            showStep(state.currentStep + 1);
+          }
+        },
+
+        submit: function() {
+          if (!validateStep(4)) return;
+
+          var submitBtn = getEl('apn-ws-submit-btn');
+          if (submitBtn) { submitBtn.classList.add('loading'); submitBtn.disabled = true; }
+          showError('apn-ws-submit-error', false);
+
+          var data = getFormData();
+
+          Promise.all([
+            klaviyoEvent(data).catch(function() {}),
+            klaviyoSubscribe(data).catch(function() {})
+          ]).then(function() {
+            if (submitBtn) { submitBtn.classList.remove('loading'); submitBtn.disabled = false; }
+
+            var badgeIcon  = getEl('apn-ws-tier-icon');
+            var badgeLabel = getEl('apn-ws-tier-label');
+            if (badgeIcon)  badgeIcon.textContent  = typeIcons[data.business_type] || '';
+            if (badgeLabel) badgeLabel.textContent = data.business_type;
+
+            showStep(5);
+          }).catch(function() {
+            if (submitBtn) { submitBtn.classList.remove('loading'); submitBtn.disabled = false; }
+            showError('apn-ws-submit-error', true);
+          });
+        },
+
+        _validate: function(stepNum) {
+          return validateStep(stepNum);
+        },
+
+        _selectType: function(el) {
+          var cards = document.querySelectorAll('.apn-ws-type-card');
+          cards.forEach(function(c) { c.classList.remove('selected'); });
+          el.classList.add('selected');
+          state.businessType = el.getAttribute('data-type');
+          showError('apn-ws-type-error', false);
+        },
+
+        _setCarries: function(val) {
+          state.carriesSupplements = val;
+          var yesBtn = getEl('apn-ws-carries-yes');
+          var noBtn  = getEl('apn-ws-carries-no');
+          if (val === 'yes') {
+            if (yesBtn) yesBtn.classList.add('apn-ws-toggle-active');
+            if (noBtn)  noBtn.classList.remove('apn-ws-toggle-active');
+          } else {
+            if (noBtn)  noBtn.classList.add('apn-ws-toggle-active');
+            if (yesBtn) yesBtn.classList.remove('apn-ws-toggle-active');
+          }
+        }
+      };
+
+      // Close on overlay backdrop click
+      var overlay = getEl('apn-ws-overlay');
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) { APNWholesale.close(); }
+        });
+      }
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          var ov = getEl('apn-ws-overlay');
+          if (ov && ov.classList.contains('apn-ws-visible')) { APNWholesale.close(); }
+        }
+      });
+
+    })();
+  </script>
+
 </footer>
 
 {% schema %}
 {
   "name": "Footer",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
-    },
-    {
-      "type": "text",
-      "id": "tagline",
-      "label": "Brand tagline",
-      "default": "Clean-label supplements built for athletes who refuse to settle. Equip. Empower. Elevate."
-    },
-    {
-      "type": "url",
-      "id": "instagram",
-      "label": "Instagram URL"
-    },
-    {
-      "type": "url",
-      "id": "facebook",
-      "label": "Facebook URL"
-    },
-    {
-      "type": "url",
-      "id": "tiktok",
-      "label": "TikTok URL"
-    },
-    {
-      "type": "url",
-      "id": "youtube",
-      "label": "YouTube URL"
-    }
+    { "type": "image_picker", "id": "logo", "label": "Logo image" },
+    { "type": "text", "id": "tagline", "label": "Brand tagline", "default": "Clean-label supplements built for athletes who refuse to settle. Equip. Empower. Elevate." },
+    { "type": "url", "id": "instagram", "label": "Instagram URL" },
+    { "type": "url", "id": "facebook", "label": "Facebook URL" },
+    { "type": "url", "id": "tiktok", "label": "TikTok URL" },
+    { "type": "url", "id": "youtube", "label": "YouTube URL" }
   ]
 }
 {% endschema %}
