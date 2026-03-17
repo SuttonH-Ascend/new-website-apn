@@ -485,3 +485,155 @@ button { font-family: inherit; }
 
 /* ── NAV HEIGHT ADJUSTMENT ────────────────────────────────── */
 .apn-page-body { padding-top: 68px; }
+
+/* ════════════════════════════════════════════════════════════
+   PRODUCT PAGE — MOBILE RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── Product hero: stack image above buy-box ── */
+  .product-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* ── Remove sticky on image column (no room to stick) ── */
+  .product-sticky-img {
+    position: static !important;
+  }
+
+  /* ── Impact stats: stack vertically ── */
+  .impact-stat-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .impact-card {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+    padding: 2rem 1.5rem !important;
+  }
+  .impact-stat-grid > div:last-child {
+    border-bottom: none !important;
+  }
+
+  /* ── How to use: stack vertically ── */
+  .how-to-steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Product sections: reduce vertical padding ── */
+  section#faq,
+  section#reviews {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* ── H1 product title: tighten on small screens ── */
+  .product-hero-grid h1 {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+  }
+
+  /* ── Related products grid ── */
+  .related-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* ── Thumbnails: horizontal scroll row ── */
+  .thumb-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 0.5rem !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .thumb-grid::-webkit-scrollbar { display: none; }
+  .thumb-grid > * {
+    flex-shrink: 0 !important;
+    width: 72px !important;
+  }
+
+  /* ── Impact stats: tighten padding ── */
+  .impact-stat-grid > div {
+    padding: 1.5rem 1rem !important;
+  }
+
+  /* ── Product hero padding ── */
+  section[style*="padding:1.5rem 1.5rem 5rem"] {
+    padding-bottom: 3rem !important;
+  }
+
+  /* ── Related products: 1 col ── */
+  .related-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Ingredient wheel responsive scaling is handled via JS in theme.liquid */
+
+/* ════════════════════════════════════════════════════════════
+   HOMEPAGE SECTION PADDING — MOBILE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #why-ascend,
+  #stack,
+  #goals,
+  #quiz {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  /* ── Why Ascend cards: reduce inner padding ── */
+  #why-ascend > div > div > div[style*="padding:2rem"] {
+    padding: 1.25rem !important;
+  }
+
+  /* ── Stack product cards: reduce image height ── */
+  #stack .product-card > div:first-child {
+    height: 200px !important;
+  }
+
+  /* ── Goals: reduce card image height ── */
+  #goals a > div:first-child {
+    height: 100px !important;
+  }
+
+  /* ── Quiz section: stack and reduce gap ── */
+  #quiz > div[style*="grid-template-columns:1fr 1fr"] {
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* ── Section headings: tighten font size ── */
+  #mission h2,
+  #why-ascend h2,
+  #stack h2,
+  #goals h2,
+  #quiz h2 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+  }
+
+  /* ── Trust badges: reduce card padding ── */
+  section[aria-label="Trust badges"] div[style*="padding:1.75rem"] {
+    padding: 1.25rem 0.75rem !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   FOOTER — MOBILE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Footer grid: override to 2 columns */
+  .apn-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .apn-footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

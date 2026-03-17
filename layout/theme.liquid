@@ -172,5 +172,28 @@
     document.addEventListener('DOMContentLoaded', function(){ APN._refreshCart(); });
   </script>
 
+  <!-- Ingredient wheel responsive scale -->
+  <script>
+    (function() {
+      function setWheelScale() {
+        var wrap = document.getElementById('wheel-wrap');
+        if (!wrap) return;
+        var available = Math.min(window.innerWidth - 48, 660);
+        var scale = available / 660;
+        if (scale >= 1) {
+          wrap.style.removeProperty('transform');
+          wrap.style.removeProperty('marginBottom');
+          return;
+        }
+        scale = Math.round(scale * 100) / 100;
+        wrap.style.transform = 'scale(' + scale + ')';
+        wrap.style.transformOrigin = 'top center';
+        wrap.style.marginBottom = Math.round((scale - 1) * 660) + 'px';
+      }
+      document.addEventListener('DOMContentLoaded', setWheelScale);
+      window.addEventListener('resize', setWheelScale);
+    })();
+  </script>
+
 </body>
 </html>
