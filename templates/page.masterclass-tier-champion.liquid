@@ -1,0 +1,1769 @@
+{% comment %}
+  Ascend Performance Nutrition — Champion Tier MasterClass
+  Tier: Champion (Score 90-100) | Top 5% of all athletes
+  Personalization: ?score= ?name= ?gap1= ?gap2= ?gap3=
+  Author: Sutton Huggins, Founder & CEO, Ascend Performance Nutrition
+  Version: 1.0 — Production Ready
+{% endcomment %}
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section id="apn-masterclass-tier-champion" style="font-family:'Barlow',sans-serif;">
+
+<style>
+  /* === RESET & BASE === */
+  #apn-masterclass-tier-champion *,
+  #apn-masterclass-tier-champion *::before,
+  #apn-masterclass-tier-champion *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  #apn-masterclass-tier-champion {
+    --teal: #06A5C5;
+    --black: #0D0D0D;
+    --body: #333333;
+    --bg: #F4F4F2;
+    --bg2: #F8F8F8;
+    --champion-red: #EF4444;
+    --white: #ffffff;
+    --gray-mid: #9CA3AF;
+    background: var(--white);
+    color: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* === STICKY PROGRESS BAR === */
+  .champ-progress-bar-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.12);
+    z-index: 9999;
+  }
+  .champ-progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--teal);
+    transition: width 0.2s ease;
+  }
+
+  /* === SIDEBAR NAV (desktop only) === */
+  .champ-sidebar-nav {
+    display: none;
+  }
+  @media (min-width: 1280px) {
+    .champ-sidebar-nav {
+      display: block;
+      position: fixed;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 900;
+    }
+    .champ-sidebar-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .champ-sidebar-nav ul li a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9CA3AF;
+      transition: color 0.2s;
+    }
+    .champ-sidebar-nav ul li a:hover,
+    .champ-sidebar-nav ul li a.active {
+      color: #06A5C5;
+    }
+    .champ-sidebar-nav ul li a::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .champ-sidebar-nav ul li a.active::before {
+      transform: scale(1.6);
+    }
+  }
+
+  /* === LAYOUT === */
+  .champ-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .champ-container-wide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* === SECTION SPACING === */
+  .champ-module {
+    padding: 80px 0;
+  }
+  .champ-module--dark {
+    background: var(--black);
+    color: var(--white);
+    padding: 80px 0;
+  }
+  .champ-module--bg {
+    background: var(--bg);
+    padding: 80px 0;
+  }
+
+  /* === TYPOGRAPHY === */
+  .champ-section-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #06A5C5;
+    margin-bottom: 8px;
+  }
+  .champ-section-label--white {
+    color: #06A5C5;
+  }
+  .champ-headline {
+    font-family: Georgia, serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 768px) {
+    .champ-headline {
+      font-size: 54px;
+    }
+  }
+  .champ-headline--white {
+    color: var(--white);
+  }
+  .champ-headline--medium {
+    font-size: 32px;
+    letter-spacing: -0.015em;
+  }
+  @media (min-width: 768px) {
+    .champ-headline--medium {
+      font-size: 38px;
+    }
+  }
+  .champ-subhead {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    color: #9CA3AF;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+  .champ-body {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .champ-body--white {
+    color: rgba(255,255,255,0.85);
+  }
+  .champ-body b,
+  .champ-body strong {
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* === TEAL DIVIDER === */
+  .champ-divider {
+    width: 64px;
+    height: 3px;
+    background: #06A5C5;
+    margin: 16px 0 32px;
+  }
+
+  /* === TIER BADGE === */
+  .champ-tier-badge {
+    display: inline-block;
+    background: #EF4444;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  /* === PULL QUOTE === */
+  .champ-pull-quote {
+    border-left: 4px solid #06A5C5;
+    background: #F8F8F8;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+  .champ-pull-quote p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #0D0D0D;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .champ-pull-quote--dark {
+    background: rgba(255,255,255,0.06);
+  }
+  .champ-pull-quote--dark p {
+    color: var(--white);
+  }
+
+  /* === ASSIGNMENT BLOCK === */
+  .champ-assignment {
+    border-top: 3px solid #06A5C5;
+    background: #F4F4F2;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  .champ-assignment__label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #06A5C5;
+    margin-bottom: 10px;
+  }
+  .champ-assignment p,
+  .champ-assignment ul {
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .champ-assignment ul {
+    padding-left: 18px;
+    margin-top: 8px;
+  }
+  .champ-assignment ul li {
+    margin-bottom: 6px;
+  }
+
+  /* === SCRIPTURE BLOCK === */
+  .champ-scripture {
+    text-align: center;
+    padding: 40px 24px;
+    margin: 40px 0;
+    border-top: 1px solid #E5E7EB;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .champ-scripture__text {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #0D0D0D;
+    line-height: 1.65;
+    max-width: 560px;
+    margin: 0 auto 12px;
+  }
+  .champ-scripture__citation {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #06A5C5;
+  }
+
+  /* === WARNING CALLOUT === */
+  .champ-warning {
+    border-left: 4px solid #F59E0B;
+    background: #FFFBEB;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+  .champ-warning__label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #D97706;
+    margin-bottom: 8px;
+  }
+  .champ-warning p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* === DARK DATA CALLOUT === */
+  .champ-data-callout {
+    background: #0D0D0D;
+    padding: 32px 28px;
+    margin: 32px 0;
+  }
+  .champ-data-callout__stat {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #06A5C5;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .champ-data-callout__label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #9CA3AF;
+    margin-bottom: 12px;
+  }
+  .champ-data-callout__text {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: #9CA3AF;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* === GAP LINK CARD === */
+  .champ-gap-card {
+    background: white;
+    border-left: 3px solid #06A5C5;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .champ-gap-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transform: translateX(3px);
+  }
+  .champ-gap-card__left {}
+  .champ-gap-card__urgency {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #06A5C5;
+    margin-bottom: 4px;
+  }
+  .champ-gap-card__name {
+    font-family: 'Barlow', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0D0D0D;
+    text-transform: capitalize;
+  }
+  .champ-gap-card__desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    color: #9CA3AF;
+    margin-top: 2px;
+  }
+  .champ-gap-card__arrow {
+    font-size: 20px;
+    color: #06A5C5;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  /* === PRODUCT CARD === */
+  .champ-product-card {
+    background: white;
+    border: 1px solid #E5E7EB;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .champ-product-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 16px;
+  }
+  .champ-product-card__name {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0D0D0D;
+  }
+  .champ-product-card__ingredient {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    color: #9CA3AF;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .champ-product-card__price {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #06A5C5;
+    white-space: nowrap;
+  }
+  .champ-product-card__mechanism {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .champ-product-card__timing {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #9CA3AF;
+    padding-top: 12px;
+    border-top: 1px solid #F4F4F2;
+  }
+  .champ-product-card__timing span {
+    color: #06A5C5;
+  }
+
+  /* === WEEK BLOCK === */
+  .champ-week-block {
+    border: 1px solid #E5E7EB;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .champ-week-block__header {
+    background: #0D0D0D;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .champ-week-block__num {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #06A5C5;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .champ-week-block__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .champ-week-block__body {
+    padding: 24px;
+    background: white;
+  }
+  .champ-week-block__focus {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #06A5C5;
+    margin-bottom: 10px;
+  }
+  .champ-week-block__content {
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.7;
+  }
+  .champ-week-block__content ul {
+    padding-left: 18px;
+    margin-top: 10px;
+  }
+  .champ-week-block__content ul li {
+    margin-bottom: 8px;
+  }
+
+  /* === BEHAVIOR CARD === */
+  .champ-behavior-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+  @media (min-width: 640px) {
+    .champ-behavior-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  .champ-behavior-card {
+    background: var(--bg2);
+    padding: 24px;
+    border-top: 3px solid #06A5C5;
+  }
+  .champ-behavior-card__num {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #06A5C5;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .champ-behavior-card__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0D0D0D;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .champ-behavior-card__desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.6;
+  }
+
+  /* === MODULE LIST === */
+  .champ-module-list {
+    list-style: none;
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .champ-module-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+  }
+  .champ-module-list__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #06A5C5;
+    flex-shrink: 0;
+  }
+  .champ-module-list__time {
+    margin-left: auto;
+    font-size: 12px;
+    color: #9CA3AF;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* === CHALLENGE HABIT === */
+  .champ-habit-list {
+    list-style: none;
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .champ-habit-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .champ-habit-item__num {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #06A5C5;
+    line-height: 1.2;
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .champ-habit-item__content {}
+  .champ-habit-item__title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+  .champ-habit-item__desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  /* === CTA BUTTONS === */
+  .champ-btn {
+    display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .champ-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+  .champ-btn--teal {
+    background: #06A5C5;
+    color: white;
+  }
+  .champ-btn--black {
+    background: #0D0D0D;
+    color: white;
+  }
+  .champ-btn--outline {
+    background: transparent;
+    color: #0D0D0D;
+    border: 2px solid #0D0D0D;
+  }
+  .champ-btn--outline-white {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  /* === CTA GROUP === */
+  .champ-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  /* === HERO SPECIFIC === */
+  .champ-hero {
+    background: #0D0D0D;
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .champ-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #06A5C5;
+  }
+  .champ-hero__score-display {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .champ-hero__score-display strong {
+    color: #06A5C5;
+  }
+
+  /* === FOOTER === */
+  .champ-footer {
+    background: #0D0D0D;
+    padding: 48px 0 40px;
+    border-top: 3px solid #06A5C5;
+  }
+  .champ-footer__values {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .champ-footer__signoff {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    line-height: 1.8;
+  }
+  .champ-footer__signoff strong {
+    color: white;
+    font-style: normal;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* === DISCOUNT CALLOUT === */
+  .champ-discount-bar {
+    background: #06A5C5;
+    padding: 14px 24px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .champ-discount-bar p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  .champ-discount-bar code {
+    background: rgba(0,0,0,0.2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  /* === SEPARATOR === */
+  .champ-sep {
+    height: 1px;
+    background: #E5E7EB;
+    margin: 40px 0;
+  }
+  .champ-sep--dark {
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* === PILLAR COMPARISON TABLE === */
+  .champ-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid #E5E7EB;
+    margin: 32px 0;
+    overflow: hidden;
+  }
+  .champ-comparison-col {}
+  .champ-comparison-col__header {
+    padding: 14px 20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  .champ-comparison-col:first-child .champ-comparison-col__header {
+    background: #EF4444;
+    color: white;
+  }
+  .champ-comparison-col:last-child .champ-comparison-col__header {
+    background: #F4F4F2;
+    color: #9CA3AF;
+  }
+  .champ-comparison-row {
+    display: contents;
+  }
+  .champ-comparison-cell {
+    padding: 14px 20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.5;
+    border-top: 1px solid #E5E7EB;
+  }
+  .champ-comparison-cell--champion {
+    font-weight: 600;
+    color: #0D0D0D;
+  }
+
+  /* === VISIBLE STATE (personalization) === */
+  .champ-personalized-welcome {
+    display: none;
+  }
+</style>
+
+<!-- PROGRESS BAR -->
+<div class="champ-progress-bar-wrap">
+  <div class="champ-progress-bar-fill" id="champProgressFill"></div>
+</div>
+
+<!-- SIDEBAR NAVIGATION (desktop) -->
+<nav class="champ-sidebar-nav" id="champSidebarNav" aria-label="Section navigation">
+  <ul>
+    <li><a href="#champ-mod-0" data-module="0">Hero</a></li>
+    <li><a href="#champ-mod-1" data-module="1">Your Score</a></li>
+    <li><a href="#champ-mod-2" data-module="2">Profile</a></li>
+    <li><a href="#champ-mod-3" data-module="3">Gaps</a></li>
+    <li><a href="#champ-mod-4" data-module="4">Framework</a></li>
+    <li><a href="#champ-mod-5" data-module="5">Stack</a></li>
+    <li><a href="#champ-mod-6" data-module="6">Challenge</a></li>
+    <li><a href="#champ-mod-7" data-module="7">Next Steps</a></li>
+  </ul>
+</nav>
+
+<!-- =========================================================
+     MODULE 0: HERO
+     ========================================================= -->
+<section id="champ-mod-0" class="champ-hero">
+  <div class="champ-container">
+
+    <div class="champ-section-label champ-section-label--white">Champion MasterClass</div>
+    <div class="champ-divider"></div>
+
+    <div class="champ-tier-badge">Champion</div>
+
+    <h1 class="champ-headline champ-headline--white">Your Champion<br>Performance Profile.</h1>
+
+    <div class="champ-hero__score-display" id="champScoreDisplay">
+      Loading your results...
+    </div>
+
+    <p class="champ-subhead">
+      You're in the top 5%. This page is about protecting what you've built and compounding what's working.
+    </p>
+
+    <ul class="champ-module-list">
+      <li>
+        <span class="champ-module-list__dot"></span>
+        Module 1: What Your Score Means
+        <span class="champ-module-list__time">2 min</span>
+      </li>
+      <li>
+        <span class="champ-module-list__dot"></span>
+        Module 2: The Champion Performance Profile
+        <span class="champ-module-list__time">5 min</span>
+      </li>
+      <li>
+        <span class="champ-module-list__dot"></span>
+        Module 3: Your Gap Snapshot
+        <span class="champ-module-list__time">5 min</span>
+      </li>
+      <li>
+        <span class="champ-module-list__dot"></span>
+        Module 4: The Champion Priority Framework
+        <span class="champ-module-list__time">10 min</span>
+      </li>
+      <li>
+        <span class="champ-module-list__dot"></span>
+        Module 5: The Champion Stack
+        <span class="champ-module-list__time">5 min</span>
+      </li>
+      <li>
+        <span class="champ-module-list__dot"></span>
+        Module 6: The Champion Challenge
+        <span class="champ-module-list__time">3 min</span>
+      </li>
+    </ul>
+
+    <div class="champ-cta-group">
+      <a href="#champ-mod-1" class="champ-btn champ-btn--teal">Start the MasterClass</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MODULE 1: WHAT YOUR SCORE MEANS
+     ========================================================= -->
+<section id="champ-mod-1" class="champ-module">
+  <div class="champ-container">
+
+    <div class="champ-section-label">Your Tier Report</div>
+    <div class="champ-divider"></div>
+
+    <h2 class="champ-headline champ-headline--medium">What Scoring 90-100 Actually Means.</h2>
+
+    <p class="champ-body">
+      The Champion tier is not an award. It's a behavioral profile. Scoring 90-100 on the Ascend Performance Assessment means that across all eight performance pillars, your behaviors are protocol-driven, not just habitual. There's a meaningful difference between those two things. A habit is what you do because you've done it long enough that it doesn't require thought. A protocol is what you do because you understand the mechanism, you've tested the dose, and you've built the tracking to confirm it's working. Champion athletes operate at the protocol level.
+    </p>
+
+    <p class="champ-body">
+      What the data shows in the 90-100 range: sleep is not just prioritized, it's tracked. The wake window is within 15 minutes, night to night. Protein isn't just "high" in total grams. It's distributed across four or more meals to repeatedly hit the leucine threshold required to trigger muscle protein synthesis. Training isn't just consistent. It has progressive overload built into the session design. You're not hoping to lift more next week. You've programmed it.
+    </p>
+
+    <div class="champ-data-callout">
+      <div class="champ-data-callout__stat">Top 5%</div>
+      <div class="champ-data-callout__label">Performance Tier Position</div>
+      <p class="champ-data-callout__text">
+        Champions represent fewer than 1 in 20 athletes assessed. The gap between a 90 and a 70 is not a matter of effort. It's a matter of systematization. You've closed the loop between knowledge and daily execution.
+      </p>
+    </div>
+
+    <p class="champ-body">
+      <strong>The risk profile at this tier is not what most athletes expect.</strong> It's not injury. It's not burnout. It's not information gaps. The primary risk at Champion level is complacency disguised as optimization. Because every pillar is dialed in and you feel elite, the natural human tendency is to loosen precision without noticing it. Creatine timing shifts from exact to approximate. Protein distribution narrows from five meals to three on busy days. Sleep window drifts by 20 minutes, then 30. Progressive overload stalls when you feel strong enough. Each of these individually is minor. Compounded over six months, they represent measurable regression.
+    </p>
+
+    <div class="champ-warning">
+      <div class="champ-warning__label">Champion Risk Pattern</div>
+      <p>
+        The most common way Champion athletes decline is not through dramatic failure. It's through incremental drift in behaviors they've stopped actively tracking. When something works, athletes assume it will continue to work without maintenance. That assumption is wrong at the precision level Champion performance requires.
+      </p>
+    </div>
+
+    <p class="champ-body">
+      <strong>Where most Champion athletes get stuck</strong> is at the boundary between maintenance and advancement. They've built an elite performance architecture, and they've internalized the behaviors well enough that they don't feel like effort anymore. That's exactly when drift begins. The discipline that built Champion-level performance is still required to maintain it. The moment you treat your protocols as set and self-sustaining, the compound interest of consistent precision starts eroding.
+    </p>
+
+    <p class="champ-body">
+      The single most important insight from the Champion tier: performance at this level is not maintained passively. It is defended actively. Every week you do not audit your protocols is a week where drift is possible. The four-week framework in Module 4 addresses this directly.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MODULE 2: THE CHAMPION PERFORMANCE PROFILE
+     ========================================================= -->
+<section id="champ-mod-2" class="champ-module champ-module--bg">
+  <div class="champ-container">
+
+    <div class="champ-section-label">Your Performance Profile</div>
+    <div class="champ-divider"></div>
+
+    <h2 class="champ-headline champ-headline--medium">The Champion Performance Profile.</h2>
+
+    <p class="champ-body">
+      There are three behavioral signatures that define Champion athletes. These are not aspirational traits. They are observable patterns that distinguish athletes who consistently score in the 90-100 range from those who score in the 80s. Understanding which of these defines you is how you identify where your next 1% lives.
+    </p>
+
+    <div class="champ-behavior-grid">
+      <div class="champ-behavior-card">
+        <div class="champ-behavior-card__num">01</div>
+        <div class="champ-behavior-card__title">Systematized Excellence</div>
+        <p class="champ-behavior-card__desc">
+          Every pillar is governed by a protocol, not just a preference. Creatine is 5g daily, not "a scoop most days." Sleep target is 10:30 PM, not "when I'm tired." The protocol answers what, how much, and when. The behavior executes it.
+        </p>
+      </div>
+      <div class="champ-behavior-card">
+        <div class="champ-behavior-card__num">02</div>
+        <div class="champ-behavior-card__title">Novelty Resistance</div>
+        <p class="champ-behavior-card__desc">
+          Champion athletes do not chase new systems. When a peer swaps creatine for a "next-gen ATP booster," you don't. When a Reddit thread claims a new supplement stack outperforms everything you're running, you evaluate it against mechanism, not marketing. Refinement beats replacement.
+        </p>
+      </div>
+      <div class="champ-behavior-card">
+        <div class="champ-behavior-card__num">03</div>
+        <div class="champ-behavior-card__title">Longevity Awareness</div>
+        <p class="champ-behavior-card__desc">
+          Champion athletes are thinking beyond the next training block. Joint health, systemic inflammation, cardiovascular infrastructure, hormonal resilience. The question is not "how do I peak for my next competition" but "what does peak performance look like at 40, at 45, at 50?"
+        </p>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Barlow',sans-serif;font-size:20px;font-weight:700;color:#0D0D0D;margin:40px 0 16px;letter-spacing:-0.01em;">
+      What Separates Champion from Elite: The Behavioral Gap
+    </h3>
+
+    <p class="champ-body">
+      Athletes in the Elite tier (86-89) have most of the same knowledge as Champions. The gap is execution precision. An Elite athlete takes creatine daily. A Champion athlete takes 5g creatine at a consistent time because they understand that phosphocreatine resynthesis in fast-twitch muscle fibers is concentration-dependent, and variance in dosing creates variance in the buffer that's available during maximal output efforts.
+    </p>
+
+    <p class="champ-body">
+      Elite athletes distribute protein across meals. Champion athletes know that the leucine content per meal determines whether muscle protein synthesis is actually triggered. 2.5g to 3g of leucine per meal is the threshold. That means each protein meal needs to deliver roughly 30g to 40g of high-quality protein, depending on the source. An Elite athlete might consume 180g of protein in a day and still leave MPS on the table because three of their four meals delivered 20g instead of 35g.
+    </p>
+
+    <div class="champ-comparison-grid">
+      <div class="champ-comparison-col">
+        <div class="champ-comparison-col__header">Champion (90-100)</div>
+        <div class="champ-comparison-cell champ-comparison-cell--champion">5g creatine daily, consistent timing, confirmed intake log</div>
+        <div class="champ-comparison-cell champ-comparison-cell--champion">4-5 protein meals, 30g+ per meal, leucine-threshold aware</div>
+        <div class="champ-comparison-cell champ-comparison-cell--champion">Sleep window within 15 minutes, tracked, consistent across work days and weekends</div>
+        <div class="champ-comparison-cell champ-comparison-cell--champion">Progressive overload programmed. Deload scheduled at 4-6 week intervals.</div>
+        <div class="champ-comparison-cell champ-comparison-cell--champion">Supplement timing is protocol-level. AM, pre-training, post-training, PM all defined.</div>
+      </div>
+      <div class="champ-comparison-col">
+        <div class="champ-comparison-col__header">Elite (86-89)</div>
+        <div class="champ-comparison-cell">Takes creatine most days. Dose varies between 3g and 6g.</div>
+        <div class="champ-comparison-cell">High daily protein total. Distribution is inconsistent across meals.</div>
+        <div class="champ-comparison-cell">Prioritizes sleep and usually hits target. Weekend variance up to 45-60 minutes.</div>
+        <div class="champ-comparison-cell">Trains hard and progressively. Deloads when fatigued, not on a schedule.</div>
+        <div class="champ-comparison-cell">Supplements consistently. Timing is habitual rather than protocol-defined.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Barlow',sans-serif;font-size:20px;font-weight:700;color:#0D0D0D;margin:40px 0 16px;letter-spacing:-0.01em;">
+      The Common Champion Mistake
+    </h3>
+
+    <p class="champ-body">
+      Champion athletes stop progressive overload when they feel strong. They feel strong because they are strong. But the mechanism of progressive overload is not dependent on whether you feel like you need it. Hypertrophic adaptation requires a stimulus that exceeds what the tissue has already adapted to. Once you feel "good" at a given load, you've adapted to it. Continuing that load without change maintains current muscle mass at best. It does not build more. It does not improve performance. It merely sustains the adaptation you've already accumulated.
+    </p>
+
+    <p class="champ-body">
+      The same principle applies to deloads. Most Champion athletes in the 90-100 range skip deloads during phases where they feel good and performance is high. This is the wrong trigger. Deloads are not a response to feeling bad. They're a mechanism for allowing neuromuscular fatigue to dissipate so the next training block starts from a fully recovered baseline. Research from Zatsiorsky and Kraemer on the fitness-fatigue model is clear: accumulated training stress masks fitness. A properly timed deload reveals what your body is actually capable of after fatigue is removed. That's when new PRs happen.
+    </p>
+
+    <div class="champ-warning">
+      <div class="champ-warning__label">The Complacency Pattern</div>
+      <p>
+        Six months of "feels good enough" without active protocol audit produces a 5-10% measurable regression in performance metrics for most Champion-tier athletes. The regression is invisible month to month. Quarterly tracking reveals it. This is why the Week 4 baseline update in the Champion framework is non-negotiable.
+      </p>
+    </div>
+
+    <h3 style="font-family:'Barlow',sans-serif;font-size:20px;font-weight:700;color:#0D0D0D;margin:40px 0 16px;letter-spacing:-0.01em;">
+      The Longevity Question
+    </h3>
+
+    <p class="champ-body">
+      Sustaining Champion-level performance over a 5 to 10-year horizon requires a different lens than sustaining it month to month. The variables that govern long-term sustained output are not the same as the ones governing peak performance for a single competition. Systemic inflammation accumulation, hormonal axis resilience, cardiovascular infrastructure, bone density maintenance, and connective tissue health become progressively more determinative of your ceiling as you age.
+    </p>
+
+    <p class="champ-body">
+      Athletes who perform at elite levels in their 20s and maintain it through their 30s and 40s consistently share one characteristic: they added longevity infrastructure to their performance stack before they needed it. Omega-3 EPA/DHA at therapeutic doses (2g to 3g daily) reduces inflammatory cytokine load. Vitamin D at 3,000 to 5,000IU supports testosterone synthesis and bone mineral density. Curcumin with piperine reduces NF-kB pathway activation, the central mechanism of systemic inflammation. These are not recovery tools. They are compound interest for your body's structural integrity.
+    </p>
+
+    <div class="champ-pull-quote">
+      <p>"You're in the top 5%. That is not luck. That is the result of decisions made over hundreds of days when no one was watching. The question now is what you're going to do with it. Protecting this is not passive. It requires the same intention that built it."</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MODULE 3: YOUR GAP SNAPSHOT
+     ========================================================= -->
+<section id="champ-mod-3" class="champ-module">
+  <div class="champ-container">
+
+    <div class="champ-section-label">Your Gap Snapshot</div>
+    <div class="champ-divider"></div>
+
+    <h2 class="champ-headline champ-headline--medium">Your Lowest-Scoring Pillars.</h2>
+
+    <p class="champ-body">
+      Every Champion athlete has a lowest-scoring pillar. At your score, these are not critical gaps. They are optimization targets. But optimization is precisely how Champions stay Champions. The pillars below are where your precision attention is warranted, not because they're broken, but because they represent your best available leverage for continued compound performance gains.
+    </p>
+
+    <p class="champ-body">
+      The following is pulled from your quiz results. Each gap is framed at Champion level: what it means for an athlete already operating in the top 5%, and what precision attention looks like for someone already executing well.
+    </p>
+
+    <!-- Gap Cards (rendered by JS) -->
+    <div id="champGapCards">
+      <!-- JS populates this -->
+    </div>
+
+    <div class="champ-warning">
+      <div class="champ-warning__label">Important Context</div>
+      <p>
+        At Champion level, a gap does not mean broken. It means that relative to your other pillars, this area has not received the same protocol-level attention. The coaching in each gap's dedicated MasterClass is calibrated for athletes who already have the fundamentals. You won't find beginner advice there.
+      </p>
+    </div>
+
+    <p class="champ-body">
+      Each link card above goes to a dedicated pillar MasterClass with the full protocol for that specific performance domain. At your score, you're looking for the 2% to 5% edge, not a complete overhaul. Read the protocol, identify the one or two specific behaviors that are most likely sub-Champion in your current execution, and address those.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MODULE 4: THE CHAMPION PRIORITY FRAMEWORK
+     ========================================================= -->
+<section id="champ-mod-4" class="champ-module champ-module--bg">
+  <div class="champ-container">
+
+    <div class="champ-section-label">The Framework</div>
+    <div class="champ-divider"></div>
+
+    <h2 class="champ-headline champ-headline--medium">The Champion Priority Framework.</h2>
+
+    <p class="champ-body">
+      The Champion mental model has three components. Together, they define the operating system for anyone trying to sustain elite-level performance across years, not just training blocks.
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#E5E7EB;margin:32px 0;overflow:hidden;">
+      <div style="background:white;padding:24px 20px;text-align:center;">
+        <div style="font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#06A5C5;margin-bottom:10px;">Pillar One</div>
+        <div style="font-family:Georgia,serif;font-size:20px;font-weight:700;color:#0D0D0D;margin-bottom:8px;">Protect the Build</div>
+        <p style="font-family:'Barlow',sans-serif;font-size:13px;color:#333333;line-height:1.6;">Audit every protocol. Identify drift before it compounds. The architecture you've built took years. Guard it with weekly intention.</p>
+      </div>
+      <div style="background:white;padding:24px 20px;text-align:center;">
+        <div style="font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#06A5C5;margin-bottom:10px;">Pillar Two</div>
+        <div style="font-family:Georgia,serif;font-size:20px;font-weight:700;color:#0D0D0D;margin-bottom:8px;">Compound What Works</div>
+        <p style="font-family:'Barlow',sans-serif;font-size:13px;color:#333333;line-height:1.6;">Identify the specific behaviors producing the highest returns. Increase their precision and consistency. Don't dilute them by layering in novelty.</p>
+      </div>
+      <div style="background:white;padding:24px 20px;text-align:center;">
+        <div style="font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#06A5C5;margin-bottom:10px;">Pillar Three</div>
+        <div style="font-family:Georgia,serif;font-size:20px;font-weight:700;color:#0D0D0D;margin-bottom:8px;">Resist Novelty</div>
+        <p style="font-family:'Barlow',sans-serif;font-size:13px;color:#333333;line-height:1.6;">Every new protocol is a withdrawal from your current compound interest account. Unless mechanism and evidence are solid, the default answer is no. What you have is working.</p>
+      </div>
+    </div>
+
+    <p class="champ-body">
+      The question at Champion level is not "what should I change?" The right question is: "What earned behaviors am I at risk of drifting from?" That reframe is the entire framework. Maintenance is not passive. It is an active discipline that requires the same intention and tracking that built your current level.
+    </p>
+
+    <div class="champ-sep"></div>
+
+    <h3 style="font-family:'Barlow',sans-serif;font-size:22px;font-weight:700;color:#0D0D0D;margin:0 0 24px;letter-spacing:-0.01em;">
+      Your 4-Week Champion Protocol
+    </h3>
+
+    <!-- WEEK 1 -->
+    <div class="champ-week-block">
+      <div class="champ-week-block__header">
+        <div class="champ-week-block__num">01</div>
+        <div>
+          <div class="champ-week-block__title">Protocol Audit</div>
+        </div>
+      </div>
+      <div class="champ-week-block__body">
+        <div class="champ-week-block__focus">Focus: Confirm, Not Change</div>
+        <div class="champ-week-block__content">
+          <p>Week 1 is not about fixing anything. It's about confirming everything. Champion athletes who skip the audit phase assume that because performance feels good, precision is intact. That assumption creates the opening for drift. The audit reveals the gap between what you believe you're doing and what you're actually doing.</p>
+          <ul>
+            <li>Verify creatine is still at exactly 5g daily. Not "a scoop." Measure it. If your scoop has varied between 4g and 7g, the protocol has drifted.</li>
+            <li>Confirm protein distribution: are you genuinely hitting 30g or more across four separate meals, or have two of those meals dropped to 20g? Log one full day this week.</li>
+            <li>Check your sleep wake window. Pull the last 14 nights from your tracker. Is the wake time within 15 minutes night to night? If the weekends are showing a 45-minute drift, your circadian rhythm is not as dialed as your weekday behavior suggests.</li>
+            <li>Confirm supplement timing is protocol-level, not approximate. When exactly are you taking what? Write it down.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="champ-assignment">
+      <div class="champ-assignment__label">Your Assignment</div>
+      <p>Complete a written protocol audit for all eight pillars. Not a mental review. Write it down. For each pillar, document: what your current protocol says, what you're actually doing, and whether there's a gap. This document becomes your Champion baseline. You'll return to it in Week 4.</p>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="champ-week-block">
+      <div class="champ-week-block__header">
+        <div class="champ-week-block__num">02</div>
+        <div>
+          <div class="champ-week-block__title">Longevity Infrastructure</div>
+        </div>
+      </div>
+      <div class="champ-week-block__body">
+        <div class="champ-week-block__focus">Focus: The Stack You Build Before You Need It</div>
+        <div class="champ-week-block__content">
+          <p>Longevity infrastructure is not recovery support. It's systemic protection for an athlete who intends to perform at this level for the next decade. Week 2 is about confirming or building the supplement architecture that protects long-term output capacity.</p>
+          <ul>
+            <li>Omega-3: confirm your daily EPA/DHA dose is between 2g and 3g of actual combined EPA and DHA (not total fish oil milligrams). This dose range is associated with significant reductions in inflammatory markers including CRP and IL-6. Most fish oil products require 3 to 4 softgels to reach this dose. Verify your label.</li>
+            <li>Vitamin D: confirm 3,000 to 5,000IU daily. Vitamin D3 is the form with the most robust evidence for testosterone synthesis support and bone mineral density maintenance. Best taken with a fat-containing meal for absorption.</li>
+            <li>Magnesium glycinate at 400mg PM: glycinate form crosses the blood-brain barrier more effectively than magnesium oxide and has been shown to support GABA receptor activity, reducing sleep-onset latency and improving slow-wave sleep duration.</li>
+            <li>Assess joint inflammation signals: morning stiffness in wrists, knees, or shoulders lasting more than 10 minutes. Chronic aching in high-volume joints. If either is present, add curcumin with piperine (Balance) for NF-kB pathway management.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="champ-assignment">
+      <div class="champ-assignment__label">Your Assignment</div>
+      <p>Review your current supplement stack against the longevity infrastructure checklist: Omega-3 dose confirmed at 2-3g EPA/DHA. Vitamin D at 3,000-5,000IU. Magnesium glycinate at 400mg PM. Add what is missing. Confirm doses of what is present. If you are supplementing fish oil but have never verified the actual EPA/DHA content on the label, do that today.</p>
+    </div>
+
+    <!-- WEEK 3 -->
+    <div class="champ-week-block">
+      <div class="champ-week-block__header">
+        <div class="champ-week-block__num">03</div>
+        <div>
+          <div class="champ-week-block__title">Training Review</div>
+        </div>
+      </div>
+      <div class="champ-week-block__body">
+        <div class="champ-week-block__focus">Focus: Progressive Overload Audit and Deload Assessment</div>
+        <div class="champ-week-block__content">
+          <p>Week 3 addresses the training variables most commonly drifting at Champion level. Progressive overload is not a feeling. It's a measurable variable: volume (sets times reps), load (weight on bar), intensity (percentage of 1RM), or training density (work per unit of time). One of these must be increasing over time, or you are maintaining, not building.</p>
+          <ul>
+            <li>Pull your training log from the last 8 weeks. Identify the primary compound movements (squat, deadlift, press, row, or sport-specific equivalents). Have the numbers gone up? If they've been flat for 4 weeks or more, you've stopped progressive overload, even if you're training hard.</li>
+            <li>Identify which variable to address. If load has plateaued, consider volume increase (add a set). If volume is high, consider intensity (drop reps, add weight). If both are constrained, consider frequency (add a session) or exercise selection (rotate a movement to re-introduce novelty stimulus).</li>
+            <li>Deload timing: when was your last deload week? A deload is 40-60% of normal volume at 50-60% of normal intensity, lasting 5 to 7 days. If it's been more than 6 weeks since your last deload, schedule one this week. Neuromuscular fatigue accumulates invisibly. The performance you think you're expressing is masked by the fatigue layered on top of it.</li>
+            <li>Post-deload testing: after a properly executed deload, test a primary lift. Performance should be up, not down. If you've been skipping deloads and you test post-deload, the number tells you exactly what fatigue has been costing you.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="champ-assignment">
+      <div class="champ-assignment__label">Your Assignment</div>
+      <p>Review 8 weeks of training data for one primary compound movement per major pattern (push, pull, hinge, squat). Confirm progressive overload is present. Confirm last deload date. If overdue, execute a deload this week. Log the outcome and note how your performance changes in the first training session of the subsequent week.</p>
+    </div>
+
+    <!-- SCRIPTURE (mid-protocol, natural placement) -->
+    <div class="champ-scripture">
+      <p class="champ-scripture__text">
+        "Have I not commanded you? Be strong and courageous. Do not be frightened, and do not be dismayed, for the Lord your God is with you wherever you go."
+      </p>
+      <div class="champ-scripture__citation">Joshua 1:9</div>
+    </div>
+
+    <p class="champ-body">
+      That verse is not about a training block. It's about the kind of sustained courage required to stay disciplined when the urgency is gone and the results feel automatic. Champion athletes face a version of this. You've done the work. It's paying off. The temptation is to ease up. Strength at this stage is not grinding harder. It's staying exact when approximation would feel fine.
+    </p>
+
+    <!-- WEEK 4 -->
+    <div class="champ-week-block">
+      <div class="champ-week-block__header">
+        <div class="champ-week-block__num">04</div>
+        <div>
+          <div class="champ-week-block__title">Full Baseline Update</div>
+        </div>
+      </div>
+      <div class="champ-week-block__body">
+        <div class="champ-week-block__focus">Focus: Score All 8 Pillars. Set the Next 30-Day Priority.</div>
+        <div class="champ-week-block__content">
+          <p>Week 4 closes the loop. You audited in Week 1. You confirmed longevity infrastructure in Week 2. You addressed training variables in Week 3. Week 4 is the baseline update that makes this a cycle rather than a one-time event.</p>
+          <ul>
+            <li>Subjectively score each of the 8 performance pillars on a 1-10 scale: sleep, nutrition, training, recovery, supplementation, stress management, hydration, mental performance. Note which have moved since Week 1 and which are still below where you want them.</li>
+            <li>Compare against your Week 1 audit document. Has the drift you identified been corrected? Are any new drifts visible that weren't apparent in Week 1?</li>
+            <li>The pillar with the lowest subjective score becomes the priority for the next 30 days. Not the one that feels the most broken. The lowest one. Even if it's a 7 out of 10. At Champion level, a 7 out of 10 in any pillar represents significant available performance.</li>
+            <li>Retake the Ascend Performance Quiz. Your score at Week 4 reflects where you're actually operating, post-audit. Use it as your updated baseline for the next cycle.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="champ-assignment">
+      <div class="champ-assignment__label">Your Assignment</div>
+      <p>Complete the full subjective pillar scoring exercise. Compare against Week 1. Identify your lowest-scoring pillar. Set one protocol-level behavior change for that pillar for the next 30 days. Retake the quiz and document the new score. This 4-week cycle repeats. Champions who sustain their tier do this every month without exception.</p>
+    </div>
+
+    <div class="champ-sep"></div>
+
+    <h3 style="font-family:'Barlow',sans-serif;font-size:20px;font-weight:700;color:#0D0D0D;margin:0 0 16px;letter-spacing:-0.01em;">
+      What Dropping to Elite Looks Like, and How Fast It Happens
+    </h3>
+
+    <p class="champ-body">
+      Moving from Champion to Elite is not a catastrophic event. It's a 3 to 6-month accumulation of small precision losses. Creatine becomes inconsistent: phosphocreatine pool runs 15-20% lower on training days. Protein distribution drops: MPS is triggered fewer times per day, reducing net weekly anabolic stimulus. Sleep window drifts: melatonin secretion timing shifts, affecting cortisol rhythm and next-day HRV. Training intensity stays high but overload stops: power output plateaus.
+    </p>
+
+    <p class="champ-body">
+      None of these feel like decline. You still feel strong. You still perform well. But performance data tells a different story at the 6-month mark. The athlete who drifts from 95 to 83 on the assessment does not wake up one day performing badly. They wake up one day and realize they've been performing at 88% for longer than they thought, and they've been calling it good enough.
+    </p>
+
+    <div class="champ-pull-quote">
+      <p>"The discipline that built this level is still required to maintain it. The moment you treat your protocols as self-sustaining, they stop compounding and start decaying. Slow, invisible, and expensive to recover."</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MODULE 5: THE CHAMPION STACK
+     ========================================================= -->
+<section id="champ-mod-5" class="champ-module">
+  <div class="champ-container">
+
+    <div class="champ-section-label">The Stack</div>
+    <div class="champ-divider"></div>
+
+    <h2 class="champ-headline champ-headline--medium">The Champion Stack.</h2>
+
+    <p class="champ-body">
+      The Champion stack is not a starter kit. Every product below is selected for its mechanism of action at precision doses, and its specific relevance to the longevity and maintenance requirements of an athlete already operating at elite output. This is the stack that protects the build while continuing to compound it.
+    </p>
+
+    <div class="champ-discount-bar">
+      <p>Use code <code>ASCEND15</code> for 15% off your order + free shipping on orders over $75</p>
+    </div>
+
+    <!-- Recharge -->
+    <div class="champ-product-card">
+      <div class="champ-product-card__header">
+        <div>
+          <div class="champ-product-card__name">Recharge</div>
+          <div class="champ-product-card__ingredient">Creatine Monohydrate</div>
+        </div>
+        <div class="champ-product-card__price">$39.99</div>
+      </div>
+      <p class="champ-product-card__mechanism">
+        Phosphocreatine resynthesis between maximal-effort sets is the primary energy system constraint for high-intensity output lasting 1 to 10 seconds. At Champion training intensities, this system is being taxed every session. Creatine monohydrate at 5g daily maintains intramuscular PCr saturation at approximately 20% above unsupplemented baseline. There is no adaptation to creatine that reduces its ongoing relevance. At year five of use, the PCr buffer is still dependent on exogenous intake. Stopping or reducing dose reduces the buffer. This is not optional infrastructure. It is active maintenance of your primary anaerobic energy reserve. Additionally, creatine has demonstrated cognitive performance support through the same phosphocreatine mechanism in the brain, which is relevant for athletes managing high cognitive load alongside high training volume.
+      </p>
+      <div class="champ-product-card__timing">Timing: <span>5g daily with any meal. Consistency matters more than timing. Do not cycle off.</span></div>
+    </div>
+
+    <!-- Resilience -->
+    <div class="champ-product-card">
+      <div class="champ-product-card__header">
+        <div>
+          <div class="champ-product-card__name">Resilience</div>
+          <div class="champ-product-card__ingredient">Whey Protein Isolate</div>
+        </div>
+        <div class="champ-product-card__price">$59.99</div>
+      </div>
+      <p class="champ-product-card__mechanism">
+        Muscle protein synthesis is not triggered by total daily protein. It's triggered by leucine concentration within each individual meal. The leucine threshold for MPS activation is approximately 2.5g to 3g per meal. Whey protein isolate delivers approximately 2.7g of leucine per 30g serving, making it one of the most efficient vehicles for hitting threshold at each meal. At Champion level, the goal is four to five MPS-triggering meals daily. If any meal in your day falls below the leucine threshold, that meal's anabolic contribution is essentially zero, regardless of its caloric or total protein content. Resilience fills the gap between whole-food meals to ensure every protein window is utilized.
+      </p>
+      <div class="champ-product-card__timing">Timing: <span>Post-training within 60 minutes. As a leucine threshold bridge between whole-food meals.</span></div>
+    </div>
+
+    <!-- Function -->
+    <div class="champ-product-card">
+      <div class="champ-product-card__header">
+        <div>
+          <div class="champ-product-card__name">Function</div>
+          <div class="champ-product-card__ingredient">Magnesium Glycinate</div>
+        </div>
+        <div class="champ-product-card__price">$19.99</div>
+      </div>
+      <p class="champ-product-card__mechanism">
+        Sleep architecture is the single highest-leverage recovery variable at Champion level. Slow-wave sleep is when growth hormone is secreted at its highest daily pulse. It's when cortisol reaches nadir. It's when muscle protein synthesis from the day's training inputs reaches its peak rate. Magnesium glycinate at 400mg PM supports GABA-A receptor activity, the primary inhibitory neurotransmitter system governing sleep-onset and slow-wave sleep depth. Glycinate specifically is preferred over oxide or citrate for sleep application because of superior CNS bioavailability. Magnesium deficiency is also the most common micronutrient insufficiency in high-training-volume athletes, because sweat losses deplete it faster than dietary intake can replace it. This is active sleep architecture management.
+      </p>
+      <div class="champ-product-card__timing">Timing: <span>400mg 30-45 minutes before sleep. Do not take with zinc, which competes for absorption.</span></div>
+    </div>
+
+    <!-- Adapt -->
+    <div class="champ-product-card">
+      <div class="champ-product-card__header">
+        <div>
+          <div class="champ-product-card__name">Adapt</div>
+          <div class="champ-product-card__ingredient">Ashwagandha KSM-66</div>
+        </div>
+        <div class="champ-product-card__price">$14.99</div>
+      </div>
+      <p class="champ-product-card__mechanism">
+        Allostatic load is the cumulative physiological cost of chronic stress exposure. Champion athletes accumulate allostatic load at a rate proportional to training volume, competition demands, life stress, and sleep debt. Even athletes who manage all these variables well build cortisol load over time. KSM-66 ashwagandha at 600mg has demonstrated in multiple randomized controlled trials a reduction in serum cortisol of 15-30% versus placebo after 8 weeks of use. The mechanism involves HPA axis modulation via withanolide activity on cortisol synthesis pathways. Reduced cortisol burden directly improves testosterone-to-cortisol ratio, which is a primary biomarker of recovery capacity. This is cortisol management for an athlete with a high cumulative training age.
+      </p>
+      <div class="champ-product-card__timing">Timing: <span>600mg with dinner. Evening timing aligns with the natural cortisol nadir and avoids potential stimulatory effects that can occur with morning dosing for some athletes.</span></div>
+    </div>
+
+    <!-- Omega-3 -->
+    <div class="champ-product-card">
+      <div class="champ-product-card__header">
+        <div>
+          <div class="champ-product-card__name">Omega-3</div>
+          <div class="champ-product-card__ingredient">EPA/DHA Fish Oil</div>
+        </div>
+        <div class="champ-product-card__price">$24.99</div>
+      </div>
+      <p class="champ-product-card__mechanism">
+        EPA and DHA are the two omega-3 fatty acids with evidence-backed performance relevance. EPA is a precursor to series-3 prostaglandins, which compete with the pro-inflammatory arachidonic acid cascade. DHA is a structural component of cell membranes throughout the body, including in the brain and retina. At the 2g to 3g combined EPA/DHA dose used in clinical literature, omega-3 supplementation reduces circulating inflammatory markers (CRP, IL-6, TNF-alpha), supports cardiovascular endothelial function, and has demonstrated modest but consistent improvement in cognitive processing speed. For Champion athletes, this is longevity infrastructure. Every high-training-volume year adds systemic inflammatory burden. Omega-3 at therapeutic dose is one of the only nutritional interventions with evidence for actively reducing that burden.
+      </p>
+      <div class="champ-product-card__timing">Timing: <span>2-3g EPA/DHA daily with a fat-containing meal. Splitting the dose across two meals improves absorption and reduces GI discomfort for some athletes.</span></div>
+    </div>
+
+    <!-- Balance -->
+    <div class="champ-product-card">
+      <div class="champ-product-card__header">
+        <div>
+          <div class="champ-product-card__name">Balance</div>
+          <div class="champ-product-card__ingredient">Platinum Turmeric (Curcumin + Black Pepper)</div>
+        </div>
+        <div class="champ-product-card__price">$19.99</div>
+      </div>
+      <p class="champ-product-card__mechanism">
+        Curcumin's primary anti-inflammatory mechanism is NF-kB pathway inhibition. NF-kB is the master regulator of the inflammatory response: it controls transcription of cytokines, immune response proteins, and pain mediators. In high-training-volume athletes, chronic NF-kB activation creates background inflammatory noise that reduces recovery efficiency, impairs connective tissue repair, and elevates systemic inflammatory markers over time. Piperine (black pepper extract) at 5-10mg co-administered with curcumin increases curcumin bioavailability by approximately 2000% by inhibiting hepatic first-pass metabolism. Without piperine, curcumin has very limited oral bioavailability. This formulation addresses that. For Champion athletes, Balance is a longevity play, specifically for athletes showing early joint inflammation signals or those approaching high cumulative training age.
+      </p>
+      <div class="champ-product-card__timing">Timing: <span>With a fat-containing meal (curcumin is fat-soluble). Morning or evening both acceptable. Daily consistency matters more than timing precision for this compound.</span></div>
+    </div>
+
+    <!-- Gap-Targeted Product -->
+    <div id="champGapProduct">
+      <!-- JS renders gap-targeted product here -->
+    </div>
+
+    <div class="champ-pull-quote">
+      <p>"This stack is not about filling gaps. At Champion level, you don't have gaps, you have optimization targets. Every product above has a specific mechanism for protecting and compounding performance in an athlete who is already operating at elite output."</p>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://ascendperformancenutrition.com/collections/all" target="_blank" rel="noopener" class="champ-btn champ-btn--teal">
+        Build Your Champion Stack
+      </a>
+      <p style="font-family:'Barlow',sans-serif;font-size:12px;color:#9CA3AF;margin-top:12px;">Use code ASCEND15 at checkout for 15% off + free shipping on orders over $75</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MODULE 6: THE CHAMPION CHALLENGE
+     ========================================================= -->
+<section id="champ-mod-6" class="champ-module champ-module--dark">
+  <div class="champ-container">
+
+    <div class="champ-section-label champ-section-label--white">The Commitment</div>
+    <div class="champ-divider"></div>
+
+    <h2 class="champ-headline champ-headline--medium champ-headline--white">The Champion Challenge.</h2>
+
+    <p class="champ-body champ-body--white">
+      These are the four non-negotiable behaviors that separate a Champion who sustains that tier from one who drifts back to Elite. They are measurable. They are specific. They require active decision-making every day. No vague intent. Protocol-level precision only.
+    </p>
+
+    <ul class="champ-habit-list">
+      <li class="champ-habit-item">
+        <div class="champ-habit-item__num">01</div>
+        <div class="champ-habit-item__content">
+          <div class="champ-habit-item__title">5g Creatine. Daily. No exceptions.</div>
+          <p class="champ-habit-item__desc">Not "most days." Not "a scoop." 5g measured. Every day. Including rest days, travel days, and days when you feel like you don't need it. The phosphocreatine pool doesn't take breaks. Neither does your protocol.</p>
+        </div>
+      </li>
+      <li class="champ-habit-item">
+        <div class="champ-habit-item__num">02</div>
+        <div class="champ-habit-item__content">
+          <div class="champ-habit-item__title">Four leucine-threshold protein meals every day.</div>
+          <p class="champ-habit-item__desc">30g or more of high-quality protein at each of four meals. Not total daily protein grams. Distribution. Each meal must independently meet the leucine threshold. If one meal is 15g of protein, MPS was not triggered at that meal. That anabolic window is gone. Make all four count.</p>
+        </div>
+      </li>
+      <li class="champ-habit-item">
+        <div class="champ-habit-item__num">03</div>
+        <div class="champ-habit-item__content">
+          <div class="champ-habit-item__title">Sleep wake window within 15 minutes, seven days per week.</div>
+          <p class="champ-habit-item__desc">Not weekdays only. Circadian rhythm does not operate on a Monday through Friday schedule. Weekend sleep variance of 45 to 90 minutes creates the equivalent of weekly time zone shifts. This disrupts cortisol rhythm, melatonin timing, and HRV. The 15-minute window applies every single day.</p>
+        </div>
+      </li>
+      <li class="champ-habit-item">
+        <div class="champ-habit-item__num">04</div>
+        <div class="champ-habit-item__content">
+          <div class="champ-habit-item__title">Deload scheduled every 4-6 weeks, regardless of how you feel.</div>
+          <p class="champ-habit-item__desc">The trigger is not fatigue. The trigger is the calendar. Every 4 to 6 weeks, execute a structured deload week: 40-60% of normal volume, 50-60% of normal intensity. You will feel under-trained. That feeling is the deload working. Test a primary lift in the first full session after. The number will tell you what fatigue has been costing you.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="champ-sep champ-sep--dark"></div>
+
+    <h3 style="font-family:'Barlow',sans-serif;font-size:19px;font-weight:700;color:white;margin-bottom:16px;">
+      What Day 30 Looks Like
+    </h3>
+
+    <p class="champ-body champ-body--white">
+      Thirty days from today, if you execute the Champion Challenge without drift: creatine PCr pool is maximally saturated and has been for 30 consecutive days. MPS has been triggered four times daily, producing a higher net anabolic stimulus than any month where distribution was inconsistent. Sleep architecture is consistent, cortisol rhythm is stable, and HRV trend is positive. Training has either had a deload executed within the last 4 weeks or has one scheduled.
+    </p>
+
+    <p class="champ-body champ-body--white">
+      That is what compound precision looks like at 30 days. It doesn't feel dramatically different than Day 1. But the performance data at Day 30 is measurably better. And at Day 90, the gap between a Champion who ran this protocol and one who drifted is not a small one.
+    </p>
+
+    <div class="champ-pull-quote champ-pull-quote--dark">
+      <p>"You're in the top 5%. That is not luck. That is the result of decisions made over hundreds of days when no one was watching. The question now is what you're going to do with it. Protecting this is not passive. It requires the same intention that built it."</p>
+    </div>
+
+    <p class="champ-body champ-body--white">
+      The discipline that built Champion-level performance is still the discipline that maintains it. There is no point at which you've earned the right to stop being precise. That precision is what the score reflects. The moment you stop, the score starts moving the other direction. Not dramatically. Just steadily. And steadily in the wrong direction, compounded over months, is how Champions become Elite athletes again. You know the difference. Execute accordingly.
+    </p>
+
+    <p class="champ-body" style="color:rgba(255,255,255,0.7);margin-top:32px;">
+      Faith is not passive either. The same God who equipped you for this level of discipline does not call you to coast on what you've built. He calls you to steward it. That's what this is. Stewardship of the capacity He gave you, honored through daily precision and sustained intention.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     MODULE 7: NEXT STEPS
+     ========================================================= -->
+<section id="champ-mod-7" class="champ-module">
+  <div class="champ-container">
+
+    <div class="champ-section-label">Next Steps</div>
+    <div class="champ-divider"></div>
+
+    <h2 class="champ-headline champ-headline--medium">Your Optimization Targets.</h2>
+
+    <p class="champ-body">
+      Your gaps are your next 30 days. Start with the lowest-scoring pillar from your quiz. Each link below goes to a dedicated pillar MasterClass with the full protocol, mechanism-based coaching, and specific action plan calibrated for athletes already operating at a high level.
+    </p>
+
+    <!-- Gap Link Cards (re-rendered from JS) -->
+    <div id="champNextGapCards">
+      <!-- JS populates -->
+    </div>
+
+    <div class="champ-sep"></div>
+
+    <h3 style="font-family:'Barlow',sans-serif;font-size:19px;font-weight:700;color:#0D0D0D;margin-bottom:20px;">
+      Take Action
+    </h3>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <!-- CTA 1 -->
+      <div style="background:#F8F8F8;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#06A5C5;margin-bottom:6px;">Recommended</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:17px;font-weight:700;color:#0D0D0D;margin-bottom:4px;">Build Your Champion Stack</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#9CA3AF;">Use code ASCEND15 for 15% off + free shipping over $75</div>
+        </div>
+        <a href="https://ascendperformancenutrition.com/collections/all" target="_blank" rel="noopener" class="champ-btn champ-btn--teal">Shop the Stack</a>
+      </div>
+
+      <!-- CTA 2 -->
+      <div style="background:#0D0D0D;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#06A5C5;margin-bottom:6px;">Coaching</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:17px;font-weight:700;color:white;margin-bottom:4px;">Work with Jesse</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#9CA3AF;max-width:420px;">Jesse builds full performance protocols at Champion level. Custom. Precision. Starting at $400/month. For athletes who want the protocol, the accountability, and the edge that comes from working with someone who operates at this standard.</div>
+        </div>
+        <a href="https://ascendperformancenutrition.com" target="_blank" rel="noopener" class="champ-btn champ-btn--outline-white">Work with Jesse</a>
+      </div>
+
+      <!-- CTA 3 -->
+      <div style="background:white;border:1px solid #E5E7EB;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#9CA3AF;margin-bottom:6px;">30-Day Benchmark</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:17px;font-weight:700;color:#0D0D0D;margin-bottom:4px;">Retake in 30 Days</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:#9CA3AF;">After running the Champion framework for 30 days, retake the assessment. Your score should reflect your current execution, not your peak. Use it as your actual baseline.</div>
+        </div>
+        <a href="https://ascendperformancenutrition.com/pages/performance-quiz?utm_source=masterclass&utm_medium=tier-champion&utm_campaign=30day-retake" target="_blank" rel="noopener" class="champ-btn champ-btn--outline">Retake the Quiz</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="champ-footer">
+  <div class="champ-container" style="text-align:center;">
+
+    <img src="https://ascendperformancenutrition.com/cdn/shop/files/Ascend_Real_Logo.png"
+         alt="Ascend Performance Nutrition"
+         width="140"
+         style="margin-bottom:24px;opacity:0.85;">
+
+    <div class="champ-footer__values">Faith &nbsp;|&nbsp; Family &nbsp;|&nbsp; America &nbsp;|&nbsp; Fitness</div>
+
+    <div class="champ-footer__signoff">
+      Faith over fear.
+      <strong>Sutton Huggins<br>Founder &amp; CEO, Ascend Performance Nutrition</strong>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT: PERSONALIZATION + PROGRESS + NAVIGATION
+     ========================================================= -->
+<script>
+(function() {
+
+  // ---- PARAM PARSING ----
+  var params = new URLSearchParams(window.location.search);
+  var scoreParam = parseInt(params.get('score') || '92');
+  var nameParam  = params.get('name')  || 'Athlete';
+  var gap1Param  = (params.get('gap1')  || 'sleep').toLowerCase().trim();
+  var gap2Param  = (params.get('gap2')  || 'stress').toLowerCase().trim();
+  var gap3Param  = (params.get('gap3')  || 'nutrition').toLowerCase().trim();
+
+  // ---- GAP METADATA ----
+  var gapMeta = {
+    sleep: {
+      label: 'Sleep Architecture',
+      desc: 'Sleep quality, consistency, and recovery depth. Your lowest-leverage pillar at Champion level is still above average. Precision here means sub-15-minute wake window variance, 7 nights per week.',
+      urgency: 'Optimization Target',
+      page: 'sleep'
+    },
+    stress: {
+      label: 'Stress Management',
+      desc: 'HPA axis regulation, allostatic load, and cortisol-to-testosterone ratio. At Champion level, stress management gaps are often invisible until they show up as training plateaus.',
+      urgency: 'Optimization Target',
+      page: 'stress'
+    },
+    nutrition: {
+      label: 'Nutrition',
+      desc: 'Protein distribution, micronutrient density, and meal timing. For Champions, the gap is usually distribution precision, not total intake.',
+      urgency: 'Optimization Target',
+      page: 'nutrition'
+    },
+    training: {
+      label: 'Training',
+      desc: 'Progressive overload, deload scheduling, and movement pattern balance. A training gap at Champion level almost always means overload has stalled or deloads are being skipped.',
+      urgency: 'Optimization Target',
+      page: 'training'
+    },
+    recovery: {
+      label: 'Recovery',
+      desc: 'Active recovery modalities, HRV tracking, and neuromuscular readiness. Champions who score low here are usually under-investing in structured recovery sessions between high-intensity blocks.',
+      urgency: 'Optimization Target',
+      page: 'recovery'
+    },
+    supplementation: {
+      label: 'Supplementation',
+      desc: 'Protocol-level supplement timing, dose precision, and stack completeness. Even at 90+, a supplementation gap means either a missing longevity compound or imprecise timing.',
+      urgency: 'Optimization Target',
+      page: 'supplementation'
+    },
+    hydration: {
+      label: 'Hydration',
+      desc: 'Daily fluid intake relative to body weight, electrolyte balance, and intra-training hydration protocol. A 2% reduction in hydration status reduces power output by 5-8% measurably.',
+      urgency: 'Optimization Target',
+      page: 'hydration'
+    },
+    'mental performance': {
+      label: 'Mental Performance',
+      desc: 'Focus, cognitive endurance, stress tolerance, and decision-making under fatigue. Often the last pillar Champions systematize. The cognitive demands of elite training are real.',
+      urgency: 'Optimization Target',
+      page: 'mental-performance'
+    },
+    mindset: {
+      label: 'Mindset',
+      desc: 'Mental resilience, focus protocols, and the psychological infrastructure to maintain precision over time. Champions who score low here are often high performers whose internal systems are not keeping pace with their external output.',
+      urgency: 'Optimization Target',
+      page: 'mindset'
+    }
+  };
+
+  function getGapMeta(key) {
+    return gapMeta[key] || {
+      label: key.charAt(0).toUpperCase() + key.slice(1),
+      desc: 'This pillar represents your current optimization target. At Champion level, even a strong pillar has available precision gains.',
+      urgency: 'Optimization Target',
+      page: key.replace(/\s+/g, '-')
+    };
+  }
+
+  // ---- SCORE DISPLAY ----
+  var scoreEl = document.getElementById('champScoreDisplay');
+  if (scoreEl) {
+    scoreEl.innerHTML = 'Welcome back, <strong>' + nameParam + '</strong>. Your overall score: <strong>' + scoreParam + '/100</strong>.';
+  }
+
+  // ---- GAP CARD RENDERER ----
+  function buildGapCard(gapKey, rank) {
+    var meta = getGapMeta(gapKey);
+    var rankLabels = ['Primary', 'Secondary', 'Tertiary'];
+    var rankLabel = rankLabels[rank] || 'Gap ' + (rank + 1);
+    return '<a href="/pages/masterclass-' + meta.page + '" class="champ-gap-card" style="display:flex;">'
+      + '<div class="champ-gap-card__left">'
+        + '<div class="champ-gap-card__urgency">' + rankLabel + ' Optimization Target</div>'
+        + '<div class="champ-gap-card__name">' + meta.label + '</div>'
+        + '<div class="champ-gap-card__desc">' + meta.desc + '</div>'
+      + '</div>'
+      + '<div class="champ-gap-card__arrow">&#8594;</div>'
+      + '</a>';
+  }
+
+  var gapCardContainer = document.getElementById('champGapCards');
+  var nextGapCardContainer = document.getElementById('champNextGapCards');
+
+  var cardHTML = buildGapCard(gap1Param, 0)
+               + buildGapCard(gap2Param, 1)
+               + buildGapCard(gap3Param, 2);
+
+  if (gapCardContainer)   gapCardContainer.innerHTML   = cardHTML;
+  if (nextGapCardContainer) nextGapCardContainer.innerHTML = cardHTML;
+
+  // ---- GAP-TARGETED PRODUCT ----
+  var gapProductMap = {
+    sleep:          { name: 'Function', ingredient: 'Magnesium Glycinate', price: '$19.99', reason: 'Your sleep pillar is the lowest-scoring area of your profile. Magnesium glycinate at 400mg PM addresses GABA-A receptor activity to protect slow-wave sleep architecture at the precision level your score requires.' },
+    stress:         { name: 'Adapt', ingredient: 'Ashwagandha KSM-66', price: '$14.99', reason: 'Your stress management pillar is your current optimization target. KSM-66 at 600mg has demonstrated cortisol reduction of 15-30% in RCTs over 8 weeks. At Champion level, cortisol management is the lever between sustained performance and slow erosion.' },
+    nutrition:      { name: 'Resilience', ingredient: 'Whey Protein Isolate', price: '$59.99', reason: 'Your nutrition pillar is the current optimization gap. At Champion level, the distribution gap (not total intake) is where MPS is being left on the table. Resilience fills the leucine threshold requirement at each meal.' },
+    training:       { name: 'Recharge', ingredient: 'Creatine Monohydrate', price: '$39.99', reason: 'Your training pillar is your current gap. Phosphocreatine availability directly determines power output capacity in the 1-10 second range. If progressive overload has stalled, the PCr buffer needs to be maximally saturated before load prescription changes are made.' },
+    recovery:       { name: 'Adapt', ingredient: 'Ashwagandha KSM-66', price: '$14.99', reason: 'Your recovery pillar is the optimization target. Recovery insufficiency at Champion level is often driven by unmanaged allostatic load rather than under-sleeping. KSM-66 addresses the cortisol component of recovery that sleep alone cannot fully resolve.' },
+    supplementation:{ name: 'Balance', ingredient: 'Turmeric + Black Pepper', price: '$19.99', reason: 'Your supplementation pillar is incomplete. Balance addresses the NF-kB inflammatory pathway that no other product in the stack targets. At your training volume and age, curcumin with piperine is the missing longevity compound.' },
+    hydration:      { name: 'Recharge', ingredient: 'Creatine Monohydrate', price: '$39.99', reason: 'Your hydration pillar is flagged as the current gap. Note that creatine monohydrate increases intramuscular water retention, which supports cellular hydration status. This does not replace fluid intake protocol, but it supports the intracellular side of hydration that electrolytes alone do not address.' },
+    mindset:        { name: 'Adapt', ingredient: 'Ashwagandha KSM-66', price: '$14.99', reason: 'Your mindset pillar is the current optimization target. Cortisol dysregulation is one of the most common neurological contributors to inconsistent mental performance under stress. KSM-66 at 600mg daily has shown improvements in perceived stress, reaction time, and sustained attention in athletic populations.' }
+  };
+
+  function getGapProduct(gapKey) {
+    return gapProductMap[gapKey] || gapProductMap['stress'];
+  }
+
+  var gapProd = getGapProduct(gap1Param);
+  var gapProductEl = document.getElementById('champGapProduct');
+  if (gapProductEl) {
+    var meta1 = getGapMeta(gap1Param);
+    gapProductEl.innerHTML = ''
+      + '<div style="border:2px solid #EF4444;padding:28px;margin-bottom:20px;">'
+        + '<div style="font-family:\'Barlow\',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:4px;color:#EF4444;margin-bottom:12px;">Gap-Targeted Recommendation: ' + meta1.label + '</div>'
+        + '<div class="champ-product-card__header">'
+          + '<div>'
+            + '<div class="champ-product-card__name">' + gapProd.name + '</div>'
+            + '<div class="champ-product-card__ingredient">' + gapProd.ingredient + '</div>'
+          + '</div>'
+          + '<div class="champ-product-card__price">' + gapProd.price + '</div>'
+        + '</div>'
+        + '<p class="champ-product-card__mechanism">' + gapProd.reason + '</p>'
+        + '<div class="champ-product-card__timing">Targeted at: <span>' + meta1.label + ' pillar. Your primary optimization focus based on your quiz score distribution.</span></div>'
+      + '</div>';
+  }
+
+  // ---- PROGRESS BAR ----
+  var fillEl = document.getElementById('champProgressFill');
+  function updateProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docH > 0 ? Math.min(100, (scrollTop / docH) * 100) : 0;
+    if (fillEl) fillEl.style.width = pct.toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // ---- SIDEBAR NAVIGATION ACTIVE STATE (IntersectionObserver) ----
+  var modules = document.querySelectorAll('[id^="champ-mod-"]');
+  var navLinks = document.querySelectorAll('.champ-sidebar-nav [data-module]');
+
+  if (modules.length && navLinks.length) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          var modNum = id.replace('champ-mod-', '');
+          navLinks.forEach(function(link) {
+            if (link.getAttribute('data-module') === modNum) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+    modules.forEach(function(mod) { observer.observe(mod); });
+  }
+
+  // ---- SMOOTH SCROLL ----
+  document.querySelectorAll('a[href^="#champ-"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
+</script>
+
+</section>
+
+{% schema %}
+{
+  "name": "Champion Tier MasterClass",
+  "settings": []
+}
+{% endschema %}

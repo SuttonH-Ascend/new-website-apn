@@ -1,0 +1,1499 @@
+{% comment %}
+  Ascend Performance Nutrition — ATHLETE Tier MasterClass
+  Tier: Athlete (Score 60-74)
+  Personalization: ?score= ?name= ?gap1= ?gap2= ?gap3=
+  Version: 1.0 | Production Ready
+{% endcomment %}
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section id="apn-masterclass-tier-athlete" style="font-family:'Barlow',sans-serif; background:#F4F4F2; color:#333333;">
+
+<style>
+  #apn-masterclass-tier-athlete * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ---- TOKENS ---- */
+  #apn-masterclass-tier-athlete {
+    --teal:         #108474;
+    --tier-blue:    #06A5C5;
+    --black:        #0D0D0D;
+    --body:         #333333;
+    --bg:           #F4F4F2;
+    --bg2:          #F8F8F8;
+    --border:       #E2E8F0;
+    --warning:      #F59E0B;
+    --warn-bg:      #FFFBEB;
+    --font:         'Barlow', sans-serif;
+  }
+
+  /* ---- GLOBAL ---- */
+  .apn-a-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .apn-a-wrap--wide { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .apn-a-section-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .apn-a-divider {
+    width: 64px;
+    height: 3px;
+    background: var(--teal);
+    margin: 20px 0 32px 0;
+  }
+  .apn-a-divider--center { margin: 20px auto 32px auto; }
+
+  .apn-a-h1 {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: clamp(38px, 6vw, 54px);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    color: #ffffff;
+  }
+
+  .apn-a-h2 {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: clamp(26px, 4vw, 36px);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+
+  .apn-a-h3 {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+
+  .apn-a-body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+
+  .apn-a-body + .apn-a-body { margin-top: 16px; }
+
+  /* ---- MODULE SPACING ---- */
+  .apn-a-module { padding: 80px 0; }
+  .apn-a-module--dark { background: var(--black); }
+  .apn-a-module--bg2 { background: var(--bg2); }
+  .apn-a-module--bg { background: var(--bg); }
+
+  /* ---- HERO ---- */
+  .apn-a-hero {
+    background: var(--black);
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .apn-a-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+  }
+  .apn-a-hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: -200px; bottom: 0;
+    width: 500px;
+    background: radial-gradient(ellipse at center, rgba(6,165,197,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .apn-a-hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .apn-a-tier-badge {
+    display: inline-block;
+    background: var(--tier-blue);
+    color: #fff;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 3px;
+  }
+  .apn-a-hero-welcome {
+    font-family: var(--font);
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .apn-a-hero-welcome strong { color: rgba(255,255,255,0.9); }
+  .apn-a-hero-sub {
+    font-family: var(--font);
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.72);
+    margin-top: 24px;
+    max-width: 600px;
+  }
+  .apn-a-module-list {
+    margin-top: 40px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .apn-a-module-list li {
+    font-family: var(--font);
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .apn-a-module-list li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--tier-blue);
+    flex-shrink: 0;
+  }
+  .apn-a-module-list .read-time {
+    margin-left: auto;
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .apn-a-scroll-btn {
+    display: inline-block;
+    margin-top: 44px;
+    padding: 14px 32px;
+    background: var(--tier-blue);
+    color: #fff;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .apn-a-scroll-btn:hover { opacity: 0.88; }
+
+  /* ---- PULL QUOTE ---- */
+  .apn-a-pullquote {
+    border-left: 4px solid var(--teal);
+    background: var(--bg2);
+    padding: 24px 28px;
+    margin: 40px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .apn-a-pullquote p {
+    font-family: var(--font);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+  .apn-a-pullquote cite {
+    display: block;
+    margin-top: 12px;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* ---- ASSIGNMENT BLOCK ---- */
+  .apn-a-assignment {
+    border-top: 3px solid var(--teal);
+    background: #F4F4F2;
+    padding: 24px 28px;
+    margin-top: 28px;
+    border-radius: 0 0 4px 4px;
+  }
+  .apn-a-assignment .assignment-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .apn-a-assignment p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+  .apn-a-assignment ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  .apn-a-assignment ul li {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--body);
+    margin-bottom: 6px;
+  }
+
+  /* ---- SCRIPTURE ---- */
+  .apn-a-scripture {
+    text-align: center;
+    padding: 40px 32px;
+    margin: 48px 0;
+    background: var(--bg2);
+    border-radius: 4px;
+  }
+  .apn-a-scripture p {
+    font-family: var(--font);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--body);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .apn-a-scripture cite {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* ---- WARNING CALLOUT ---- */
+  .apn-a-warning {
+    border-left: 4px solid var(--warning);
+    background: var(--warn-bg);
+    padding: 20px 24px;
+    margin: 32px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .apn-a-warning .warn-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--warning);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .apn-a-warning p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: #92400E;
+  }
+
+  /* ---- DATA CALLOUT ---- */
+  .apn-a-data-callout {
+    background: var(--black);
+    color: #fff;
+    padding: 28px 32px;
+    margin: 32px 0;
+    border-radius: 4px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .apn-a-data-callout .stat {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--tier-blue);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+  .apn-a-data-callout .stat-body { flex: 1; }
+  .apn-a-data-callout .stat-body strong {
+    display: block;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .apn-a-data-callout .stat-body span {
+    font-family: var(--font);
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.55;
+  }
+
+  /* ---- GAP CARDS ---- */
+  .apn-a-gap-card {
+    background: #fff;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .apn-a-gap-card .gap-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .apn-a-gap-card .gap-name {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  .apn-a-gap-card .gap-urgency {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+  .gap-urgency--critical { background: #FEE2E2; color: #991B1B; }
+  .gap-urgency--moderate { background: #FEF3C7; color: #92400E; }
+  .gap-urgency--manageable { background: #D1FAE5; color: #065F46; }
+  .apn-a-gap-card p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+    margin-bottom: 12px;
+  }
+  .apn-a-gap-card a {
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .apn-a-gap-card a:hover { text-decoration: underline; }
+
+  /* ---- PRODUCT CARD ---- */
+  .apn-a-product-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+  }
+  .apn-a-product-card .prod-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .apn-a-product-card .prod-name {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--black);
+  }
+  .apn-a-product-card .prod-price {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--teal);
+  }
+  .apn-a-product-card .prod-mechanism {
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .apn-a-product-card p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+    margin-bottom: 10px;
+  }
+  .apn-a-product-card .prod-protocol {
+    background: var(--bg);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.6;
+  }
+  .apn-a-product-card .prod-protocol strong {
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* ---- WEEK BLOCK ---- */
+  .apn-a-week {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .apn-a-week-header {
+    background: var(--black);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .apn-a-week-header .week-label {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--tier-blue);
+  }
+  .apn-a-week-header .week-title {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+  }
+  .apn-a-week-body { padding: 24px; }
+  .apn-a-week-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .apn-a-week-body ul li {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+    padding-left: 20px;
+    position: relative;
+  }
+  .apn-a-week-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  /* ---- TIER PROGRESS ---- */
+  .apn-a-tier-progress {
+    background: var(--black);
+    border-radius: 6px;
+    padding: 32px 28px;
+    margin: 40px 0;
+    color: #fff;
+  }
+  .apn-a-tier-progress .tier-progress-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--tier-blue);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .apn-a-tier-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0 28px;
+    flex-wrap: wrap;
+  }
+  .tier-bar-item-a {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    min-width: 80px;
+  }
+  .tier-bar-dot-a {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    background: rgba(255,255,255,0.2);
+  }
+  .tier-bar-dot-a--active { background: var(--tier-blue); }
+  .tier-bar-dot-a--done { background: var(--teal); }
+  .tier-bar-name-a {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .tier-bar-name-a--active { color: var(--tier-blue); }
+  .tier-bar-name-a--done { color: rgba(255,255,255,0.6); }
+  .tier-bar-line-a {
+    flex: 1;
+    height: 2px;
+    background: rgba(255,255,255,0.12);
+    min-width: 20px;
+    max-width: 60px;
+    margin-bottom: 22px;
+  }
+  .tier-bar-line-a--done { background: var(--teal); }
+
+  /* ---- HRV EXPLAINER ---- */
+  .apn-a-hrv-box {
+    background: linear-gradient(135deg, rgba(6,165,197,0.08) 0%, rgba(16,132,116,0.08) 100%);
+    border: 1px solid rgba(6,165,197,0.25);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .apn-a-hrv-box .hrv-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--tier-blue);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .apn-a-hrv-box h4 {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+  .apn-a-hrv-box p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+
+  /* ---- CHALLENGE HABITS ---- */
+  .apn-a-habit {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .apn-a-habit:last-child { border-bottom: none; }
+  .habit-num-a {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--tier-blue);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 40px;
+  }
+  .habit-content-a strong {
+    display: block;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .habit-content-a p {
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ---- NEXT STEPS CARDS ---- */
+  .apn-a-next-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .apn-a-next-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  .apn-a-next-card .next-card-label {
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .apn-a-next-card .next-card-title {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--black);
+    margin-bottom: 6px;
+    text-transform: capitalize;
+  }
+  .apn-a-next-card .next-card-desc {
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.55;
+  }
+
+  /* ---- CTA BUTTONS ---- */
+  .apn-a-cta-block { display: flex; flex-direction: column; gap: 14px; margin-top: 40px; }
+  .apn-a-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 60px;
+    text-align: center;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .apn-a-btn:hover { opacity: 0.85; }
+  .apn-a-btn--blue { background: var(--tier-blue); color: #fff; border-color: var(--tier-blue); }
+  .apn-a-btn--black { background: var(--black); color: #fff; border-color: var(--black); }
+
+  /* ---- DISCOUNT BANNER ---- */
+  .apn-a-discount-banner {
+    background: var(--teal);
+    color: #fff;
+    text-align: center;
+    padding: 16px 24px;
+    border-radius: 4px;
+    margin: 28px 0;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .apn-a-discount-banner .code {
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 2px;
+    background: rgba(0,0,0,0.15);
+    padding: 2px 10px;
+    border-radius: 3px;
+    margin: 0 4px;
+  }
+
+  /* ---- FOOTER ---- */
+  .apn-a-footer {
+    background: var(--black);
+    padding: 60px 0 40px;
+    border-top: 3px solid var(--teal);
+  }
+  .apn-a-footer-tagline {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .apn-a-footer-signoff {
+    font-family: var(--font);
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    line-height: 1.7;
+  }
+  .apn-a-footer-signoff strong {
+    display: block;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  /* ---- BOTTLENECK BOX ---- */
+  .apn-a-bottleneck {
+    border: 2px solid var(--tier-blue);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 36px 0;
+    background: rgba(6,165,197,0.04);
+  }
+  .apn-a-bottleneck .bt-label {
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--tier-blue);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .apn-a-bottleneck h4 {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+  .apn-a-bottleneck p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    .apn-a-module { padding: 56px 0; }
+    .apn-a-hero { padding: 72px 0 60px; }
+    .apn-a-data-callout { flex-direction: column; }
+    .apn-a-cta-block { align-items: stretch; }
+    .apn-a-tier-bar { gap: 4px; }
+  }
+</style>
+
+<!-- ===================== MODULE 0: HERO ===================== -->
+<div class="apn-a-hero">
+  <div class="apn-a-wrap">
+    <div class="apn-a-hero-eyebrow">
+      <span class="apn-a-section-label" style="margin-bottom:0;">Athlete MasterClass</span>
+      <span class="apn-a-tier-badge">Athlete Tier</span>
+    </div>
+
+    <h1 class="apn-a-h1">Your Athlete<br>Performance Profile.</h1>
+    <div class="apn-a-divider"></div>
+
+    <p class="apn-a-hero-welcome" id="apn-a-welcome-line">
+      Welcome back. Your overall score: loading...
+    </p>
+
+    <p class="apn-a-hero-sub">
+      You have built a foundation. This page is about what comes next: identifying the single bottleneck that is capping your ceiling, understanding precision as the differentiator at this tier, and executing the 4-week protocol that moves you toward Competitor-tier performance.
+    </p>
+
+    <ul class="apn-a-module-list">
+      <li>Module 1: What Your Score Means <span class="read-time">2 min</span></li>
+      <li>Module 2: The Athlete Performance Profile <span class="read-time">5 min</span></li>
+      <li>Module 3: Your Gap Snapshot <span class="read-time">5 min</span></li>
+      <li>Module 4: The Athlete Priority Framework <span class="read-time">10 min</span></li>
+      <li>Module 5: The Athlete Foundation Stack <span class="read-time">5 min</span></li>
+      <li>Module 6: Your Athlete Challenge <span class="read-time">3 min</span></li>
+      <li>Module 7: Next Steps <span class="read-time">3 min</span></li>
+    </ul>
+
+    <button class="apn-a-scroll-btn" onclick="document.getElementById('apn-a-module1').scrollIntoView({behavior:'smooth'})">
+      Start MasterClass
+    </button>
+  </div>
+</div>
+
+<!-- ===================== MODULE 1: WHAT YOUR SCORE MEANS ===================== -->
+<div class="apn-a-module apn-a-module--bg" id="apn-a-module1">
+  <div class="apn-a-wrap">
+    <span class="apn-a-section-label">Your Tier Report</span>
+    <h2 class="apn-a-h2">What Your Score Actually Means.</h2>
+    <div class="apn-a-divider"></div>
+
+    <p class="apn-a-body">
+      An Athlete score (60 to 74) reflects a real foundation. Sleep is mostly consistent, protein intake is roughly adequate, training has some structure. You are not starting from zero. The problem is not the floor. It is the ceiling. The gains from fixing one obvious gap no longer exist at this tier. What remains is harder to find and harder to measure. That is why athletes at this score range often feel like they are working hard without improving proportionally.
+    </p>
+
+    <div class="apn-a-data-callout" style="margin-top:32px;">
+      <div class="stat" id="apn-a-score-display">--</div>
+      <div class="stat-body">
+        <strong>Your Overall Score</strong>
+        <span>Athlete tier: 60 to 74. This range means your foundation is established. The performance gap between here and Elite is not more effort. It is more precision: tighter timing, better data, and one identified bottleneck removed.</span>
+      </div>
+    </div>
+
+    <h3 class="apn-a-h3" style="margin-top:40px;">What defines the Athlete tier in observable terms.</h3>
+    <p class="apn-a-body">
+      Athlete-tier athletes sleep 7 to 8 hours most nights, though the schedule still drifts on weekends. Protein is in the right range 4 to 5 days per week but distribution across meals is often uneven. Training follows a program, but tracking is inconsistent, meaning progressive overload is happening by feel rather than by data. Supplementation may include creatine and protein, but timing precision is loose. The behaviors are present. The precision is not.
+    </p>
+
+    <h3 class="apn-a-h3" style="margin-top:36px;">The performance gap between Athlete and the next tier up.</h3>
+    <p class="apn-a-body">
+      Competitor-tier athletes (score 75 to 85) are not doing fundamentally different things. They are doing the same things with more consistency and more data. They track HRV and adjust training load accordingly. They know their pillar scores and have a specific protocol for each one. They hit protein targets 6 to 7 days per week, not 4 to 5. The difference between Athlete and Competitor is measurement and precision applied to a foundation that is already in place.
+    </p>
+
+    <div class="apn-a-warning">
+      <span class="warn-label">Where Most Athlete-Tier Athletes Get Stuck</span>
+      <p>The plateau trap. Things are working well enough that the urgency to change anything feels low. The athlete trains consistently, eats mostly right, and sleeps reasonably well. But performance has plateaued. The instinct is to add more: more training volume, more supplements, more recovery modalities. The actual fix is to measure what is already happening and identify the one thing that is capping the ceiling. More work without more precision produces diminishing returns at this tier.</p>
+    </div>
+
+    <h3 class="apn-a-h3" style="margin-top:36px;">One insight you can use today.</h3>
+    <p class="apn-a-body">
+      Download a free HRV tracking app (HRV4Training or Elite HRV) and take your first morning reading tomorrow, immediately after waking, before getting out of bed. Record the number. This is your baseline. You cannot optimize what you do not measure, and HRV is the most sensitive daily metric available for assessing training readiness. One reading means nothing. Seven readings create a baseline. Fourteen readings let you make data-driven decisions about training intensity. Start the data collection today.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MODULE 2: THE ATHLETE PERFORMANCE PROFILE ===================== -->
+<div class="apn-a-module apn-a-module--bg2" id="apn-a-module2">
+  <div class="apn-a-wrap">
+    <span class="apn-a-section-label">Your Performance Profile</span>
+    <h2 class="apn-a-h2">The Athlete Performance Profile.</h2>
+    <div class="apn-a-divider"></div>
+
+    <p class="apn-a-body">
+      The Athlete tier has a specific behavioral profile. Understanding it clearly is the first step to breaking through it. These are not character flaws. They are the natural patterns of athletes who have built a solid foundation but have not yet applied data and precision to it.
+    </p>
+
+    <div style="margin-top:40px; display:flex; flex-direction:column; gap:24px;">
+
+      <div style="border: none; border-left: 4px solid var(--tier-blue); background: #fff; border-radius: 0 6px 6px 0; padding: 24px 28px;">
+        <span style="font-family:var(--font); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--tier-blue); display:block; margin-bottom:8px;">Behavior 01</span>
+        <div class="apn-a-h3" style="margin-bottom:10px;">Consistent foundation, inconsistent precision.</div>
+        <p class="apn-a-body">The behaviors are mostly in place but the precision is not. Sleep happens but wake time drifts 60 to 90 minutes on weekends. Protein is consumed but distribution is two large meals rather than four evenly spaced feedings. Training follows a program but rest periods are approximate. At the Athlete tier, the difference between "mostly" and "consistently" is the performance gap. Each approximation represents a percentage of adaptation left unrealized.</p>
+      </div>
+
+      <div style="border: none; border-left: 4px solid var(--tier-blue); background: #fff; border-radius: 0 6px 6px 0; padding: 24px 28px;">
+        <span style="font-family:var(--font); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--tier-blue); display:block; margin-bottom:8px;">Behavior 02</span>
+        <div class="apn-a-h3" style="margin-bottom:10px;">One bottleneck capping everything else.</div>
+        <p class="apn-a-body">There is always a primary constraint at this tier. One pillar that is still operating below the others and limiting the upside of everything else. This is the bottleneck concept from systems theory applied to human performance: the output of the entire system is limited by its weakest component. Fixing the bottleneck produces outsized results. Adding resources to non-bottleneck systems produces little to no improvement. The job at the Athlete tier is to identify the bottleneck accurately and address it specifically.</p>
+      </div>
+
+      <div style="border: none; border-left: 4px solid var(--tier-blue); background: #fff; border-radius: 0 6px 6px 0; padding: 24px 28px;">
+        <span style="font-family:var(--font); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--tier-blue); display:block; margin-bottom:8px;">Behavior 03</span>
+        <div class="apn-a-h3" style="margin-bottom:10px;">Trending upward, ceiling becoming visible.</div>
+        <p class="apn-a-body">Things are improving. The trajectory is positive. But the rate of improvement is slowing. Gains that were coming from building the foundation have largely been realized. The next phase of improvement requires a different approach: measurement-driven optimization rather than foundation-building. This is the transition point. Athlete-tier athletes who do not make this shift in approach plateau for months or years, training hard, doing the right things, but not unlocking the next level.</p>
+      </div>
+
+    </div>
+
+    <div class="apn-a-warning" style="margin-top:40px;">
+      <span class="warn-label">The Most Common Athlete-Tier Mistake</span>
+      <p>Adding more without identifying what is limiting. More training volume, more supplements, more recovery protocols. The mistake is treating a precision problem as a volume problem. At this tier, the ceiling is not being hit because of insufficient effort. It is being hit because of insufficient data. Adding more effort to an unidentified bottleneck does not remove it. It adds fatigue on top of a constraint that has not been addressed.</p>
+    </div>
+
+    <div class="apn-a-pullquote" style="margin-top:40px;">
+      <p>"Athlete-tier athletes consistently report the same frustration: training is solid, effort is high, but the results have plateaued. The data almost always points to the same root cause: they are optimizing non-bottleneck systems while the actual constraint remains unaddressed. Finding and fixing the one thing makes everything else more effective."</p>
+      <cite>Performance Coaching Observation, Ascend Athlete Data</cite>
+    </div>
+
+    <h3 class="apn-a-h3" style="margin-top:40px;">The compounding opportunity at this tier.</h3>
+    <p class="apn-a-body">
+      Fixing the primary bottleneck at the Athlete tier produces compounding improvements, but they are more specific than at the Rookie tier. If sleep precision is the bottleneck (wake time drifting by 90 minutes on weekends disrupts the circadian clock), tightening it improves HRV by an average of 8 to 12%, which directly improves training readiness scores, which improves session quality, which improves adaptation rate. One specific fix. Measurable cascade effect. This is what precision-driven optimization looks like at the Athlete tier.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MODULE 3: YOUR GAP SNAPSHOT ===================== -->
+<div class="apn-a-module apn-a-module--bg" id="apn-a-module3">
+  <div class="apn-a-wrap">
+    <span class="apn-a-section-label">Your Gap Snapshot</span>
+    <h2 class="apn-a-h2">Your Top 3 Performance Gaps.</h2>
+    <div class="apn-a-divider"></div>
+
+    <p class="apn-a-body">
+      Your quiz identified the three pillars where your performance is leaving the most on the floor. At the Athlete tier, these are not gaps in awareness. You likely already know these areas exist. What changes now is the precision with which you address them: specific protocols, measurable targets, and data to confirm they are closing.
+    </p>
+
+    <div class="apn-a-bottleneck">
+      <span class="bt-label">Bottleneck First</span>
+      <h4>Fix Gap 1 before anything else.</h4>
+      <p>At the Athlete tier, the primary gap is the bottleneck. Addressing Gaps 2 and 3 before Gap 1 is addressed produces minimal improvement because the constraint is still in place. Gap 1 is costing you more than the other two combined. Identify it. Build a specific protocol for it. Measure it. Then move to Gap 2.</p>
+    </div>
+
+    <!-- Gap cards injected by JS -->
+    <div id="apn-a-gap-container" style="margin-top:32px;"></div>
+
+    <h3 class="apn-a-h3" style="margin-top:40px;">How your gaps interact at this tier.</h3>
+    <p class="apn-a-body">
+      At the Athlete tier, gap interactions become more nuanced than at lower tiers. Sleep precision affects HRV directly. HRV is the best available marker of the nervous system's readiness to handle training stress. If HRV is suppressed because of sleep inconsistency, training hard on low-HRV days drives adaptation more slowly and increases injury risk. If nutrition precision is the gap, supplement timing protocols are less effective because the substrate availability they depend on is variable. Gaps compound negatively and, when fixed, they compound positively.
+    </p>
+    <p class="apn-a-body" style="margin-top:16px;">
+      Each gap has its own dedicated MasterClass with a precision protocol built for athletes at this tier level. The links in your gap cards above point directly to each one.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MODULE 4: THE ATHLETE PRIORITY FRAMEWORK ===================== -->
+<div class="apn-a-module apn-a-module--bg2" id="apn-a-module4">
+  <div class="apn-a-wrap">
+    <span class="apn-a-section-label">The Framework</span>
+    <h2 class="apn-a-h2">The Athlete Priority Framework.</h2>
+    <div class="apn-a-divider"></div>
+
+    <p class="apn-a-body">
+      The Rookie framework was about building. One habit at a time. Locking in the foundation. The Athlete framework is different. The foundation exists. The work now is to identify what is limiting it, apply data to understand why, and remove that specific constraint with precision.
+    </p>
+
+    <h3 class="apn-a-h3" style="margin-top:36px;">The mental model.</h3>
+    <p class="apn-a-body" style="font-weight:600; color: var(--black); font-size:18px; line-height:1.5;">
+      "Identify the bottleneck. Fix it with data, not guessing. Then measure."
+    </p>
+    <p class="apn-a-body" style="margin-top:12px;">
+      Feeling good is not a reliable performance indicator at this tier. Your body has adapted to the baseline stress of your current training load. It does not send clear distress signals the way it did when you were starting out. The signals are subtler now: slightly slower recovery, performance that is flat rather than declining, motivation that is lower than expected given your consistency. These are the signs that a bottleneck exists. The only way to find it reliably is to track and measure.
+    </p>
+
+    <div class="apn-a-hrv-box">
+      <span class="hrv-label">HRV: The Athlete-Tier Tracking Tool</span>
+      <h4>Heart Rate Variability and why it matters now.</h4>
+      <p>HRV measures the variation in time between heartbeats, which reflects the balance between sympathetic (fight-or-flight) and parasympathetic (rest-and-recover) nervous system activity. A higher HRV relative to your personal baseline indicates better recovery status and higher readiness for training stress. A lower-than-baseline HRV indicates accumulated stress, incomplete recovery, or oncoming illness. At the Rookie tier, this metric is noise because too many variables are shifting simultaneously. At the Athlete tier, with a stable foundation, HRV becomes a meaningful daily signal. Use it.</p>
+    </div>
+
+    <div style="margin-top:48px; margin-bottom:48px;">
+
+      <!-- Week 1 -->
+      <div class="apn-a-week">
+        <div class="apn-a-week-header">
+          <span class="week-label">Week 1</span>
+          <span class="week-title">Identify and Confirm the Bottleneck</span>
+        </div>
+        <div class="apn-a-week-body">
+          <p class="apn-a-body" style="margin-bottom:16px;"><strong>Focus:</strong> Use data, not intuition, to confirm which gap is your primary constraint. No new protocols start yet.</p>
+          <ul>
+            <li>Pull your pillar scores from your quiz results. The lowest pillar score is the starting hypothesis for your bottleneck. Review it against the gap descriptions in Module 3 above.</li>
+            <li>Start HRV tracking immediately. Take your first reading tomorrow morning. Log it in your phone. You need 7 days of data before the number is interpretable. The first reading is the starting point.</li>
+            <li>Log all training sessions this week with the quality rating after each session (1 to 5 scale). At the end of the week, compare session quality scores to the preceding night's sleep and HRV reading. Patterns will begin to emerge.</li>
+          </ul>
+          <div class="apn-a-assignment">
+            <span class="assignment-label">Week 1 Assignment</span>
+            <p>By end of Day 7: Write down your identified bottleneck in one sentence. "My primary gap is [gap] and it is limiting my performance because [specific mechanism]." If you cannot complete this sentence with specificity, your bottleneck identification work needs another week before the protocol starts. Do not skip this step.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="apn-a-week">
+        <div class="apn-a-week-header">
+          <span class="week-label">Week 2</span>
+          <span class="week-title">HRV-Guided Training Begins</span>
+        </div>
+        <div class="apn-a-week-body">
+          <p class="apn-a-body" style="margin-bottom:16px;"><strong>Focus:</strong> Use your first 7 days of HRV data to make one data-driven training decision. Start the gap-specific protocol.</p>
+          <ul>
+            <li>Calculate your 7-day HRV average from Week 1. This is your personal baseline. Going forward: HRV at or above baseline means full training intensity is appropriate. HRV 5 to 10% below baseline means reduce intensity by 20 to 30% or substitute active recovery. HRV more than 10% below baseline means the session should be light movement only.</li>
+            <li>Apply the HRV decision rule to at least one training day this week. Notice whether the session quality on that day reflects the HRV reading. This is how you calibrate trust in the metric for your own physiology.</li>
+            <li>Start the gap-specific protocol for your identified bottleneck. The dedicated MasterClass page for your primary gap (linked in Module 3) contains the specific week-by-week protocol for that gap at the Athlete tier.</li>
+          </ul>
+          <div class="apn-a-assignment">
+            <span class="assignment-label">Week 2 Assignment</span>
+            <p>Record three data points each morning: HRV reading, subjective sleep quality (1 to 5), and subjective energy level (1 to 5). At the end of the week, check whether your subjective scores correlate with your HRV data. Most athletes find that after 2 to 3 weeks, subjective perception and HRV diverge, and HRV is the more accurate predictor of actual performance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scripture Block -->
+      <div class="apn-a-scripture">
+        <p>"I discipline my body and keep it under control, lest after preaching to others I myself should be disqualified."</p>
+        <cite>1 Corinthians 9:27</cite>
+      </div>
+
+      <!-- Week 3 -->
+      <div class="apn-a-week">
+        <div class="apn-a-week-header">
+          <span class="week-label">Week 3</span>
+          <span class="week-title">Stack Optimized, Timing Protocols Locked</span>
+        </div>
+        <div class="apn-a-week-body">
+          <p class="apn-a-body" style="margin-bottom:16px;"><strong>Focus:</strong> 3 to 4 products running with specific timing protocols. HRV and gap protocol continue.</p>
+          <ul>
+            <li>Confirm your supplement stack is complete (see Module 5 for the full Athlete stack). Every product should have a specific time attached to it: with what meal, how many minutes before or after training, at what dose. Timing is not optional at the Athlete tier.</li>
+            <li>Protein distribution audited. At this tier, hitting total protein is not enough. Four feedings per day, each hitting the leucine threshold (25 to 30g of quality protein), is the target. Use your tracking data from earlier weeks to identify which feeding is consistently below target and fix that meal specifically.</li>
+            <li>Sleep schedule tightened. Wake time within 20 minutes every day, including weekends. If you are currently drifting more than 30 minutes on weekends, this single change is the most impactful sleep precision improvement available.</li>
+          </ul>
+          <div class="apn-a-assignment">
+            <span class="assignment-label">Week 3 Assignment</span>
+            <p>Map your supplement timing to your training schedule in writing. "Creatine at [time] daily. Protein Feeding 1 at [time]. Pre-training at [time]. Post-training at [time]. Magnesium at [time]." Have the schedule written before Week 3 starts. Execute it for all 7 days and log your compliance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 4 -->
+      <div class="apn-a-week">
+        <div class="apn-a-week-header">
+          <span class="week-label">Week 4</span>
+          <span class="week-title">Data Review and Measurement</span>
+        </div>
+        <div class="apn-a-week-body">
+          <p class="apn-a-body" style="margin-bottom:16px;"><strong>Focus:</strong> Compare Week 4 performance metrics to Week 1 baseline. Measure what changed.</p>
+          <ul>
+            <li>Calculate your Week 4 average HRV and compare to Week 1 average. A positive change of 3 to 8% over 4 weeks is typical when the primary bottleneck is being addressed. Flat or declining HRV means either the bottleneck identification was incomplete or a second stressor is counteracting the protocol.</li>
+            <li>Review training log: compare Week 4 weights, reps, and session quality scores to Week 1. Identify 2 to 3 specific exercises where performance improved. Specific improvement data is how you confirm the protocol is working.</li>
+            <li>Assess the primary gap protocol progress. Is the specific gap behavior improving? If sleep is the gap, is wake time consistency improving? If recovery is the gap, is soreness duration decreasing? The metric you are tracking should show measurable change after 4 weeks of targeted protocol.</li>
+          </ul>
+          <div class="apn-a-assignment">
+            <span class="assignment-label">Week 4 Assignment</span>
+            <p>Write a one-page performance review covering: HRV trend over 4 weeks, primary gap protocol results, training performance changes, and one specific adaptation you can confirm. Then identify the next bottleneck. The one you addressed in Week 1 should be closing. The next constraint in the system should now be becoming visible. Retake the quiz to confirm your score movement.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="apn-a-h3">What Competitor tier looks like. How long it takes. What it requires.</h3>
+    <p class="apn-a-body">
+      Competitor-tier performance (score 75 to 85) requires the Athlete tier precision habits to be running as a system, not as a conscious effort. HRV is tracked daily automatically. Protein distribution is planned and executed without tracking because the meals are programmed. The training log is a reflex. The bottleneck from the Athlete tier has been addressed and the next one identified. Athletes who execute the 4-week framework above and repeat it for a second 4-week block consistently see 10 to 18 point score improvements on the retake quiz. The timeline for a genuine Athlete-to-Competitor transition is typically 8 to 14 weeks of consistent, precision-driven execution.
+    </p>
+
+    <div class="apn-a-tier-progress">
+      <span class="tier-progress-label">Your Tier Path</span>
+      <p style="font-family:var(--font); font-size:14px; color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:20px;">The foundation is built. Precision is the next phase. Data-driven execution is the path forward.</p>
+      <div class="apn-a-tier-bar">
+        <div class="tier-bar-item-a">
+          <div class="tier-bar-dot-a tier-bar-dot-a--done"></div>
+          <div class="tier-bar-name-a tier-bar-name-a--done">Rookie</div>
+        </div>
+        <div class="tier-bar-line-a tier-bar-line-a--done"></div>
+        <div class="tier-bar-item-a">
+          <div class="tier-bar-dot-a tier-bar-dot-a--active"></div>
+          <div class="tier-bar-name-a tier-bar-name-a--active">Athlete</div>
+        </div>
+        <div class="tier-bar-line-a"></div>
+        <div class="tier-bar-item-a">
+          <div class="tier-bar-dot-a"></div>
+          <div class="tier-bar-name-a">Competitor</div>
+        </div>
+        <div class="tier-bar-line-a"></div>
+        <div class="tier-bar-item-a">
+          <div class="tier-bar-dot-a"></div>
+          <div class="tier-bar-name-a">Elite</div>
+        </div>
+      </div>
+      <p style="font-family:var(--font); font-size:13px; color:rgba(255,255,255,0.4); line-height:1.5;">The foundation is in place. What you built to get here will not get you to the next tier. Precision and data will.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== MODULE 5: THE ATHLETE STACK ===================== -->
+<div class="apn-a-module apn-a-module--bg" id="apn-a-module5">
+  <div class="apn-a-wrap">
+    <span class="apn-a-section-label">The Stack</span>
+    <h2 class="apn-a-h2">The Athlete Performance Stack.</h2>
+    <div class="apn-a-divider"></div>
+
+    <p class="apn-a-body">
+      Three to four products. Each one addressing a specific mechanism at the Athlete tier. The first three are non-negotiable at this level. The fourth is targeted at your primary gap. Every product introduced mechanism-first: what it does at the biochemical level and why this tier specifically needs it.
+    </p>
+
+    <div style="margin-top:36px;">
+
+      <!-- Product 1: Recharge -->
+      <div class="apn-a-product-card">
+        <div class="prod-top">
+          <div class="prod-name">Recharge. Creatine Monohydrate.</div>
+          <div class="prod-price">$39.99</div>
+        </div>
+        <span class="prod-mechanism">Mechanism: Phosphocreatine Saturation and ATP Regeneration</span>
+        <p>If creatine is not already in your protocol, it starts now. At the Athlete tier, training intensity is high enough that phosphocreatine depletion during high-intensity efforts is a genuine performance limiter. Creatine monohydrate at 5g per day saturates intramuscular phosphocreatine stores, improving peak power output in efforts under 10 seconds, improving total work capacity in repeated-sprint and heavy-lifting contexts, and contributing to lean mass accretion over time through increased training volume capacity.</p>
+        <p>The research on creatine is unambiguous: 500-plus peer-reviewed studies, consistent effect sizes of 5 to 15% improvement in high-intensity performance, and a safety profile that holds across decades of use. There is no comparable return-on-investment in sports supplementation.</p>
+        <div class="prod-protocol">
+          <strong>Protocol:</strong> 5g daily. Timing is flexible, but consistency is not. Take it at the same time every day. With your post-training shake is ideal for adherence. No loading phase needed. Saturation at 5g/day reaches steady-state in 28 days.
+        </div>
+      </div>
+
+      <!-- Product 2: Resilience -->
+      <div class="apn-a-product-card">
+        <div class="prod-top">
+          <div class="prod-name">Resilience. Whey Protein Isolate.</div>
+          <div class="prod-price">$59.99</div>
+        </div>
+        <span class="prod-mechanism">Mechanism: Distributed Leucine Threshold for Maximal MPS</span>
+        <p>At the Athlete tier, post-training protein is already in place for most athletes. The upgrade is distribution. Research on muscle protein synthesis shows that four evenly distributed protein feedings per day each hitting the leucine threshold (approximately 2 to 3g of leucine, achieved with 25 to 30g of high-quality whey isolate) produces significantly greater 24-hour net protein balance than the same total protein consumed in two large meals. The mechanism is mTOR activation: the pathway requires a leucine threshold to be crossed per feeding, not just per day.</p>
+        <p>Use Resilience to fill the feedings in your day where whole food sources are unlikely to hit the leucine threshold. Most athletes find this is the mid-morning feeding and the post-training window.</p>
+        <div class="prod-protocol">
+          <strong>Protocol:</strong> 25 to 30g per feeding, 1 to 2 times per day. Post-training within 45 minutes. Second use at the feeding where whole food protein is lowest. Total daily protein target: 0.8 to 1.0g per pound of bodyweight at this tier.
+        </div>
+      </div>
+
+      <!-- Product 3: Function -->
+      <div class="apn-a-product-card">
+        <div class="prod-top">
+          <div class="prod-name">Function. Magnesium Glycinate.</div>
+          <div class="prod-price">$19.99</div>
+        </div>
+        <span class="prod-mechanism">Mechanism: GABA Potentiation, Cortisol Modulation, and Muscle Function</span>
+        <p>Magnesium is involved in over 300 enzymatic reactions, including those governing muscle contraction and relaxation, protein synthesis, and energy production. Magnesium glycinate is the form with the highest bioavailability and the best-documented effect on sleep quality. The glycine component potentiates GABA (the primary inhibitory neurotransmitter), reducing sleep onset latency and improving deep sleep stage duration. For Athlete-tier athletes with training stress accumulating across multiple sessions per week, magnesium deficiency (common in athletes due to sweat losses) is a silent ceiling on recovery quality.</p>
+        <p>This is the product that makes the sleep precision work in Week 3 actually produce measurable HRV improvements. Sleep duration alone does not determine recovery quality. Sleep architecture does. Magnesium improves architecture.</p>
+        <div class="prod-protocol">
+          <strong>Protocol:</strong> 400mg magnesium glycinate 30 to 60 minutes before bed. Consistent nightly use. Effects on sleep quality are typically measurable within 7 to 14 days in magnesium-deficient athletes.
+        </div>
+      </div>
+
+      <!-- Product 4: Gap-targeted (JS injected) -->
+      <div id="apn-a-gap-product" style="margin-top:8px;"></div>
+
+    </div>
+
+    <div class="apn-a-discount-banner">
+      Use code <span class="code">ASCEND15</span> for 15% off your full Athlete stack. Free shipping on orders over $75.
+    </div>
+
+    <p class="apn-a-body" style="text-align:center; color: #888; font-size:14px; margin-top: 8px;">
+      Full stack available at <a href="https://ascendperformancenutrition.com/collections/all" style="color:var(--teal); text-decoration:none; font-weight:600;">ascendperformancenutrition.com/collections/all</a>
+    </p>
+
+  </div>
+</div>
+
+<!-- ===================== MODULE 6: THE ATHLETE CHALLENGE ===================== -->
+<div class="apn-a-module apn-a-module--dark" id="apn-a-module6">
+  <div class="apn-a-wrap">
+    <span class="apn-a-section-label" style="color: var(--tier-blue);">The Commitment</span>
+    <h2 class="apn-a-h2" style="color:#fff;">Your Athlete Challenge.</h2>
+    <div class="apn-a-divider" style="background: var(--tier-blue);"></div>
+
+    <p class="apn-a-body" style="color:rgba(255,255,255,0.7);">
+      Four habits. Measurable. Data-verified. Non-negotiable for 30 days. These are the behaviors that define the transition from Athlete to Competitor. They are not harder than what you have already built. They are more precise.
+    </p>
+
+    <div style="margin-top:40px;">
+      <div class="apn-a-habit">
+        <div class="habit-num-a">01</div>
+        <div class="habit-content-a">
+          <strong>Take a daily HRV reading for 30 consecutive days.</strong>
+          <p>Every morning. Before getting out of bed. Log the number. By Day 30 you will have a personal baseline and 30 data points showing how your training load, sleep quality, and recovery protocols are interacting. You will also have had the experience of making at least one training decision based on data rather than feeling. That experience is the point.</p>
+        </div>
+      </div>
+      <div class="apn-a-habit">
+        <div class="habit-num-a">02</div>
+        <div class="habit-content-a">
+          <strong>Hit 4 distributed protein feedings per day, 5 of 7 days.</strong>
+          <p>Each feeding 25g or more. This is not just about total protein. It is about hitting the leucine threshold four times per day, which research shows produces a 35 to 50% greater 24-hour muscle protein synthesis response compared to two large feedings at the same total protein intake. This single change in protein distribution can produce measurable lean mass improvements within a 12-week period.</p>
+        </div>
+      </div>
+      <div class="apn-a-habit">
+        <div class="habit-num-a">03</div>
+        <div class="habit-content-a">
+          <strong>Log every training session with weights, reps, and a quality score.</strong>
+          <p>Quality score is 1 to 5 based on how the session actually went: 1 means significantly below normal output, 3 means normal, 5 means notably above normal. At the end of Week 4, correlate your quality scores with the preceding day's HRV and sleep data. This is how you build your personal performance model. No athlete at the Competitor tier or above trains without data. Start now.</p>
+        </div>
+      </div>
+      <div class="apn-a-habit">
+        <div class="habit-num-a">04</div>
+        <div class="habit-content-a">
+          <strong>Execute the primary gap protocol without modification for 30 days.</strong>
+          <p>The gap MasterClass for your top gap (linked in Module 3 and 7) contains a specific 30-day protocol. Run it exactly as written. Do not modify it based on feeling. Do not add to it. Do not substitute. Changing a protocol before the 30-day mark gives you no data. It just gives you a different untested protocol. Execute. Measure. Then assess.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="apn-a-pullquote" style="margin-top:48px; background: rgba(255,255,255,0.05); border-left-color: var(--tier-blue);">
+      <p style="color: rgba(255,255,255,0.85);">"You have built something real. Do not let consistency without precision become your plateau. The athletes who break through this tier are the ones who stop guessing and start measuring."</p>
+      <cite>Sutton Huggins, Founder and CEO, Ascend Performance Nutrition</cite>
+    </div>
+
+    <div style="margin-top:48px; padding: 32px; background: rgba(6,165,197,0.08); border: 1px solid rgba(6,165,197,0.25); border-radius: 6px;">
+      <span class="apn-a-section-label" style="color: var(--tier-blue);">What Separates Athletes Who Level Up</span>
+      <p class="apn-a-body" style="color:rgba(255,255,255,0.8); margin-bottom:16px;">
+        The Athlete-tier athletes who reach Competitor within 60 days share one consistent characteristic: they are willing to be wrong about where their bottleneck is. They measure, discover their hypothesis was off, adjust the protocol to target the actual constraint, and measure again. The ones who stay at Athlete are convinced they already know what they need to fix and keep doing more of what has already stopped working.
+      </p>
+      <p class="apn-a-body" style="color:rgba(255,255,255,0.8);">
+        Data removes the guessing. Precision removes the plateau. The next tier is not out of reach. It requires a different approach, not more effort.
+      </p>
+    </div>
+
+    <div style="margin-top:48px; text-align:center;">
+      <p style="font-family:var(--font); font-size:15px; color:rgba(255,255,255,0.5); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">Conviction Close</p>
+      <p style="font-family:var(--font); font-size:18px; color:#fff; line-height:1.7; max-width:560px; margin:0 auto;">Discipline is not just about showing up. At this tier, it is about showing up with data in hand, knowing exactly what you are trying to prove or disprove, and executing with precision. That is what faith-driven performance looks like when the foundation is already built.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== MODULE 7: NEXT STEPS ===================== -->
+<div class="apn-a-module apn-a-module--bg" id="apn-a-module7">
+  <div class="apn-a-wrap">
+    <span class="apn-a-section-label">Next Steps</span>
+    <h2 class="apn-a-h2">Your Next Move.</h2>
+    <div class="apn-a-divider"></div>
+
+    <p class="apn-a-body">
+      Your next move is your gap MasterClasses. Each one contains the precision protocol for your specific gap at the Athlete tier level. They are not generic. They are built for athletes who already have a foundation and need targeted optimization. Start with Gap 1. It is your bottleneck.
+    </p>
+
+    <!-- Gap link cards injected by JS -->
+    <div id="apn-a-gap-links" style="margin-top:32px;"></div>
+
+    <div class="apn-a-cta-block" style="margin-top:48px;">
+      <a href="https://ascendperformancenutrition.com/collections/all" class="apn-a-btn apn-a-btn--blue">
+        Build Your Athlete Stack. Use Code ASCEND15.
+      </a>
+      <a href="https://ascendperformancenutrition.com" class="apn-a-btn apn-a-btn--black">
+        Work with Jesse. $400/month Coaching.
+      </a>
+      <a href="https://ascendperformancenutrition.com/pages/performance-quiz" class="apn-a-btn" style="background:transparent; color:var(--body); border:2px solid var(--border); border-radius:60px; font-family:var(--font); font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; padding:16px 32px; text-align:center; display:inline-block; transition:opacity 0.2s;">
+        Retake in 30 Days
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<div class="apn-a-footer">
+  <div class="apn-a-wrap">
+    <div class="apn-a-footer-tagline">Faith &nbsp;|&nbsp; Family &nbsp;|&nbsp; America &nbsp;|&nbsp; Fitness</div>
+    <div class="apn-a-footer-signoff">
+      Faith over fear.<br>
+      <strong>Sutton Huggins</strong>
+      Founder &amp; CEO, Ascend Performance Nutrition
+    </div>
+  </div>
+</div>
+
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  var params = new URLSearchParams(window.location.search);
+  var scoreParam = parseInt(params.get('score') || '67');
+  var nameParam = params.get('name') || 'Athlete';
+  var gap1Param = params.get('gap1') || 'sleep';
+  var gap2Param = params.get('gap2') || 'recovery';
+  var gap3Param = params.get('gap3') || 'nutrition';
+
+  /* ---- Welcome line ---- */
+  var welcomeEl = document.getElementById('apn-a-welcome-line');
+  if (welcomeEl) {
+    welcomeEl.innerHTML = 'Welcome back, <strong>' + nameParam + '</strong>. Your overall score: <strong>' + scoreParam + '/100</strong>.';
+  }
+
+  /* ---- Score display ---- */
+  var scoreEl = document.getElementById('apn-a-score-display');
+  if (scoreEl) {
+    scoreEl.textContent = scoreParam + '/100';
+  }
+
+  /* ---- Gap data map ---- */
+  var gapData = {
+    sleep: {
+      label: 'Sleep',
+      urgency: 'critical',
+      cost: 'At the Athlete tier, sleep precision is a more common limiter than sleep duration. Wake time variability of 60 to 90 minutes between weekdays and weekends disrupts the circadian clock, which suppresses HRV by an average of 8 to 12% and reduces next-day cognitive performance and reaction time measurably. You are sleeping enough hours. You are not sleeping them consistently enough.',
+      action: 'Tighten wake time to within 20 minutes every day. Set magnesium glycinate 400mg 30 minutes before bed. Track sleep quality score alongside HRV each morning for 14 days to confirm the improvement is real.'
+    },
+    recovery: {
+      label: 'Recovery',
+      urgency: 'critical',
+      cost: 'At the Athlete tier, incomplete recovery between training sessions is the most common performance ceiling. The body needs 48 to 72 hours to complete protein synthesis and glycogen resynthesis after a high-intensity session. Training before this window closes produces diminishing returns on adaptation and compounding central nervous system fatigue. HRV data is the most reliable way to confirm recovery is complete.',
+      action: 'Use HRV to determine training readiness each day. On low-HRV days, reduce intensity to 60 to 70% of normal or substitute active recovery. This is not backing off. It is maximizing the training sessions that actually produce adaptation.'
+    },
+    nutrition: {
+      label: 'Nutrition',
+      urgency: 'critical',
+      cost: 'At the Athlete tier, nutrition precision is the gap. Total protein is likely close to adequate. The issue is distribution, timing, and carbohydrate periodization around training. Skipping pre-training carbohydrates when training sessions exceed 60 minutes impairs glycolytic output in the second half of the session, directly reducing training volume and therefore adaptation stimulus.',
+      action: 'Audit protein distribution across the day. If two of four feedings are below 20g, redistribution is the priority. Add a pre-training carbohydrate source (30 to 50g of simple carbohydrates 30 to 45 minutes before sessions longer than 60 minutes) and measure the effect on session quality scores.'
+    },
+    hydration: {
+      label: 'Hydration',
+      urgency: 'moderate',
+      cost: 'At training volumes typical for Athlete-tier athletes, sweat sodium losses are significant and plain water rehydration is insufficient for full electrolyte restoration. Sodium depletion reduces plasma volume, which increases cardiovascular strain during training and reduces endurance capacity. This is common in athletes who sweat heavily and only drink water.',
+      action: 'Add an electrolyte source with sodium to your intra-training hydration protocol. Target 500 to 750mg of sodium per liter of fluid during training sessions exceeding 60 minutes. Replenish within the first 30 minutes post-training when sweat losses were high.'
+    },
+    training: {
+      label: 'Training Structure',
+      urgency: 'moderate',
+      cost: 'At the Athlete tier, the training structure gap typically manifests as insufficient periodization rather than absence of a program. Training at a constant intensity across all sessions, without planned deload weeks or wave-loading volume, produces accumulated fatigue without corresponding supercompensation. The body adapts to the specific stimulus applied. If the stimulus does not vary systematically, adaptation plateaus.',
+      action: 'Implement a basic periodization structure: 3 weeks of progressively increasing volume followed by 1 deload week at 60% volume. Track session quality scores across the cycle. You should see quality scores peak in Week 2, decline slightly in Week 3, and rebound in the deload week and the following training block.'
+    },
+    mental: {
+      label: 'Mental Performance',
+      urgency: 'moderate',
+      cost: 'At the Athlete tier, cognitive performance during competition or high-stakes training is the relevant metric. Decision speed under fatigue, sustained attention across long training sessions, and arousal regulation before competition are all measurable. Chronic psychological stress suppresses prefrontal cortex function, which governs exactly these capacities.',
+      action: 'Add a 5-minute breathing protocol before training: 5-second inhale, 5-second exhale, for 10 cycles. This activates the parasympathetic nervous system and has demonstrated measurable improvements in HRV and reaction time in pre-training contexts. Simple. Specific. Measurable.'
+    },
+    stress: {
+      label: 'Stress Management',
+      urgency: 'moderate',
+      cost: 'Training stress and life stress share the same physiological pathway. Cortisol does not distinguish between a heavy squat session and a difficult work deadline. Athletes managing high external stress loads have effectively reduced recovery capacity even on rest days. This shows up as chronically suppressed HRV and slower performance progression than training load would predict.',
+      action: 'Track stress load alongside HRV. Rate daily external stress on a 1 to 5 scale each morning. Over 2 weeks, check whether high-stress days correlate with suppressed HRV. If yes, adjust training intensity downward on high-stress days using the same HRV decision rule as physiological stress.'
+    },
+    supplements: {
+      label: 'Supplementation',
+      urgency: 'manageable',
+      cost: 'At the Athlete tier, the supplement gap is usually not absence of products but imprecision in timing and dosing. Creatine taken inconsistently (4 of 7 days) never fully saturates. Post-training protein delayed by 2 to 3 hours misses the peak mTOR activation window. Magnesium taken at random times does not consistently improve sleep architecture. The products may already be present. The protocols are not.',
+      action: 'Map every supplement to a specific time, dose, and behavioral anchor (a meal, a training session, bedtime). Execute the timing protocol for 14 consecutive days. Measure whether the change in timing produces measurable HRV or performance improvements.'
+    }
+  };
+
+  var urgencyLabels = {
+    critical: 'Critical',
+    moderate: 'Moderate',
+    manageable: 'Manageable'
+  };
+  var urgencyClass = {
+    critical: 'gap-urgency--critical',
+    moderate: 'gap-urgency--moderate',
+    manageable: 'gap-urgency--manageable'
+  };
+
+  function getGapInfo(key) {
+    return gapData[key] || {
+      label: key.charAt(0).toUpperCase() + key.slice(1),
+      urgency: 'moderate',
+      cost: 'This pillar is limiting your ceiling. The dedicated MasterClass contains a precision protocol for this gap at the Athlete tier level.',
+      action: 'Review the dedicated MasterClass for this gap. Apply the Athlete-tier protocol with specific measurable targets.'
+    };
+  }
+
+  function buildGapCard(gapKey, index) {
+    var info = getGapInfo(gapKey);
+    var priority = ['PRIMARY', 'SECONDARY', 'TERTIARY'][index];
+    var url = '/pages/masterclass-' + gapKey.toLowerCase().replace(/\s+/g, '-');
+    return '<div class="apn-a-gap-card">' +
+      '<div class="gap-meta">' +
+        '<span class="gap-name">' + priority + ': ' + info.label + '</span>' +
+        '<span class="gap-urgency ' + urgencyClass[info.urgency] + '">' + urgencyLabels[info.urgency] + '</span>' +
+      '</div>' +
+      '<p>' + info.cost + '</p>' +
+      '<p style="color:var(--body); font-weight:600;">' + info.action + '</p>' +
+      '<a href="' + url + '">Go to ' + info.label + ' MasterClass &rarr;</a>' +
+    '</div>';
+  }
+
+  var gaps = [gap1Param, gap2Param, gap3Param];
+
+  /* ---- Gap snapshot cards ---- */
+  var gapContainer = document.getElementById('apn-a-gap-container');
+  if (gapContainer) {
+    var html = '';
+    for (var i = 0; i < gaps.length; i++) {
+      html += buildGapCard(gaps[i], i);
+    }
+    gapContainer.innerHTML = html;
+  }
+
+  /* ---- Gap link cards (Module 7) ---- */
+  var gapLinks = document.getElementById('apn-a-gap-links');
+  if (gapLinks) {
+    var linkHtml = '<div style="display:grid; gap:16px;">';
+    for (var j = 0; j < gaps.length; j++) {
+      var info = getGapInfo(gaps[j]);
+      var url = '/pages/masterclass-' + gaps[j].toLowerCase().replace(/\s+/g, '-');
+      var priority = ['Gap 1: Primary Bottleneck', 'Gap 2: Secondary', 'Gap 3: Tertiary'][j];
+      var desc = ['Your bottleneck. This gap is capping your ceiling more than any other. Start here.', 'Address after you have 14 days of data showing Gap 1 is improving.', 'Third in order. Gains here accelerate after the first two gaps are closing.'][j];
+      linkHtml += '<a href="' + url + '" class="apn-a-next-card">' +
+        '<span class="next-card-label">' + priority + '</span>' +
+        '<div class="next-card-title">' + info.label + ' MasterClass</div>' +
+        '<p class="next-card-desc">' + desc + '</p>' +
+      '</a>';
+    }
+    linkHtml += '</div>';
+    gapLinks.innerHTML = linkHtml;
+  }
+
+  /* ---- Gap-targeted 4th product ---- */
+  var gapProductEl = document.getElementById('apn-a-gap-product');
+  if (gapProductEl) {
+    var gapProducts = {
+      sleep: {
+        name: 'Function. Magnesium Glycinate.',
+        price: '$19.99',
+        mechanism: 'Mechanism: GABA Potentiation and Sleep Architecture',
+        desc: 'If sleep is your primary gap, magnesium glycinate is your targeted fourth product. Already included in the core stack above, this doubles down on the sleep architecture improvement. 400mg before bed, consistent nightly use, minimum 14 days to assess impact. Track sleep quality score alongside HRV.',
+        protocol: '400mg magnesium glycinate 30 to 60 minutes before bed. Consistent nightly use is required. Effects are not acute. They accumulate over 7 to 14 days of consistent use.'
+      },
+      recovery: {
+        name: 'Adapt. Ashwagandha.',
+        price: '$29.99',
+        mechanism: 'Mechanism: HPA Axis Modulation and Cortisol Reduction',
+        desc: 'If recovery is your primary gap, ashwagandha (KSM-66 extract, the most studied form) is your targeted addition. The mechanism is HPA axis modulation: ashwagandha reduces cortisol by 14 to 28% in athletes under training stress according to multiple randomized controlled trials. Lower chronic cortisol means faster recovery, better sleep architecture, and improved lean mass preservation under heavy training loads.',
+        protocol: '300 to 600mg KSM-66 ashwagandha extract daily. With food to improve absorption. Morning or evening. Consistent daily use required. Effect is cumulative over 4 to 8 weeks.'
+      },
+      nutrition: {
+        name: 'Nourish. Greens and Reds Superfood.',
+        price: '$49.99',
+        mechanism: 'Mechanism: Micronutrient Density and Antioxidant Support',
+        desc: 'If nutrition is your primary gap and micronutrient quality is part of the issue, Nourish provides a concentrated source of vitamins, minerals, and phytonutrients that are consistently below optimal in performance athlete diets. Athletes training 4 to 5 times per week have elevated requirements for antioxidants (to manage exercise-induced oxidative stress) and B vitamins (for energy metabolism). Most whole-food diets at adequate calories still fall short of these elevated requirements.',
+        protocol: 'One serving daily, mixed with water. Morning, with or without food. Use alongside whole food meals, not as a replacement. This supplements the dietary foundation. It does not replace it.'
+      },
+      hydration: {
+        name: 'Replenish. Hydration Powder.',
+        price: '$34.99',
+        mechanism: 'Mechanism: Electrolyte Replacement and Plasma Volume Maintenance',
+        desc: 'If hydration is your primary gap, Replenish provides the sodium, potassium, and magnesium ratio required for full electrolyte restoration after training. The specific issue for Athlete-tier athletes is not total water intake but sodium replacement. Sweat rates of 1 to 2 liters per hour with sodium concentrations of 500 to 1,000mg per liter mean that plain water rehydration produces dilution hyponatremia in athletes who sweat heavily and train for 60-plus minutes.',
+        protocol: 'One serving during or immediately after training sessions exceeding 60 minutes. Additional serving on hot-weather training days. Do not use pre-training: osmolality of the formula is optimized for intra or post-training use.'
+      },
+      mental: {
+        name: 'Clarity. Methylene Blue Drops.',
+        price: '$39.99',
+        mechanism: 'Mechanism: Mitochondrial Electron Transport and Cognitive Function',
+        desc: 'If mental performance is your primary gap, Clarity supports cognitive function at the mitochondrial level. Methylene blue acts as an alternative electron carrier in the mitochondrial electron transport chain, supporting ATP production in neurons even under hypoxic or metabolic stress conditions. Research on methylene blue shows improvements in memory consolidation, processing speed, and sustained attention. For athletes whose competitive performance involves real-time decision-making under fatigue, this is a specific, mechanism-backed cognitive support tool.',
+        protocol: 'Low-dose protocol: 0.5 to 1mg per kg bodyweight, taken 30 to 60 minutes before training or competition. Do not exceed recommended dose. Start at the lower end of the range and assess tolerance over 7 days before increasing.'
+      }
+    };
+
+    var defaultProduct = {
+      name: 'Balance. Platinum Turmeric.',
+      price: '$29.99',
+      mechanism: 'Mechanism: NF-kB Pathway Inhibition and Systemic Inflammation Reduction',
+      desc: 'For athletes whose primary gap relates to inflammation, recovery, or joint function, Balance provides curcumin (the active compound in turmeric) with enhanced bioavailability. Standard turmeric has poor bioavailability. The Platinum formula addresses this with piperine co-administration, which increases curcumin bioavailability by up to 2,000% according to published research. The mechanism is NF-kB pathway inhibition, reducing the pro-inflammatory cytokine cascade that contributes to delayed-onset muscle soreness and systemic inflammation under heavy training loads.',
+      protocol: '500 to 1,000mg curcumin equivalent daily, taken with food containing fat (curcumin is fat-soluble). Consistent daily use required. Anti-inflammatory effects are cumulative and measurable after 4 to 6 weeks of consistent use.'
+    };
+
+    var gapProd = gapProducts[gap1Param] || defaultProduct;
+
+    gapProductEl.innerHTML = '<div class="apn-a-product-card" style="border: 2px solid rgba(6,165,197,0.3);">' +
+      '<div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px;">' +
+        '<div>' +
+          '<span style="font-family:var(--font); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--tier-blue); display:block; margin-bottom:4px;">Gap-Targeted Product (Based on Your Gap 1)</span>' +
+          '<div class="prod-name">' + gapProd.name + '</div>' +
+        '</div>' +
+        '<div class="prod-price">' + gapProd.price + '</div>' +
+      '</div>' +
+      '<span class="prod-mechanism">' + gapProd.mechanism + '</span>' +
+      '<p>' + gapProd.desc + '</p>' +
+      '<div class="prod-protocol"><strong>Protocol:</strong> ' + gapProd.protocol + '</div>' +
+    '</div>';
+  }
+
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Athlete Tier MasterClass",
+  "settings": []
+}
+{% endschema %}

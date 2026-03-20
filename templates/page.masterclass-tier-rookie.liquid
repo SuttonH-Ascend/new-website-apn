@@ -1,0 +1,1337 @@
+{% comment %}
+  Ascend Performance Nutrition — ROOKIE Tier MasterClass
+  Tier: Rookie (Score 0-40)
+  Personalization: ?score= ?name= ?gap1= ?gap2= ?gap3=
+  Version: 1.0 | Production Ready
+{% endcomment %}
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section id="apn-masterclass-tier-rookie" style="font-family:'Barlow',sans-serif; background:#F4F4F2; color:#333333;">
+
+<style>
+  #apn-masterclass-tier-rookie * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ---- TOKENS ---- */
+  #apn-masterclass-tier-rookie {
+    --teal:       #108474;
+    --tier-green: #22C55E;
+    --black:      #0D0D0D;
+    --body:       #333333;
+    --bg:         #F4F4F2;
+    --bg2:        #F8F8F8;
+    --border:     #E2E8F0;
+    --warning:    #F59E0B;
+    --warn-bg:    #FFFBEB;
+    --font:       'Barlow', sans-serif;
+  }
+
+  /* ---- GLOBAL ---- */
+  .apn-r-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .apn-r-wrap--wide { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  .apn-r-section-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .apn-r-divider {
+    width: 64px;
+    height: 3px;
+    background: var(--teal);
+    margin: 20px 0 32px 0;
+  }
+  .apn-r-divider--center { margin: 20px auto 32px auto; }
+
+  .apn-r-h1 {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: clamp(38px, 6vw, 54px);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    color: #ffffff;
+  }
+
+  .apn-r-h2 {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: clamp(26px, 4vw, 36px);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+
+  .apn-r-h3 {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+
+  .apn-r-body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+
+  .apn-r-body + .apn-r-body { margin-top: 16px; }
+
+  /* ---- MODULE SPACING ---- */
+  .apn-r-module { padding: 80px 0; }
+  .apn-r-module--dark { background: var(--black); }
+  .apn-r-module--bg2 { background: var(--bg2); }
+  .apn-r-module--bg { background: var(--bg); }
+
+  /* ---- HERO ---- */
+  .apn-r-hero {
+    background: var(--black);
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .apn-r-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+  }
+  .apn-r-hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .apn-r-tier-badge {
+    display: inline-block;
+    background: var(--tier-green);
+    color: #fff;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 3px;
+  }
+  .apn-r-hero-welcome {
+    font-family: var(--font);
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .apn-r-hero-welcome strong { color: rgba(255,255,255,0.9); }
+  .apn-r-hero-sub {
+    font-family: var(--font);
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.72);
+    margin-top: 24px;
+    max-width: 600px;
+  }
+  .apn-r-module-list {
+    margin-top: 40px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .apn-r-module-list li {
+    font-family: var(--font);
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .apn-r-module-list li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+  .apn-r-module-list .read-time {
+    margin-left: auto;
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .apn-r-scroll-btn {
+    display: inline-block;
+    margin-top: 44px;
+    padding: 14px 32px;
+    background: var(--teal);
+    color: #fff;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .apn-r-scroll-btn:hover { opacity: 0.88; }
+
+  /* ---- PULL QUOTE ---- */
+  .apn-r-pullquote {
+    border-left: 4px solid var(--teal);
+    background: var(--bg2);
+    padding: 24px 28px;
+    margin: 40px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .apn-r-pullquote p {
+    font-family: var(--font);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+  .apn-r-pullquote cite {
+    display: block;
+    margin-top: 12px;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* ---- ASSIGNMENT BLOCK ---- */
+  .apn-r-assignment {
+    border-top: 3px solid var(--teal);
+    background: #F4F4F2;
+    padding: 24px 28px;
+    margin-top: 28px;
+    border-radius: 0 0 4px 4px;
+  }
+  .apn-r-assignment .assignment-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .apn-r-assignment p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+  }
+  .apn-r-assignment ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  .apn-r-assignment ul li {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--body);
+    margin-bottom: 6px;
+  }
+
+  /* ---- SCRIPTURE ---- */
+  .apn-r-scripture {
+    text-align: center;
+    padding: 40px 32px;
+    margin: 48px 0;
+    background: var(--bg2);
+    border-radius: 4px;
+  }
+  .apn-r-scripture p {
+    font-family: var(--font);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--body);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .apn-r-scripture cite {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  /* ---- WARNING CALLOUT ---- */
+  .apn-r-warning {
+    border-left: 4px solid var(--warning);
+    background: var(--warn-bg);
+    padding: 20px 24px;
+    margin: 32px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .apn-r-warning .warn-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--warning);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .apn-r-warning p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: #92400E;
+  }
+
+  /* ---- DATA CALLOUT ---- */
+  .apn-r-data-callout {
+    background: var(--black);
+    color: #fff;
+    padding: 28px 32px;
+    margin: 32px 0;
+    border-radius: 4px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .apn-r-data-callout .stat {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--teal);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+  .apn-r-data-callout .stat-body { flex: 1; }
+  .apn-r-data-callout .stat-body strong {
+    display: block;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .apn-r-data-callout .stat-body span {
+    font-family: var(--font);
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.55;
+  }
+
+  /* ---- GAP CARDS ---- */
+  .apn-r-gap-card {
+    background: #fff;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 6px 6px 0;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .apn-r-gap-card .gap-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .apn-r-gap-card .gap-name {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--black);
+    text-transform: capitalize;
+  }
+  .apn-r-gap-card .gap-urgency {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+  .gap-urgency--critical { background: #FEE2E2; color: #991B1B; }
+  .gap-urgency--moderate { background: #FEF3C7; color: #92400E; }
+  .gap-urgency--manageable { background: #D1FAE5; color: #065F46; }
+  .apn-r-gap-card p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+    margin-bottom: 12px;
+  }
+  .apn-r-gap-card a {
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .apn-r-gap-card a:hover { text-decoration: underline; }
+
+  /* ---- PRODUCT CARD ---- */
+  .apn-r-product-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+  }
+  .apn-r-product-card .prod-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .apn-r-product-card .prod-name {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--black);
+  }
+  .apn-r-product-card .prod-price {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--teal);
+  }
+  .apn-r-product-card .prod-mechanism {
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .apn-r-product-card p {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+    margin-bottom: 10px;
+  }
+  .apn-r-product-card .prod-protocol {
+    background: var(--bg);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.6;
+  }
+  .apn-r-product-card .prod-protocol strong {
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* ---- WEEK BLOCK ---- */
+  .apn-r-week {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .apn-r-week-header {
+    background: var(--black);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .apn-r-week-header .week-label {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .apn-r-week-header .week-title {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+  }
+  .apn-r-week-body { padding: 24px; }
+  .apn-r-week-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .apn-r-week-body ul li {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--body);
+    padding-left: 20px;
+    position: relative;
+  }
+  .apn-r-week-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  /* ---- TIER PROGRESS ---- */
+  .apn-r-tier-progress {
+    background: var(--black);
+    border-radius: 6px;
+    padding: 32px 28px;
+    margin: 40px 0;
+    color: #fff;
+  }
+  .apn-r-tier-progress .tier-progress-label {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .apn-r-tier-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0 28px;
+    flex-wrap: wrap;
+  }
+  .tier-bar-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    min-width: 80px;
+  }
+  .tier-bar-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    background: rgba(255,255,255,0.2);
+  }
+  .tier-bar-dot--active { background: var(--tier-green); }
+  .tier-bar-name {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .tier-bar-name--active { color: var(--tier-green); }
+  .tier-bar-line {
+    flex: 1;
+    height: 2px;
+    background: rgba(255,255,255,0.12);
+    min-width: 20px;
+    max-width: 60px;
+    margin-bottom: 22px;
+  }
+
+  /* ---- CHALLENGE HABITS ---- */
+  .apn-r-habit {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .apn-r-habit:last-child { border-bottom: none; }
+  .habit-num {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--teal);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 40px;
+  }
+  .habit-content strong {
+    display: block;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .habit-content p {
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ---- NEXT STEPS CARDS ---- */
+  .apn-r-next-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .apn-r-next-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  .apn-r-next-card .next-card-label {
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .apn-r-next-card .next-card-title {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--black);
+    margin-bottom: 6px;
+    text-transform: capitalize;
+  }
+  .apn-r-next-card .next-card-desc {
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.55;
+  }
+
+  /* ---- CTA BUTTONS ---- */
+  .apn-r-cta-block { display: flex; flex-direction: column; gap: 14px; margin-top: 40px; }
+  .apn-r-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 60px;
+    text-align: center;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .apn-r-btn:hover { opacity: 0.85; }
+  .apn-r-btn--teal { background: var(--teal); color: #fff; border-color: var(--teal); }
+  .apn-r-btn--black { background: var(--black); color: #fff; border-color: var(--black); }
+  .apn-r-btn--outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  /* ---- DISCOUNT BANNER ---- */
+  .apn-r-discount-banner {
+    background: var(--teal);
+    color: #fff;
+    text-align: center;
+    padding: 16px 24px;
+    border-radius: 4px;
+    margin: 28px 0;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .apn-r-discount-banner .code {
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 2px;
+    background: rgba(0,0,0,0.15);
+    padding: 2px 10px;
+    border-radius: 3px;
+    margin: 0 4px;
+  }
+
+  /* ---- FOOTER ---- */
+  .apn-r-footer {
+    background: var(--black);
+    padding: 60px 0 40px;
+    border-top: 3px solid var(--teal);
+  }
+  .apn-r-footer-tagline {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .apn-r-footer-signoff {
+    font-family: var(--font);
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    line-height: 1.7;
+  }
+  .apn-r-footer-signoff strong {
+    display: block;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    .apn-r-module { padding: 56px 0; }
+    .apn-r-hero { padding: 72px 0 60px; }
+    .apn-r-data-callout { flex-direction: column; }
+    .apn-r-cta-block { align-items: stretch; }
+    .apn-r-tier-bar { gap: 4px; }
+  }
+</style>
+
+<!-- ===================== MODULE 0: HERO ===================== -->
+<div class="apn-r-hero">
+  <div class="apn-r-wrap">
+    <div class="apn-r-hero-eyebrow">
+      <span class="apn-r-section-label" style="margin-bottom:0;">Rookie MasterClass</span>
+      <span class="apn-r-tier-badge">Rookie Tier</span>
+    </div>
+
+    <h1 class="apn-r-h1">Your Rookie<br>Performance Profile.</h1>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-hero-welcome" id="apn-r-welcome-line">
+      Welcome back. Your overall score: loading...
+    </p>
+
+    <p class="apn-r-hero-sub">
+      This page translates your quiz results into a clear performance picture. You will learn what your Rookie score means in concrete behavioral terms, where your biggest gains are hiding, and the exact 4-week framework to start moving up.
+    </p>
+
+    <ul class="apn-r-module-list">
+      <li>Module 1: What Your Score Means <span class="read-time">2 min</span></li>
+      <li>Module 2: The Rookie Performance Profile <span class="read-time">5 min</span></li>
+      <li>Module 3: Your Gap Snapshot <span class="read-time">5 min</span></li>
+      <li>Module 4: The Rookie Priority Framework <span class="read-time">10 min</span></li>
+      <li>Module 5: The Rookie Foundation Stack <span class="read-time">5 min</span></li>
+      <li>Module 6: Your Rookie Challenge <span class="read-time">3 min</span></li>
+      <li>Module 7: Next Steps <span class="read-time">3 min</span></li>
+    </ul>
+
+    <button class="apn-r-scroll-btn" onclick="document.getElementById('apn-r-module1').scrollIntoView({behavior:'smooth'})">
+      Start MasterClass
+    </button>
+  </div>
+</div>
+
+<!-- ===================== MODULE 1: WHAT YOUR SCORE MEANS ===================== -->
+<div class="apn-r-module apn-r-module--bg" id="apn-r-module1">
+  <div class="apn-r-wrap">
+    <span class="apn-r-section-label">Your Tier Report</span>
+    <h2 class="apn-r-h2">What Your Score Actually Means.</h2>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-body">
+      A Rookie score (0 to 40) is not a judgment. It is a measurement. It tells you something precise: your performance foundation has significant gaps across multiple pillars simultaneously. That is not unusual for athletes who train hard but have not yet built a system around their training. The score measures behavior, not effort. You can be working hard and still score in this range.
+    </p>
+
+    <div class="apn-r-data-callout" style="margin-top:32px;">
+      <div class="stat" id="apn-r-score-display">--</div>
+      <div class="stat-body">
+        <strong>Your Overall Score</strong>
+        <span>Rookie tier: 0 to 40. This range means multiple pillars (sleep, nutrition, recovery, training structure) are operating below baseline performance thresholds at the same time.</span>
+      </div>
+    </div>
+
+    <h3 class="apn-r-h3" style="margin-top:40px;">What defines the Rookie tier in observable terms.</h3>
+    <p class="apn-r-body">
+      Rookie-tier athletes share four consistent behaviors, regardless of sport. Sleep averages below 7 hours per night with no consistent wake time. Protein intake falls below 0.7 grams per pound of bodyweight, which means the leucine threshold required to trigger muscle protein synthesis is not being hit consistently. There is no structured training program in place, so adaptive stress is inconsistent. And there is no supplement foundation: no creatine, no post-training protein protocol, no recovery structure.
+    </p>
+    <p class="apn-r-body">
+      None of these are permanent. Every one of them is fixable in 30 days with the right order of operations.
+    </p>
+
+    <h3 class="apn-r-h3" style="margin-top:36px;">The gap between Rookie and the next tier up.</h3>
+    <p class="apn-r-body">
+      Athlete-tier athletes (score 41 to 65) have one thing Rookies do not: a system. They do not necessarily sleep more by accident or eat more protein by willpower alone. They have a protocol for it. Sleep is protected by a consistent schedule. Protein is planned around meals. Training follows a program. The behavioral gap between Rookie and Athlete is not talent or genetics. It is the presence or absence of a repeatable system.
+    </p>
+
+    <div class="apn-r-warning">
+      <span class="warn-label">Where Most Rookie Athletes Get Stuck</span>
+      <p>The most common pattern at this tier: information overload combined with zero execution. The Rookie athlete has researched supplements, watched training videos, and knows the principles. But nothing is locked in as habit. The week is reactive. Training happens when motivated. Eating is by feel. Sleep is what is left after everything else. The knowledge exists. The architecture does not.</p>
+    </div>
+
+    <h3 class="apn-r-h3" style="margin-top:36px;">One insight you can use today.</h3>
+    <p class="apn-r-body">
+      Set a wake time. Pick a time between 5:30 AM and 7:00 AM and commit to it every day this week, including weekends. Do nothing else differently yet. Research on circadian rhythm consistency shows that a fixed wake time anchors the full sleep architecture more effectively than targeting total sleep hours alone. It is the single lowest-effort, highest-return change available at this tier. Set the alarm tonight.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MODULE 2: THE ROOKIE PERFORMANCE PROFILE ===================== -->
+<div class="apn-r-module apn-r-module--bg2" id="apn-r-module2">
+  <div class="apn-r-wrap">
+    <span class="apn-r-section-label">Your Performance Profile</span>
+    <h2 class="apn-r-h2">The Rookie Performance Profile.</h2>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-body">
+      Every tier has a behavioral fingerprint. Here is what Rookie-tier performance looks like in the real world, and what separates it from the next level.
+    </p>
+
+    <div style="margin-top:40px; display:flex; flex-direction:column; gap:24px;">
+
+      <div class="apn-r-product-card" style="border-left: 4px solid var(--tier-green); border-top: none; border-right: none; border-bottom: none; border: none; border-left: 4px solid var(--tier-green); background: #fff; border-radius: 0 6px 6px 0; padding: 24px 28px;">
+        <span class="prod-mechanism">Behavior 01</span>
+        <div class="apn-r-h3" style="margin-bottom:10px;">Inconsistency is the ceiling.</div>
+        <p class="apn-r-body">Training, sleep, and nutrition all fluctuate significantly from week to week. Some weeks are great. Some are not. The problem is not the bad weeks. It is the absence of a floor. Without a consistent minimum, the body cannot build on top of previous adaptation. Research on training adaptation shows that the minimum effective dose applied consistently outperforms high-volume training applied sporadically. Inconsistency is not a motivation problem. It is a systems problem.</p>
+      </div>
+
+      <div class="apn-r-product-card" style="border: none; border-left: 4px solid var(--tier-green); background: #fff; border-radius: 0 6px 6px 0; padding: 24px 28px;">
+        <span class="prod-mechanism">Behavior 02</span>
+        <div class="apn-r-h3" style="margin-bottom:10px;">Decisions made by feel, not protocol.</div>
+        <p class="apn-r-body">What to eat, when to train, how long to sleep. All of it decided in the moment based on how the athlete feels. This is fine when feeling is good. It fails when life gets busy, when motivation dips, or when stress increases. Protocol removes the decision. When the decision is already made, execution becomes the only variable. Athlete-tier athletes do not rely on feeling motivated. They rely on their protocol.</p>
+      </div>
+
+      <div class="apn-r-product-card" style="border: none; border-left: 4px solid var(--tier-green); background: #fff; border-radius: 0 6px 6px 0; padding: 24px 28px;">
+        <span class="prod-mechanism">Behavior 03</span>
+        <div class="apn-r-h3" style="margin-bottom:10px;">Knows too much. Executes too little.</div>
+        <p class="apn-r-body">The Rookie athlete has absorbed a significant amount of performance information. Protein targets, sleep hygiene principles, creatine loading, periodization concepts. But the gap between knowledge and execution is large. Adding more information does not close this gap. Adding fewer, simpler commitments does. The brain executes on habits, not on knowledge. The priority at this tier is reducing the list to one thing and locking it in before adding the next.</p>
+      </div>
+
+    </div>
+
+    <div class="apn-r-warning" style="margin-top:40px;">
+      <span class="warn-label">The Most Common Rookie Mistake</span>
+      <p>Trying to change everything at once. A new training program, a new diet plan, three new supplements, and a recovery protocol all starting in the same week. None of it sticks. Habit formation research is clear: willpower is a finite resource, and stacking too many behavioral changes simultaneously depletes it before any single change becomes automatic. The Rookie who tries to fix everything in Week 1 is back to zero by Week 3.</p>
+    </div>
+
+    <div class="apn-r-pullquote" style="margin-top:40px;">
+      <p>"Coaches working with Rookie-tier athletes consistently report the same pattern: athletes with significant physical potential who plateau early because they have no system. The ones who break out fastest are not the most gifted. They are the ones who commit to one protocol and execute it without exception until it is automatic."</p>
+      <cite>Performance Coaching Observation, Ascend Athlete Data</cite>
+    </div>
+
+    <h3 class="apn-r-h3" style="margin-top:40px;">The compounding opportunity.</h3>
+    <p class="apn-r-body">
+      This is the most important thing to understand about the Rookie tier: you are at the highest leverage point available. When the baseline is low, fixing one pillar delivers outsized results because the systems are interconnected. Fixing sleep first is not just about sleep. Consistent 7 to 8 hour sleep improves insulin sensitivity, which improves nutrient partitioning, which means the protein you eat does more. Better sleep also reduces cortisol chronically, which accelerates recovery between sessions, which means your training produces more adaptation. One change. Multiple returns. This is the compounding opportunity that only exists at this tier.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MODULE 3: YOUR GAP SNAPSHOT ===================== -->
+<div class="apn-r-module apn-r-module--bg" id="apn-r-module3">
+  <div class="apn-r-wrap">
+    <span class="apn-r-section-label">Your Gap Snapshot</span>
+    <h2 class="apn-r-h2">Your Top 3 Performance Gaps.</h2>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-body">
+      Your quiz identified three specific areas where your performance is leaving points on the floor. These are not random. They reflect patterns in your current habits. Here is what each one means at your tier level, what it is costing you, and how urgently it needs attention.
+    </p>
+
+    <div class="apn-r-warning" style="margin-top:32px;">
+      <span class="warn-label">Priority Order</span>
+      <p>Fix these in this order. Gap 1 is costing you more than Gap 2 and Gap 3 combined. At the Rookie tier, the primary gap is almost always the bottleneck limiting everything else. Do not split your attention across all three simultaneously.</p>
+    </div>
+
+    <!-- Gap cards injected by JS -->
+    <div id="apn-r-gap-container" style="margin-top:32px;"></div>
+
+    <h3 class="apn-r-h3" style="margin-top:40px;">How your gaps interact.</h3>
+    <p class="apn-r-body">
+      Performance gaps rarely exist in isolation. Sleep deprivation (below 7 hours) raises cortisol by 15 to 20% on average, which directly impairs recovery between training sessions and increases muscle protein breakdown. If recovery is your second gap, sleep is making it worse. If nutrition is involved, inadequate protein intake combined with poor sleep means muscle protein synthesis is being triggered less frequently and less effectively. Fixing your primary gap does not just help that pillar. It reduces the drag on everything else.
+    </p>
+    <p class="apn-r-body" style="margin-top:16px;">
+      Each gap has its own dedicated MasterClass page with a full protocol. The links above point you directly there. Come back to Module 7 of this page for a quick-reference to all three.
+    </p>
+  </div>
+</div>
+
+<!-- ===================== MODULE 4: THE ROOKIE PRIORITY FRAMEWORK ===================== -->
+<div class="apn-r-module apn-r-module--bg2" id="apn-r-module4">
+  <div class="apn-r-wrap">
+    <span class="apn-r-section-label">The Framework</span>
+    <h2 class="apn-r-h2">The Rookie Priority Framework.</h2>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-body">
+      Most performance advice is built for athletes who already have a foundation. It assumes consistent sleep, adequate protein, and structured training are already in place. At the Rookie tier, that assumption is wrong. You need a different model.
+    </p>
+
+    <h3 class="apn-r-h3" style="margin-top:36px;">The mental model.</h3>
+    <p class="apn-r-body" style="font-weight:600; color: var(--black); font-size:18px; line-height:1.5;">
+      "One thing. Lock it in. Then add one more."
+    </p>
+    <p class="apn-r-body" style="margin-top:12px;">
+      This is not a shortcut. This is the only approach that builds lasting performance architecture. Adding one behavior at a time until it is automatic, then stacking the next one on top, is how every elite athlete built their foundation. They did not start elite. They started with one locked-in habit and compounded from there. The Rookie who tries to build everything at once builds nothing. The Rookie who locks in one thing every week for four weeks has four real habits at the end of the month.
+    </p>
+
+    <div style="margin-top:48px; margin-bottom:48px;">
+
+      <!-- Week 1 -->
+      <div class="apn-r-week">
+        <div class="apn-r-week-header">
+          <span class="week-label">Week 1</span>
+          <span class="week-title">Sleep Architecture</span>
+        </div>
+        <div class="apn-r-week-body">
+          <p class="apn-r-body" style="margin-bottom:16px;"><strong>Focus:</strong> Build the foundation of your recovery system. Nothing else changes this week.</p>
+          <ul>
+            <li>Pick a wake time between 5:30 AM and 7:00 AM. Set it. Hit it every day this week, including Saturday and Sunday. The weekend is where the schedule breaks down for most athletes.</li>
+            <li>Target 7 to 8 hours in bed. If you are currently getting 6 or less, move your bedtime back by 30 minutes for the first 3 days, then another 30 minutes for days 4 to 7.</li>
+            <li>No screens for 30 minutes before bed. Blue light suppresses melatonin onset by up to 90 minutes according to Harvard Sleep Medicine research. This is not optional if you want the other two points to work.</li>
+          </ul>
+          <div class="apn-r-assignment">
+            <span class="assignment-label">Week 1 Assignment</span>
+            <p>Write your wake time on a piece of paper and put it next to your bed tonight. Track whether you hit it each day in your phone notes. At the end of 7 days, count how many days out of 7 you executed. Anything below 5 of 7 means sleep is your primary gap and the Week 1 protocol extends into Week 2 before anything else is added.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="apn-r-week">
+        <div class="apn-r-week-header">
+          <span class="week-label">Week 2</span>
+          <span class="week-title">Protein Target</span>
+        </div>
+        <div class="apn-r-week-body">
+          <p class="apn-r-body" style="margin-bottom:16px;"><strong>Focus:</strong> Hit your daily protein target consistently. Sleep protocol continues from Week 1.</p>
+          <ul>
+            <li>Calculate your target: bodyweight in pounds multiplied by 0.7 to 0.8. A 185-pound athlete targets 130 to 148 grams per day. This is the minimum threshold to support lean mass maintenance and recovery.</li>
+            <li>Distribute across 3 to 4 meals or feedings. A single large protein meal does not maximize muscle protein synthesis the way distributed feedings do. The leucine threshold (approximately 2 to 3 grams of leucine per feeding) needs to be hit multiple times per day.</li>
+            <li>Track it for all 7 days using a free app (Cronometer or MyFitnessPal). You do not need to track forever. You need 7 days of data to know where your baseline actually is.</li>
+          </ul>
+          <div class="apn-r-assignment">
+            <span class="assignment-label">Week 2 Assignment</span>
+            <p>Log every meal for 7 days. Calculate your average daily protein. If you hit your target 5 of 7 days or more, you advance to Week 3. If you are not hitting it consistently, identify the single meal where the gap is largest and fix that meal specifically before moving on.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scripture Block -->
+      <div class="apn-r-scripture">
+        <p>"Give careful thought to the paths for your feet and be steadfast in all your ways."</p>
+        <cite>Proverbs 4:26</cite>
+      </div>
+
+      <!-- Week 3 -->
+      <div class="apn-r-week">
+        <div class="apn-r-week-header">
+          <span class="week-label">Week 3</span>
+          <span class="week-title">Foundation Stack Begins</span>
+        </div>
+        <div class="apn-r-week-body">
+          <p class="apn-r-body" style="margin-bottom:16px;"><strong>Focus:</strong> Two products. No more. Sleep and protein protocols continue.</p>
+          <ul>
+            <li>Recharge (Creatine Monohydrate): 5 grams every day. Take it at the same time daily, consistency of timing matters more than specific timing. Creatine increases intramuscular phosphocreatine stores, which improves high-intensity output and supports lean mass gains over time. Over 500 peer-reviewed studies confirm this mechanism. This is the starting point before any other supplement.</li>
+            <li>Resilience (Whey Protein Isolate): 25 to 30 grams within 45 minutes post-training. This hits the leucine threshold (approximately 2.5 to 3 grams of leucine per serving of high-quality whey) required to maximally stimulate muscle protein synthesis during the post-exercise window when the rate of synthesis is highest.</li>
+            <li>No additional supplements this week. Adding more dilutes focus and makes it harder to know what is working.</li>
+          </ul>
+          <div class="apn-r-assignment">
+            <span class="assignment-label">Week 3 Assignment</span>
+            <p>Set a daily phone reminder for creatine. Set a second reminder 30 minutes before your usual training end time to prepare your post-training shake. Execute both for 7 consecutive days. Consistency of supplement timing is the entire game at this stage.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 4 -->
+      <div class="apn-r-week">
+        <div class="apn-r-week-header">
+          <span class="week-label">Week 4</span>
+          <span class="week-title">Structured Training Program</span>
+        </div>
+        <div class="apn-r-week-body">
+          <p class="apn-r-body" style="margin-bottom:16px;"><strong>Focus:</strong> Choose one training program and execute it exactly. Sleep, protein, and stack continue.</p>
+          <ul>
+            <li>Choose one program. Not two. Not a hybrid. One: 3 to 5 days per week, specific exercises, rep ranges, and rest periods written down. If you train MMA or a sport, this is your strength and conditioning program, separate from sport-specific training.</li>
+            <li>Log every session. Exercises, sets, reps, and weights. This is not optional. Without a training log, you cannot confirm progressive overload is occurring. Progressive overload is the mechanism that drives adaptation. If it is not tracked, it is guesswork.</li>
+            <li>Do not modify the program in Week 4. Execute it as written. Adaptation requires consistent stimulus. You cannot assess a program you have customized before the data exists to justify customization.</li>
+          </ul>
+          <div class="apn-r-assignment">
+            <span class="assignment-label">Week 4 Assignment</span>
+            <p>On Day 28, review all four weeks. Check: Did you hit your wake time 5 of 7 days on average? Did you hit your protein target 5 of 7 days? Did you take creatine every day? Did you log every training session? Count your execution rate. This number tells you whether you are ready to move to the Athlete tier protocol or whether you need another 4-week block here first.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="apn-r-h3">What the next tier looks like. How long it takes. What it requires.</h3>
+    <p class="apn-r-body">
+      Athlete-tier performance (score 41 to 65) requires the Rookie foundation to be locked in as habit, not effort. The transition happens when sleep is consistent without trying, protein is a matter of planning not willpower, and training follows a program automatically. Most athletes who execute this 4-week framework consistently see their next quiz score improve by 15 to 25 points. The timeline for a genuine tier transition, behavioral habits fully automated, is typically 8 to 12 weeks of consistent execution. Four weeks builds the foundation. The second block of four cements it.
+    </p>
+
+    <div class="apn-r-tier-progress">
+      <span class="tier-progress-label">Your Tier Path</span>
+      <p style="font-family:var(--font); font-size:14px; color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:20px;">Every tier above you was built by athletes who executed the fundamentals at this tier first. The path is straight. The work is consistent.</p>
+      <div class="apn-r-tier-bar">
+        <div class="tier-bar-item">
+          <div class="tier-bar-dot tier-bar-dot--active"></div>
+          <div class="tier-bar-name tier-bar-name--active">Rookie</div>
+        </div>
+        <div class="tier-bar-line"></div>
+        <div class="tier-bar-item">
+          <div class="tier-bar-dot"></div>
+          <div class="tier-bar-name">Athlete</div>
+        </div>
+        <div class="tier-bar-line"></div>
+        <div class="tier-bar-item">
+          <div class="tier-bar-dot"></div>
+          <div class="tier-bar-name">Competitor</div>
+        </div>
+        <div class="tier-bar-line"></div>
+        <div class="tier-bar-item">
+          <div class="tier-bar-dot"></div>
+          <div class="tier-bar-name">Elite</div>
+        </div>
+      </div>
+      <p style="font-family:var(--font); font-size:13px; color:rgba(255,255,255,0.4); line-height:1.5;">Retake the quiz after 30 days of executing this framework. Your score is a direct reflection of your current behavioral habits. When the habits change, the score changes.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== MODULE 5: THE ROOKIE FOUNDATION STACK ===================== -->
+<div class="apn-r-module apn-r-module--bg" id="apn-r-module5">
+  <div class="apn-r-wrap">
+    <span class="apn-r-section-label">The Stack</span>
+    <h2 class="apn-r-h2">The Rookie Foundation Stack.</h2>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-body">
+      Two products. That is the entire Rookie stack. Not because more is not available, but because the principle of this tier is locking in one thing before adding the next. These two products address the two highest-leverage supplementation opportunities for athletes building their performance foundation. Every product introduced mechanism-first, because understanding what it does is how you use it correctly.
+    </p>
+
+    <div style="margin-top:36px;">
+
+      <div class="apn-r-product-card">
+        <div class="prod-top">
+          <div class="prod-name">Recharge. Creatine Monohydrate.</div>
+          <div class="prod-price">$39.99</div>
+        </div>
+        <span class="prod-mechanism">Mechanism: Phosphocreatine Replenishment</span>
+        <p>Creatine monohydrate is the most studied performance supplement in existence, with over 500 peer-reviewed studies confirming its safety and efficacy. The mechanism is straightforward: creatine is stored in muscle as phosphocreatine, which serves as the rapid ATP regeneration source during high-intensity efforts (sprints, heavy lifts, explosive movements lasting 1 to 10 seconds). Supplementing with 5 grams per day saturates these stores over 3 to 4 weeks, improving output in the efforts that matter most for adaptation.</p>
+        <p>At the Rookie tier, creatine is the starting point before any other supplement because it works at the training layer. Better training output creates a stronger adaptive stimulus. A stronger adaptive stimulus produces more adaptation. This is the foundation everything else is built on.</p>
+        <div class="prod-protocol">
+          <strong>Protocol:</strong> 5g daily. Any time of day. Consistency of daily intake matters more than timing. Take it with water or your post-training shake. No loading phase required. Steady-state saturation is reached in 3 to 4 weeks at 5g per day.
+        </div>
+      </div>
+
+      <div class="apn-r-product-card">
+        <div class="prod-top">
+          <div class="prod-name">Resilience. Whey Protein Isolate.</div>
+          <div class="prod-price">$59.99</div>
+        </div>
+        <span class="prod-mechanism">Mechanism: Leucine Threshold and Muscle Protein Synthesis</span>
+        <p>Whey protein isolate provides the fastest-digesting, highest-leucine protein source available. Leucine is the amino acid that directly activates the mTOR pathway, the primary signaling mechanism for muscle protein synthesis. Research consistently shows a leucine threshold of approximately 2 to 3 grams per feeding to maximally stimulate this pathway. A 25 to 30 gram serving of high-quality whey isolate provides this threshold, where whole food sources in a typical post-training meal often do not reach it fast enough in the post-exercise window.</p>
+        <p>For Rookie-tier athletes, this is especially important because post-training nutrition is often the most neglected meal of the day. Training ends. Life happens. The post-training window closes without adequate protein. Resilience solves this with a fast, portable, measured solution.</p>
+        <div class="prod-protocol">
+          <strong>Protocol:</strong> 25 to 30g within 45 minutes post-training. Mix with water or milk. This is your non-negotiable recovery tool. Every training session ends with this. No exceptions in the first 30 days.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="apn-r-discount-banner">
+      Use code <span class="code">ASCEND15</span> for 15% off your stack. Free shipping on orders over $75.
+    </div>
+
+    <p class="apn-r-body" style="text-align:center; color: #888; font-size:14px; margin-top: 8px;">
+      Both products available at <a href="https://ascendperformancenutrition.com/collections/all" style="color:var(--teal); text-decoration:none; font-weight:600;">ascendperformancenutrition.com/collections/all</a>
+    </p>
+
+  </div>
+</div>
+
+<!-- ===================== MODULE 6: THE ROOKIE CHALLENGE ===================== -->
+<div class="apn-r-module apn-r-module--dark" id="apn-r-module6">
+  <div class="apn-r-wrap">
+    <span class="apn-r-section-label" style="color: var(--teal);">The Commitment</span>
+    <h2 class="apn-r-h2" style="color:#fff;">Your Rookie Challenge.</h2>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-body" style="color:rgba(255,255,255,0.7);">
+      Four habits. Specific. Measurable. Non-negotiable for 30 days. This is how you move from Rookie to Athlete. Not inspiration. Not ambition. Four locked-in behaviors executed daily.
+    </p>
+
+    <div style="margin-top:40px;">
+      <div class="apn-r-habit">
+        <div class="habit-num">01</div>
+        <div class="habit-content">
+          <strong>Hit your wake time within 30 minutes, every day.</strong>
+          <p>Including weekends. Non-negotiable. A consistent wake time is the single anchor of your entire sleep architecture. Miss this and you undermine everything downstream. Success measure: 6 of 7 days per week for 4 consecutive weeks.</p>
+        </div>
+      </div>
+      <div class="apn-r-habit">
+        <div class="habit-num">02</div>
+        <div class="habit-content">
+          <strong>Hit your protein target 5 of 7 days every week.</strong>
+          <p>Calculate it (bodyweight x 0.7g minimum), plan for it, track it. Not as a punishment. As a data point. Five of seven days is the minimum threshold for measurable adaptation in lean mass over a 30-day block. Below that, you are leaving recovery and growth on the floor.</p>
+        </div>
+      </div>
+      <div class="apn-r-habit">
+        <div class="habit-num">03</div>
+        <div class="habit-content">
+          <strong>Take 5g creatine every single day for 30 days.</strong>
+          <p>Daily. No exceptions. Phosphocreatine saturation requires consistent intake. Missing 2 to 3 days per week eliminates the benefit. Set a daily alarm. This is the most important habit to automate because it requires the least effort once it is a reflex.</p>
+        </div>
+      </div>
+      <div class="apn-r-habit">
+        <div class="habit-num">04</div>
+        <div class="habit-content">
+          <strong>Log every training session for 30 days.</strong>
+          <p>Exercise, sets, reps, weight. In a notebook or your phone. This creates the data you need to confirm progressive overload is occurring. Athletes who log consistently progress 40% faster on compound lifts over a 12-week period compared to athletes who train without records, because they eliminate the guessing about whether weight increased or volume progressed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="apn-r-pullquote" style="margin-top:48px; background: rgba(255,255,255,0.05); border-left-color: var(--teal);">
+      <p style="color: rgba(255,255,255,0.85);">"Every elite athlete was a Rookie. The difference between who stays there and who does not is not talent. It is the decision to stop winging it and start building one thing at a time."</p>
+      <cite>Sutton Huggins, Founder and CEO, Ascend Performance Nutrition</cite>
+    </div>
+
+    <div style="margin-top:48px; padding: 32px; background: rgba(16,132,116,0.12); border: 1px solid rgba(16,132,116,0.3); border-radius: 6px;">
+      <span class="apn-r-section-label">What Separates Athletes Who Level Up</span>
+      <p class="apn-r-body" style="color:rgba(255,255,255,0.8); margin-bottom:16px;">
+        The Rookie athletes who reach Athlete tier within 60 days share one consistent pattern: they do not try to do everything. They choose four habits. They execute them with monotonous consistency. They do not add a fifth habit until the fourth is automatic. They retake the quiz after 30 days and let the data tell them what changed.
+      </p>
+      <p class="apn-r-body" style="color:rgba(255,255,255,0.8);">
+        The Rookie athletes who stay Rookie for six months are doing the opposite. They try a protocol for two weeks, get distracted, restart with a new one, try new supplements, consume more content, and never execute anything long enough to measure it. Do not be that athlete. Pick the four habits above. Lock them in. Measure the result.
+      </p>
+    </div>
+
+    <div style="margin-top:48px; text-align:center;">
+      <p style="font-family:var(--font); font-size:15px; color:rgba(255,255,255,0.5); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">Conviction Close</p>
+      <p style="font-family:var(--font); font-size:18px; color:#fff; line-height:1.7; max-width:560px; margin:0 auto;">Faith is not passive. It acts. Discipline is not punishment. It is the architecture of the person you are becoming. Performance is not a gift. It is built. One locked-in habit at a time.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== MODULE 7: NEXT STEPS ===================== -->
+<div class="apn-r-module apn-r-module--bg" id="apn-r-module7">
+  <div class="apn-r-wrap">
+    <span class="apn-r-section-label">Next Steps</span>
+    <h2 class="apn-r-h2">Your Next Move.</h2>
+    <div class="apn-r-divider"></div>
+
+    <p class="apn-r-body">
+      Your next move is your gap MasterClasses. Each one goes deep on the specific pillar holding you back. They have their own protocols, tools, and frameworks built specifically for your gap. Start with Gap 1. It is costing you the most.
+    </p>
+
+    <!-- Gap link cards injected by JS -->
+    <div id="apn-r-gap-links" style="margin-top:32px;"></div>
+
+    <div class="apn-r-cta-block" style="margin-top:48px;">
+      <a href="https://ascendperformancenutrition.com/collections/all" class="apn-r-btn apn-r-btn--teal">
+        Build Your Rookie Stack. Use Code ASCEND15.
+      </a>
+      <a href="https://ascendperformancenutrition.com" class="apn-r-btn apn-r-btn--black">
+        Work with Jesse. $400/month Coaching.
+      </a>
+      <a href="https://ascendperformancenutrition.com/pages/performance-quiz" class="apn-r-btn" style="background:transparent; color:var(--body); border:2px solid var(--border); border-radius:60px; font-family:var(--font); font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; padding:16px 32px; text-align:center; display:inline-block; transition:opacity 0.2s;">
+        Retake in 30 Days
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<div class="apn-r-footer">
+  <div class="apn-r-wrap">
+    <div class="apn-r-footer-tagline">Faith &nbsp;|&nbsp; Family &nbsp;|&nbsp; America &nbsp;|&nbsp; Fitness</div>
+    <div class="apn-r-footer-signoff">
+      Faith over fear.<br>
+      <strong>Sutton Huggins</strong>
+      Founder &amp; CEO, Ascend Performance Nutrition
+    </div>
+  </div>
+</div>
+
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  var params = new URLSearchParams(window.location.search);
+  var scoreParam = parseInt(params.get('score') || '25');
+  var nameParam = params.get('name') || 'Athlete';
+  var gap1Param = params.get('gap1') || 'sleep';
+  var gap2Param = params.get('gap2') || 'recovery';
+  var gap3Param = params.get('gap3') || 'nutrition';
+
+  /* ---- Welcome line ---- */
+  var welcomeEl = document.getElementById('apn-r-welcome-line');
+  if (welcomeEl) {
+    welcomeEl.innerHTML = 'Welcome back, <strong>' + nameParam + '</strong>. Your overall score: <strong>' + scoreParam + '/100</strong>.';
+  }
+
+  /* ---- Score display ---- */
+  var scoreEl = document.getElementById('apn-r-score-display');
+  if (scoreEl) {
+    scoreEl.textContent = scoreParam + '/100';
+  }
+
+  /* ---- Gap data map ---- */
+  var gapData = {
+    sleep: {
+      label: 'Sleep',
+      urgency: 'critical',
+      cost: 'Inadequate sleep (below 7 hours) elevates cortisol chronically, reduces testosterone, impairs protein synthesis signaling, and cuts reaction time by 20 to 30%. At the Rookie tier, this gap is almost always the primary bottleneck because it degrades every other pillar simultaneously.',
+      action: 'Sleeping below 7 hours per night is not a minor inefficiency. It is a biological tax on every other adaptation you are trying to drive. Fix this first.'
+    },
+    recovery: {
+      label: 'Recovery',
+      urgency: 'critical',
+      cost: 'Insufficient recovery between training sessions means the adaptation signal from each session is being partially cancelled by the next session before the tissue repair cycle completes. Net result: you are training more and adapting less. Studies show that athletes training in a chronic state of under-recovery accumulate 40 to 60% less lean mass per training block compared to those who hit recovery markers.',
+      action: 'Recovery is not rest. It is an active process requiring adequate protein, sleep, and hydration. All three need to be in place simultaneously.'
+    },
+    nutrition: {
+      label: 'Nutrition',
+      urgency: 'critical',
+      cost: 'Protein below 0.7g per pound of bodyweight per day means the leucine threshold is not being hit consistently, muscle protein synthesis is sub-maximal, and recovery between sessions is impaired. Micronutrient gaps in a low-quality diet also directly affect hormone production, energy metabolism, and immune function.',
+      action: 'Protein is the non-negotiable at this tier. Total calorie adequacy is the second priority. Micronutrient quality is the third. Build in that order.'
+    },
+    hydration: {
+      label: 'Hydration',
+      urgency: 'moderate',
+      cost: 'A 2% reduction in body water causes a measurable decrease in strength, endurance, and cognitive performance. Chronic low-grade dehydration is common in athletes training intensely and not replacing losses. This compounds over the training week, degrading session quality cumulatively.',
+      action: 'Target bodyweight in ounces divided by two as a daily minimum. Add 16 to 24oz per hour of training. Electrolytes matter when sweating is heavy.'
+    },
+    training: {
+      label: 'Training Structure',
+      urgency: 'critical',
+      cost: 'Training without a structured program means progressive overload is not being applied consistently. Progressive overload is the mechanism that drives adaptation. Without it, the body has no reason to adapt. Random training produces random results. At the Rookie tier, this is often the gap that prevents any other improvement from sticking.',
+      action: 'Choose one program. Follow it for 8 weeks minimum before assessing. Log every session. The program is not the variable. Your execution of it is.'
+    },
+    mental: {
+      label: 'Mental Performance',
+      urgency: 'moderate',
+      cost: 'Psychological stress activates the same cortisol pathway as physical stress. Athletes carrying chronic mental stress are operating with elevated cortisol baseline, which directly inhibits recovery, reduces sleep quality, and reduces testosterone. The mental performance gap at the Rookie tier is usually unmanaged daily stress compounding physical training load.',
+      action: 'Stress management is not soft. It is biochemistry. A 10-minute breathing protocol (box breathing: 4 seconds in, 4 hold, 4 out, 4 hold) has demonstrated measurable cortisol reduction in multiple controlled studies.'
+    },
+    stress: {
+      label: 'Stress Management',
+      urgency: 'moderate',
+      cost: 'Unmanaged stress chronically elevates cortisol, directly opposing the anabolic signals from training and nutrition. This creates a situation where the athlete is doing the right physical work but the biochemical environment is actively working against adaptation. The gap is real and measurable.',
+      action: 'Identify your top two stress sources. Address one with a specific behavioral change this week. Acknowledge the second. The awareness alone reduces its physiological impact.'
+    },
+    supplements: {
+      label: 'Supplementation',
+      urgency: 'manageable',
+      cost: 'No supplement foundation means the training and recovery you are already doing is not being optimally supported. Creatine alone can improve high-intensity output by 10 to 20% when stores are fully saturated. Post-training protein timing can increase net muscle protein balance by up to 33% compared to untimed intake. These are not marginal gains at this tier.',
+      action: 'Start with creatine and post-training protein. Both are available, inexpensive, and backed by the deepest evidence base in sports nutrition. Do not add more until these two are locked in.'
+    }
+  };
+
+  var urgencyLabels = {
+    critical: 'Critical',
+    moderate: 'Moderate',
+    manageable: 'Manageable'
+  };
+  var urgencyClass = {
+    critical: 'gap-urgency--critical',
+    moderate: 'gap-urgency--moderate',
+    manageable: 'gap-urgency--manageable'
+  };
+
+  function getGapInfo(key) {
+    return gapData[key] || {
+      label: key.charAt(0).toUpperCase() + key.slice(1),
+      urgency: 'moderate',
+      cost: 'This gap is affecting your performance output. Review the dedicated MasterClass page for a full protocol.',
+      action: 'Address this gap with a specific behavioral protocol. See the dedicated MasterClass for detail.'
+    };
+  }
+
+  function buildGapCard(gapKey, index) {
+    var info = getGapInfo(gapKey);
+    var priority = ['PRIMARY', 'SECONDARY', 'TERTIARY'][index];
+    var url = '/pages/masterclass-' + gapKey.toLowerCase().replace(/\s+/g, '-');
+    return '<div class="apn-r-gap-card">' +
+      '<div class="gap-meta">' +
+        '<span class="gap-name">' + priority + ': ' + info.label + '</span>' +
+        '<span class="gap-urgency ' + urgencyClass[info.urgency] + '">' + urgencyLabels[info.urgency] + '</span>' +
+      '</div>' +
+      '<p>' + info.cost + '</p>' +
+      '<p style="color:var(--body); font-weight:600;">' + info.action + '</p>' +
+      '<a href="' + url + '">Go to ' + info.label + ' MasterClass &rarr;</a>' +
+    '</div>';
+  }
+
+  var gaps = [gap1Param, gap2Param, gap3Param];
+
+  /* ---- Gap snapshot cards ---- */
+  var gapContainer = document.getElementById('apn-r-gap-container');
+  if (gapContainer) {
+    var html = '';
+    for (var i = 0; i < gaps.length; i++) {
+      html += buildGapCard(gaps[i], i);
+    }
+    gapContainer.innerHTML = html;
+  }
+
+  /* ---- Gap link cards (Module 7) ---- */
+  var gapLinks = document.getElementById('apn-r-gap-links');
+  if (gapLinks) {
+    var linkHtml = '<div style="display:grid; gap:16px;">';
+    for (var j = 0; j < gaps.length; j++) {
+      var info = getGapInfo(gaps[j]);
+      var url = '/pages/masterclass-' + gaps[j].toLowerCase().replace(/\s+/g, '-');
+      var priority = ['Gap 1: Primary', 'Gap 2: Secondary', 'Gap 3: Tertiary'][j];
+      var desc = ['This is your highest-priority gap. Start here.', 'Address after Gap 1 is showing improvement.', 'Third in order. It will benefit from the other two being addressed first.'][j];
+      linkHtml += '<a href="' + url + '" class="apn-r-next-card">' +
+        '<span class="next-card-label">' + priority + '</span>' +
+        '<div class="next-card-title">' + info.label + ' MasterClass</div>' +
+        '<p class="next-card-desc">' + desc + '</p>' +
+      '</a>';
+    }
+    linkHtml += '</div>';
+    gapLinks.innerHTML = linkHtml;
+  }
+
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Rookie Tier MasterClass",
+  "settings": []
+}
+{% endschema %}
