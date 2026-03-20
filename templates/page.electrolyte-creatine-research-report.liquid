@@ -1,0 +1,853 @@
+{% layout none %}
+<!-- RESEARCH REPORT: Print to PDF in your browser for a downloadable version. File > Print > Save as PDF -->
+<!-- Or open directly and share the file link -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Electrolyte-Creatine Protocol: What the Research Actually Shows | Ascend Performance Nutrition</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #1a1a1a;
+    background: #ffffff;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* COVER PAGE */
+  .cover-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 80px 60px;
+    page-break-after: always;
+  }
+
+  .cover-logo {
+    width: 200px;
+    margin-bottom: 60px;
+  }
+
+  .cover-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #108474;
+    margin-bottom: 24px;
+  }
+
+  .cover-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
+
+  .cover-subtitle {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #cccccc;
+    margin-bottom: 60px;
+    max-width: 560px;
+    line-height: 1.5;
+  }
+
+  .cover-meta {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: #7B7B7B;
+    line-height: 2;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 3px;
+    background: #108474;
+    margin: 40px auto;
+  }
+
+  /* SECTION PAGES */
+  .section-page {
+    padding: 60px 0;
+    page-break-inside: avoid;
+  }
+
+  .section-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #108474;
+    margin-bottom: 12px;
+  }
+
+  h1, h2 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.15;
+  }
+
+  h1 { font-size: 36px; margin-bottom: 20px; }
+  h2 { font-size: 28px; margin-bottom: 16px; margin-top: 48px; }
+  h3 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 36px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: #2a2a2a;
+  }
+
+  .lead {
+    font-size: 19px;
+    line-height: 1.65;
+    color: #1a1a1a;
+    font-style: italic;
+    margin-bottom: 32px;
+  }
+
+  /* CALLOUT BOXES */
+  .callout {
+    background: #1a1a1a;
+    border-left: 4px solid #108474;
+    padding: 24px 28px;
+    margin: 32px 0;
+    page-break-inside: avoid;
+  }
+
+  .callout-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #108474;
+    margin-bottom: 8px;
+  }
+
+  .callout p {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .callout strong {
+    color: #108474;
+  }
+
+  /* STAT CARDS */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .stat-card {
+    background: #f5f5f5;
+    border-top: 3px solid #108474;
+    padding: 20px 24px;
+  }
+
+  .stat-number {
+    font-family: 'Barlow', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #108474;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-description {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .stat-source {
+    font-size: 11px;
+    color: #7B7B7B;
+    margin-top: 8px;
+    font-style: italic;
+    font-family: Georgia, serif;
+  }
+
+  /* PROTOCOL TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 14px;
+  }
+
+  th {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e8e8e8;
+    color: #2a2a2a;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: #f9f9f9; }
+
+  .evidence-strong {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #108474;
+  }
+
+  .evidence-moderate {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+  }
+
+  /* MYTH BUSTING */
+  .myth-block {
+    margin: 24px 0;
+    page-break-inside: avoid;
+  }
+
+  .myth-header {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 8px 16px;
+    margin-bottom: 0;
+  }
+
+  .myth-header.myth { background: #f5f0f0; color: #c0392b; }
+  .myth-header.reality { background: #f0f5f0; color: #108474; }
+
+  .myth-content {
+    padding: 16px 16px;
+    border: 1px solid #e8e8e8;
+    border-top: none;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* QUOTE */
+  .expert-quote {
+    border-left: 3px solid #108474;
+    padding: 16px 24px;
+    margin: 32px 0;
+    font-style: italic;
+    font-size: 17px;
+    color: #2a2a2a;
+  }
+
+  .expert-quote .attribution {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    color: #7B7B7B;
+    margin-top: 12px;
+  }
+
+  /* PAGE BREAK */
+  .page-break { page-break-after: always; padding-bottom: 40px; border-bottom: 1px solid #e8e8e8; margin-bottom: 40px; }
+
+  /* DIVIDER */
+  .divider { width: 60px; height: 3px; background: #108474; margin: 40px 0; }
+
+  /* REFERENCES */
+  .references ol { padding-left: 20px; }
+  .references li { font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 8px; }
+
+  /* PRODUCT CLOSE PAGE */
+  .product-page {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 60px;
+    page-break-before: always;
+  }
+
+  .product-page h2 {
+    color: #ffffff;
+    font-size: 32px;
+    margin-top: 0;
+  }
+
+  .product-page p { color: #cccccc; }
+
+  .product-page .ingredients-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+  }
+
+  .product-page .ingredients-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+  }
+
+  .product-page .ingredients-list li span {
+    color: #108474;
+    font-weight: 700;
+  }
+
+  .cta-block {
+    background: #108474;
+    padding: 28px 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .cta-block p {
+    color: #ffffff;
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .cta-code {
+    font-family: 'Barlow', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+  }
+
+  .cta-url {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* PRINT STYLES */
+  @media print {
+    body { font-size: 14px; }
+    .cover-page { min-height: auto; padding: 60px 40px; }
+    .section-page { padding: 40px 0; }
+    .page-break { page-break-after: always; }
+    h2 { page-break-before: auto; }
+    .callout, .stat-card, .myth-block { page-break-inside: avoid; }
+    a { text-decoration: none; color: inherit; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+  <img src="https://ascendperformancenutrition.com/cdn/shop/files/Ascend_Real_Logo.png" alt="Ascend Performance Nutrition" class="cover-logo">
+  <div class="cover-label">Research Report</div>
+  <h1 class="cover-title">The Electrolyte-Creatine Protocol: What the Research Actually Shows</h1>
+  <p class="cover-subtitle">Why athletes who take creatine without addressing electrolyte status are leaving up to 47% of their results on the table</p>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    Prepared by Ascend Performance Nutrition Research<br>
+    March 2026<br>
+    Based on peer-reviewed literature through 2024
+  </div>
+</div>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section-page page-break">
+  <div class="section-label">Executive Summary</div>
+  <h1>What You Need to Know Before You Take Another Scoop</h1>
+
+  <p class="lead">Creatine monohydrate is the most researched performance supplement in history. Over 500 peer-reviewed studies confirm its effectiveness for strength, power, and recovery. And yet most athletes who take it are not getting the results the science promises. This report explains why.</p>
+
+  <p>The answer is not dosing. It is not timing. It is not product quality. The answer is cellular transport. Creatine does not cross muscle cell membranes on its own. It requires a dedicated transporter protein called CreaT1, and that transporter is electrogenic: it physically requires two sodium ions and one chloride ion to carry a single creatine molecule into the cell.</p>
+
+  <p>When electrolyte levels are low, creatine uptake is impaired. A 2018 peer-reviewed study documented a 47% reduction in creatine uptake under electrolyte-deficient conditions. That number is not a projection. It is a measured outcome in a controlled research environment.</p>
+
+  <p>This is the gap most supplement protocols ignore. Athletes manage creatine and electrolytes as separate categories. The science says they are the same system. Creatine phosphate resynthesis, the mechanism that regenerates ATP during high-intensity effort, depends on the same electrolyte balance that governs hydration, muscle contraction, and neuromuscular function.</p>
+
+  <p>This report covers the physiology of both systems, the peer-reviewed evidence for combined supplementation, practical protocols built on that evidence, and the myths that have kept this connection out of mainstream supplement guidance.</p>
+
+  <div class="callout">
+    <div class="callout-label">Core Finding</div>
+    <p>A 2018 controlled study found that combining creatine with a balanced electrolyte formula produced a <strong>4% increase in peak power</strong>, a <strong>5% increase in mean power</strong>, and an <strong>8.4% improvement in vertical jump height</strong> compared to creatine monohydrate alone. The mechanism: electrolytes directly enhance creatine transport at the cellular level.</p>
+  </div>
+</div>
+
+<!-- SECTION 1: ELECTROLYTE PHYSIOLOGY -->
+<div class="section-page page-break">
+  <div class="section-label">Section 1</div>
+  <h1>Electrolyte Physiology: What Actually Happens Inside the Cell</h1>
+
+  <p class="lead">Most athletes understand electrolytes as a hydration tool. That understanding is incomplete. Electrolytes govern the electrical environment that makes muscular force production possible.</p>
+
+  <h2>The Sodium-Potassium Pump</h2>
+  <p>Every skeletal muscle fiber maintains a resting membrane potential of approximately -70 millivolts, maintained by the sodium-potassium ATPase pump (Na+/K+-ATPase). This pump actively moves three sodium ions out of the cell and two potassium ions into the cell for every ATP molecule consumed. The resulting electrochemical gradient is what allows muscle fibers to generate action potentials, the electrical signals that trigger contraction.</p>
+
+  <p>During exercise, muscles release potassium into the extracellular space to initiate excitability. At moderate intensities, this is a controlled process. Under conditions of electrolyte depletion or extended high-intensity effort, extracellular potassium accumulates faster than it can be reabsorbed. The result: the membrane potential narrows, action potential frequency decreases, and force production falls. This is a primary mechanism behind exercise-induced fatigue.</p>
+
+  <div class="callout">
+    <div class="callout-label">Key Mechanism</div>
+    <p>Potassium depletion post-exercise shows high effect sizes (Partial Eta squared greater than 0.60) in peer-reviewed ultramarathon research, indicating significant electrolyte-driven impairment of muscle contractions. <strong>This is not a hydration problem. This is an electrical problem.</strong></p>
+  </div>
+
+  <h2>Sweat, Sodium, and Performance Ceiling</h2>
+  <p>Sodium is the primary extracellular electrolyte and the one lost in the highest volume through sweat. Research on athletes training in hot conditions documents daily sodium losses of 3,500 to 7,000 milligrams, with total fluid loss reaching 4 to 10 liters. Even athletes training in moderate conditions lose 1,000 to 2,500 milligrams of sodium per hour of high-intensity training.</p>
+
+  <p>What sodium depletion does to performance is often misattributed to "being tired" or "poor hydration." The mechanism is more specific: as extracellular sodium falls, plasma osmolality decreases, plasma volume contracts, cardiovascular strain increases, and the sodium gradient required for muscular excitation degrades. Performance follow directly.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">7,000mg</div>
+      <div class="stat-description">Maximum daily sodium loss through sweat in hot-weather training</div>
+      <div class="stat-source">Fluid and Electrolyte Needs for Training, Competition, and Recovery (2011)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">R²=0.81</div>
+      <div class="stat-description">Correlation between post-race sodium elevation and slower race time, indicating dehydration-driven performance loss</div>
+      <div class="stat-source">Acid-Base and Electrolyte Balance Responses in Performance Research, 2024</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">600mg</div>
+      <div class="stat-description">Recommended sodium intake per hour for training sessions exceeding 90 minutes</div>
+      <div class="stat-source">American College of Sports Medicine guidelines</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1-2 sec</div>
+      <div class="stat-description">Duration of maximal effort sustainable on stored ATP alone, before phosphocreatine system must take over</div>
+      <div class="stat-source">Jinfiniti Precision Medicine Research, 2023</div>
+    </div>
+  </div>
+
+  <h2>Magnesium: The Missing Variable</h2>
+  <p>Magnesium is involved in over 300 enzymatic reactions in the human body, including every step of ATP synthesis and utilization. Magnesium binds to ATP to form the biologically active Mg-ATP complex, the actual substrate for most ATP-dependent enzymes. Without adequate magnesium, ATP cannot be used efficiently, and the cellular energy systems that creatine supports cannot function at their theoretical ceiling.</p>
+
+  <p>Magnesium is also the second most common electrolyte lost through sweat. Athletes who train consistently at high intensity show measurably lower serum and intramuscular magnesium levels compared to sedentary populations. This deficit rarely registers clinically but matters functionally: it reduces the efficiency of the very energy systems athletes are trying to optimize.</p>
+
+  <h2>Potassium and Muscle Contraction Coupling</h2>
+  <p>Potassium works with sodium in a tightly regulated ratio to maintain both membrane potential and intracellular fluid volume. During repeated high-intensity contractions, intracellular potassium can fall by 30% or more, raising extracellular potassium from roughly 4 mM to 8 to 12 mM. This shift depolarizes the resting membrane potential, making muscle fibers progressively less responsive to neural drive. The athlete experiences this as the inability to generate force on demand, not as pain, not as soreness, but as a hard ceiling on power output.</p>
+</div>
+
+<!-- SECTION 2: CREATINE SCIENCE -->
+<div class="section-page page-break">
+  <div class="section-label">Section 2</div>
+  <h1>Creatine Monohydrate: The Science Behind the Standard</h1>
+
+  <p class="lead">With over 500 peer-reviewed studies, creatine monohydrate has more direct research support than any other non-pharmaceutical performance intervention. The mechanism is specific and well-understood. The clinical dose is established. The safety record is documented across decades.</p>
+
+  <h2>The Phosphocreatine System</h2>
+  <p>ATP (adenosine triphosphate) is the universal energy currency of cellular metabolism. During maximal effort, such as a heavy squat set, a sprint, or a max pull, stored ATP in the muscle provides energy for approximately 1 to 2 seconds of work. This is a physiological ceiling, not a training limitation.</p>
+
+  <p>The phosphocreatine system is the primary mechanism for extending that window. Phosphocreatine (PCr) donates its phosphate group to adenosine diphosphate (ADP), regenerating ATP through the enzyme creatine kinase. This reaction is reversible and rapid: during recovery, creatine kinase drives PCr resynthesis from creatine and ATP, restoring the phosphagen pool for the next maximal effort.</p>
+
+  <div class="callout">
+    <div class="callout-label">The Core Reaction</div>
+    <p><strong>Phosphocreatine + ADP</strong> (via creatine kinase) <strong>= Creatine + ATP</strong></p>
+    <p>This is not a claim. This is the biochemistry that makes high-intensity performance possible. Supplemental creatine increases the size of the phosphocreatine pool, expanding how long and how repeatedly this system can operate at full output.</p>
+  </div>
+
+  <h2>What Creatine Supplementation Actually Does</h2>
+  <p>Supplemental creatine monohydrate increases intramuscular phosphocreatine stores by 10 to 40% above baseline, depending on initial creatine saturation, diet, and training status. This expansion of the PCr pool extends the phosphagen system's capacity, allowing athletes to sustain maximal force output for longer before dropping into glycolytic or oxidative energy pathways, both of which produce performance at lower power outputs.</p>
+
+  <p>The practical outcomes documented in peer-reviewed literature include: increased peak power output on repeated sprint tests, greater training volume under equivalent perceived effort, faster PCr resynthesis between sets, and improved recovery between high-intensity efforts.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">10-40%</div>
+      <div class="stat-description">Increase in intramuscular phosphocreatine stores from creatine supplementation</div>
+      <div class="stat-source">Jinfiniti Precision Medicine, 2023</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">20-35mM</div>
+      <div class="stat-description">Phosphocreatine concentration in skeletal muscle, the energy reserve that supplements expand</div>
+      <div class="stat-source">Wikipedia: Creatine, citing Wallimann et al.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5g/day</div>
+      <div class="stat-description">Clinical maintenance dose established in the peer-reviewed literature for sustained PCr saturation</div>
+      <div class="stat-source">PMC: Metabolic Basis of Creatine in Health and Disease, 2021</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">28 days</div>
+      <div class="stat-description">Time to full PCr saturation at maintenance dose (3 to 5g/day) without a loading phase</div>
+      <div class="stat-source">International Society of Sports Nutrition Position Stand</div>
+    </div>
+  </div>
+
+  <h2>Dosing: What the Evidence Supports</h2>
+  <p>The two validated creatine dosing protocols in the literature are:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Protocol</th>
+        <th>Dose and Duration</th>
+        <th>Outcome</th>
+        <th>Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Loading + Maintenance</td>
+        <td>20g/day (4x5g) for 5-7 days, then 3-5g/day indefinitely</td>
+        <td>Full PCr saturation in 7 days</td>
+        <td class="evidence-strong">STRONG</td>
+      </tr>
+      <tr>
+        <td>Maintenance Only</td>
+        <td>3-5g/day continuously</td>
+        <td>Full PCr saturation by Day 28</td>
+        <td class="evidence-strong">STRONG</td>
+      </tr>
+      <tr>
+        <td>Pre/Post Workout Timing</td>
+        <td>5g with carbohydrate source, peri-workout</td>
+        <td>Enhanced uptake via insulin-mediated transport</td>
+        <td class="evidence-strong">STRONG</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Both protocols achieve the same end state: full intramuscular creatine saturation. Loading is faster but not superior in outcome. Cycling (stopping and restarting creatine) is not supported by evidence and is not recommended.</p>
+
+  <h2>Safety: The Full Record</h2>
+  <p>Long-term creatine supplementation has been studied in populations ranging from adolescent athletes to older adults. The peer-reviewed record includes studies of up to 5 years of continuous use with no adverse effects on kidney function, liver function, or other clinical markers in healthy individuals. The creatine-causes-kidney-damage claim is not supported by any peer-reviewed evidence and appears to originate from a single case report involving a patient with pre-existing kidney disease who took doses above established clinical recommendations.</p>
+
+  <expert-quote class="expert-quote">
+    "The CK/PCr system's ATP generation capacity exceeds both ATP utilization and resynthesis by oxidative phosphorylation and glycolysis."
+    <div class="attribution">Kreider et al., PMC Bioinformatics Review</div>
+  </expert-quote>
+</div>
+
+<!-- SECTION 3: THE SYNERGY -->
+<div class="section-page page-break">
+  <div class="section-label">Section 3</div>
+  <h1>The Mechanism Most Supplement Protocols Miss</h1>
+
+  <p class="lead">Creatine transport into muscle cells is not passive. It requires a dedicated transport protein. That transport protein is electrogenic. Without electrolytes, the transporter does not function at full capacity. This is not a theory. It is basic cellular physiology.</p>
+
+  <h2>How Creatine Gets Into the Cell</h2>
+  <p>Creatine cannot diffuse freely across the muscle cell membrane. It requires a sodium-dependent transporter called CreaT1 (SLC6A8). The CreaT1 transporter is electrogenic, meaning it uses the electrochemical gradient of the cell membrane to drive transport. The mechanism is specific: two sodium ions and one chloride ion must bind to the transporter simultaneously with one creatine molecule for the transport event to occur.</p>
+
+  <p>The implication is direct: sodium availability in the extracellular space is a rate-limiting factor for creatine uptake. When sodium is depleted, the driving force for CreaT1 decreases. Fewer transport events occur per unit of time. Less creatine enters the cell. The phosphocreatine pool does not reach its theoretical maximum.</p>
+
+  <div class="callout">
+    <div class="callout-label">The Transport Equation</div>
+    <p>For every creatine molecule that enters the cell: <strong>2 Na+ + 1 Cl- + 1 Creatine = 1 CreaT1 transport event</strong><br><br>
+    Reduce available sodium and chloride, and this equation slows. It is not a performance margin issue. It is a cellular biochemistry issue.</p>
+  </div>
+
+  <h2>What Happens When Electrolytes Are Absent</h2>
+  <p>A 2011 study by Dai et al., cited in multiple subsequent peer-reviewed analyses, measured creatine uptake under conditions of varying extracellular electrolyte concentrations. The finding: when calcium and magnesium were removed from the extracellular fluid, creatine uptake decreased by 47%. Increasing sodium and chloride concentrations above standard conditions enhanced uptake.</p>
+
+  <p>This research was replicated in later studies examining the ergogenic effects of combined creatine and electrolyte supplementation. The 2018 study published in PMC (reference: PMC5930494) compared four conditions: creatine alone, electrolytes alone, combined creatine-electrolyte, and placebo. The combined condition produced superior results across every measured performance outcome.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">47%</div>
+      <div class="stat-description">Reduction in creatine uptake under electrolyte-deficient conditions</div>
+      <div class="stat-source">Dai et al., 2011, cited in PMC5930494 and PMC6534934</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">+4%</div>
+      <div class="stat-description">Peak power improvement with combined creatine-electrolyte vs. creatine alone</div>
+      <div class="stat-source">PMC5930494, 2018</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">+5%</div>
+      <div class="stat-description">Mean power improvement in repeated sprint tests with combined protocol</div>
+      <div class="stat-source">PMC5930494, 2018</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">8.4%</div>
+      <div class="stat-description">Vertical jump improvement with creatine-electrolyte vs. 3.1% with creatine alone</div>
+      <div class="stat-source">PMC5930494, 2018</div>
+    </div>
+  </div>
+
+  <h2>The Cellular Hydration Effect</h2>
+  <p>Creatine supplementation increases intramuscular water content, a well-documented effect sometimes called "creatine bloat" but more accurately described as cell volumization. This water is drawn into the cell by osmotic pressure as phosphocreatine accumulates. The phenomenon is beneficial: intracellular water is a known anabolic signal that promotes protein synthesis and reduces protein breakdown.</p>
+
+  <p>Electrolytes, particularly sodium, determine the rate and extent of this cell volumization. Without adequate extracellular sodium, the osmotic driving force for water movement into the cell is diminished. Creatine accumulation occurs more slowly, the cell volume effect is blunted, and the downstream anabolic signaling is reduced.</p>
+
+  <expert-quote class="expert-quote">
+    "Creatine transport is primarily dependent on electrogenic transporter proteins, requiring at least two sodium ions and one chloride ion to transport one creatine molecule across a cellular membrane."
+    <div class="attribution">Researchers at Western Washington University, PMC5930494, 2018</div>
+  </expert-quote>
+
+  <expert-quote class="expert-quote">
+    "The bottom line is that combining creatine with electrolytes seems to work better than creatine alone."
+    <div class="attribution">Transparent Labs Research Summary</div>
+  </expert-quote>
+</div>
+
+<!-- SECTION 4: PEER-REVIEWED RESEARCH -->
+<div class="section-page page-break">
+  <div class="section-label">Section 4</div>
+  <h1>What the Research Shows: Key Studies</h1>
+
+  <p class="lead">The following summarizes the most directly relevant peer-reviewed studies on combined electrolyte and creatine supplementation in athletic performance contexts.</p>
+
+  <h2>Study 1: Creatine-Electrolyte and Repeated Sprint Performance (2018)</h2>
+  <p><strong>Citation:</strong> PMC5930494. Published in Journal of the International Society of Sports Nutrition, 2018.</p>
+  <p><strong>Design:</strong> Randomized, double-blind, crossover study. Male recreational cyclists performed repeated sprint tests under four conditions: creatine alone, electrolytes alone, combined creatine-electrolyte, and placebo. Six-week supplementation period.</p>
+  <p><strong>Dosing:</strong> 4g creatine monohydrate daily with electrolyte formula (114mg sodium chloride, 171mg calcium chloride, 286mg magnesium chloride, 171mg potassium chloride).</p>
+
+  <p><strong>Results:</strong></p>
+  <table>
+    <thead>
+      <tr><th>Outcome Measure</th><th>Creatine Alone</th><th>Combined Protocol</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Peak power improvement</td><td>+2.1%</td><td>+4.0%</td></tr>
+      <tr><td>Mean power improvement</td><td>+2.5%</td><td>+5.0%</td></tr>
+      <tr><td>Vertical jump height</td><td>+3.1%</td><td>+8.4%</td></tr>
+      <tr><td>100-yard dash performance</td><td>Minor improvement</td><td>Significantly greater improvement</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Conclusion:</strong> Combined creatine-electrolyte supplementation produced statistically significant improvements over creatine monohydrate alone across all measured power and anaerobic performance metrics.</p>
+
+  <h2>Study 2: CreaT1 Transport and Electrolyte Dependence (2011)</h2>
+  <p><strong>Citation:</strong> Dai et al., 2011. Referenced in PMC5930494 and PMC6534934.</p>
+  <p><strong>Design:</strong> In vitro study measuring CreaT1 transporter function under varying extracellular electrolyte conditions.</p>
+  <p><strong>Key finding:</strong> Removal of calcium and magnesium from extracellular fluid reduced creatine uptake by 47%. Increasing sodium and chloride concentration enhanced uptake rates above baseline.</p>
+  <p><strong>Implication:</strong> Intramuscular creatine accumulation is directly dependent on extracellular electrolyte availability. Athletes in electrolyte-depleted states are not fully loading their phosphocreatine pools regardless of creatine dose.</p>
+
+  <h2>Study 3: Electrolyte Losses During Athletic Training (2011)</h2>
+  <p><strong>Citation:</strong> Fluid and Electrolyte Needs for Training, Competition, and Recovery. Sports Science Exchange, 2011.</p>
+  <p><strong>Key data:</strong> Active athletes in hot conditions lose 3,500 to 7,000 milligrams of sodium per day. Sessions exceeding 90 minutes require 300 to 600 milligrams of sodium per hour to maintain plasma volume and neuromuscular function. Most commercial sports drinks provide 100 to 200 milligrams of sodium per serving, one-third to one-half of the required dose.</p>
+
+  <h2>Study 4: Potassium Depletion and Muscle Force (2024)</h2>
+  <p><strong>Citation:</strong> Acid-Base and Electrolyte Balance Responses in the Performance of Endurance Athletes, 2024.</p>
+  <p><strong>Key finding:</strong> Post-exercise potassium depletion shows effect sizes (Partial Eta squared greater than 0.60) indicating large, significant impairment of muscle contraction capacity. Athletes with the highest race times showed the highest post-race sodium elevation, confirming that dehydration and electrolyte imbalance directly correlated with reduced performance.</p>
+</div>
+
+<!-- SECTION 5: PRACTICAL PROTOCOLS -->
+<div class="section-page page-break">
+  <div class="section-label">Section 5</div>
+  <h1>The Performance Protocol: What to Actually Do</h1>
+
+  <p class="lead">The research resolves into a straightforward protocol. Creatine and electrolytes are not separate supplementation categories. They are one system. The protocol below is built on the dosing ranges used in the peer-reviewed studies reviewed in this report.</p>
+
+  <h2>Daily Protocol</h2>
+
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Dose</th><th>Timing</th><th>Evidence Level</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Creatine Monohydrate</td>
+        <td>5g</td>
+        <td>Daily, consistent timing. Pre or intra-workout preferred.</td>
+        <td class="evidence-strong">STRONG</td>
+      </tr>
+      <tr>
+        <td>Sodium</td>
+        <td>1,000mg (training day) / 500mg (rest day)</td>
+        <td>With creatine or intra-workout for sessions over 60 minutes</td>
+        <td class="evidence-strong">STRONG</td>
+      </tr>
+      <tr>
+        <td>Potassium</td>
+        <td>200-400mg</td>
+        <td>Daily. Especially important for high-volume training weeks.</td>
+        <td class="evidence-strong">STRONG</td>
+      </tr>
+      <tr>
+        <td>Magnesium</td>
+        <td>66-200mg (bioavailable form: malate or glycinate)</td>
+        <td>Daily, with food to reduce GI sensitivity</td>
+        <td class="evidence-moderate">MODERATE</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Training Day vs. Rest Day Adjustments</h2>
+  <p>Creatine should be taken daily regardless of training status, as the goal is sustained saturation of intramuscular phosphocreatine stores, not acute performance effects. Electrolyte needs are higher on training days due to sweat losses. On rest days, a maintenance electrolyte dose (roughly half the training day dose) supports recovery-phase protein synthesis and cellular hydration.</p>
+
+  <h2>Session Length Considerations</h2>
+  <p>For sessions under 60 minutes: standard daily electrolyte intake with creatine is sufficient. For sessions 60 to 90 minutes: add 300 to 400 milligrams of sodium during the session. For sessions over 90 minutes: 300 to 600 milligrams of sodium per hour, with potassium and magnesium proportionally adjusted. These are the ranges supported in the ACSM guidelines and the 2011 sports nutrition review.</p>
+
+  <h2>When to Expect Results</h2>
+
+  <table>
+    <thead>
+      <tr><th>Timeline</th><th>What Changes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Days 1-3</td><td>Intramuscular water content begins increasing as creatine loads. Some athletes notice improved training fullness and cell hydration.</td></tr>
+      <tr><td>Week 1-2</td><td>Electrolyte cramping and fatigue reduces. Training recovery between sets begins improving. Partial PCr saturation reached.</td></tr>
+      <tr><td>Week 3-4</td><td>Full PCr saturation achieved at maintenance dose. Measurable improvements in peak power and repeated sprint capacity.</td></tr>
+      <tr><td>Week 5-6</td><td>Peak ergogenic effect. This is the timeline documented in the PMC5930494 trial. Performance improvements are measurable on standardized tests.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Protocol Note</div>
+    <p>The 5g creatine dose is the maintenance dose used in the majority of positive outcome studies. Loading phases (20g for 5-7 days) achieve the same endpoint faster but are not required. <strong>Consistency matters more than the specific protocol variant chosen.</strong> An athlete who takes 5g daily for 28 days will reach the same PCr saturation as one who loaded for 7 days.</p>
+  </div>
+</div>
+
+<!-- SECTION 6: MYTHS BUSTED -->
+<div class="section-page page-break">
+  <div class="section-label">Section 6</div>
+  <h1>What Marketing Says vs. What the Research Shows</h1>
+
+  <p class="lead">The supplement industry generates claims faster than researchers can address them. The following are the most common myths specific to creatine and electrolyte supplementation, alongside what the peer-reviewed record actually says.</p>
+
+  <div class="myth-block">
+    <div class="myth-header myth">Myth: Creatine causes kidney damage</div>
+    <div class="myth-content">The single case report that generated this concern involved a patient with pre-existing kidney disease taking above-clinical doses. No controlled study of healthy athletes has demonstrated adverse kidney effects at doses of 3 to 5g per day, including long-term studies of up to 5 years. Athletes with healthy kidney function have no documented risk from standard creatine supplementation. (PMC: Metabolic Basis of Creatine in Health and Disease, 2021)</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header reality">Reality</div>
+    <div class="myth-content">Long-term creatine use at clinical doses is safe in healthy individuals. Five-plus years of peer-reviewed data confirms no adverse effects on kidney, liver, or other clinical markers.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header myth">Myth: Electrolytes are only for endurance athletes</div>
+    <div class="myth-content">Strength and power athletes lose significant electrolytes through sweat during intense training sessions, particularly sodium and potassium. The sodium-potassium pump that governs muscular excitability is active during every set, not just during marathon miles. Power athletes who neglect electrolyte replacement experience the same membrane potential degradation that limits endurance athletes, just over a shorter time horizon.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header reality">Reality</div>
+    <div class="myth-content">Electrolytes are required for the sodium-potassium pump that generates muscle membrane potential. Every strength training session depletes them. Replacement is not optional for athletes training at high intensity.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header myth">Myth: Creatine works the same regardless of electrolyte status</div>
+    <div class="myth-content">This is directly contradicted by the CreaT1 transport research. The transporter requires sodium and chloride co-transport. Under electrolyte-deficient conditions, uptake falls by up to 47%. Athletes who take creatine while chronically under-replacing electrolytes are not fully saturating their phosphocreatine pools.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header reality">Reality</div>
+    <div class="myth-content">Creatine uptake is electrolyte-dependent. Optimizing sodium and chloride availability is required to realize the full ergogenic effect of creatine supplementation.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header myth">Myth: The loading phase is required for creatine benefits</div>
+    <div class="myth-content">Loading (20g/day for 5-7 days) reaches PCr saturation faster but not higher. The same saturation point is achieved through 3 to 5g/day taken consistently for 28 days. For athletes without an immediate competition deadline, maintenance dosing is clinically equivalent with less gastrointestinal stress.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header reality">Reality</div>
+    <div class="myth-content">Loading is optional. Maintenance dosing achieves full PCr saturation in 28 days with equivalent outcomes to a loading protocol. Consistency of daily intake is the critical variable.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header myth">Myth: Drinking more water fixes electrolyte problems</div>
+    <div class="myth-content">Overhydration without electrolyte replacement dilutes extracellular sodium, reducing plasma osmolality and potentially causing hyponatremia in extended efforts. Water does not replace the ions lost through sweat. Replacing sodium, potassium, and magnesium requires dietary or supplemental electrolyte sources, not additional water.</div>
+  </div>
+
+  <div class="myth-block">
+    <div class="myth-header reality">Reality</div>
+    <div class="myth-content">Hyponatremia (low blood sodium) from over-hydration without sodium replacement is a documented risk in endurance athletes. More water does not equal better electrolyte balance. The ions must be replaced directly.</div>
+  </div>
+</div>
+
+<!-- REFERENCES -->
+<div class="section-page page-break">
+  <div class="section-label">References</div>
+  <h1>Sources</h1>
+  <div class="references">
+    <ol>
+      <li>PMC5930494. "Creatine-electrolyte supplementation improves repeated sprint cycling performance." Journal of the International Society of Sports Nutrition. 2018.</li>
+      <li>PMC6534934. "Metabolic Basis of Creatine in Health and Disease." PMC Bioinformatics Review. 2021.</li>
+      <li>Dai et al. CreaT1 transporter function under varying electrolyte conditions. 2011. (Cited in PMC5930494.)</li>
+      <li>Acid-Base and Electrolyte Balance Responses in the Performance of Endurance Athletes. 2024.</li>
+      <li>Fluid and Electrolyte Needs for Training, Competition, and Recovery. Sports Science Exchange. 2011.</li>
+      <li>Electrolyte Considerations for Athletes. Medwin Publishers. Recent.</li>
+      <li>Jinfiniti Precision Medicine. "Creatine and ATP." 2023.</li>
+      <li>Wallimann T et al. "The phosphocreatine circuit of energy protection." PMC Metabolic Basis. 2011.</li>
+      <li>International Society of Sports Nutrition Position Stand: Creatine Supplementation and Exercise. Journal of the International Society of Sports Nutrition.</li>
+      <li>Rehydration during Endurance Exercise: Challenges, Research, Options, Methods. Nutrients. 2021.</li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- end .container -->
+
+<!-- PRODUCT CLOSE PAGE -->
+<div class="product-page">
+  <div class="container">
+    <div class="section-label" style="color:#108474;">From the Research to the Protocol</div>
+    <h2>Why We Built Replenish Plus</h2>
+
+    <p>Every ingredient in Replenish Plus maps directly to the research in this report. The formula was built around one question: what does the science require to optimize both creatine uptake and electrolyte function simultaneously in a single serving?</p>
+
+    <p>The answer is the formula you're reading about. The CreaT1 transporter needs sodium and chloride. The sodium-potassium pump needs sodium and potassium. ATP synthesis requires magnesium. The phosphocreatine system needs 5g of clinical-dose creatine monohydrate, daily and consistently.</p>
+
+    <ul class="ingredients-list">
+      <li>Creatine Monohydrate <span>5,000mg (full clinical dose)</span></li>
+      <li>Sodium (Sea Salt) <span>1,000mg</span></li>
+      <li>Potassium Chloride <span>200mg</span></li>
+      <li>Magnesium Malate <span>66mg (bioavailable form)</span></li>
+      <li>Sweetener <span>Stevia only (zero sugar, zero dyes)</span></li>
+    </ul>
+
+    <p>Nothing extra. Nothing missing. The protocol from the research, in one scoop.</p>
+
+    <p style="font-style:italic; color:#888; font-size:14px;">1 Corinthians 6:19-20: Do you not know that your bodies are temples of the Holy Spirit, who is in you? You were bought at a price. Therefore honor God with your bodies.</p>
+
+    <div class="cta-block">
+      <p>Use code at checkout for 15% off your first order</p>
+      <div class="cta-code">ASCEND15</div>
+      <a href="https://ascendperformancenutrition.com/products/replenishplus" class="cta-url">ascendperformancenutrition.com/products/replenishplus</a>
+    </div>
+
+    <p style="margin-top:40px; font-size:13px; color:#666;">Faith over fear.<br>Sutton Huggins<br>Founder and CEO, Ascend Performance Nutrition</p>
+  </div>
+</div>
+
+</body>
+</html>
