@@ -377,73 +377,89 @@
     z-index: 200;
     background: #1a1a1a;
     border-bottom: 3px solid #07a5c3;
-    padding: 0;
   }
 
-  .report-nav-inner {
+  .report-nav-row1 {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
+    justify-content: space-between;
+    height: 44px;
   }
 
-  .report-nav-inner::-webkit-scrollbar { display: none; }
-
-  .report-nav a {
+  .nav-brand {
     font-family: 'Barlow', sans-serif;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #888888;
-    text-decoration: none;
-    padding: 14px 16px;
-    white-space: nowrap;
-    transition: color 0.15s;
-    border-bottom: 2px solid transparent;
-    display: block;
-  }
-
-  .report-nav a:hover { color: #07a5c3; }
-  .report-nav a.active { color: #07a5c3; border-bottom-color: #07a5c3; }
-
-  .report-nav .nav-brand {
-    font-family: 'Barlow', sans-serif;
-    font-size: 12px;
     font-weight: 800;
     color: #ffffff;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    padding: 14px 16px 14px 0;
-    margin-right: 8px;
-    border-right: 1px solid #333;
     white-space: nowrap;
     text-decoration: none;
   }
 
-  .report-nav .nav-download {
-    margin-left: auto;
+  .nav-brand span { color: #07a5c3; }
+
+  .nav-download {
     background: #07a5c3;
     color: #ffffff;
     font-family: 'Barlow', sans-serif;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 8px 18px;
+    padding: 7px 16px;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    flex-shrink: 0;
     text-decoration: none;
     display: inline-block;
+    line-height: 1;
+    flex-shrink: 0;
   }
 
-  .report-nav .nav-download:hover { background: #06919e; color: #ffffff; }
+  .nav-download:hover { background: #059ab8; }
+
+  .report-nav-row2 {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-top: 1px solid #2a2a2a;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .report-nav-row2::-webkit-scrollbar { display: none; }
+
+  .report-nav-row2 a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666666;
+    text-decoration: none;
+    padding: 9px 14px 9px 0;
+    margin-right: 14px;
+    white-space: nowrap;
+    transition: color 0.15s;
+    border-bottom: 2px solid transparent;
+    flex-shrink: 0;
+  }
+
+  .report-nav-row2 a:hover { color: #07a5c3; }
+  .report-nav-row2 a.active { color: #07a5c3; border-bottom-color: #07a5c3; }
+
+  /* On small screens, hide section links and just show brand + download */
+  @media (max-width: 600px) {
+    .report-nav-row2 { display: none; }
+    .nav-brand { font-size: 10px; }
+    body { scroll-padding-top: 48px; }
+    .section-anchor { height: 48px; margin-top: -48px; }
+  }
 
   /* COVER DOWNLOAD BUTTON */
   .cover-download-btn {
@@ -475,48 +491,140 @@
   }
 
   /* BODY OFFSET FOR STICKY NAV */
-  body { scroll-padding-top: 52px; }
+  body { scroll-padding-top: 76px; }
 
   /* SECTION ANCHOR OFFSET */
   .section-anchor {
     display: block;
-    height: 52px;
-    margin-top: -52px;
+    height: 76px;
+    margin-top: -76px;
     visibility: hidden;
   }
 
+  /* PRINT HEADER / FOOTER */
+  .print-header, .print-footer { display: none; }
+
   /* PRINT STYLES */
   @media print {
-    body { font-size: 14px; }
+    @page { margin: 0 !important; size: letter; }
+
+    body { font-size: 13px; padding: 0.65in 1in 0.55in 1in; }
+
+    /* Custom Ascend print header — replaces browser timestamp/URL */
+    .print-header {
+      display: flex !important;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 0.55in;
+      background: #1a1a1a;
+      border-bottom: 3px solid #07a5c3;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1in;
+      z-index: 9999;
+    }
+    .print-header-brand {
+      font-family: 'Barlow', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .print-header-title {
+      font-family: Georgia, serif;
+      font-size: 10px;
+      color: #888888;
+      font-style: italic;
+    }
+    .print-header-teal {
+      font-family: 'Barlow', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: #07a5c3;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Custom Ascend print footer — replaces browser URL/page number */
+    .print-footer {
+      display: flex !important;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 0.45in;
+      background: #1a1a1a;
+      border-top: 2px solid #07a5c3;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1in;
+      z-index: 9999;
+    }
+    .print-footer-url {
+      font-family: 'Barlow', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: #07a5c3;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+    }
+    .print-footer-tagline {
+      font-family: 'Barlow', Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: #555555;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     .report-nav, .reading-progress, .cover-download-btn { display: none !important; }
     .cover-page { min-height: auto; padding: 60px 40px; }
-    .section-page { padding: 40px 0; }
+    .section-page { padding: 36px 0; }
     .page-break { page-break-after: always; }
-    h2 { page-break-before: auto; }
-    .callout, .stat-card, .myth-block { page-break-inside: avoid; }
+    h2 { page-break-before: auto; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, .stat-card, .myth-block, table { page-break-inside: avoid; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; break-inside: avoid; }
+    blockquote.expert-quote { page-break-inside: avoid; }
     a { text-decoration: none; color: inherit; }
-    @page { margin: 1in; }
+    img { max-width: 100%; }
+    /* Prevent widows and orphans */
+    p { orphans: 3; widows: 3; }
   }
 </style>
 </head>
 <body>
+
+<!-- CUSTOM PRINT HEADER (replaces browser timestamp/URL) -->
+<div class="print-header">
+  <span class="print-header-brand">Ascend Performance Nutrition</span>
+  <span class="print-header-title">The Electrolyte-Creatine Protocol: What the Research Actually Shows</span>
+  <span class="print-header-teal">Research Report</span>
+</div>
+
+<!-- CUSTOM PRINT FOOTER (replaces browser URL/page number) -->
+<div class="print-footer">
+  <span class="print-footer-url">ascendperformancenutrition.com</span>
+  <span class="print-footer-tagline">Faith &nbsp;|&nbsp; Family &nbsp;|&nbsp; America &nbsp;|&nbsp; Fitness</span>
+</div>
 
 <!-- READING PROGRESS BAR -->
 <div class="reading-progress" id="reading-progress"></div>
 
 <!-- STICKY NAVIGATION -->
 <nav class="report-nav" role="navigation" aria-label="Report navigation">
-  <div class="report-nav-inner">
-    <span class="nav-brand">APN Research</span>
+  <div class="report-nav-row1">
+    <span class="nav-brand">Ascend <span>Research</span></span>
+    <button class="nav-download" onclick="window.print()">&#8595; Download PDF</button>
+  </div>
+  <div class="report-nav-row2">
     <a href="#exec-summary">Summary</a>
     <a href="#section1">Electrolytes</a>
     <a href="#section2">Creatine</a>
-    <a href="#section3">The Synergy</a>
+    <a href="#section3">Synergy</a>
     <a href="#section4">Studies</a>
     <a href="#section5">Protocol</a>
     <a href="#section6">Myths</a>
     <a href="#references">References</a>
-    <button class="nav-download" onclick="window.print()">Download PDF</button>
   </div>
 </nav>
 
@@ -733,10 +841,10 @@
   <h2>Safety: The Full Record</h2>
   <p>Long-term creatine supplementation has been studied in populations ranging from adolescent athletes to older adults. The peer-reviewed record includes studies of up to 5 years of continuous use with no adverse effects on kidney function, liver function, or other clinical markers in healthy individuals. The creatine-causes-kidney-damage claim is not supported by any peer-reviewed evidence and appears to originate from a single case report involving a patient with pre-existing kidney disease who took doses above established clinical recommendations.</p>
 
-  <expert-quote class="expert-quote">
+  <blockquote class="expert-quote">
     "The CK/PCr system's ATP generation capacity exceeds both ATP utilization and resynthesis by oxidative phosphorylation and glycolysis."
     <div class="attribution">Kreider et al., PMC Bioinformatics Review</div>
-  </expert-quote>
+  </blockquote>
 </div>
 
 <!-- SECTION 3: THE SYNERGY -->
@@ -791,15 +899,15 @@
 
   <p>Electrolytes, particularly sodium, determine the rate and extent of this cell volumization. Without adequate extracellular sodium, the osmotic driving force for water movement into the cell is diminished. Creatine accumulation occurs more slowly, the cell volume effect is blunted, and the downstream anabolic signaling is reduced.</p>
 
-  <expert-quote class="expert-quote">
+  <blockquote class="expert-quote">
     "Creatine transport is primarily dependent on electrogenic transporter proteins, requiring at least two sodium ions and one chloride ion to transport one creatine molecule across a cellular membrane."
     <div class="attribution">Researchers at Western Washington University, PMC5930494, 2018</div>
-  </expert-quote>
+  </blockquote>
 
-  <expert-quote class="expert-quote">
+  <blockquote class="expert-quote">
     "The bottom line is that combining creatine with electrolytes seems to work better than creatine alone."
     <div class="attribution">Transparent Labs Research Summary</div>
-  </expert-quote>
+  </blockquote>
 </div>
 
 <!-- SECTION 4: PEER-REVIEWED RESEARCH -->

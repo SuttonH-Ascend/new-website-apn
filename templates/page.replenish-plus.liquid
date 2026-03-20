@@ -101,26 +101,81 @@
     color: var(--black);
   }
 
-  /* HERO IMAGE PLACEHOLDER */
-  .hero-image {
+  /* PRODUCT HERO */
+  .product-hero {
     width: 100%;
+    background: var(--black);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .product-hero-inner {
     max-width: 760px;
     margin: 0 auto;
-    display: block;
-    background: var(--black);
-    height: 380px;
+    display: flex;
+    align-items: center;
+    min-height: 380px;
+    padding: 40px 40px;
+    gap: 40px;
+  }
+
+  .product-hero-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .product-hero-eyebrow {
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .product-hero-headline {
+    font-family: var(--font);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .product-hero-sub {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.6;
+    color: #999999;
+    margin-bottom: 0;
+  }
+
+  .product-hero-sub strong { color: var(--teal); }
+
+  .product-hero-image {
+    flex: 0 0 auto;
+    width: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gray);
-    font-size: 13px;
   }
 
-  .hero-image img {
+  .product-hero-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
+  }
+
+  @media (max-width: 600px) {
+    .product-hero-inner {
+      flex-direction: column-reverse;
+      padding: 32px 20px;
+      min-height: auto;
+      gap: 24px;
+    }
+    .product-hero-image { width: 160px; }
+    .product-hero-headline { font-size: 22px; }
   }
 
   /* ARTICLE BODY */
@@ -521,9 +576,21 @@
   </div>
 </div>
 
-<!-- HERO IMAGE -->
-<div class="hero-image" style="max-width:100%; height:420px; overflow:hidden;">
-  <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R5eNpH/images/37e538b5-859e-4228-934c-546e2fe32eda.jpeg" alt="Replenish Plus — Electrolyte and Creatine Protocol" style="width:100%;height:100%;object-fit:cover;display:block;">
+<!-- PRODUCT HERO -->
+<div class="product-hero">
+  <div class="product-hero-inner">
+    <div class="product-hero-copy">
+      <div class="product-hero-eyebrow">New from Ascend Performance Nutrition</div>
+      <h2 class="product-hero-headline">Replenish Plus<br>Electrolyte + Creatine</h2>
+      <p class="product-hero-sub">
+        <strong>5g creatine monohydrate. 1,000mg sodium. 200mg potassium. 66mg magnesium malate.</strong><br>
+        The only formula built around the CreaT1 transport mechanism. Clinical doses. Zero fillers.
+      </p>
+    </div>
+    <div class="product-hero-image">
+      <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R5eNpH/images/88f88a3d-0920-4555-83eb-522c0582b375.png" alt="Replenish Plus by Ascend Performance Nutrition">
+    </div>
+  </div>
 </div>
 
 <!-- ARTICLE BODY -->
@@ -677,7 +744,7 @@
         <p style="font-size:15px; color:var(--gray);">One scoop in 12 to 16 ounces of cold water, before or during training. $44.99 for 30 servings.</p>
       </div>
       <div style="flex:0 0 auto; text-align:center;">
-        <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R5eNpH/images/88f88a3d-0920-4555-83eb-522c0582b375.png" alt="Replenish Plus" style="max-height:280px; max-width:220px; width:100%; object-fit:contain; display:block;">
+        <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R5eNpH/images/ed83965c-2a4c-4b27-8c18-e2ae14b7efc6.jpeg" alt="Replenish Plus" style="max-height:300px; max-width:220px; width:100%; object-fit:contain; display:block; border-radius:4px;">
       </div>
     </div>
 
