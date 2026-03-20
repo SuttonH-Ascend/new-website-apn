@@ -50,7 +50,7 @@
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #108474;
+    color: #07a5c3;
     margin-bottom: 24px;
   }
 
@@ -84,7 +84,7 @@
   .cover-divider {
     width: 60px;
     height: 3px;
-    background: #108474;
+    background: #07a5c3;
     margin: 40px auto;
   }
 
@@ -100,7 +100,7 @@
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #108474;
+    color: #07a5c3;
     margin-bottom: 12px;
   }
 
@@ -138,7 +138,7 @@
   /* CALLOUT BOXES */
   .callout {
     background: #1a1a1a;
-    border-left: 4px solid #108474;
+    border-left: 4px solid #07a5c3;
     padding: 24px 28px;
     margin: 32px 0;
     page-break-inside: avoid;
@@ -150,7 +150,7 @@
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #108474;
+    color: #07a5c3;
     margin-bottom: 8px;
   }
 
@@ -162,7 +162,7 @@
   }
 
   .callout strong {
-    color: #108474;
+    color: #07a5c3;
   }
 
   /* STAT CARDS */
@@ -175,7 +175,7 @@
 
   .stat-card {
     background: #f5f5f5;
-    border-top: 3px solid #108474;
+    border-top: 3px solid #07a5c3;
     padding: 20px 24px;
   }
 
@@ -183,7 +183,7 @@
     font-family: 'Barlow', sans-serif;
     font-size: 36px;
     font-weight: 800;
-    color: #108474;
+    color: #07a5c3;
     line-height: 1;
     margin-bottom: 8px;
   }
@@ -236,7 +236,7 @@
     font-family: 'Barlow', sans-serif;
     font-size: 11px;
     font-weight: 700;
-    color: #108474;
+    color: #07a5c3;
   }
 
   .evidence-moderate {
@@ -263,7 +263,7 @@
   }
 
   .myth-header.myth { background: #f5f0f0; color: #c0392b; }
-  .myth-header.reality { background: #f0f5f0; color: #108474; }
+  .myth-header.reality { background: #f0f5f0; color: #07a5c3; }
 
   .myth-content {
     padding: 16px 16px;
@@ -275,7 +275,7 @@
 
   /* QUOTE */
   .expert-quote {
-    border-left: 3px solid #108474;
+    border-left: 3px solid #07a5c3;
     padding: 16px 24px;
     margin: 32px 0;
     font-style: italic;
@@ -296,7 +296,7 @@
   .page-break { page-break-after: always; padding-bottom: 40px; border-bottom: 1px solid #e8e8e8; margin-bottom: 40px; }
 
   /* DIVIDER */
-  .divider { width: 60px; height: 3px; background: #108474; margin: 40px 0; }
+  .divider { width: 60px; height: 3px; background: #07a5c3; margin: 40px 0; }
 
   /* REFERENCES */
   .references ol { padding-left: 20px; }
@@ -335,12 +335,12 @@
   }
 
   .product-page .ingredients-list li span {
-    color: #108474;
+    color: #07a5c3;
     font-weight: 700;
   }
 
   .cta-block {
-    background: #108474;
+    background: #07a5c3;
     padding: 28px 32px;
     margin-top: 40px;
     text-align: center;
@@ -370,19 +370,188 @@
     display: block;
   }
 
+  /* REPORT NAV */
+  .report-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: #1a1a1a;
+    border-bottom: 3px solid #07a5c3;
+    padding: 0;
+  }
+
+  .report-nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .report-nav-inner::-webkit-scrollbar { display: none; }
+
+  .report-nav a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888888;
+    text-decoration: none;
+    padding: 14px 16px;
+    white-space: nowrap;
+    transition: color 0.15s;
+    border-bottom: 2px solid transparent;
+    display: block;
+  }
+
+  .report-nav a:hover { color: #07a5c3; }
+  .report-nav a.active { color: #07a5c3; border-bottom-color: #07a5c3; }
+
+  .report-nav .nav-brand {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 16px 14px 0;
+    margin-right: 8px;
+    border-right: 1px solid #333;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .report-nav .nav-download {
+    margin-left: auto;
+    background: #07a5c3;
+    color: #ffffff;
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .report-nav .nav-download:hover { background: #06919e; color: #ffffff; }
+
+  /* COVER DOWNLOAD BUTTON */
+  .cover-download-btn {
+    display: inline-block;
+    margin-top: 32px;
+    background: #07a5c3;
+    color: #ffffff;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* READING PROGRESS */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #07a5c3;
+    width: 0%;
+    z-index: 300;
+    transition: width 0.1s linear;
+  }
+
+  /* BODY OFFSET FOR STICKY NAV */
+  body { scroll-padding-top: 52px; }
+
+  /* SECTION ANCHOR OFFSET */
+  .section-anchor {
+    display: block;
+    height: 52px;
+    margin-top: -52px;
+    visibility: hidden;
+  }
+
   /* PRINT STYLES */
   @media print {
     body { font-size: 14px; }
+    .report-nav, .reading-progress, .cover-download-btn { display: none !important; }
     .cover-page { min-height: auto; padding: 60px 40px; }
     .section-page { padding: 40px 0; }
     .page-break { page-break-after: always; }
     h2 { page-break-before: auto; }
     .callout, .stat-card, .myth-block { page-break-inside: avoid; }
     a { text-decoration: none; color: inherit; }
+    @page { margin: 1in; }
   }
 </style>
 </head>
 <body>
+
+<!-- READING PROGRESS BAR -->
+<div class="reading-progress" id="reading-progress"></div>
+
+<!-- STICKY NAVIGATION -->
+<nav class="report-nav" role="navigation" aria-label="Report navigation">
+  <div class="report-nav-inner">
+    <span class="nav-brand">APN Research</span>
+    <a href="#exec-summary">Summary</a>
+    <a href="#section1">Electrolytes</a>
+    <a href="#section2">Creatine</a>
+    <a href="#section3">The Synergy</a>
+    <a href="#section4">Studies</a>
+    <a href="#section5">Protocol</a>
+    <a href="#section6">Myths</a>
+    <a href="#references">References</a>
+    <button class="nav-download" onclick="window.print()">Download PDF</button>
+  </div>
+</nav>
+
+<script>
+(function() {
+  var bar = document.getElementById('reading-progress');
+  var links = document.querySelectorAll('.report-nav a[href^="#"]');
+  var sections = [];
+
+  function updateProgress() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+    bar.style.width = pct + '%';
+  }
+
+  function updateActiveLink() {
+    var scrollY = window.scrollY + 80;
+    var active = null;
+    links.forEach(function(link) {
+      var target = document.querySelector(link.getAttribute('href'));
+      if (target && target.getBoundingClientRect().top + window.scrollY <= scrollY) {
+        active = link;
+      }
+    });
+    links.forEach(function(l) { l.classList.remove('active'); });
+    if (active) active.classList.add('active');
+  }
+
+  window.addEventListener('scroll', function() {
+    updateProgress();
+    updateActiveLink();
+  }, { passive: true });
+})();
+</script>
 
 <!-- COVER PAGE -->
 <div class="cover-page">
@@ -396,11 +565,13 @@
     March 2026<br>
     Based on peer-reviewed literature through 2024
   </div>
+  <button class="cover-download-btn" onclick="window.print()">Download PDF</button>
 </div>
 
 <div class="container">
 
 <!-- EXECUTIVE SUMMARY -->
+<span id="exec-summary" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">Executive Summary</div>
   <h1>What You Need to Know Before You Take Another Scoop</h1>
@@ -422,6 +593,7 @@
 </div>
 
 <!-- SECTION 1: ELECTROLYTE PHYSIOLOGY -->
+<span id="section1" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">Section 1</div>
   <h1>Electrolyte Physiology: What Actually Happens Inside the Cell</h1>
@@ -476,6 +648,7 @@
 </div>
 
 <!-- SECTION 2: CREATINE SCIENCE -->
+<span id="section2" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">Section 2</div>
   <h1>Creatine Monohydrate: The Science Behind the Standard</h1>
@@ -567,6 +740,7 @@
 </div>
 
 <!-- SECTION 3: THE SYNERGY -->
+<span id="section3" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">Section 3</div>
   <h1>The Mechanism Most Supplement Protocols Miss</h1>
@@ -629,6 +803,7 @@
 </div>
 
 <!-- SECTION 4: PEER-REVIEWED RESEARCH -->
+<span id="section4" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">Section 4</div>
   <h1>What the Research Shows: Key Studies</h1>
@@ -671,6 +846,7 @@
 </div>
 
 <!-- SECTION 5: PRACTICAL PROTOCOLS -->
+<span id="section5" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">Section 5</div>
   <h1>The Performance Protocol: What to Actually Do</h1>
@@ -738,6 +914,7 @@
 </div>
 
 <!-- SECTION 6: MYTHS BUSTED -->
+<span id="section6" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">Section 6</div>
   <h1>What Marketing Says vs. What the Research Shows</h1>
@@ -796,6 +973,7 @@
 </div>
 
 <!-- REFERENCES -->
+<span id="references" class="section-anchor"></span>
 <div class="section-page page-break">
   <div class="section-label">References</div>
   <h1>Sources</h1>
@@ -820,7 +998,7 @@
 <!-- PRODUCT CLOSE PAGE -->
 <div class="product-page">
   <div class="container">
-    <div class="section-label" style="color:#108474;">From the Research to the Protocol</div>
+    <div class="section-label" style="color:#07a5c3;">From the Research to the Protocol</div>
     <h2>Why We Built Replenish Plus</h2>
 
     <p>Every ingredient in Replenish Plus maps directly to the research in this report. The formula was built around one question: what does the science require to optimize both creatine uptake and electrolyte function simultaneously in a single serving?</p>
