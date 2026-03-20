@@ -553,6 +553,71 @@
     .article-headline { font-size: 22px; }
     .pull-quote { font-size: 18px; }
   }
+
+  /* ARTICLE IMAGES */
+  .article-img {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .article-img img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .article-img-caption {
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--gray);
+    padding: 10px 0 0 0;
+    letter-spacing: 0.05em;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-left: 40px;
+  }
+
+  .article-img-full {
+    width: 100%;
+    overflow: hidden;
+    border-top: 3px solid var(--teal);
+  }
+
+  .article-img-full img {
+    display: block;
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+
+  .product-img-pair {
+    display: flex;
+    gap: 16px;
+    max-width: 760px;
+    margin: 32px auto;
+    padding: 0 40px;
+  }
+
+  .product-img-pair img {
+    flex: 1;
+    width: 50%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .article-img img { height: 260px; }
+    .article-img-full img { height: 280px; }
+    .product-img-pair { flex-direction: column; padding: 0 20px; }
+    .product-img-pair img { width: 100%; height: 220px; }
+    .article-img-caption { padding-left: 20px; }
+  }
 </style>
 </head>
 <body>
@@ -592,6 +657,11 @@
   </div>
 </div>
 
+<!-- ARTICLE IMAGE: Training context — sets the physical tone before the science -->
+<div class="article-img-full">
+  <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&q=85&auto=format&fit=crop" alt="Athlete training with dumbbells in the gym" loading="lazy">
+</div>
+
 <!-- ARTICLE BODY -->
 <div class="article-body">
 
@@ -628,6 +698,15 @@
     "Electrolytes further improve creatine uptake and the ergogenic effect."
     <div style="font-size:14px; font-weight:400; margin-top:12px; color:var(--gray);">PMC5930494, Journal of the International Society of Sports Nutrition, 2018</div>
   </div>
+
+</div><!-- end article-body -->
+
+<!-- ARTICLE IMAGE: Physical demand — the athlete this protocol is built for -->
+<div class="article-img-full">
+  <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200&q=85&auto=format&fit=crop" alt="Athlete performing pull-ups with intensity" loading="lazy">
+</div>
+
+<div class="article-body">
 
   <h2>What the Controlled Research Found</h2>
 
@@ -713,6 +792,12 @@
 
   <p>Consistent daily intake is the only variable that matters. Not the loading protocol. Not the timing window. Consistency. The discipline to support both systems every day is what separates the athletes who see the compounding result from the ones who keep wondering why the ceiling doesn't move.</p>
 
+</div>
+
+<!-- PRODUCT IMAGE PAIR — two angles of the real product before the buy CTA -->
+<div class="product-img-pair">
+  <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R5eNpH/images/98eab084-3fdf-4077-8543-88e5d9c11b95.jpeg" alt="Replenish Plus by Ascend Performance Nutrition" loading="lazy">
+  <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R5eNpH/images/1157861d-64ab-429b-a4d9-f966bce084af.jpeg" alt="Replenish Plus electrolyte creatine formula" loading="lazy">
 </div>
 
 <!-- PRODUCT SECTION -->
