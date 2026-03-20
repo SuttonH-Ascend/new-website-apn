@@ -1,4 +1,4 @@
-{% layout none %}
+{%- layout none -%}
 <!-- RESEARCH REPORT: Print to PDF in your browser for a downloadable version. File > Print > Save as PDF -->
 <!-- Or open directly and share the file link -->
 <!DOCTYPE html>
@@ -501,23 +501,40 @@
     visibility: hidden;
   }
 
-  /* PRINT HEADER / FOOTER */
+  /* PRINT HEADER / FOOTER — hidden on screen, shown in print */
   .print-header, .print-footer { display: none; }
 
   /* PRINT STYLES */
   @media print {
-    @page { margin: 0 !important; size: letter; }
+    @page { margin: 0; size: letter portrait; }
 
-    body { font-size: 13px; padding: 0.65in 1in 0.55in 1in; }
+    /* Force all background colors and images to print — critical for dark sections */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
 
-    /* Custom Ascend print header — replaces browser timestamp/URL */
+    body {
+      font-size: 13px;
+      line-height: 1.65;
+      background: #ffffff;
+      margin: 0;
+      /* Top/bottom padding creates clear zone for fixed header (0.5in) and footer (0.4in) */
+      padding: 0.55in 1in 0.45in 1in;
+    }
+
+    /* Hide screen-only elements */
+    .report-nav, .reading-progress, .cover-download-btn { display: none !important; }
+
+    /* ── PRINT HEADER: Ascend branding on every page ── */
     .print-header {
       display: flex !important;
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: 0.55in;
-      background: #1a1a1a;
-      border-bottom: 3px solid #07a5c3;
+      height: 0.5in;
+      background: #1a1a1a !important;
+      border-bottom: 3px solid #07a5c3 !important;
       align-items: center;
       justify-content: space-between;
       padding: 0 1in;
@@ -529,31 +546,31 @@
       font-weight: 800;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #ffffff;
+      color: #ffffff !important;
     }
     .print-header-title {
       font-family: Georgia, serif;
       font-size: 10px;
-      color: #888888;
+      color: #999999 !important;
       font-style: italic;
     }
     .print-header-teal {
       font-family: 'Barlow', Arial, sans-serif;
       font-size: 9px;
       font-weight: 700;
-      color: #07a5c3;
+      color: #07a5c3 !important;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    /* Custom Ascend print footer — replaces browser URL/page number */
+    /* ── PRINT FOOTER: Ascend branding on every page ── */
     .print-footer {
       display: flex !important;
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      height: 0.45in;
-      background: #1a1a1a;
-      border-top: 2px solid #07a5c3;
+      height: 0.4in;
+      background: #1a1a1a !important;
+      border-top: 2px solid #07a5c3 !important;
       align-items: center;
       justify-content: space-between;
       padding: 0 1in;
@@ -563,31 +580,93 @@
       font-family: 'Barlow', Arial, sans-serif;
       font-size: 9px;
       font-weight: 700;
-      color: #07a5c3;
+      color: #07a5c3 !important;
       letter-spacing: 0.05em;
-      text-transform: lowercase;
     }
     .print-footer-tagline {
       font-family: 'Barlow', Arial, sans-serif;
       font-size: 9px;
       font-weight: 700;
-      color: #555555;
+      color: #555555 !important;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    .report-nav, .reading-progress, .cover-download-btn { display: none !important; }
-    .cover-page { min-height: auto; padding: 60px 40px; }
-    .section-page { padding: 36px 0; }
+    /* ── COVER PAGE: Full-bleed dark, Page 1 ──
+       Negative margins break out of body padding so dark bg extends edge-to-edge.
+       Internal padding pushes content back inside the visible zone. */
+    .cover-page {
+      margin: -0.55in -1in 0 -1in;
+      padding: 0.65in 1.2in 0.55in 1.2in;
+      min-height: 100vh;
+      background: #1a1a1a !important;
+      color: #ffffff !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      page-break-after: always;
+      box-sizing: border-box;
+    }
+    .cover-label { color: #07a5c3 !important; }
+    .cover-title { color: #ffffff !important; }
+    .cover-subtitle { color: #cccccc !important; }
+    .cover-meta { color: #7b7b7b !important; }
+    .cover-divider { background: #07a5c3 !important; }
+
+    /* ── MAIN CONTENT CONTAINER ── */
+    .container {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;  /* Body padding handles left/right; section-page handles top/bottom */
+    }
+
+    /* ── PRODUCT PAGE: Full-bleed dark, last page ── */
+    .product-page {
+      margin: 0 -1in -0.45in -1in;
+      padding: 0.65in 1.2in 0.55in 1.2in;
+      background: #1a1a1a !important;
+      color: #ffffff !important;
+      page-break-before: always;
+    }
+    .product-page h2 { color: #ffffff !important; }
+    .product-page p { color: #cccccc !important; }
+    .product-page .ingredients-list li { color: #cccccc !important; }
+    .product-page .ingredients-list li span { color: #07a5c3 !important; }
+    .product-page .cta-btn { background: #07a5c3 !important; color: #ffffff !important; }
+
+    /* ── CALLOUT BOXES (dark background) ── */
+    .callout {
+      background: #1a1a1a !important;
+      border-left: 4px solid #07a5c3 !important;
+      page-break-inside: avoid;
+    }
+    .callout-label { color: #07a5c3 !important; }
+    .callout p { color: #cccccc !important; }
+    .callout strong { color: #ffffff !important; }
+
+    /* ── TABLES ── */
+    th { background: #1a1a1a !important; color: #ffffff !important; }
+    tr:nth-child(even) td { background: #f9f9f9 !important; }
+
+    /* ── MISC DARK ELEMENTS ── */
+    .divider { background: #07a5c3 !important; }
+
+    /* ── SECTION SPACING ── */
+    .section-page { padding: 32px 0; }
+
+    /* ── PAGE BREAK RULES ── */
     .page-break { page-break-after: always; }
     h2 { page-break-before: auto; page-break-after: avoid; }
     h3 { page-break-after: avoid; }
     .callout, .stat-card, .myth-block, table { page-break-inside: avoid; }
     .stat-grid { display: grid; grid-template-columns: 1fr 1fr; break-inside: avoid; }
     blockquote.expert-quote { page-break-inside: avoid; }
+
+    /* ── TYPOGRAPHY ── */
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; }
-    /* Prevent widows and orphans */
     p { orphans: 3; widows: 3; }
   }
 </style>

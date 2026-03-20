@@ -1,4 +1,4 @@
-{% layout none %}
+{%- layout none -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,81 +101,80 @@
     color: var(--black);
   }
 
-  /* PRODUCT HERO */
-  .product-hero {
+  /* KEY FINDING BAR — immediate reward above body copy */
+  .key-finding-bar {
     width: 100%;
     background: var(--black);
-    padding: 0;
-    overflow: hidden;
+    border-top: 4px solid var(--teal);
+    border-bottom: 1px solid #2a2a2a;
   }
 
-  .product-hero-inner {
+  .key-finding-inner {
     max-width: 760px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    min-height: 380px;
     padding: 40px 40px;
-    gap: 40px;
   }
 
-  .product-hero-copy {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .product-hero-eyebrow {
+  .key-finding-label {
     font-family: var(--font);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--teal);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 
-  .product-hero-headline {
+  .key-finding-stat {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #2e2e2e;
+  }
+
+  .key-stat-num {
     font-family: var(--font);
-    font-size: 28px;
+    font-size: 80px;
     font-weight: 800;
-    line-height: 1.15;
-    color: #ffffff;
-    margin-bottom: 16px;
+    line-height: 1;
+    color: var(--teal);
+    flex-shrink: 0;
   }
 
-  .product-hero-sub {
+  .key-stat-text {
+    font-family: var(--font);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #ffffff;
+    padding-top: 8px;
+  }
+
+  .key-stat-cite {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    color: #555555;
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .key-finding-mechanism {
     font-family: var(--font);
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.65;
     color: #999999;
-    margin-bottom: 0;
   }
 
-  .product-hero-sub strong { color: var(--teal); }
-
-  .product-hero-image {
-    flex: 0 0 auto;
-    width: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .product-hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  .key-finding-mechanism strong { color: #ffffff; font-weight: 700; }
 
   @media (max-width: 600px) {
-    .product-hero-inner {
-      flex-direction: column-reverse;
-      padding: 32px 20px;
-      min-height: auto;
-      gap: 24px;
-    }
-    .product-hero-image { width: 160px; }
-    .product-hero-headline { font-size: 22px; }
+    .key-finding-inner { padding: 28px 20px; }
+    .key-stat-num { font-size: 56px; }
+    .key-stat-text { font-size: 16px; }
   }
 
   /* ARTICLE BODY */
@@ -561,7 +560,7 @@
 <!-- NAV -->
 <nav class="nav">
   <img src="https://ascendperformancenutrition.com/cdn/shop/files/Ascend_Real_Logo.png" alt="Ascend Performance Nutrition" class="nav-logo">
-  <a href="https://ascendperformancenutrition.com/products/replenishplus" class="nav-cta">Get Replenish Plus</a>
+  <a href="https://vynfwy-wv.myshopify.com/a/loop_subscriptions/checkout/01KJWTMNY3QH1376Q0RATZX9JT" class="nav-cta">Get Replenish Plus</a>
 </nav>
 
 <!-- ARTICLE HEADER -->
@@ -576,19 +575,19 @@
   </div>
 </div>
 
-<!-- PRODUCT HERO -->
-<div class="product-hero">
-  <div class="product-hero-inner">
-    <div class="product-hero-copy">
-      <div class="product-hero-eyebrow">New from Ascend Performance Nutrition</div>
-      <h2 class="product-hero-headline">Replenish Plus<br>Electrolyte + Creatine</h2>
-      <p class="product-hero-sub">
-        <strong>5g creatine monohydrate. 1,000mg sodium. 200mg potassium. 66mg magnesium malate.</strong><br>
-        The only formula built around the CreaT1 transport mechanism. Clinical doses. Zero fillers.
-      </p>
+<!-- KEY FINDING BAR — immediate reward for clicking the ad -->
+<div class="key-finding-bar">
+  <div class="key-finding-inner">
+    <div class="key-finding-label">Peer-Reviewed Research Finding</div>
+    <div class="key-finding-stat">
+      <span class="key-stat-num">47%</span>
+      <span class="key-stat-text">
+        Reduction in creatine uptake measured under electrolyte-deficient conditions in trained athletes.
+        <span class="key-stat-cite">Dai et al., 2011. Replicated: PMC5930494, Journal of the International Society of Sports Nutrition, 2018.</span>
+      </span>
     </div>
-    <div class="product-hero-image">
-      <img src="https://d3k81ch9hvuctc.cloudfront.net/company/R5eNpH/images/88f88a3d-0920-4555-83eb-522c0582b375.png" alt="Replenish Plus by Ascend Performance Nutrition">
+    <div class="key-finding-mechanism">
+      <strong>Why this happens:</strong> Creatine cannot enter muscle cells without sodium. The CreaT1 transporter — the only pathway creatine uses to cross the cell membrane — requires two sodium ions per transport event. When electrolytes are depleted, that transporter slows down. Creatine stays in circulation instead of loading the phosphocreatine reserve. Most athletes taking the clinical 5g dose daily are capturing roughly 60% of what the research suggests is possible. The mechanism behind the other 40% is what this article covers.
     </div>
   </div>
 </div>
@@ -702,7 +701,7 @@
     <p>Check your inbox. The report is on its way.</p>
   </div>
 
-  <p class="capture-note">No spam. No sales emails. Just the research. Unsubscribe any time.</p>
+  <p class="capture-note">No spam. No pointless emails. Unsubscribe any time.</p>
 </section>
 
 <!-- ARTICLE BODY CONTINUED -->
@@ -751,7 +750,7 @@
     <p style="font-size:16px; color:var(--black); font-weight:600; margin-bottom:8px;">If you are training consistently and taking creatine without addressing the electrolyte transport system, Replenish Plus is the direct tool to close that gap.</p>
 
     <div class="product-cta-group">
-      <a href="https://ascendperformancenutrition.com/products/replenishplus" class="btn-primary">Get Replenish Plus</a>
+      <a href="https://vynfwy-wv.myshopify.com/a/loop_subscriptions/checkout/01KJWTMNY3QH1376Q0RATZX9JT" class="btn-primary">Get Replenish Plus</a>
       <span class="cta-code-note">Use code <strong>ASCEND15</strong> for 15% off your first order</span>
     </div>
   </div>
